@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.footer {
+	width: 1690px; 
+	padding: 50px 20px; 
+	margin: 0 auto; 
+	color: rgb(150, 150, 150);
+}
+
+.footer p {
+	margin: 20px 0;
+}
+
+.footer ul li {
+	margin-right: 30px;
+}
+
+.footer ul li a {
+	color: rgb(150, 150, 150); 
+	font-size: 24px;
+}
+
+.footer ul li a:hover {
+	color: rgb(210, 40, 40); 
+	transition: 1s;
+}
