@@ -3,9 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     
-<!-- Content -->
 <div class="container flex justify-ctr">
-	<!-- Navbar -->
 	<nav class="admin-nav">
 		<ul>
 			<li>
@@ -34,7 +32,6 @@
 			</li>
 		</ul>
 	</nav>		
-	<!-- Main -->
 	<div class="admin-main">
 		<h3>회원목록</h3>
 		<table class="admin-memberlist">
@@ -75,7 +72,7 @@
 			</tbody>
 		</table>
 	</div>
-	<!-- Modal(0): Info -->
+	<%-- Modal(0): Info --%>
 	<div class="modal">
 		<div class="modal-content" id="modal-member-info">
 			<div class="flex justify-sb align-items-ctr">
@@ -122,8 +119,7 @@
 			</form>
 		</div>
 	</div>
-	
-	<!-- Modal(1): Message -->
+	<%-- Modal(1): Message --%>
 	<div class="modal">
 		<div class="modal-content" id="modal-message">
 			<input type="hidden" id="id" />

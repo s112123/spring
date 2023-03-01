@@ -24,6 +24,7 @@
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/login.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/agree.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/register.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/products.css" />
 </head>
 <body>
 	<div class="container">	

@@ -5,7 +5,7 @@
 	<h2><a href="/">STEAKHOUSE</a></h2>
 	<nav>	
 		<ul class="flex">
-			<li><a href="#">MENU</a></li>
+			<li><a href="/products">MENU</a></li>
 			<li><a href="#">STORE</a></li>
 			<li><a href="#">CUSTOMER</a></li>			
 		</ul>
