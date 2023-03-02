@@ -6,7 +6,8 @@ header {
 }
 
 main {
-	width: 1650px; 
+	width: 1690px; 
+	padding: 0 20px;
 	margin: 0 auto;
 }
 
@@ -33,6 +34,7 @@ table th, table td{
 	width: 100%;
 }
 
+.content,
 .admin-main {
 	height: 100vh;
 }

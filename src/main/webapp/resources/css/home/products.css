@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.products-container {
+.products-box {
 	width: 100%;
 	border: 1px solid tomato;
 }
@@ -10,50 +10,81 @@
 	border: 1px solid blue;
 }
 
-.products-nav {
-	margin-top: 50px;
-	border-bottom: 1px solid #ccc;
+.products {
+	margin: 100px 0 200px 0;
 }
 
-.products-nav ul li {
-	width: 200px;
-	padding: 8px 0px;
-	border: 1px solid #ccc;
-	border-bottom: none;
+.products .product-category {
+	margin: 50px 0;
+	padding-bottom: 5px;
+	border-bottom: 2px solid rgb(52, 52, 54);
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.product .product-image {
+	width: 300px;
+	height: 350px;
+	overflow: hidden;
+	position: relative;
+}
+
+.product .product-image .product-detail {
+	width: 100%;
+	height: 350px;
+	padding: 30px 20px;
+	background-color: rgba(255, 255, 255, 0.6);
+	position: absolute;
+	top: 350px;
+	opacity: 0;
+	z-index: 10;
+	transition: all 0.5s ease-in-out;
+}
+
+.product .product-image:hover .product-detail {
+	opacity: 1;
+	transform: translateY(-350px);
+	border: 1px solid #eee;
+}
+
+.product .product-image .product-detail .product-detail-title {
+	padding-bottom: 5px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid rgb(52, 52, 54);
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.product .product-image .product-detail .product-detail-desc {
+	width: 100%;
+	height: 80px;
+	border: 1px solid tomato;
+	word-break: break-all;
+	color: rgb(80, 80, 80);
+	font-size: 14px;
+}
+
+.product .product-image .product-detail .product-detail-info {
+	margin: 30px 0 20px 0;
+	color: rgb(80, 80, 80);
+		border: 1px solid tomato;
+}
+
+.product .product-image .product-detail .add-cart button{
+	color: rgb(80, 80, 80);
 	font-size: 25px;
+}
+
+
+.product .product-title {
+	padding: 8px 0;
+	font-size: 20px;
+	font-weight: bold;
 	text-align: center;
 }
 
-.products-nav ul li:hover {
-	background-color: rgb(210, 40, 40);
-	cursor: pointer;
+.product .product-price {
+	font-size: 16px;
+	text-align: center;
 }
 
-.products-nav ul li:hover span {
-	color: white;
-}
-		
-.products-nav ul li span {
-	margin-right: 5px;
-	color: rgb(150, 150, 150);
-}
-
-.products-main {
-	width: 100%;
-	padding-top: 50px;
-}
-
-.products {
-	margin-bottom: 350px;
-}
-
-.products h1 {
-	margin-bottom: 40px;
-	border-bottom: 2px solid rgb(52, 52, 54);
-}
-
-.product {
-	width: 320px;
-	height: 400px;
-	border: 1px solid tomato;
-}

@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     
 <div class="container flex justify-ctr">
-	<nav class="admin-nav">
+	<aside>
 		<ul>
 			<li>
 				<span><i class="fa-solid fa-user-gear"></i></span> 
@@ -22,19 +22,11 @@
 				<span><i class="fa-solid fa-map-location-dot"></i></span> 
 				<span>매장관리</span>
 			</li>
-			<li>
-				<span><i class="fa-solid fa-bullhorn"></i></span> 
-				<span>공지사항</span>
-			</li>
-			<li>
-				<span><i class="fa-solid fa-comments"></i></span> 
-				<span>QnA</span>
-			</li>
-		</ul>
-	</nav>		
-	<div class="admin-main">
+		</ul>	
+	</aside>	
+	<div class="content">
 		<h3>회원목록</h3>
-		<table class="admin-memberlist">
+		<table>
 			<thead>
 				<tr>
 					<th>번호</th>
