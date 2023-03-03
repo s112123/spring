@@ -26,6 +26,7 @@
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/register.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/products.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/writeqna.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/userinfo.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/userorders.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/userqnas.css" />

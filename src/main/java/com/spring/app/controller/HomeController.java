@@ -72,4 +72,10 @@ public class HomeController {
 		return "home.qnas";
 	}
 	
+	//QnA 글쓰기 페이지
+	@GetMapping("/writeqna")
+	public String writeQna() {
+		return "home.writeqna";
+	}
+	
 }

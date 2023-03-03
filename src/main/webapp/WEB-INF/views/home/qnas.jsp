@@ -59,5 +59,19 @@
 				</c:forEach>	
 			</tbody>
 		</table>
+		<div class="write">
+			<button type="button" onclick="location.href='/writeqna';">글쓰기</button>
+		</div>
+		<div class="paging flex justify-ctr align-items-ctr">
+			<ul class="flex justify-ctr align-items-ctr">
+				<li><i class="fa-solid fa-angle-left"></i></li>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li><i class="fa-solid fa-angle-right"></i></li>
+			</ul>
+		</div>
 	</div>
 </div>
