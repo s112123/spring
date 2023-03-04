@@ -1,8 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">	
+
+	<!-- properties 파일 접근 -->
+	<util:properties id="db" location="/WEB-INF/spring/properties/db_type.properties" />
+	<util:properties id="dbcp" location="/WEB-INF/spring/properties/#{db['name']}_dbcp.properties" />
 	
-	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<!-- DataSource 설정 -->
+	<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="#{dbcp['driverClassName']}" />
+		<property name="url" value="#{dbcp['url']}" />
+		<property name="username" value="#{dbcp['username']}" />
+		<property name="password" value="#{dbcp['password']}" />
+		<property name="initialSize" value="#{dbcp['initialSize']}" />
+		<property name="maxIdle" value="#{dbcp[maxIdle]}" />
+	</bean>
+	 
+	<!-- DataSource 빈 생성 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds" />
+		<property name="configLocation" value="classpath:/mybatis/config.xml" />
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:/mybatis/mapper-*.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- SqlSession 빈 생성 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
 </beans>
