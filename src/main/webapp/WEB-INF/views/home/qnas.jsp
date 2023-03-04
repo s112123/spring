@@ -59,8 +59,19 @@
 				</c:forEach>	
 			</tbody>
 		</table>
-		<div class="write">
-			<button type="button" onclick="location.href='/writeqna';">글쓰기</button>
+		<div class="content-bottom flex justify-sb align-items-ctr">
+			<div class="write">
+				<button type="button" onclick="location.href='/writeqna';">글쓰기</button>
+			</div>
+			<div class="search">
+				<select>
+					<option>선택</option>
+					<option>작성자</option>
+					<option>제목</option>
+				</select>
+				<input type="text" name="searchKeyword" placeholder="검색어 입력" />
+				<button type="button">검색</button>
+			</div>
 		</div>
 		<div class="paging flex justify-ctr align-items-ctr">
 			<ul class="flex justify-ctr align-items-ctr">

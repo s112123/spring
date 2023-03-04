@@ -22,9 +22,7 @@
 							<small>원산지 <strong>(국내산)</strong></small> 
 						</div>
 						<div class="add-cart flex justify-fe">
-							<button>
-								<i class="fa-solid fa-cart-shopping"></i>
-							</button>
+							<button type="button" onclick="location.href='/cart';"><i class="fa-solid fa-cart-shopping"></i></button>
 						</div>
 					</div>
 				</div>

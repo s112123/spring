@@ -60,6 +60,12 @@ public class HomeController {
 		return "home.products";
 	}
 	
+	//장바구니
+	@GetMapping("/cart")
+	public String cart() {
+		return "home.cart";
+	}
+	
 	//고객서비스 페이지 & 공지사항 페이지
 	@GetMapping({"/customer", "/notices"})
 	public String customer() {

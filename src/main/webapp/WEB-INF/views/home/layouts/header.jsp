@@ -14,6 +14,7 @@
 		<li><a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
 		<li><a href="/agree"><i class="fa-solid fa-user-plus"></i> Join</a></li>
 		<li><a href="/user"><i class="fa-solid fa-user"></i> MyPage</a></li>
+		<li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
 		<li><a href="/admin"><i class="fa-solid fa-gear"></i> Admin</a></li>
 		<li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
 	</ul>

@@ -8,12 +8,6 @@
 		<span>전체 동의</span>
 	</div>
 	<div class="agree-item">
-		<div class="agree-chk">
-			<input type="checkbox" name="checked[]" />
-			<span>만 14세 이상입니다 <small>(필수)</small></span>
-		</div>
-	</div>
-	<div class="agree-item">
 		<div class="agree-chk flex justify-sb">
 			<div>
 				<input type="checkbox" name="checked[]" />

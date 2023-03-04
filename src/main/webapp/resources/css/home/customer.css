@@ -58,6 +58,53 @@ aside ul li span {
 	transition: 1s;
 }
 
+.content-bottom {
+	margin: 15px 0 20px 0;
+}
+
+.content-bottom button,
+.content-bottom select,
+.content-bottom input {
+	height: 30px;
+	vertical-align: middle;
+	padding: 3px 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.content-bottom button {
+	width: 80px;
+	border: 1px solid rgb(210, 40, 40);
+	background-color: white;
+	color: rgb(210, 40, 40);
+}
+
+.content-bottom .search select {
+	width: 90px;
+}
+
+.content-bottom .search input {
+	width: 150px;
+	padding-left: 10px;
+}
+
+.content-bottom .search select:focus,
+.content-bottom .search input:focus {
+	border: 1px solid rgb(100, 100, 100);
+}
+
+.content-bottom .search button {
+	width: 65px;
+	border: 1px solid rgb(210, 40, 40);
+	background-color: rgb(210, 40, 40);
+	color: white;
+}
+
+input[name="searchKeyword"]::placeholder {
+	color: #bbb;
+	font-size: 13px;
+}
+
 .content .paging ul li {
 	width: 30px;
 	height: 30px;
@@ -73,27 +120,11 @@ aside ul li span {
 }
 
 .content .paging ul li:hover {
-	background-color: rgba(230, 230, 230);
+	background-color: rgb(230, 230, 230);
 }
 
 .content .paging ul li:nth-child(3) {
 	border: 1px solid transparent;
 	background-color: rgb(210, 40, 40);
 	color: white;
-}
-
-.content .write {
-	margin: 15px 0;
-	text-align: right;
-}
-
-.content .write button {
-	width: 80px;
-	padding: 6px 8px;
-	margin-left: 5px;
-	border-radius: 5px;
-	border: 1px solid rgb(210, 40, 40);
-	background-color: white;
-	color: rgb(210, 40, 40);
-	font-weight: bold;
 }

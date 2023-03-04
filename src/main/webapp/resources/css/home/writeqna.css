@@ -54,7 +54,7 @@ aside ul li span {
 
 .content .write-content textarea {
 	width: 100%;
-	height: 400px;
+	height: 500px;
 	padding: 15px;
 	margin-bottom: 10px;
 	border: 1px solid #bbb;
@@ -73,14 +73,18 @@ aside ul li span {
 
 .content .write-btn button {
 	width: 80px;
-	padding: 8px;
+	height: 35px;
+	padding: 3px 5px;
 	margin-left: 5px;
+	border: 1px solid rgb(120, 120, 120);
 	border-radius: 5px;
-	background-color: #ddd;
-	font-weight: bold;
+	background-color: white;
+	color: rgb(120, 120, 120);
+	font-size: 14px;
 }
 
 .content .write-btn button:nth-child(1) {
+	border: 1px solid rgb(210, 40, 40);
 	background-color: rgb(210, 40, 40);
 	color: white;
 }
