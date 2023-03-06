@@ -18,8 +18,10 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="${contextPath}/resources/css/reset.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/common.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/common/modal.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/admin/layouts/header.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/admin/members.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/admin/member.css" />
 </head>
 <body>
 	<div class="container">	
@@ -30,5 +32,8 @@
 			<tiles:insertAttribute name="main" />
 		</main>
 	</div>
+	
+	<!-- Javascript -->
+	<script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
 </body>
 </html>

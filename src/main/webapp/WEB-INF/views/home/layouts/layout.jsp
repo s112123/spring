@@ -18,6 +18,7 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="${contextPath}/resources/css/reset.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/common.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/common/modal.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/layouts/header.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/layouts/footer.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/index.css" />
@@ -44,5 +45,8 @@
 			<tiles:insertAttribute name="footer" />
 		</footer>
 	</div>
+	
+	<!-- Javascript -->
+	<script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
 </body>
 </html>

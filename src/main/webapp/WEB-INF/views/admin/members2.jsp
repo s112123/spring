@@ -55,27 +55,89 @@
 						</td>
 						<td>
 							<!-- 수정버튼 -->
-							<a href="#" onclick="openModal(900, 700, content);"><i class="fa-solid fa-pen-to-square"></i></a>
+							<a href="#" onclick="openModalForMemberInfo(${member.id});"><i class="fa-solid fa-pen-to-square"></i></a>
 							<!-- 삭제버튼 -->
-							<a href="#"><i class="fa-solid fa-trash-can"></i></a>
+							<a href="#" onclick="openModalForMessage(${member.id}, '삭제하시겠습니까?');"><i class="fa-solid fa-trash-can"></i></a>
 						</td>
 					</tr>	
 				</c:forEach>	
 			</tbody>
 		</table>
 	</div>
+	<%-- Modal(0): Info --%>
+	<div class="modal">
+		<div class="modal-content" id="modal-member-info">
+			<div class="flex justify-sb align-items-ctr">
+				<h3>회원정보</h3>
+				<div><a href="#" onclick="closeModal();"><i class="fa-regular fa-circle-xmark"></i></a></div>
+			</div>
+			<form>
+				<input type="text" id="id" />
+				<table>
+					<tr>
+						<td>E-Mail</td>
+						<td><input type="text" id="email" readonly /></td>
+						<td>가입일</td>
+						<td><input type="text" id="regdate" readonly /></td>
+					</tr>
+					<tr>
+						<td>이름</td>
+						<td><input type="text" id="username" readonly /></td>
+						<td>연락처</td>
+						<td><input type="text" id="phone" readonly /></td>
+					</tr>					
+					<tr>
+						<td>주소</td>
+						<td colspan="3">
+							<input type="text" id="addr" readonly />
+						</td>
+					</tr>	
+					<tr>
+						<td>회원등급</td>
+						<td>
+							<select id="grade">
+								<option value="common">common</option>
+								<option value="admin">admin</option>
+							</select>
+						</td>
+						<td>비밀번호</td>
+						<td><input type="text" id="passwd" /></td>
+					</tr>									
+				</table>
+				<div class="modal-info-btn">
+					<button type="submit">수정</button>
+					<button type="button" onclick="openModalForMessage(null, '삭제하시겠습니까?');">삭제</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<%-- Modal(1): Message --%>
+	<div class="modal">
+		<div class="modal-content" id="modal-message">
+			<input type="hidden" id="id" />
+			<h4 id="msg"></h4>
+			<div class="flex justify-fe">
+				<button type="button" onclick="deleteMember();">확인</button>
+				<button type="button" onclick="closeModal();">취소</button>
+			</div>
+		</div>
+	</div>
 </div>
-
-<jsp:include page="member.jsp" flush="false" />
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
 
 <!-- JAVASCRIPT -->
 <script>
-	let target = null;
-	let content = null;
-	content = document.getElementById('member-infomation');
+	//모달 닫기
+	function closeModal() {
+		//본문 스크롤 활성화
+		document.body.style.overflow = "unset";
+		
+		const modals = document.getElementsByClassName('modal');
+		for(let i = 0; i < modals.length; i++) {
+			modals[i].style.display = 'none';
+		}
+	}
 
-	/*메세지 모달 열기
+	//메세지 모달 열기
 	function openModalForMessage(id, msg) {
 		//본문 스크롤 방지
 		document.body.style.overflow = "hidden";
@@ -91,9 +153,8 @@
 		document.getElementById('id').value = id;
 		document.getElementById('msg').innerText = msg;
 	}
-	*/
 
-	/*회원정보 모달 열기
+	//회원정보 모달 열기
 	function openModalForMemberInfo(id) {
 		//본문 스크롤 방지
 		document.body.style.overflow = "hidden";
@@ -127,12 +188,10 @@
 			}
 		});
 	}
-	*/
 	
-	/*회원삭제
+	//회원삭제
 	function deleteMember() {
 		const id = document.getElementById("id").value;
 		location.href = "delete?id=" + id;
 	}
-	*/
 </script>
