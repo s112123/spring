@@ -4,16 +4,32 @@ import java.time.LocalDateTime;
 
 public class Member {
 	
-	private int id;
-	private String email;
-	private String username;
-	private String passwd;
-	private String phone;
-	private String addr1;
-	private String addr2;
-	private String agree;
-	private String grade;
-	private LocalDateTime regdate;
+	private int id;						//고유번호
+	private String email;				//이메일
+	private String username;			//이름
+	private String passwd;				//비밀번호
+	private String phone;				//연락처
+	private String addr1;				//기본주소
+	private String addr2;				//상세주소
+	private String agree;				//선택 동의여부
+	private String grade;				//등급
+	private LocalDateTime regdate;		//가입일
+	
+	public Member() {}
+	
+	public Member(int id, String email, String username, String passwd, String phone, String addr1, String addr2,
+			String agree, String grade, LocalDateTime regdate) {
+		this.id = id;
+		this.email = email;
+		this.username = username;
+		this.passwd = passwd;
+		this.phone = phone;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+		this.agree = agree;
+		this.grade = grade;
+		this.regdate = regdate;
+	}
 	
 	public int getId() {
 		return id;

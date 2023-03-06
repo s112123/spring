@@ -1,29 +1,5 @@
 @charset "UTF-8";
 
-aside {
-	width: 200px;
-	padding-top: 30px;	
-}
-
-aside ul li {
-	margin: 15px 0;
-	padding: 8px 20px;
-	font-size: 16px;
-}
-
-aside ul li:hover {
-	background-color: rgb(210, 40, 40);
-}
-
-aside ul li:hover span {
-	color: white;
-}
-		
-aside ul li span {
-	margin-right: 5px;
-	color: rgb(150, 150, 150);
-}
-
 .content {
 	width: 1450px;
 	padding-top: 50px;
@@ -103,28 +79,4 @@ aside ul li span {
 input[name="searchKeyword"]::placeholder {
 	color: #bbb;
 	font-size: 13px;
-}
-
-.content .paging ul li {
-	width: 30px;
-	height: 30px;
-	line-height: 28px;
-	margin: 0 8px;
-	border: 1px solid rgb(210, 210, 210);
-	border-radius: 50%;
-	background-color: white;
-	color: rgb(150, 150, 150);
-	font-size: 16px;
-	text-align: center;
-	cursor: pointer;
-}
-
-.content .paging ul li:hover {
-	background-color: rgb(230, 230, 230);
-}
-
-.content .paging ul li:nth-child(3) {
-	border: 1px solid transparent;
-	background-color: rgb(210, 40, 40);
-	color: white;
 }

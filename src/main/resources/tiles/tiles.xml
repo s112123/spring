@@ -3,13 +3,22 @@
 	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 	
 <tiles-definitions>
-	<!-- HOME PAGE LAYOUT: Default -->
-	<definition name="home.*" template="/WEB-INF/views/home/layouts/layout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/home/layouts/header.jsp" />
-		<put-attribute name="main" value="/WEB-INF/views/home/{1}.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/home/layouts/footer.jsp" />
+	<!-- HOME LAYOUT -->
+	<definition name="homeLayout" template="/WEB-INF/views/home/layout/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/home/layout/header.jsp" />
+		<put-attribute name="main" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/home/layout/footer.jsp" />	
 	</definition>
-	
+	<definition name="index" extends="homeLayout">
+		<put-attribute name="main" value="/WEB-INF/views/home/index.jsp" />
+	</definition>	
+	<definition name="home.customer.*.*" extends="homeLayout">
+		<put-attribute name="main" value="/WEB-INF/views/home/customer/{1}/{2}.jsp" />
+	</definition>
+	<definition name="home.*.*" extends="homeLayout">
+		<put-attribute name="main" value="/WEB-INF/views/home/{1}/{2}.jsp" />
+	</definition>
+		
 	<!-- ADMIN PAGE LAYOUT: Default -->
 	<definition name="admin.*" template="/WEB-INF/views/admin/layouts/layout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/admin/layouts/header.jsp" />

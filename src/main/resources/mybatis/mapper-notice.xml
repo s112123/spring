@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+	
+	<!-- 전체 글 개수 -->
+	<select id="countAll" resultType="int">
+		SELECT 
+			COUNT(id) 
+		FROM 
+			notice
+	</select>
+	
+	<!-- 전체목록 -->
+	<select id="selectAll" resultType="com.spring.app.entity.Notice">
+		SELECT
+			id, category, title, content, writer, regdate, hits
+		FROM 
+			notice
+		ORDER BY id DESC
+		LIMIT #{skip}, #{size}
+	</select>
+	
+	<!-- 등록 -->
+	<insert id="insertOne">
+		INSERT INTO 
+			notice 
+		VALUES
+			(NULL, #{category}, #{title}, #{content}, #{writer}, NOW(), DEFAULT)
+	</insert>
+
+	<!-- 상세보기: id -->
+	<select id="selectOneById" resultType="com.spring.app.entity.Notice">
+		SELECT
+			id, category, title, content, writer, regdate, hits
+		FROM 
+			notice
+		WHERE 
+			id=#{id}
+	</select>	
+	
+	<!-- 수정: 구분, 제목, 내용 -->
+	<update id="updateOne">
+		UPDATE 
+			notice
+		SET
+			category=#{category}, title=#{title}, content=#{content}
+		WHERE
+			id=#{id}
+	</update>
+	
+	<!-- 수정: 조회수 -->
+	<update id="updateOneForHits">
+		UPDATE 
+			notice
+		SET
+			hits=#{hits}
+		WHERE
+			id=#{id}
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="deleteOne">
+		DELETE FROM
+			notice
+		WHERE
+			id=#{id}
+	</delete>
+	
+	<!-- 목록조회
+	<select id="selectAllByTitle">
+		SELECT
+			id, category, title, content, writer, regdate
+		FROM 
+			notice
+		WHERE title LIKE '%${searchKeyword}%'
+		ORDER BY id DESC;
+	</select>
+	-->
+	
+</mapper>

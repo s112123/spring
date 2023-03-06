@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+aside {
+	width: 200px;
+	padding-top: 30px;	
+}
+
+aside ul li {
+	margin: 15px 0;
+	padding: 8px 20px;
+	font-size: 16px;
+}
+
+aside ul li:hover {
+	background-color: rgb(210, 40, 40);
+}
+
+aside ul li:hover span {
+	color: white;
+}
+		
+aside ul li span {
+	margin-right: 5px;
+	color: rgb(150, 150, 150);
+}

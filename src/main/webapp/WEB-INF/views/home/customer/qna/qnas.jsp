@@ -4,22 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="container flex justify-ctr">
-	<aside>
-		<ul>
-			<li>
-				<a href="/notices">
-					<span><i class="fa-solid fa-bullhorn"></i></span> 
-					<span>공지사항</span>
-				</a>
-			</li>
-			<li>
-				<a href="/qnas">
-					<span><i class="fa-solid fa-comments"></i></span> 
-					<span>QnA</span>
-				</a>
-			</li>
-		</ul>	
-	</aside>
+	<jsp:include page="${contextPath}/WEB-INF/views/home/customer/aside.jsp" flush="false" />
 	<div class="content">
 		<h3>QnA</h3>
 		<table>
@@ -73,16 +58,6 @@
 				<button type="button">검색</button>
 			</div>
 		</div>
-		<div class="paging flex justify-ctr align-items-ctr">
-			<ul class="flex justify-ctr align-items-ctr">
-				<li><i class="fa-solid fa-angle-left"></i></li>
-				<li>1</li>
-				<li>2</li>
-				<li>3</li>
-				<li>4</li>
-				<li>5</li>
-				<li><i class="fa-solid fa-angle-right"></i></li>
-			</ul>
-		</div>
+		<jsp:include page="${contextPath}/WEB-INF/views/home/customer/paging.jsp" flush="false" />
 	</div>
 </div>

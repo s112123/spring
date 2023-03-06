@@ -12,16 +12,16 @@
 	margin-bottom: 30px;
 }
 
-.login-info {
+.login-item {
 	margin-bottom: 12px;
 }
 
-.login-info label {
+.login-item label {
 	font-size: 14px;
 	font-weight: bold;
 }	
 
-.login-info input {
+.login-item input {
 	width: 100%;
 	padding: 8px 15px;
 	margin-top: 5px;
@@ -29,8 +29,18 @@
 	border-radius: 3px;
 }
 
-.login-info input:focus {
-	border: 1px solid rgb(100, 100, 100);
+.login-item input:focus {
+	border: 1px solid rgb(210, 40, 40);
+}
+
+input::placeholder {
+	color: #bbb;
+	font-size: 13px;
+}
+
+.login-item small {
+	color: rgb(210, 40, 40);
+	display: none;
 }
 
 .login-chk input {
@@ -41,11 +51,6 @@
 .login-chk span {
 	font-size: 13px;
 	font-weight: bold;	
-}
-
-::placeholder {
-	color: #bbb;
-	font-size: 13px;
 }
 
 .login-info small {

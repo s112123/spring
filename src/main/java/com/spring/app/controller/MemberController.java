@@ -18,7 +18,7 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
-
+	
 	//전체회원조회
 	@GetMapping("/members")
 	public String members(Model model) {

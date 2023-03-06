@@ -15,73 +15,63 @@ public class HomeController {
 	//메인 페이지
 	@RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		return "home.index";
+		return "index";
 	}
 	
 	//로그인 페이지
 	@GetMapping("/login")
 	public String login() {
-		return "home.login";
+		return "home.login.login";
 	}
 	
 	//약관동의 페이지
 	@GetMapping("/agree")
 	public String agree() {
-		return "home.agree";
+		return "home.register.agree";
 	}
 	
 	//회원가입 페이지
 	@GetMapping("/register")
 	public String register() {
-		return "home.register";
+		return "home.register.register";
 	}
 	
-	//마이 페이지 & 개인정보 페이지
-	@GetMapping({"/user", "/userinfo"})
-	public String userInfo() {
-		return "home.userinfo";
+	//개인정보 페이지
+	@GetMapping("/member")
+	public String member() {
+		return "home.member.member";
 	}	
 	
 	//개인 주문내역 페이지
-	@GetMapping("/userorders")
-	public String userOrders() {
-		return "home.userorders";
+	@GetMapping("/member/orders")
+	public String memberOrders() {
+		return "home.member.orders";
 	}	
 
 	//개인 문의내역 페이지
-	@GetMapping("/userqnas")
-	public String userQnas() {
-		return "home.userqnas";
+	@GetMapping("/member/qnas")
+	public String memberQnas() {
+		return "home.member.qnas";
 	}	
+
+	//장바구니
+	@GetMapping("/member/cart")
+	public String memberCart() {
+		return "home.member.cart";
+	}
 	
 	//상품 페이지
 	@GetMapping("/products")
 	public String products() {
-		return "home.products";
+		return "home.product.products";
 	}
 	
-	//장바구니
-	@GetMapping("/cart")
-	public String cart() {
-		return "home.cart";
-	}
-	
-	//고객서비스 페이지 & 공지사항 페이지
-	@GetMapping({"/customer", "/notices"})
-	public String customer() {
-		return "home.notices";
-	}
+
 	
 	//QnA 페이지
 	@GetMapping("/qnas")
-	public String qna() {
-		return "home.qnas";
-	}
-	
-	//QnA 글쓰기 페이지
-	@GetMapping("/writeqna")
-	public String writeQna() {
-		return "home.writeqna";
+	public String qnas() {
+		return "home.customer.qna.qnas";
 	}
 	
 }

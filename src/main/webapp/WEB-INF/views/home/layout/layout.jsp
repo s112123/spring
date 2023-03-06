@@ -21,14 +21,26 @@
 	<link rel="stylesheet" href="${contextPath}/resources/css/common/modal.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/layouts/header.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/layouts/footer.css" />
+	
+	<!-- CSS: customer -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/aside.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/pagenation.css" />
+	<!-- CSS: customer > notice -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/notice/notices.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/notice/notice.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/notice/write.css" />
+	<!-- CSS: customer > qna -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/qna/qnas.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/qna/write.css" />	
+	
+	
+	<!-- -->
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/index.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/login.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/agree.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/register.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/products.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/cart.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/home/writeqna.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/userinfo.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/userorders.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/userqnas.css" />
@@ -48,5 +60,9 @@
 	
 	<!-- Javascript -->
 	<script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
+	
+	
+	<!-- Javascript: customer > notice -->
+	<script type="text/javascript" src="${contextPath}/resources/js/home/customer/notice/write.js"></script>
 </body>
 </html>
