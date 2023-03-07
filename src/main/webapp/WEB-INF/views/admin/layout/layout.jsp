@@ -15,13 +15,18 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 	<!-- JQUERY -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<!-- CSS -->
-	<link rel="stylesheet" href="${contextPath}/resources/css/reset.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/common.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+	<!-- CSS: common -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/common/reset.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/common/common.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/common/modal.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/admin/layouts/header.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/admin/members.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/admin/member.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/common/aside.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/common/pagenation.css" />
+	<!-- CSS: layout -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/admin/layout/header.css" />
+	<!-- CSS: member -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/admin/member/members.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/admin/member/member.css" />
 </head>
 <body>
 	<div class="container">	
@@ -32,8 +37,5 @@
 			<tiles:insertAttribute name="main" />
 		</main>
 	</div>
-	
-	<!-- Javascript -->
-	<script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
 </body>
 </html>

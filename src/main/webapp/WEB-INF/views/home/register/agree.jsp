@@ -11,9 +11,39 @@
 		<div class="agree-chk flex justify-sb">
 			<div>
 				<input type="checkbox" name="checked[]" />
-				<span>이용약관 <small>(필수)</small></span>
+				<span>이용약관 동의</span><small> (필수)</small>
 			</div>
 			<div>
+				<button type="button" class="show-content-btn" id="show-0">
+					<i class="fa-solid fa-chevron-down"></i>
+				</button>
+				<button type="button" class="hide-content-btn" id="hide-0">
+					<i class="fa-solid fa-chevron-up"></i>
+				</button>
+			</div>
+		</div>
+		<div class="agree-content" id="content-0" >
+			제 1 조 (목적) <br />
+			STEAKEHOUSE(이하 '회사')가 제공하는 다양한 서비스를 이용하여 주셔서 감사합니다. <br />
+			회사는 이용자가 더 편리하게 이용할 수 있도록 서비스 이용약관(이하 '본 약관')을 마련하였습니다. <br />
+			본 약관은 이용자가 서비스를 이용하는데 필요한 권리, 의무 및 책임사항 기타 필요한 사항을 규정하고 있으므로 
+			주의깊게 살펴봐 주시기 바랍니다. <br />
+			<br />
+			제 2 조 (분쟁해결) <br />
+			회사는 이용자와 파트너 사이에 분쟁이 발생하지 않도록 최선을 다할 것입니다. <br />
+			그럼에도 불구하고 서비스 이용과 관련하여 분쟁이 발생할 경우 이는 거래당사자인 이용자와 
+			파트너가 해결하여야 함을 유의하여 주시기 바랍니다. <br />
+			다만, 회사는 가능한 한 최선의 노력을 다하여 거래당사자 간의 분쟁이 신속하게 처리될 수 있도록 
+			성실하게 협조할 것입니다.
+			
+		</div>
+	</div>
+	<div class="agree-item">
+		<div class="agree-chk flex justify-sb">
+			<div>
+				<input type="checkbox" name="checked[]" />
+				<span>개인정보수집 및 이용 동의</span><small> (필수)</small>
+			</div>
 			<div>
 				<button type="button" class="show-content-btn" id="show-1">
 					<i class="fa-solid fa-chevron-down"></i>
@@ -22,48 +52,28 @@
 					<i class="fa-solid fa-chevron-up"></i>
 				</button>
 			</div>
-			</div>
 		</div>
 		<div class="agree-content" id="content-1" >
-			ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF
-			GHIJKLMNOPQRSTUVWXYZABCDEFG
-			HIJKLMNOP
-			QRSTUVWXYZABCDEFGHIJKLMNOPQRSTU
-			VWXYZA
-			BCDEFGHIJKLMNOPQRSTUVWXY
-			ZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF
-			GHIJKLM
-			NOPQRSTUVWXYZABCDEFGHIJKLMNOPQRST
-			UVWXYZABCDEFGHIJKLMNOPQRSTUVW
-			XYZABCD
-			EFGHIJKLMNOP
-			QRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVW
-			XYZABCDEFGHIJKLMNOPQRSTUVWXYZ
-			ABCDEFGH
-			IJKLMNOPQRS
-			TUVWXYZABCDEFGH
-			IJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQR
-			STUVWXYZABCDEF
-			GHIJKLMNOPQRSTUVWXYZABCDEFGHI
-			JKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRS
-			TUVWXYZABCDEF
-			GH
-			IJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOP
-			QRSTUVWXYZABC
-			DEFGHIJKL
-			MNOPQRSTUVWXYZABCDEFGHIJKLMNOP
-			QRSTUVWXYZABCDEFGHIJK
-			LMNOPQRSTUVWXYZABCDEFGHIJKLMNO
-			PQRSTUVWXYZ
+			제 1 조 (목적) <br />
+			STEAKEHOUSE(이하 '회사')가 제공하는 다양한 서비스를 이용하여 주셔서 감사합니다. <br />
+			회사는 이용자가 더 편리하게 이용할 수 있도록 서비스 이용약관(이하 '본 약관')을 마련하였습니다. <br />
+			본 약관은 이용자가 서비스를 이용하는데 필요한 권리, 의무 및 책임사항 기타 필요한 사항을 규정하고 있으므로 
+			주의깊게 살펴봐 주시기 바랍니다. <br />
+			<br />
+			제 2 조 (분쟁해결) <br />
+			회사는 이용자와 파트너 사이에 분쟁이 발생하지 않도록 최선을 다할 것입니다. <br />
+			그럼에도 불구하고 서비스 이용과 관련하여 분쟁이 발생할 경우 이는 거래당사자인 이용자와 
+			파트너가 해결하여야 함을 유의하여 주시기 바랍니다. <br />
+			다만, 회사는 가능한 한 최선의 노력을 다하여 거래당사자 간의 분쟁이 신속하게 처리될 수 있도록 
+			성실하게 협조할 것입니다.	
 		</div>
 	</div>
 	<div class="agree-item">
 		<div class="agree-chk flex justify-sb">
 			<div>
-				<input type="checkbox" name="checked[]" required />
-				<span>개인정보수집 및 이용동의 <small>(필수)</small></span>
+				<input type="checkbox" name="checked[]" />
+				<span>개인정보 마케팅 활용 동의</span><small style="color:rgb(150, 150, 150)"> (선택)</small>
 			</div>
-			<div>
 			<div>
 				<button type="button" class="show-content-btn" id="show-2">
 					<i class="fa-solid fa-chevron-down"></i>
@@ -72,168 +82,27 @@
 					<i class="fa-solid fa-chevron-up"></i>
 				</button>
 			</div>
-			</div>
 		</div>
 		<div class="agree-content" id="content-2" >
-			ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF
-			GHIJKLMNOPQRSTUVWXYZABCDEFG
-			HIJKLMNOP
-			QRSTUVWXYZABCDEFGHIJKLMNOPQRSTU
-			VWXYZA
-			BCDEFGHIJKLMNOPQRSTUVWXY
-			ZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF
-			GHIJKLM
-			NOPQRSTUVWXYZABCDEFGHIJKLMNOPQRST
-			UVWXYZABCDEFGHIJKLMNOPQRSTUVW
-			XYZABCD
-			EFGHIJKLMNOP
-			QRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVW
-			XYZABCDEFGHIJKLMNOPQRSTUVWXYZ
-			ABCDEFGH
-			IJKLMNOPQRS
-			TUVWXYZABCDEFGH
-			IJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQR
-			STUVWXYZABCDEF
-			GHIJKLMNOPQRSTUVWXYZABCDEFGHI
-			JKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRS
-			TUVWXYZABCDEF
-			GH
-			IJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOP
-			QRSTUVWXYZABC
-			DEFGHIJKL
-			MNOPQRSTUVWXYZABCDEFGHIJKLMNOP
-			QRSTUVWXYZABCDEFGHIJK
-			LMNOPQRSTUVWXYZABCDEFGHIJKLMNO
-			PQRSTUVWXYZ
-		</div>
-	</div>
-	<div class="agree-item">
-		<div class="agree-chk flex justify-sb">
-			<div>
-				<input type="checkbox" name="checked[]" />
-				<span>개인정보 마케팅 활용 동의 <small style="color:rgb(150, 150, 150)">(선택)</small></span>
-			</div>
-			<div>
-				<button type="button" class="show-content-btn" id="show-3">
-					<i class="fa-solid fa-chevron-down"></i>
-				</button>
-				<button type="button" class="hide-content-btn" id="hide-3">
-					<i class="fa-solid fa-chevron-up"></i>
-				</button>
-			</div>
-		</div>
-		<div class="agree-content" id="content-3" >
-			ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF
-			GHIJKLMNOPQRSTUVWXYZABCDEFG
-			HIJKLMNOP
-			QRSTUVWXYZABCDEFGHIJKLMNOPQRSTU
-			VWXYZA
-			BCDEFGHIJKLMNOPQRSTUVWXY
-			ZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF
-			GHIJKLM
-			NOPQRSTUVWXYZABCDEFGHIJKLMNOPQRST
-			UVWXYZABCDEFGHIJKLMNOPQRSTUVW
-			XYZABCD
-			EFGHIJKLMNOP
-			QRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVW
-			XYZABCDEFGHIJKLMNOPQRSTUVWXYZ
-			ABCDEFGH
-			IJKLMNOPQRS
-			TUVWXYZABCDEFGH
-			IJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQR
-			STUVWXYZABCDEF
-			GHIJKLMNOPQRSTUVWXYZABCDEFGHI
-			JKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRS
-			TUVWXYZABCDEF
-			GH
-			IJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOP
-			QRSTUVWXYZABC
-			DEFGHIJKL
-			MNOPQRSTUVWXYZABCDEFGHIJKLMNOP
-			QRSTUVWXYZABCDEFGHIJK
-			LMNOPQRSTUVWXYZABCDEFGHIJKLMNO
-			PQRSTUVWXYZ
+			제 1 조 (목적) <br />
+			STEAKEHOUSE(이하 '회사')가 제공하는 다양한 서비스를 이용하여 주셔서 감사합니다. <br />
+			회사는 이용자가 더 편리하게 이용할 수 있도록 서비스 이용약관(이하 '본 약관')을 마련하였습니다. <br />
+			본 약관은 이용자가 서비스를 이용하는데 필요한 권리, 의무 및 책임사항 기타 필요한 사항을 규정하고 있으므로 
+			주의깊게 살펴봐 주시기 바랍니다. <br />
+			<br />
+			제 2 조 (분쟁해결) <br />
+			회사는 이용자와 파트너 사이에 분쟁이 발생하지 않도록 최선을 다할 것입니다. <br />
+			그럼에도 불구하고 서비스 이용과 관련하여 분쟁이 발생할 경우 이는 거래당사자인 이용자와 
+			파트너가 해결하여야 함을 유의하여 주시기 바랍니다. <br />
+			다만, 회사는 가능한 한 최선의 노력을 다하여 거래당사자 간의 분쟁이 신속하게 처리될 수 있도록 
+			성실하게 협조할 것입니다.
 		</div>
 	</div>
 	<div class="agree-next-btn">
-		<button type="button" onClick="location.href='/register';">다음</button>
+		<button type="button" onclick="validateAgreeForm();">다음</button>
 	</div>
 </div>
+<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
+<script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/home/register/agree.js"></script>
 
-<!-- JAVASCRIPT -->
-<script>
-	//전체선택
-	function selectAll(checkedBox) {
-		let chkBoxs = document.querySelectorAll('input[name="checked[]"]');
-		chkBoxs.forEach((chkBox) => {
-			chkBox.checked = checkedBox.checked;
-		});
-	}
-	
-	//약관내용보기
-	$(function(){
-		//이용약관
-		$("#show-1").click(function(){
-			$(this).hide();
-			$("#hide-1").show();
-			$("#content-1").slideDown(100);
-			
-			$("#show-2").show();
-			$("#hide-2").hide();
-			$("#content-2").slideUp(100);
-			
-			$("#show-3").show();
-			$("#hide-3").hide();
-			$("#content-3").slideUp(100);
-		});
-		
-		$("#hide-1").click(function(){
-			$(this).hide();
-			$("#show-1").show();			
-			$("#content-1").slideUp(100);
-		});
-		
-		
-		//개인정보수집 및 이용동의
-		$("#show-2").click(function(){
-			$(this).hide();
-			$("#hide-2").show();
-			$("#content-2").slideDown(100);
-			
-			$("#show-1").show();
-			$("#hide-1").hide();
-			$("#content-1").slideUp(100);
-			
-			$("#show-3").show();
-			$("#hide-3").hide();
-			$("#content-3").slideUp(100);
-		});
-		
-		$("#hide-2").click(function(){
-			$(this).hide();
-			$("#show-2").show();			
-			$("#content-2").slideUp(100);
-		});
-		
-		//개인정보 마케팅 활용 동의
-		$("#show-3").click(function(){
-			$(this).hide();
-			$("#hide-3").show();
-			$("#content-3").slideDown(100);
-			
-			$("#show-1").show();
-			$("#hide-1").hide();
-			$("#content-1").slideUp(100);
-			
-			$("#show-2").show();
-			$("#hide-2").hide();
-			$("#content-2").slideUp(100);
-		});
-		
-		$("#hide-3").click(function(){
-			$(this).hide();
-			$("#show-3").show();			
-			$("#content-3").slideUp(100);
-		});
-	})
-</script>

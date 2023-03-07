@@ -62,25 +62,23 @@
 	width: 80px;
 	height: 35px;
 	padding: 3px 5px;
-	margin-left: 5px;
-	border: 1px solid rgb(120, 120, 120);
+	border: 1px solid rgb(100, 100, 100);
 	border-radius: 5px;
 	background-color: white;
-	color: rgb(120, 120, 120);
+	color: rgb(100, 100, 100);
 	font-size: 14px;
 }
 
-#notice-content .write-btn button:nth-child(1) {
-	border: 1px solid rgb(210, 40, 40);
-	background-color: rgb(210, 40, 40);
-	color: white;
-}
-
-#notice-content .write-btn button:nth-child(2) {
+#notice-content .write-btn button:hover {
 	border: 1px solid rgb(210, 40, 40);
 	background-color: white;
 	color: rgb(210, 40, 40);
 }
+
+#notice-content .write-btn button:nth-child(2) {
+	margin-left: 5px;
+}
+
 
 #notice-content input::placeholder {
 	color: #bbb;

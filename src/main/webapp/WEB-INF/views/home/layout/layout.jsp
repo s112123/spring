@@ -15,16 +15,15 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 	<!-- JQUERY -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<!-- CSS -->
-	<link rel="stylesheet" href="${contextPath}/resources/css/reset.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/common.css" />
+	<!-- CSS: common -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/common/reset.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/common/common.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/common/modal.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/home/layouts/header.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/home/layouts/footer.css" />
-	
-	<!-- CSS: customer -->
-	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/aside.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/pagenation.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/common/aside.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/common/pagenation.css" />
+	<!-- CSS: layout -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/layout/header.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/layout/footer.css" />
 	<!-- CSS: customer > notice -->
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/notice/notices.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/notice/notice.css" />
@@ -57,12 +56,5 @@
 			<tiles:insertAttribute name="footer" />
 		</footer>
 	</div>
-	
-	<!-- Javascript -->
-	<script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
-	
-	
-	<!-- Javascript: customer > notice -->
-	<script type="text/javascript" src="${contextPath}/resources/js/home/customer/notice/write.js"></script>
 </body>
 </html>

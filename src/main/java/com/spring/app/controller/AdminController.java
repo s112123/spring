@@ -9,9 +9,7 @@ public class AdminController {
 	//관리자 페이지
 	@GetMapping("/admin")
 	public String admin() {
-		return "redirect:/admin/members";
+		return "redirect:/members";
 	}
-	
-
 	
 }

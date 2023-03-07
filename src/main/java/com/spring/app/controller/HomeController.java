@@ -24,38 +24,26 @@ public class HomeController {
 		return "home.login.login";
 	}
 	
-	//약관동의 페이지
-	@GetMapping("/agree")
-	public String agree() {
-		return "home.register.agree";
-	}
-	
-	//회원가입 페이지
-	@GetMapping("/register")
-	public String register() {
-		return "home.register.register";
-	}
-	
 	//개인정보 페이지
-	@GetMapping("/member")
+	@GetMapping("/my/infomation")
 	public String member() {
 		return "home.member.member";
 	}	
 	
 	//개인 주문내역 페이지
-	@GetMapping("/member/orders")
+	@GetMapping("/my/orders")
 	public String memberOrders() {
 		return "home.member.orders";
 	}	
 
 	//개인 문의내역 페이지
-	@GetMapping("/member/qnas")
+	@GetMapping("/my/qnas")
 	public String memberQnas() {
 		return "home.member.qnas";
 	}	
 
 	//장바구니
-	@GetMapping("/member/cart")
+	@GetMapping("/my/cart")
 	public String memberCart() {
 		return "home.member.cart";
 	}
@@ -66,7 +54,6 @@ public class HomeController {
 		return "home.product.products";
 	}
 	
-
 	
 	//QnA 페이지
 	@GetMapping("/qnas")

@@ -2,23 +2,54 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 	
-	<!-- 회원전체조회 -->
+	<!-- 전체 회원 수 -->
+	<select id="countAll" resultType="int">
+		SELECT 
+			COUNT(id) 
+		FROM 
+			member
+	</select>
+	
+	<!-- 전체목록 -->
 	<select id="selectAll" resultType="com.spring.app.entity.Member">
 		SELECT
-			*
-		FROM member ORDER BY id DESC
+			id,	email, username, passwd, phone,	addr1, addr2, agree, grade,	regdate
+		FROM 
+			member 
+		ORDER BY id DESC
+		LIMIT #{skip}, #{size}
 	</select>
 
-	<!-- 회원등록 -->
-	<insert id="insert">
-		INSERT INTO member 
-		VALUES(NULL, #{email}, #{username}, #{passwd}, #{phone}, #{addr1}, #{addr2}, DEFAULT, DEFAULT, NOW())
+	<!-- 등록 -->
+	<insert id="insertOne">
+		INSERT INTO 
+			member 
+		VALUES
+			(NULL, #{email}, #{username}, #{passwd}, #{phone}, #{addr1}, #{addr2}, DEFAULT, DEFAULT, NOW())
 	</insert>
 	
-	<!-- 회원조회: id -->
-	<select id="selectOneById">
+	<!-- 상세보기: id -->
+	<select id="selectOneById" resultType="com.spring.app.entity.Member">
 		SELECT
-			*
-		FROM member WEHRE id=#{id}
+			id,	email, username, passwd, phone,	addr1, addr2, agree, grade,	regdate
+		FROM 
+			member 
+		WHERE id=#{id}
 	</select>
+	
+	<!-- 수정 -->
+	<update id="updateOne">
+		UPDATE
+			member
+		SET
+			username=#{username}, passwd=#{passwd}, addr1=#{addr1}, addr2=#{addr2}, agree=#{agree}, grade=#{grade}
+		WHERE id=#{id}
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="deleteOne">
+		DELETE FROM
+			member
+		WHERE id=#{id}
+	</delete>
 </mapper>

@@ -3,7 +3,8 @@
     
 <div class="register-box">
 	<h2>회원가입</h2>
-	<form action="/admin/member/add" method="post" id="registerForm">
+	<form action="/member/add" method="post" id="registerForm">
+		<input type="hidden" value="${agree}" />
 		<div class="register-item">
 			<label for="email">이메일</label>
 			<input type="text" class="item-info" name="email" />
@@ -40,8 +41,7 @@
 		</div>
 	</form>
 </div>
-
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-
+<script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/js/home/register.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/home/register/register.js"></script>

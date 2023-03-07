@@ -29,14 +29,43 @@
 	margin: 15px 0;
 }
 
-#btnCloseModal {
+#modal-message {
+	padding: 0 20px;
+	margin-bottom: 25px;
+	font-weight: bold;
+}
+
+#modal-btn {
+	width: 100%;
+	padding: 0 20px;
+	text-align: right;
+}
+
+#modal-btn button {
+	width: 65px;
+	padding: 3px 0;
+	margin-left: 3px;
+	border: 1px solid rgb(100, 100, 100);
+	border-radius: 5px;
+	background-color: white;
+	color: rgb(100, 100, 100);
+	font-size: 14px;
+}
+
+#modal-btn button:hover {
+	border: 1px solid rgb(210, 40, 40);
+	background-color: white;
+	color: rgb(210, 40, 40);
+}
+
+#modal-close-btn {
 	margin-right: 15px;
 	background-color: transparent;
 	color: rgb(200, 200, 200);
 	font-size: 20px;
 }
 
-#btnCloseModal:hover {
+#modal-close-btn:hover {
 	color: rgb(210, 40, 40);
 	transition: 1s;
 }

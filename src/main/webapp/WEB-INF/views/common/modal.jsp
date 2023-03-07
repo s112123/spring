@@ -4,11 +4,10 @@
 <div id="modal">
 	<div id="modal-box">
 		<div id="modal-header">
-			<button id="btnCloseModal" onclick="closeModal();">
+			<button id="modal-close-btn" onclick="closeModal();">
 				<i class="fa-solid fa-xmark"></i>
 			</button>
 		</div>
-		<div id="modal-content">
-		</div>
+		<div id="modal-content"></div>
 	</div>
 </div>

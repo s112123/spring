@@ -14,7 +14,7 @@ CREATE TABLE notice(
 INSERT INTO notice VALUES(NULL, "일반정보", "안녕하세요", "ㅋㅋㅋㅋ", "관리자", NOW(), DEFAULT);
 INSERT INTO notice VALUES(NULL, "일반정보", "안녕하세요", "ㅋㅋㅋㅋ", "관리자", NOW(), DEFAULT);
 INSERT INTO notice VALUES(NULL, "일반정보", "안녕하세요", "ㅋㅋㅋㅋ", "관리자", NOW(), DEFAULT);
-INSERT INTO notice(category, title, content, writer, regdate, hits) (SELECT category, title, content, writer, regdate, hits FROM notice);
-
 SELECT * FROM notice ORDER BY id DESC;
+
+INSERT INTO notice(category, title, content, writer, regdate, hits) (SELECT category, title, content, writer, regdate, hits FROM notice);
 

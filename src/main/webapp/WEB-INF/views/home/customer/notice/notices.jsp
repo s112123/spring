@@ -48,6 +48,6 @@
 				<button type="button">검색</button>
 			</div>
 		</div>
-		<jsp:include page="${contextPath}/WEB-INF/views/home/customer/pagenation.jsp" flush="false" />
+		<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />
 	</div>
 </div>

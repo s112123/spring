@@ -24,12 +24,11 @@
 	margin-right: 5px;
 }
 
-.agree-chk span small {
+.agree-chk small {
 	color: rgb(210, 40, 40);
 	font-size: 12px;
 }
 
-/* 약관보기 버튼 */
 .agree-chk .show-content-btn,
 .agree-chk .hide-content-btn {
 	width: 25px;
@@ -59,7 +58,6 @@
 .agree-chk .hide-content-btn span {
 	border: 1px solid blue;
 }
-/* 약관보기 버튼 끝 */
 
 .agree-content {
 	width: 100%;	
