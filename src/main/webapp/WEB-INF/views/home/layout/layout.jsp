@@ -24,18 +24,23 @@
 	<!-- CSS: layout -->
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/layout/header.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/layout/footer.css" />
-	<!-- CSS: customer > notice -->
+	<!-- CSS: index -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/index.css" />
+	<!-- CSS: login -->
+	<link rel="stylesheet" href="${contextPath}/resources/css/home/login/login.css" />
+	
+	
+	
+	
+	<!-- CSS: notice -->
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/notice/notices.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/notice/notice.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/notice/write.css" />
-	<!-- CSS: customer > qna -->
+	<!-- CSS: qna -->
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/qna/qnas.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/customer/qna/write.css" />	
 	
-	
 	<!-- -->
-	<link rel="stylesheet" href="${contextPath}/resources/css/home/index.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/home/login.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/agree.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/register.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home/products.css" />

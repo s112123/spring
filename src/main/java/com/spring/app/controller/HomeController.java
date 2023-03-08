@@ -18,12 +18,6 @@ public class HomeController {
 		return "index";
 	}
 	
-	//로그인 페이지
-	@GetMapping("/login")
-	public String login() {
-		return "home.login.login";
-	}
-	
 	//개인정보 페이지
 	@GetMapping("/my/infomation")
 	public String member() {

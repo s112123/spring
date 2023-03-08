@@ -7,22 +7,25 @@ import com.spring.app.entity.Pagenation;
 
 public interface MemberService {
 
-	//전체 회원수
+	//전체회원수
 	public int getTotalMembers();
 	
-	//전체목록
+	//전체회원
 	public List<Member> getMembers(Pagenation pagenation);
 	
-	//등록
+	//회원조회
+	public Member getMemberByEmail(String email);
+	
+	//회원등록
 	public void addMember(Member member);
 	
-	//상세보기: id
+	//회원정보
 	public Member getMemberById(int id);
 	
-	//수정
+	//회원수정
 	public void modifyMember(Member member);
 	
-	//삭제
+	//회원삭제
 	public void removeMember(int id);
 	
 }
