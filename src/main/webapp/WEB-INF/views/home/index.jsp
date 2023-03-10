@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div class="main-box">
+<div class="container">
 	<div class="banner">
 		<img src="${contextPath}/resources/images/banners/banner1.jpg" />
 	</div>
@@ -12,4 +12,5 @@
 		Store
 	</div>
 </div>
+
 

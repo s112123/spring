@@ -35,12 +35,6 @@ public class HomeController {
 	public String memberQnas() {
 		return "home.member.qnas";
 	}	
-
-	//장바구니
-	@GetMapping("/my/cart")
-	public String memberCart() {
-		return "home.member.cart";
-	}
 	
 	//상품 페이지
 	@GetMapping("/products")

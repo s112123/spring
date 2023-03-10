@@ -30,14 +30,16 @@ public class LoginController {
 	//로그인 처리
 	@PostMapping("/login")
 	@ResponseBody
-	public Map<String, String> loginPOST(@RequestBody Member _member, HttpSession session) {	
+	public Map<String, String> loginPOST(@RequestBody Member _member, HttpSession session, boolean isSave) {	
+		System.out.println(isSave);
+		
 		Member member = memberService.getMemberByEmail(_member.getEmail());
 		Map<String, String> map = validateLogin(_member, member);
 		
 		//유효성 검사가 모두 통과되면 session 생성
 		if(map.get("message").equals("success")) 
 			session.setAttribute("login", member);
-		
+
 		return map;		
 	}
 	

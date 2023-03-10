@@ -1,8 +1,15 @@
-@charset "UTF-8";
-#header-box {width: 1690px; padding: 30px 20px; margin: 0 auto;}
-#header-box nav ul li {margin: 0 60px; padding: 2px 3px; border-bottom: 2px solid transparent;}
-#header-box nav ul li:hover {font-size: 16px; border-bottom: 2px solid rgb(210, 40, 40); transition: 1s;}
-#header-box nav ul li a {font-size: 18px;}
-#header-box ul li {margin-left: 30px;}
-#header-box ul li a {color: rgb(150, 150, 150); font-size: 16px;}
-#header-box ul li a:hover {color: rgb(210, 40, 40); transition: 1s;}
+.header {
+	padding: 8px 0;
+}
+.header h1 {
+	font-size: 22px;
+}
+.navbar-header ul li {
+	margin: 0 60px; 
+	padding: 5px 3px;	
+	border: 2px solid transparent;
+}
+.navbar-header ul li:hover {
+	border-bottom: 2px solid rgb(210, 40, 40); 
+	transition: 1s;
+}

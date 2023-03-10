@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div id="modal">
+<div id="modal-overlay">
 	<div id="modal-box">
 		<div id="modal-header">
 			<button id="modal-close-btn" onclick="closeModal();">

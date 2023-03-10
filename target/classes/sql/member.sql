@@ -1,4 +1,4 @@
--- 회원테이블
+-- 회원 테이블
 DROP TABLE IF EXISTS member;
 CREATE TABLE member(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

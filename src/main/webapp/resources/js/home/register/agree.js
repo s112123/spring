@@ -18,14 +18,6 @@ function validateAgreeForm() {
 	location.href='/register?agree=' + (chkBoxs[chkBoxs.length-1].checked ? 'Y' : 'N');
 }
 
-//전체선택
-function selectAll(checkedBox) {
-	let chkBoxs = document.querySelectorAll('input[name="checked[]"]');
-	chkBoxs.forEach((chkBox) => {
-		chkBox.checked = checkedBox.checked;
-	});
-}
-
 //약관내용보기
 $(function(){
 	//이용약관

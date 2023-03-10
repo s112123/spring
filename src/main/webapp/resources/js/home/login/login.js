@@ -4,9 +4,11 @@ frmLogin.addEventListener('submit', function(e) {
 	
 	const email = document.getElementById('email');
 	const passwd = document.getElementById('passwd');
+	const isSave = document.getElementById('isSave');
 	const datas = {
 		email: email.value,
-		passwd: passwd.value
+		passwd: passwd.value,
+		isSave: isSave.checked
 	};
 	
 	$.ajax({
@@ -27,7 +29,7 @@ frmLogin.addEventListener('submit', function(e) {
 				case 'notMatch': 
 					showMessage(passwd, "비밀번호가 일치하지 않습니다"); break;
 				case 'success':
-					location.href = "/index";
+					location.href = "/";
 			}
 		}
 	});
@@ -41,7 +43,7 @@ function showMessage(target, message) {
 	small.style.display = 'block';	
 }
 
-const targets = document.querySelectorAll('.login-item > input');
+const targets = document.querySelectorAll('.form-item > input');
 for(let i=0; i<targets.length; i++) {
 	targets[i].addEventListener('blur', function() {
 		let small = this.nextElementSibling;

@@ -1,16 +1,3 @@
-@charset "UTF-8";
-.agree-box {
-	width: 500px;
-	padding: 55px 50px;
-	margin: 200px 0;
-	box-shadow: 0 0 5px rgb(150, 150, 150);
-	border-radius: 8px;
-}
-
-.agree-box h2 {
-	margin-bottom: 30px;
-}
-
 .agree-item {
 	padding: 12px 25px;
 	margin-bottom: 20px;
@@ -19,16 +6,13 @@
 	font-size: 17px;
 	font-weight: bold;
 }
-
 .agree-item input {
 	margin-right: 5px;
 }
-
 .agree-chk small {
 	color: rgb(210, 40, 40);
 	font-size: 12px;
 }
-
 .agree-chk .show-content-btn,
 .agree-chk .hide-content-btn {
 	width: 25px;
@@ -41,24 +25,20 @@
 	font-weight: bold;
 	text-align: center;
 }
-
 .agree-chk .hide-content-btn {
 	border: 1px solid rgb(210, 40, 40);
 	color: rgb(210, 40, 40);
 	display: none;
 }
-
 .agree-chk .show-content-btn:hover {
 	border: 1px solid rgb(210, 40, 40);
 	color: rgb(210, 40, 40);
 	transition: 1s;
 }
-
 .agree-chk .show-content-btn span,
 .agree-chk .hide-content-btn span {
 	border: 1px solid blue;
 }
-
 .agree-content {
 	width: 100%;	
 	height: 200px;
@@ -72,23 +52,10 @@
 	overflow-y: scroll;
 	display: none;
 }
-
 .agree-content::-webkit-scrollbar {
 	width: 8px;
 }
-
 .agree-content::-webkit-scrollbar-thumb {
 	background-color: rgba(210, 40, 40, 0.5);
 	border-radius: 100px;
-}
-
-.agree-next-btn button {
-	width: 100%;
-	padding: 10px 0;
-	margin-top: 30px;
-	border-radius: 3px;
-	background-color: rgb(210, 40, 40);
-	color: #fff;
-	font-size: 16px;
-	font-weight: bold;
 }

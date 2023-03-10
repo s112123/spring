@@ -1,4 +1,4 @@
--- 공지사항
+-- 공지사항 테이블
 DROP TABLE IF EXISTS notice;
 CREATE TABLE notice(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -17,4 +17,3 @@ INSERT INTO notice VALUES(NULL, "일반정보", "안녕하세요", "ㅋㅋㅋㅋ
 SELECT * FROM notice ORDER BY id DESC;
 
 INSERT INTO notice(category, title, content, writer, regdate, hits) (SELECT category, title, content, writer, regdate, hits FROM notice);
-
