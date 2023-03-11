@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
-<div class="container container-ctr">
+<div class="container flex-ctr">
 	<div class="form-box">
 		<h2>로그인</h2>
 		<form action="/login" method="post" id="login-form" autocomplete="off">

@@ -50,7 +50,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	//회원삭제
-	public void removeMember(int id) {
+	public void deleteMember(int id) {
 		memberRepository.deleteOne(id);
 	}
 	

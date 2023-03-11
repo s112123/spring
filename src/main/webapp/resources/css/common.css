@@ -78,10 +78,14 @@ table th, table td{
 	margin: 0 auto; 
 	border: 1px solid violet;
 }
-.container-ctr {
+.flex-ctr {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.flex-fs {
+	display: flex;
+	justify-content: flex-fs;
 }
 
 
@@ -182,7 +186,6 @@ aside ul li span {
 	background-color: white;
 	color: rgb(210, 40, 40);
 }
-
 #modal-close-btn {
 	width: 30px;
 	height: 30px;
@@ -197,3 +200,32 @@ aside ul li span {
 }
 
 
+/* --------- PAGENATION --------- */
+.pagenation {
+	width: 100%;
+	padding: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.pagenation ul li a {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	line-height: 28px;
+	margin: 0 8px;
+	border: 1px solid rgb(210, 210, 210);
+	border-radius: 50%;
+	background-color: white;
+	color: rgb(150, 150, 150);
+	font-size: 16px;
+	text-align: center;
+}
+.pagenation ul li a.active {
+	border: 1px solid transparent;
+	background-color: rgb(210, 40, 40);
+	color: white;
+}
+.pagenation ul li a:hover {
+	background-color: rgb(230, 230, 230);
+}

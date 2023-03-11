@@ -26,6 +26,6 @@ public interface MemberService {
 	public void modifyMember(Member member);
 	
 	//회원삭제
-	public void removeMember(int id);
+	public void deleteMember(int id);
 	
 }

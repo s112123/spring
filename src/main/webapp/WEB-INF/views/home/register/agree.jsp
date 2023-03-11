@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<div class="container container-ctr">
+<div class="container flex-ctr">
 	<div class="agree-box">
 		<h2>약관동의</h2>
 		<div class="agree-item">
@@ -106,6 +106,5 @@
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
 <script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
 <script type="text/javascript" src="${contextPath}/resources/js/home/agree.js"></script>
 

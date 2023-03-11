@@ -25,22 +25,20 @@ public class MemberController {
 
 	//약관동의 페이지
 	@GetMapping("/agree")
-	public String agree() {
+	public String agreeGET() {
 		return "home.register.agree";
 	}
 	
 	//회원가입 페이지
 	@GetMapping("/register")
-	public String register(Model model, String agree) {
+	public String registerGET(Model model, String agree) {
 		model.addAttribute("agree", agree);
 		return "home.register.register";
 	}
 	
-	
-	/*
 	//전체회원조회
-	@GetMapping("/members")
-	public String members(
+	@GetMapping("/member/list")
+	public String memberListGET(
 			Model model,
 			@RequestParam(value="page", required=false) String page,
 			Pagenation pagenation) {
@@ -57,9 +55,23 @@ public class MemberController {
 		model.addAttribute("members", members);
 		model.addAttribute("pagenation", pagenation);
 		
-		return "admin.member.members";
+		return "admin.member.memberlist";
 	}
 	
+	//회원정보
+	@GetMapping("/member/info")
+	public String memberInfoGET() {
+		return "admin.member.memberinfo";
+	}
+	
+	//회원삭제
+	@GetMapping("/member/delete")
+	public String deleteMemberGET(int id) {
+		memberService.deleteMember(id);
+		return "redirect:/member/list";
+	}
+	
+	/*
 	//등록
 	@PostMapping("/member/add")
 	public String addMember(Member member) {
@@ -84,13 +96,6 @@ public class MemberController {
 		memberService.modifyMember(member);
 		model.addAttribute("member", member);
 		return "redirect:/member";
-	}
-	
-	//삭제
-	@GetMapping("/member/remove")
-	public String removeMember(int id) {
-		memberService.removeMember(id);
-		return "redirect:/members";
 	}
 	*/
 	

@@ -32,8 +32,10 @@
 						<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
 					</td>
 					<td>
-						<a href="#" onclick="openInfoModal(800, 520, ${member.id});"><i class="fa-solid fa-pen-to-square"></i></a>
-						<a href="#" onclick="removeMember(${member.id});"><i class="fa-solid fa-trash-can"></i></a>
+						<%-- 수정버튼 --%>
+						<a href="/member/info?id=${member.id}"><i class="fa-solid fa-pen-to-square"></i></a>
+						<%-- 삭제버튼 --%>
+						<a href="#" onclick="deleteMember(${member.id});"><i class="fa-solid fa-trash-can"></i></a>
 					</td>
 				</tr>	
 			</c:forEach>	
@@ -49,11 +51,14 @@
 			<input type="text" name="search-keyword" placeholder="검색어 입력" />
 			<button type="button">검색</button>
 		</div>
+		<div>
+			<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />
+		</div>
 	</div>
-	<%--
-	<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />
-	 --%>
 </div>
+<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
+<script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/admin/memberlist.js"></script>
 
 <!-- 
 <div id="info-modal">
@@ -114,13 +119,6 @@
 </div>
  -->
 
-
-
-
-
-
-
-
 <%--
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
 <script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
@@ -135,14 +133,6 @@
 			form.submit();
 		});
 	}
-	
-	//회원삭제
-	function removeMember(id) {
-		openModal(350, 115, '삭제하시겠습니까?', true);
-		document.getElementById('modal-confirm-btn').addEventListener('click', function() {
-			location.href = '/member/remove?id=' + id;
-		});
-	}	
 	
 	const infoModal = document.getElementById('info-modal');
 	const infoModalBox = document.getElementById('info-modal-box');

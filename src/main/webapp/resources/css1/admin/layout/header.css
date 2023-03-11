@@ -1,5 +1,0 @@
-@charset "UTF-8";
-#admin-header-box {width: 1690px; padding: 30px 20px; margin: 0 auto;}
-#admin-header-box ul li {margin-left: 30px;}
-#admin-header-box ul li a {color: rgb(150, 150, 150);	font-size: 16px;}
-#admin-header-box ul li a:hover {color: rgb(210, 40, 40);	transition: 1s;}

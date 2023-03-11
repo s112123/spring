@@ -27,7 +27,7 @@
 		<tiles:insertAttribute name="header" />
 	</header>
 	<main>
-		<div class="container container-ctr">
+		<div class="container flex-fs">
 			<tiles:insertAttribute name="aside" />
 			<tiles:insertAttribute name="main" />
 		</div>

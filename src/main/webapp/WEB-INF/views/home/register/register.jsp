@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<div class="container container-ctr">
+<div class="container flex-ctr">
 	<div class="form-box">
 		<h2>회원가입</h2>
 		<form action="/member/add" method="post" id="registerForm">

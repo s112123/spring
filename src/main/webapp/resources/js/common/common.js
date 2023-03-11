@@ -1,4 +1,5 @@
-//전체선택
+/* ---------- COMMON ---------- */
+//항목전체선택
 function checkAll(selectedItem) {
 	let items = document.querySelectorAll('input[name="selectedItem"]');
 	items.forEach((item) => {

@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div class="pagenation flex justify-ctr align-items-ctr">
-	<ul class="flex justify-ctr align-items-ctr">
+<div class="pagenation">
+	<ul>
 		<%-- 이전 버튼 --%>
 		<c:if test="${pagenation.prev}">
 			<li>
