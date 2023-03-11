@@ -15,20 +15,26 @@ public class CartServiceImpl implements CartService {
 	CartRepository cartRepository;
 	
 	//전체목록
-	public List<Cart> getCartByEmail(String email) {
+	public List<Cart> getItemsInCartByEmail(String email) {
 		List<Cart> cart = cartRepository.selectAllByEmail(email);
 		return cart;
 	}
 	
 	//수량수정
 	@Override
-	public void modifyCartForQty(Cart cart) {
+	public void updateItemForQty(Cart cart) {
 		cartRepository.updateOneForQty(cart);	
 	}
 	
-	//제품삭제
-	public void removeCart(int id) {
+	//개별삭제
+	public void deleteItemInCart(int id) {
 		cartRepository.deleteOne(id);
+	}
+	
+	//일괄삭제
+	@Override
+	public void deleteItemsInCart(String[] ids) {
+		cartRepository.deleteAllById(ids);
 	}
 	
 }

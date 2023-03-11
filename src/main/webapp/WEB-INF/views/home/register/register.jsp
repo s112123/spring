@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<div class="container flex justify-ctr align-items-ctr">
+    
+<div class="container container-ctr">
 	<div class="form-box">
 		<h2>회원가입</h2>
 		<form action="/member/add" method="post" id="registerForm">
@@ -46,4 +46,4 @@
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
 <script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/js/home/register/register.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/home/register.js"></script>

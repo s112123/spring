@@ -10,7 +10,7 @@ public class LogoutController {
 
 	//로그아웃
 	@GetMapping("/logout")
-	public String logout(HttpSession session) {
+	public String logoutGET(HttpSession session) {
 		session.invalidate();
 		return "redirect:/";
 	}

@@ -8,8 +8,8 @@ public class AdminController {
 	
 	//관리자 페이지
 	@GetMapping("/admin")
-	public String admin() {
-		return "redirect:/members";
+	public String adminGET() {
+		return "admin.member.memberlist";
 	}
 	
 }

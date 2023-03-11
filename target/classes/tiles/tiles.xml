@@ -22,6 +22,7 @@
 	<!-- ADMIN LAYOUT -->
 	<definition name="adminLayout" template="/WEB-INF/views/admin/layout/layout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/admin/layout/header.jsp" />
+		<put-attribute name="aside" value="/WEB-INF/views/admin/layout/aside.jsp" />
 		<put-attribute name="main" value="" />
 	</definition>
 	<definition name="admin.*.*" extends="adminLayout">

@@ -26,9 +26,15 @@ public class CartRepository {
 		return result;
 	}
 	
-	//제품삭제
+	//개별삭제
 	public int deleteOne(int id) {
 		int result = sqlSession.delete("cart.deleteOne", id);
+		return result;
+	}
+	
+	//일괄삭제
+	public int deleteAllById(String[] ids) {
+		int result = sqlSession.delete("cart.deleteAllById", ids);
 		return result;
 	}
 	

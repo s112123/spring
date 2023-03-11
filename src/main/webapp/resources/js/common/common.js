@@ -1,7 +1,7 @@
 //전체선택
-function checkAll(checkedBox) {
-	let items = document.querySelectorAll('input[name="selectItem[]"]');
+function checkAll(selectedItem) {
+	let items = document.querySelectorAll('input[name="selectedItem"]');
 	items.forEach((item) => {
-		item.checked = checkedBox.checked;
+		item.checked = selectedItem.checked;
 	});
 }

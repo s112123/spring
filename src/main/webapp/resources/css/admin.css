@@ -1,0 +1,78 @@
+/* ---------- LAYOUT ---------- */
+.main-content {
+	width: 1450px;
+	height: 100vh;
+	padding-top: 50px;
+	padding-left: 50px;
+	border-left: 1px solid #ccc;
+}
+.main-content h2 {
+	margin-bottom: 40px;
+}
+
+
+/* ---------- TABLE BOTTOM LAYOUT ---------- */
+.main-content>.bottom {
+	margin: 15px 0 20px 0;
+	float: right;
+}
+.main-content>.bottom button,
+.main-content>.bottom select,
+.main-content>.bottom input {
+	height: 30px;
+	padding: 3px 5px;
+}
+.main-content>.bottom .search select {
+	width: 90px;
+}
+.main-content>.bottom .search input {
+	width: 150px;
+	padding-left: 10px;
+}
+.main-content>.bottom .search button {
+	width: 65px;
+	border: 1px solid rgb(210, 40, 40);
+	background-color: rgb(210, 40, 40);
+	color: white;
+}
+.main-content>.bottom input[name="search-keyword"]::placeholder {
+	color: #bbb;
+	font-size: 13px;
+}
+
+
+/* ---------- MEMBER LIST PAGE ---------- */
+.member-list td:nth-child(1) { /* 번호 */
+	width: 8%;	
+}
+.member-list td:nth-child(2) { /* 이메일 */
+	width: 15%;
+}
+.member-list td:nth-child(3) { /* 이름 */
+	width: 10%;	
+}
+.member-list td:nth-child(4) { /* 연락처 */
+	width: 12%;	
+}
+.member-list td:nth-child(5) { /* 주소 */
+	text-align: left;
+}
+.member-list td:nth-child(6) { /* 등급 */
+	width: 10%;	
+}
+.member-list td:nth-child(7) { /* 가입일 */
+	width: 12%;
+}
+.member-list td:nth-child(8) { /* 수정/삭제 */
+	width: 6%;	
+	padding: 0 3px;
+}
+.member-list td:nth-child(8) a {
+	color: rgb(170, 170, 170);
+	font-size: 16px;
+	margin: 0 5px;
+}
+.member-list td:nth-child(8) a:hover {
+	color: rgb(210, 40, 40);
+	transition: 1s;
+}

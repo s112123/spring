@@ -1,0 +1,306 @@
+/* ---------- INDEX PAGE ---------- */
+.banner {
+	height: 700px;
+	border: 1px solid tomato;
+}
+
+/* ---------- LOGIN PAGE, REGISTER PAGE ---------- */
+.form-box {
+	width: 500px; 
+	padding: 55px 50px;
+	margin: 200px 0;
+	box-shadow: 0 0 5px rgb(150, 150, 150); 
+	border-radius: 8px;
+}
+.form-box h2 {
+	margin-bottom: 40px;
+}
+.form-box .form-item {
+	margin-bottom: 15px;
+}
+.form-box .form-item label {
+	font-size: 16px; 
+	font-weight: bold;
+}	
+.form-box .form-item input {
+	width: 100%;
+	height: 40px;
+	padding: 5px 15px;
+	margin: 10px 0 5px 0; 
+	font-size: 15px;
+}
+.form-item small {
+	color: rgb(210, 40, 40); 
+	font-size: 14px;
+	display: none;
+}
+.form-chk input {
+	position: relative;
+	top: 1px;
+}
+.form-chk span {
+	font-size: 14px; 
+	font-weight: bold;
+}
+.form-btn button {
+	width: 100%;
+	height: 40px;
+	margin-top: 30px; 
+	border: 1px solid rgb(210, 40, 40);
+	background-color: rgb(210, 40, 40); 
+	color: #fff; 
+	font-size: 16px;
+	font-weight: bold;
+}
+#addr1 {
+	margin-bottom: 2px;
+}
+#addr2 {
+	margin-top: 2px;
+}
+
+
+/* ---------- AGREE PAGE ---------- */
+.agree-box {
+	width: 500px; 
+	padding: 55px 50px;
+	margin: 200px 0;
+	box-shadow: 0 0 5px rgb(150, 150, 150); 
+	border-radius: 8px;
+}
+.agree-box h2 {
+	margin-bottom: 40px;
+}
+.agree-item {
+	padding: 12px 25px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	font-size: 17px;
+	font-weight: bold;
+}
+.agree-item input {
+	margin-right: 5px;
+}
+.agree-chk {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.agree-chk small {
+	color: rgb(210, 40, 40);
+	font-size: 12px;
+}
+.agree-chk .show-content-btn,
+.agree-chk .hide-content-btn {
+	width: 25px;
+	height: 25px;
+	background-color: transparent;
+	border: 1px solid #ccc;
+	/* border-radius: 50%; */
+	color: #ccc;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+.agree-chk .show-content-btn i {
+	border: 1px solid blue;
+}
+.agree-chk .hide-content-btn {
+	border: 1px solid rgb(210, 40, 40);
+	color: rgb(210, 40, 40);
+	display: none;
+}
+.agree-chk .show-content-btn:hover {
+	border: 1px solid rgb(210, 40, 40);
+	color: rgb(210, 40, 40);
+	transition: 1s;
+}
+.agree-content {
+	width: 100%;	
+	height: 200px;
+	line-height: 18px;
+	padding: 10px;
+	margin-top: 15px;
+	background-color: rgba(230, 230, 230, 0.1);
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	font-size: 14px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	display: none;
+}
+.agree-content::-webkit-scrollbar {
+	width: 8px;
+}
+.agree-content::-webkit-scrollbar-thumb {
+	background-color: rgba(210, 40, 40, 0.5);
+	border-radius: 100px;
+}
+
+
+/* ---------- PRODUCT LIST PAGE ---------- */
+.product-box {
+	margin: 100px 0;
+}
+.product-category {
+	margin: 50px 0;
+	padding-bottom: 10px;
+	border-bottom: 2px solid rgb(52, 52, 54);
+}
+.product-item-box {
+	display: grid;
+	grid-template-columns: repeat(5, 300px);
+	grid-column-gap: 37.5px;	
+}
+.product-item {
+	width: 300px;
+}
+.product-item .product-info {
+	width: 100%;
+	height: 350px;
+	position: relative;
+	overflow: hidden;
+}
+.product-item .product-info .product-detail {
+	width: 100%;
+	height: 100%;
+	padding: 40px 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+	position: absolute;
+	top: 350px;
+	opacity: 0;
+	z-index: 10;
+	transition: all 0.7s ease-in-out;
+}
+.product-info:hover .product-detail {
+	opacity: 1;
+	transform: translateY(-350px);
+	border: 1px solid #eee;
+}
+.product-detail-title {
+	width: 100%;
+	padding-bottom: 5px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid rgb(52, 52, 54);
+	font-size: 20px;
+	font-weight: bold;
+}
+.product-detail-desc {
+	width: 100%;
+	height: 80px;
+	word-break: break-all;
+	color: rgb(80, 80, 80);
+	font-size: 16px;
+	text-align: center;
+}
+.product-detail-info {
+	margin: 24px 0;
+	color: rgb(80, 80, 80);
+}
+.product-detail-info small {
+	display: inline-block;
+	margin: 3px 0;
+	font-size: 14px;
+}
+.product-detail-info small strong {
+	font-weight: bold;
+}
+.product-info .add-cart-btn {
+	width: 40px;
+	height: 40px;
+	border: 1px solid rgb(210, 40, 40);
+	border-radius: 3px;
+	background-color: transparent;
+	color: rgb(210, 40, 40);
+	font-size: 18px;
+	float: right;
+}
+.product-item .product-title {
+	width: 100%;
+	padding: 15px 0 12px 0;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+.product-price {
+	width: 100%;
+	margin-bottom: 100px;
+	font-size: 16px;
+	text-align: center
+}
+
+
+/* ---------- CART PAGE ---------- */
+.cart-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cart-box {
+	width: 1250px;
+	padding-top: 50px;
+	padding-bottom: 500px;
+}
+.cart-box h2 {
+	margin-bottom: 30px;
+}
+.cart-box table td:nth-child(1) { /* 체크박스 */
+	width: 6%;
+}
+.cart-box table td:nth-child(2) { /* 상품명 */
+	width: 60%;
+}
+.cart-box table td:nth-child(3) input { /* 수량 */
+	width: 70px;
+	height: 27px;
+	vertical-align: middle;
+	border: 1px solid  rgb(120, 120, 120);
+	border-radius: 5px;
+	text-align: center;
+}
+input[type=number]::-webkit-inner-spin-button {
+  	opacity: 1;
+}
+.cart-box table td:nth-child(3) button {
+	width: 40px;
+	height: 27px;
+	margin-left: 3px;
+	font-size: 13px;
+	vertical-align: middle;
+}
+.cart-box table td:nth-child(4) { /* 금액 */
+	width: 15%
+}
+.cart-box table td:nth-child(5) { /* 삭제버튼 */
+	width: 6%;	
+}
+.cart-box table td:nth-child(5) a {
+	color: rgb(170, 170, 170);
+	font-size: 16px;	
+}
+.cart-box table td:nth-child(5) a:hover {
+	color: rgb(210, 40, 40);
+	transition: 1s;	
+}
+.cart-box-bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.order-total {
+	font-weight: bold;
+}
+.cart-order-btn {
+	margin-top: 20px;
+	text-align: right;
+}
+.cart-order-btn button {
+	margin-right: 3px;
+	border: 1px solid rgb(210, 40, 40);
+	background-color: rgb(210, 40, 40);
+	color: white;
+}
+
+

@@ -7,7 +7,7 @@ const modalContent = document.getElementById('modal-content');
 function closeModal() {
 	//모달 닫기
 	modal.style.display = 'none';
-	//모달이 닫혔을 때, body 부분 스크롤 복구여부
+	//모달이 닫혔을 때, body 부분 스크롤 복구
 	document.body.style.overflow = 'auto';	
 }
 
@@ -25,7 +25,7 @@ function showModal(isCancelBtn, msg, width, height) {
 	if(msg !== null) {
 		modalHeader.style.display = 'none';	
 		modalBox.style.width = '350px';
-		modalBox.style.height = (msg.indexOf('<br />') == -1) ? '115px' : '140px';
+		modalBox.style.height = (msg.indexOf('<br />') == -1) ? '130px' : '150px';
 		
 		let content = '';
 		content += '<p id="modal-message">' + msg + '</p>';
@@ -34,7 +34,7 @@ function showModal(isCancelBtn, msg, width, height) {
 			content += '  <button id="modal-confirm-btn">확인</button>';
 			content += '  <button class="modal-close-btn" onclick="closeModal()">닫기</button>';			
 		} else {
-			content += '  <button class="modal-close-btn" onclick="closeModal()">확인</button>';
+			content += '  <button id="modal-confirm-btn" onclick="closeModal()">확인</button>';
 		}
 		content += '</div>';
 		

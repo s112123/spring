@@ -22,10 +22,20 @@
 		WHERE id=#{id}
 	</update>
 	
-	<!-- 제품삭제 -->
+	<!-- 개별삭제 -->
 	<delete id="deleteOne">
 		DELETE FROM
 			cart
 		WHERE id=#{id}
+	</delete>
+	
+	<!-- 일괄삭제 -->
+	<delete id="deleteAllById">
+		DELETE FROM
+			cart
+		WHERE id IN 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
 	</delete>
 </mapper>

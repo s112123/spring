@@ -19,7 +19,7 @@ import com.spring.app.service.MemberService;
 
 @Controller
 public class MemberController {
-
+	
 	@Autowired
 	private MemberService memberService;
 
@@ -36,6 +36,8 @@ public class MemberController {
 		return "home.register.register";
 	}
 	
+	
+	/*
 	//전체회원조회
 	@GetMapping("/members")
 	public String members(
@@ -66,8 +68,8 @@ public class MemberController {
 	}
 	
 	//상세보기: id
-	@ResponseBody
 	@PostMapping("/member")
+	@ResponseBody
 	public Map<String, Member> getMemberById(@RequestBody Member _member) {
 		//Ajax로 보내온 JSON 데이터(id) -> @RequestBody로 MemberDto의 id값에 자동저장
 		Member member = memberService.getMemberById(_member.getId());
@@ -90,5 +92,6 @@ public class MemberController {
 		memberService.removeMember(id);
 		return "redirect:/members";
 	}
+	*/
 	
 }

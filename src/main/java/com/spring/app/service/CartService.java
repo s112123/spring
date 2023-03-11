@@ -7,12 +7,15 @@ import com.spring.app.entity.Cart;
 public interface CartService {
 
 	//전체목록
-	public List<Cart> getCartByEmail(String email);
+	public List<Cart> getItemsInCartByEmail(String email);
 	
 	//수량수정
-	public void modifyCartForQty(Cart cart);
+	public void updateItemForQty(Cart cart);
 	
-	//제품삭제
-	public void removeCart(int id);
+	//개별삭제
+	public void deleteItemInCart(int id);
+	
+	//일괄삭제
+	public void deleteItemsInCart(String[] ids);
 	
 }

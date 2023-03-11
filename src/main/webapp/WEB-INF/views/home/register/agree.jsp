@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<div class="container flex justify-ctr align-items-ctr">
-	<div class="form-box">
+    
+<div class="container container-ctr">
+	<div class="agree-box">
 		<h2>약관동의</h2>
 		<div class="agree-item">
 			<input type="checkbox" onclick="checkAll(this)" />
 			<span>전체 동의</span>
 		</div>
 		<div class="agree-item">
-			<div class="agree-chk flex justify-sb">
+			<div class="agree-chk">
 				<div>
-					<input type="checkbox" name="checked[]" />
+					<input type="checkbox" name="selectedItem" />
 					<span>이용약관 동의</span><small> (필수)</small>
 				</div>
 				<div>
@@ -40,9 +40,9 @@
 			</div>
 		</div>
 		<div class="agree-item">
-			<div class="agree-chk flex justify-sb">
+			<div class="agree-chk">
 				<div>
-					<input type="checkbox" name="checked[]" />
+					<input type="checkbox" name="selectedItem" />
 					<span>개인정보수집 및 이용 동의</span><small> (필수)</small>
 				</div>
 				<div>
@@ -70,9 +70,9 @@
 			</div>
 		</div>
 		<div class="agree-item">
-			<div class="agree-chk flex justify-sb">
+			<div class="agree-chk">
 				<div>
-					<input type="checkbox" name="checked[]" />
+					<input type="checkbox" name="selectedItem" />
 					<span>개인정보 마케팅 활용 동의</span><small style="color:rgb(150, 150, 150)"> (선택)</small>
 				</div>
 				<div>
@@ -107,5 +107,5 @@
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
 <script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
 <script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/js/home/register/agree.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/home/agree.js"></script>
 
