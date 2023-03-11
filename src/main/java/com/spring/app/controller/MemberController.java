@@ -36,7 +36,7 @@ public class MemberController {
 		return "home.register.register";
 	}
 	
-	//전체회원조회
+	//전체회원목록
 	@GetMapping("/member/list")
 	public String memberListGET(
 			Model model,

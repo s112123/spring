@@ -12,8 +12,8 @@ CREATE TABLE product(
 );
 
 -- 더미 데이터
-INSERT INTO product VALUES(NULL, "steak", "steak1", 1000, 100, 1200, "국내산", NOW());
-INSERT INTO product VALUES(NULL, "steak", "steak2", 1200, 100, 1200, "국내산", NOW());
+INSERT INTO product VALUES(NULL, "STEAK", "steak1", 1000, 100, 1200, "국내산", NOW());
+INSERT INTO product VALUES(NULL, "PASTA", "steak2", 1200, 100, 1200, "국내산", NOW());
 SELECT * FROM product ORDER BY id DESC;
 
 INSERT INTO product(category, pname, price, gram, kcal, origin, regdate) (SELECT category, pname, price, gram, kcal, origin, regdate FROM product);

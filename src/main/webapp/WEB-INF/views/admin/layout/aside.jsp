@@ -4,12 +4,16 @@
 <aside>
 	<ul>
 		<li>
-			<span><i class="fa-solid fa-user-gear"></i></span> 
-			<span>회원관리</span>
+			<a href="/member/list">
+				<span><i class="fa-solid fa-user-gear"></i></span> 
+				<span>회원관리</span>
+			</a>
 		</li>
 		<li>
-			<span><i class="fa-solid fa-boxes-stacked"></i></span>
-			<span>상품관리</span> 
+			<a href="/product/list">
+				<span><i class="fa-solid fa-boxes-stacked"></i></span>
+				<span>상품관리</span> 
+			</a>
 		</li>
 		<li>
 			<span><i class="fa-solid fa-truck"></i></span>

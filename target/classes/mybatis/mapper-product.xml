@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product">
+	
+	<!-- 전체목록수 -->
+	<select id="countAll" resultType="int">
+		SELECT 
+			COUNT(id) 
+		FROM 
+			product
+	</select>
+	
+	<!-- 전체상품목록 -->
+	<select id="selectAll" resultType="com.spring.app.entity.Product">
+		SELECT
+			id, category, pname, price, gram, kcal, origin, regdate
+		FROM 
+			product 
+		ORDER BY id DESC
+		LIMIT #{skip}, #{size}
+	</select>
+	
+	<!-- 상품정보 -->
+	<select id="selectOneById" resultType="com.spring.app.entity.Product">
+		SELECT
+			id, category, pname, price, gram, kcal, origin, regdate
+		FROM 
+			product 
+		WHERE id=#{id}
+	</select>
+	
+	<!-- 상품등록 -->
+	<insert id="insertOne">
+		INSERT INTO
+			product
+		VALUE
+			(NULL, #{category}, #{pname}, #{price}, #{gram}, #{kcal}, #{origin}, NOW())
+	</insert>
+	
+	<!-- 상품수정 -->
+	<update id="updateOne">
+		UPDATE
+			product
+		SET
+			category=#{category}, pname=#{pname}, price=#{price}, gram=#{gram}, kcal=#{kcal}, origin=#{origin}
+		WHERE id=#{id}
+	</update>
+	
+	<!-- 상품삭제 -->
+	<delete id="deleteOne">
+		DELETE FROM
+			product
+		WHERE id=#{id}
+	</delete>
+	
+</mapper>

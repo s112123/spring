@@ -21,6 +21,10 @@
 	height: 30px;
 	padding: 3px 5px;
 }
+.main-content>.bottom>button {
+	border: 1px solid rgb(210, 40, 40);
+	color: rgb(210, 40, 40);
+}
 .main-content>.bottom .search {
 	float: right;
 }
@@ -101,11 +105,14 @@
 	font-size: 16px;
 }
 .infomation-item .title {
-	width: 20%;
+	width: 25%;
 	font-weight: bold;
 }
+.infomation-item .title small {
+	font-size: 13px;
+}
 .infomation-item .content {
-	width: 80%;
+	width: 75%;
 }
 .infomation-item input {
 	width: 100%;
@@ -130,4 +137,49 @@
 }
 .infomation-btn button {
 	margin-left: 5px;
+}
+.infomation-btn button:nth-child(1) {
+	border: 1px solid rgb(210, 40, 40);
+	background-color: rgb(210, 40, 40);
+	color: white;
+}
+
+
+/* ---------- PRODUCT LIST PAGE ---------- */
+.product-list td:nth-child(1) { /* 번호 */
+	width: 8%;	
+}
+.product-list td:nth-child(2) { /* 구분 */
+	width: 8%;
+}
+.product-list td:nth-child(3) { /* 상품명 */
+	text-align: left;
+}
+.product-list td:nth-child(4) { /* 가격 */
+	width: 8%;	
+}
+.product-list td:nth-child(5) { /* 용량 */
+	width: 8%;
+}
+.product-list td:nth-child(6) { /* 칼로리 */
+	width: 8%;	
+}
+.product-list td:nth-child(7) { /* 원산지 */
+	width: 8%;
+}
+.product-list td:nth-child(8) { /* 등록일 */
+	width: 12%;
+}
+.product-list td:nth-child(9) { /* 수정/삭제 */
+	width: 8%;	
+	padding: 0 3px;
+}
+.product-list td:nth-child(9) a {
+	color: rgb(170, 170, 170);
+	font-size: 16px;
+	margin: 0 5px;
+}
+.product-list td:nth-child(9) a:hover {
+	color: rgb(210, 40, 40);
+	transition: 1s;
 }
