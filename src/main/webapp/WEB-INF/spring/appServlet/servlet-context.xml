@@ -37,7 +37,16 @@
 		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
 		<beans:property name="order" value="1" />
 	</beans:bean>	
-		
+	
+	<!-- MultipartResolver -->
+	<beans:bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<beans:property name="defaultEncoding" value="UTF-8" />
+	<!-- 최대 업로드 크기(byte): 10MB = 10485760 (1024 * 1024 * 10) -->
+	<beans:property name="maxUploadSize" value="10485760" />
+	<!-- 5MB -->
+	<beans:property name="maxInMemorySize" value="5242880" />
+	</beans:bean>
+
 	<context:component-scan base-package="com.spring.app" />
 
 </beans:beans>

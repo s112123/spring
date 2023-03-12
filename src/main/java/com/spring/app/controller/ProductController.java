@@ -1,6 +1,10 @@
 package com.spring.app.controller;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
+
+import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.spring.app.entity.Pagenation;
 import com.spring.app.entity.Product;
@@ -18,6 +23,8 @@ public class ProductController {
 	
 	@Autowired
 	ProductService productService;
+	@Autowired
+	ServletContext context;
 	
 	//상품 페이지
 	@GetMapping("/product")
@@ -50,7 +57,6 @@ public class ProductController {
 	//상품정보
 	@GetMapping("/product/info")
 	public String productInfoGET(Model model, @RequestParam(value="id", required=false) String _id) {
-		System.out.println(_id);
 		int id = 0;
 		if(_id != null) {
 			id = Integer.parseInt(_id);
@@ -64,7 +70,26 @@ public class ProductController {
 	
 	//상품등록
 	@PostMapping("/product/insert")
-	public String insertProduct(Product product) {
+	public String insertProduct(Product product, @RequestParam(value="attached", required=false) MultipartFile imgFile) {
+		//업로드 폴더 경로
+		//D:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\app\
+		String uploadDirPath = context.getRealPath("/") + "resources\\upload\\images";
+		
+		//업로드 폴더 없으면 생성
+		File uploadDir = new File(uploadDirPath);
+		if(!uploadDir.exists()) uploadDir.mkdirs();
+		
+		//파일 업로드
+		String uploadFileName = UUID.randomUUID().toString() + "_" + imgFile.getOriginalFilename();
+		if(imgFile.getSize() > 0) {
+			try {
+				imgFile.transferTo(new File(uploadDir + File.separator + uploadFileName));
+				product.setImg(uploadFileName);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 		productService.insertProduct(product);
 		return "redirect:/product/list";
 	}

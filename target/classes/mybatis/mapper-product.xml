@@ -13,7 +13,7 @@
 	<!-- 전체상품목록 -->
 	<select id="selectAll" resultType="com.spring.app.entity.Product">
 		SELECT
-			id, category, pname, price, gram, kcal, origin, regdate
+			id, category, pname, price, gram, kcal, origin, img, regdate
 		FROM 
 			product 
 		ORDER BY id DESC
@@ -23,7 +23,7 @@
 	<!-- 상품정보 -->
 	<select id="selectOneById" resultType="com.spring.app.entity.Product">
 		SELECT
-			id, category, pname, price, gram, kcal, origin, regdate
+			id, category, pname, price, gram, kcal, origin, img, regdate
 		FROM 
 			product 
 		WHERE id=#{id}
@@ -34,7 +34,7 @@
 		INSERT INTO
 			product
 		VALUE
-			(NULL, #{category}, #{pname}, #{price}, #{gram}, #{kcal}, #{origin}, NOW())
+			(NULL, #{category}, #{pname}, #{price}, #{gram}, #{kcal}, #{origin}, #{img}, NOW())
 	</insert>
 	
 	<!-- 상품수정 -->
@@ -42,7 +42,7 @@
 		UPDATE
 			product
 		SET
-			category=#{category}, pname=#{pname}, price=#{price}, gram=#{gram}, kcal=#{kcal}, origin=#{origin}
+			category=#{category}, pname=#{pname}, price=#{price}, gram=#{gram}, kcal=#{kcal}, origin=#{origin}, img=#{img}
 		WHERE id=#{id}
 	</update>
 	

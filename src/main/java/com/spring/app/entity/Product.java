@@ -11,11 +11,12 @@ public class Product {
 	private int gram;					//용량
 	private int kcal;					//칼로리
 	private String origin;				//원산지
+	private String img;					//상품이미지 파일
 	private LocalDateTime regdate;		//등록일
 	
 	public Product() {}
 
-	public Product(int id, String category, String pname, int price, int gram, int kcal, String origin,
+	public Product(int id, String category, String pname, int price, int gram, int kcal, String origin, String img,
 			LocalDateTime regdate) {
 		this.id = id;
 		this.category = category;
@@ -24,6 +25,7 @@ public class Product {
 		this.gram = gram;
 		this.kcal = kcal;
 		this.origin = origin;
+		this.img = img;
 		this.regdate = regdate;
 	}
 
@@ -81,6 +83,14 @@ public class Product {
 
 	public void setOrigin(String origin) {
 		this.origin = origin;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public LocalDateTime getRegdate() {

@@ -5,8 +5,7 @@
 <div class="main-content">
 	<h2>상품정보</h2>
 	<div class="infomation-box">
-		<form method="post" id="form">
-			<!--  <input type="hidden" name="id" value="${product.id}" /> -->
+		<form method="post" id="form" enctype="multipart/form-data">
 			<div class="infomation-item">
 				<div class="item-left">
 					<div class="title">구분</div>
@@ -43,6 +42,14 @@
 					<div class="content"><input type="number" name="kcal" value="${product.kcal}" min="1" /></div>
 				</div>
 			</div>
+			<div class="infomation-item">
+				<div class="item-left">
+					<div class="title">상품이미지</div>
+					<div class="content"><input type="file" name="attached" /></div>
+				</div>
+				<div class="item-right">
+				</div>
+			</div>			
 			<div class="infomation-btn">
 				<c:choose>
 					<c:when test="${id == 0}">
