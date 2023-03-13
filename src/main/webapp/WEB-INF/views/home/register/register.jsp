@@ -8,37 +8,37 @@
 			<input type="hidden" value="${agree}" />
 			<div class="form-item">
 				<label>이메일</label>
-				<input type="text" class="item-info" name="email" maxlength="40" />
+				<input type="text" class="item-info" name="email" id="email" maxlength="40" />
 				<small></small>
 			</div>
 			<div class="form-item">
 				<label>비밀번호</label>
-				<input type="text" class="item-info" name="passwd" maxlength="12" />
+				<input type="text" class="item-info" name="passwd" id="passwd" maxlength="12" />
 				<small></small>
 			</div>
 			<div class="form-item">
 				<label>비밀번호 확인</label>
-				<input type="text" class="item-info" maxlength="12" />
+				<input type="text" class="item-info" id="repasswd" maxlength="12" />
 				<small></small>
 			</div>
 			<div class="form-item">
 				<label>이름</label>
-				<input type="text" class="item-info" name="username" maxlength="20" />
+				<input type="text" class="item-info" name="username" id="username" maxlength="20" />
 				<small></small>
 			</div>
 			<div class="form-item">
 				<label>전화번호</label>
-				<input type="text" class="item-info" name="phone" maxlength="13" />
+				<input type="text" class="item-info" name="phone" id="phone" maxlength="11" />
 				<small></small>
 			</div>
 			<div class="form-item">
 				<label>주소</label>
-				<input type="text" class="item-info" id="addr1" name="addr1" placeholder="주소검색" readonly maxlength="100" />
-				<input type="text" id="addr2" name="addr2" placeholder="상세주소" maxlength="100"/>
+				<input type="text" class="item-info" name="addr1" id="addr1" placeholder="주소검색" readonly maxlength="100" />
+				<input type="text" name="addr2" id="addr2" placeholder="상세주소" maxlength="100"/>
 				<small></small>
 			</div>
 			<div class="form-btn">
-				<button type="submit" name="submit" value="insert">회원가입</button>
+				<button type="submit">회원가입</button>
 			</div>
 		</form>
 	</div>

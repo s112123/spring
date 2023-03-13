@@ -17,8 +17,8 @@ frmLogin.addEventListener('submit', function(e) {
 		contentType: 'application/json',
 		dataType: 'json',
 		data: JSON.stringify(datas),
-		success: function(map) {
-			let message = map.message;
+		success: function(result) {
+			let message = result.message;
 			switch(message) {
 				case 'emptyE': 
 					showMessage(email, "이메일을 입력하세요"); break;
