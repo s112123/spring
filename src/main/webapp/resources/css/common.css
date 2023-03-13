@@ -27,6 +27,9 @@ input::placeholder {
 	color: #bbb;
 	font-size: 14px;
 }
+input[type=number]::-webkit-inner-spin-button {
+  	opacity: 1;
+}
 select {
 	border: 1px solid #ccc;
 	border-radius: 3px;	
@@ -100,6 +103,9 @@ header .navbar {
 	justify-content: space-between;
 	align-items: center;
 }
+header>.container {
+	padding: 20px;
+}
 header .navbar li {
 	margin-left: 25px;
 	font-size: 16px;
@@ -111,9 +117,20 @@ header .navbar li a:hover {
 	color: rgb(210, 40, 40);
 	transition: 1s;	
 }
-header .main-nav li {
+header #main-nav li {
 	margin: 0 60px;
 	font-size: 20px;
+	position: relative;
+}
+header #main-nav li div{
+	margin-bottom: 5px;
+}
+header #main-nav li>span  {
+	width: 100%;
+	border: 1.5px solid rgb(210, 40, 40);
+	position: absolute;
+	top: 100; left: 0; bottom: 0;
+	transition: 0.4s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 

@@ -5,7 +5,7 @@
 <div class="main-content">
 	<h2>상품정보</h2>
 	<div class="infomation-box">
-		<form method="post" id="form" enctype="multipart/form-data">
+		<form method="post" id="product-form" enctype="multipart/form-data">
 			<div class="infomation-item">
 				<div class="item-left">
 					<div class="title">구분</div>
@@ -44,10 +44,12 @@
 			</div>
 			<div class="infomation-item">
 				<div class="item-left">
-					<div class="title">상품이미지</div>
-					<div class="content"><input type="file" name="attached" /></div>
+					<div class="title">상품설명</div>
+					<div class="content"><input type="text" name="description" /></div>
 				</div>
 				<div class="item-right">
+					<div class="title">상품이미지</div>
+					<div class="content"><input type="file" name="attached" /></div>				
 				</div>
 			</div>			
 			<div class="infomation-btn">

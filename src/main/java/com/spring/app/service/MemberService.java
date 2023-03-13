@@ -17,13 +17,13 @@ public interface MemberService {
 	public Member getMemberByEmail(String email);
 	
 	//회원등록
-	public void addMember(Member member);
+	public void insertMember(Member member);
 	
 	//회원정보
 	public Member getMemberById(int id);
 	
 	//회원수정
-	public void modifyMember(Member member);
+	public void updateMember(Member member);
 	
 	//회원삭제
 	public void deleteMember(int id);

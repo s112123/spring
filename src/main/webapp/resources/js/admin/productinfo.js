@@ -1,4 +1,4 @@
-const form = document.getElementById('form');
+const form = document.getElementById('product-form');
 form.addEventListener('submit', function(e) {
 	e.preventDefault();
 	//유효성검사 필요 => submit();

@@ -1,3 +1,14 @@
+//button[name=button]을 클릭한 경우
+const btns = document.getElementsByName('button');
+btns.forEach(function(btn) {
+	btn.addEventListener('click', function() {
+		switch(btn.value) {
+			case 'next': 
+				validateAgreeForm();
+		}
+	});
+});
+
 //유효성 검사
 function validateAgreeForm() {
 	const chkBoxs = document.querySelectorAll('input[name="selectedItem"]');
@@ -18,7 +29,7 @@ function validateAgreeForm() {
 		}
 	}	
 
-	location.href='/register?agree=' + (chkBoxs[chkBoxs.length-1].checked ? 'Y' : 'N');
+	location.href='/member/register?agree=' + (chkBoxs[chkBoxs.length-1].checked ? 'Y' : 'N');
 }
 
 //약관내용보기

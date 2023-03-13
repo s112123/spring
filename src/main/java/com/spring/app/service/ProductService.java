@@ -11,7 +11,10 @@ public interface ProductService {
 	public int getTotalProducts();
 	
 	//전체상품목록
-	public List<Product> getAllProducts(Pagenation pagenation);
+	public List<Product> getProducts(Pagenation pagenation);
+	
+	//전체상품목록: 카테고리별
+	public List<Product> getProductsByCategory(String category);
 	
 	//상품정보
 	public Product getProductById(int id);

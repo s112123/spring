@@ -1,10 +1,10 @@
 /* ---------- INDEX PAGE ---------- */
-.banner {
+.banner {	/* 이미지: 1650x700 */
 	height: 700px;
 	border: 1px solid tomato;
 }
 
-/* ---------- LOGIN PAGE, REGISTER PAGE ---------- */
+/* ---------- LOGIN, AGREE, REGISTER PAGE DEFAULT ---------- */
 .form-box {
 	width: 500px; 
 	padding: 55px 50px;
@@ -52,6 +52,9 @@
 	font-size: 16px;
 	font-weight: bold;
 }
+
+
+/* ---------- REGISTER PAGE ---------- */
 #addr1 {
 	margin-bottom: 2px;
 }
@@ -79,6 +82,9 @@
 	font-size: 17px;
 	font-weight: bold;
 }
+.agree-item .agree-content {
+	font-weight: 400;
+}
 .agree-item input {
 	margin-right: 5px;
 }
@@ -97,15 +103,15 @@
 	height: 25px;
 	background-color: transparent;
 	border: 1px solid #ccc;
-	/* border-radius: 50%; */
+	border-radius: 50%;
 	color: #ccc;
 	font-size: 13px;
 	font-weight: bold;
 	text-align: center;
 	vertical-align: middle;
-}
-.agree-chk .show-content-btn i {
-	border: 1px solid blue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .agree-chk .hide-content-btn {
 	border: 1px solid rgb(210, 40, 40);
@@ -154,7 +160,7 @@
 	grid-template-columns: repeat(5, 300px);
 	grid-column-gap: 37.5px;	
 }
-.product-item {
+.product-item { /* 이미지: 300x350 */
 	width: 300px;
 }
 .product-item .product-info {
@@ -259,9 +265,6 @@
 	border: 1px solid  rgb(120, 120, 120);
 	border-radius: 5px;
 	text-align: center;
-}
-input[type=number]::-webkit-inner-spin-button {
-  	opacity: 1;
 }
 .cart-box table td:nth-child(3) button {
 	width: 40px;

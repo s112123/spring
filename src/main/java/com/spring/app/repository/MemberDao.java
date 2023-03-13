@@ -10,7 +10,7 @@ import com.spring.app.entity.Member;
 import com.spring.app.entity.Pagenation;
 
 @Repository
-public class MemberRepository {
+public class MemberDao {
 	
 	@Autowired
 	private SqlSession sqlSession;
@@ -20,7 +20,7 @@ public class MemberRepository {
 		return sqlSession.selectOne("member.countAll");
 	}
 	
-	//전체회원
+	//전체회원목록
 	public List<Member> selectAll(Pagenation pagenation) {
 		List<Member> members = sqlSession.selectList("member.selectAll", pagenation);
 		return members;

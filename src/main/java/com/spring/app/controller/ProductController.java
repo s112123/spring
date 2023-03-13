@@ -1,7 +1,10 @@
 package com.spring.app.controller;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
@@ -26,15 +29,24 @@ public class ProductController {
 	@Autowired
 	ServletContext context;
 	
-	//상품 페이지
+	//상품페이지: 카테고리별
 	@GetMapping("/product")
-	public String productGET() {
+	public String productsByCategory(Model model) {
+		Map<String, List<Product>> products = new HashMap<String, List<Product>>();
+		String[] categories = {"STEAK", "PASTA", "BEVERAGE"};
+		
+		for(String category : categories) {
+			List<Product> _products = productService.getProductsByCategory(category);
+			products.put(category.toLowerCase(), _products);
+		}
+		
+		model.addAttribute("products", products);		
 		return "home.product.productlist";
 	}
 	
 	//전체상품목록
 	@GetMapping("/product/list")
-	public String productListGET(
+	public String products(
 			Model model,
 			@RequestParam(value="page", required=false) String page,
 			Pagenation pagenation) {
@@ -46,17 +58,21 @@ public class ProductController {
 		pagenation.setPage(Integer.parseInt(page));
 		
 		//페이징 처리에 따른 목록 조회
-		List<Product> products = productService.getAllProducts(pagenation);
+		List<Product> products = productService.getProducts(pagenation);
+		
+		for(int i=0; i<products.size(); i++) {
+			System.out.println(products.get(i).getRegdate());
+		}
 		
 		model.addAttribute("products", products);
 		model.addAttribute("pagenation", pagenation);
 
-		return "admin.product.productlist";
+		return null;
 	}
 	
 	//상품정보
 	@GetMapping("/product/info")
-	public String productInfoGET(Model model, @RequestParam(value="id", required=false) String _id) {
+	public String product(Model model, @RequestParam(value="id", required=false) String _id) {
 		int id = 0;
 		if(_id != null) {
 			id = Integer.parseInt(_id);
@@ -73,7 +89,7 @@ public class ProductController {
 	public String insertProduct(Product product, @RequestParam(value="attached", required=false) MultipartFile imgFile) {
 		//업로드 폴더 경로
 		//D:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\app\
-		String uploadDirPath = context.getRealPath("/") + "resources\\upload\\images";
+		String uploadDirPath = context.getRealPath("/") + "resources\\images\\products";
 		
 		//업로드 폴더 없으면 생성
 		File uploadDir = new File(uploadDirPath);
@@ -83,7 +99,7 @@ public class ProductController {
 		String uploadFileName = UUID.randomUUID().toString() + "_" + imgFile.getOriginalFilename();
 		if(imgFile.getSize() > 0) {
 			try {
-				imgFile.transferTo(new File(uploadDir + File.separator + uploadFileName));
+				imgFile.transferTo(new File(uploadDir, uploadFileName));
 				product.setImg(uploadFileName);
 			} catch(Exception e) {
 				e.printStackTrace();

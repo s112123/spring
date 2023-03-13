@@ -25,6 +25,12 @@ public class ProductRepository {
 		List<Product> products = sqlSession.selectList("product.selectAll", pagenation);
 		return products;
 	}
+
+	//전체상품목록: 카테고리별
+	public List<Product> selectAllByCategory(String category) {
+		List<Product> products = sqlSession.selectList("product.selectAllByCategory", category);
+		return products;
+	}
 	
 	//상품정보
 	public Product selectOneById(int id) {

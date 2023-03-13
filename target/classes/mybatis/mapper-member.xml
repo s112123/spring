@@ -28,14 +28,6 @@
 			member
 		WHERE email=#{email}
 	</select>
-
-	<!-- 회원등록 -->
-	<insert id="insertOne">
-		INSERT INTO 
-			member 
-		VALUES
-			(NULL, #{email}, #{username}, #{passwd}, #{phone}, #{addr1}, #{addr2}, DEFAULT, DEFAULT, NOW())
-	</insert>
 	
 	<!-- 회원정보 -->
 	<select id="selectOneById" resultType="com.spring.app.entity.Member">
@@ -45,6 +37,14 @@
 			member 
 		WHERE id=#{id}
 	</select>
+	
+	<!-- 회원등록 -->
+	<insert id="insertOne">
+		INSERT INTO 
+			member 
+		VALUES
+			(NULL, #{email}, #{username}, #{passwd}, #{phone}, #{addr1}, #{addr2}, DEFAULT, DEFAULT, NOW())
+	</insert>
 	
 	<!-- 회원수정 -->
 	<update id="updateOne">
@@ -61,4 +61,5 @@
 			member
 		WHERE id=#{id}
 	</delete>
+	
 </mapper>

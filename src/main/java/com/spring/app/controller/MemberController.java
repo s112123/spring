@@ -1,23 +1,22 @@
 package com.spring.app.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.app.entity.Member;
 import com.spring.app.entity.Pagenation;
+import com.spring.app.entity.Product;
 import com.spring.app.service.MemberService;
 
 @Controller
+@RequestMapping("/member")
 public class MemberController {
 	
 	@Autowired
@@ -25,20 +24,20 @@ public class MemberController {
 
 	//약관동의 페이지
 	@GetMapping("/agree")
-	public String agreeGET() {
+	public String agree() {
 		return "home.register.agree";
 	}
 	
 	//회원가입 페이지
 	@GetMapping("/register")
-	public String registerGET(Model model, String agree) {
+	public String register(Model model, String agree) {
 		model.addAttribute("agree", agree);
 		return "home.register.register";
 	}
 	
 	//전체회원목록
-	@GetMapping("/member/list")
-	public String memberListGET(
+	@GetMapping("/list")
+	public String list(
 			Model model,
 			@RequestParam(value="page", required=false) String page,
 			Pagenation pagenation) {
@@ -55,48 +54,42 @@ public class MemberController {
 		model.addAttribute("members", members);
 		model.addAttribute("pagenation", pagenation);
 		
-		return "admin.member.memberlist";
+		return "admin.member.list";
 	}
 	
 	//회원정보
-	@GetMapping("/member/info")
-	public String memberInfoGET() {
-		return "admin.member.memberinfo";
+	@GetMapping("/view")
+	public String view(int id, Model model) {
+		Member member = memberService.getMemberById(id);
+		model.addAttribute("member", member);
+		return "admin.member.view";
 	}
 	
-	//회원삭제
-	@GetMapping("/member/delete")
-	public String deleteMemberGET(int id) {
-		memberService.deleteMember(id);
-		return "redirect:/member/list";
-	}
-	
-	/*
-	//등록
-	@PostMapping("/member/add")
-	public String addMember(Member member) {
-		memberService.addMember(member);
+	//회원등록
+	@PostMapping("/insert")
+	public String insertMember(Member member) {
+		memberService.insertMember(member);
 		return "redirect:/";
 	}
 	
-	//상세보기: id
-	@PostMapping("/member")
-	@ResponseBody
-	public Map<String, Member> getMemberById(@RequestBody Member _member) {
-		//Ajax로 보내온 JSON 데이터(id) -> @RequestBody로 MemberDto의 id값에 자동저장
-		Member member = memberService.getMemberById(_member.getId());
-		Map<String, Member> map = new HashMap<>();
-		map.put("member", member);
-		return map;
+	//회원수정
+	@PostMapping("/update")
+	public String updateMember(Model model, Member member) {
+		if(member.getAgree() == null) {
+			member.setAgree("N");
+		} else if(member.getAgree().equals("on")) {
+			member.setAgree("Y");
+		}
+
+		memberService.updateMember(member);
+		return "redirect:/member/view?id=" + member.getId();
 	}
 	
-	//수정
-	@PostMapping("/member/modify")
-	public String modifyMember(Model model, Member member) {
-		memberService.modifyMember(member);
-		model.addAttribute("member", member);
-		return "redirect:/member";
+	//회원삭제
+	@GetMapping("/delete")
+	public String deleteMember(int id) {
+		memberService.deleteMember(id);
+		return "redirect:/member/list";
 	}
-	*/
 	
 }

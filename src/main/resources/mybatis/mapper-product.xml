@@ -13,17 +13,27 @@
 	<!-- 전체상품목록 -->
 	<select id="selectAll" resultType="com.spring.app.entity.Product">
 		SELECT
-			id, category, pname, price, gram, kcal, origin, img, regdate
+			id, category, pname, description, price, gram, kcal, origin, img, regdate
 		FROM 
 			product 
 		ORDER BY id DESC
 		LIMIT #{skip}, #{size}
 	</select>
 	
+	<!-- 전체상품목록: 카테고리별 -->
+	<select id="selectAllByCategory" resultType="com.spring.app.entity.Product">
+		SELECT
+			id, category, pname, description, price, gram, kcal, origin, img, regdate
+		FROM 
+			product 
+		WHERE category=#{category}
+		ORDER BY id DESC
+	</select>
+	
 	<!-- 상품정보 -->
 	<select id="selectOneById" resultType="com.spring.app.entity.Product">
 		SELECT
-			id, category, pname, price, gram, kcal, origin, img, regdate
+			id, category, pname, description, price, gram, kcal, origin, img, regdate
 		FROM 
 			product 
 		WHERE id=#{id}
@@ -34,7 +44,7 @@
 		INSERT INTO
 			product
 		VALUE
-			(NULL, #{category}, #{pname}, #{price}, #{gram}, #{kcal}, #{origin}, #{img}, NOW())
+			(NULL, #{category}, #{pname}, #{description}, #{price}, #{gram}, #{kcal}, #{origin}, #{img}, NOW())
 	</insert>
 	
 	<!-- 상품수정 -->
@@ -42,7 +52,8 @@
 		UPDATE
 			product
 		SET
-			category=#{category}, pname=#{pname}, price=#{price}, gram=#{gram}, kcal=#{kcal}, origin=#{origin}, img=#{img}
+			category=#{category}, pname=#{pname}, description=#{description}, price=#{price}, 
+			gram=#{gram}, kcal=#{kcal}, origin=#{origin}, img=#{img}
 		WHERE id=#{id}
 	</update>
 	

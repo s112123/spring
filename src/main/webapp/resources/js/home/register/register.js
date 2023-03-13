@@ -1,8 +1,25 @@
-//유효성 검사
-function validateRegister() {
-	const form = document.getElementById('registerForm');
-	const info = form.getElementsByClassName('register-item');
+//<form>을 submit 한 경우
+const form = document.getElementById('register-form');
+form.addEventListener('submit', function(e) {
+	e.preventDefault();
 	
+	//유효성 검사
+	//let isValid = validateRegisterInfo();
+	//if(!isValid) return;
+	
+	//button[name=submit]인 버튼 요소들 저장 => 바로 가입하면 되므로 필요없는 코드
+	const commands = document.getElementsByName('submit');
+	commands.forEach(function(command) {
+		switch(command.value) {
+			case "insert" :	
+		}
+	});
+});
+
+//유효성 검사
+function validateRegisterInfo() {
+	const info = form.getElementsByClassName('register-item');
+
 	for(let i=0; i<info.length; i++) {
 		let target = info[i].getElementsByClassName('item-info')[0];
 		

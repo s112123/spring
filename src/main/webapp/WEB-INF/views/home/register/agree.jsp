@@ -100,11 +100,11 @@
 			</div>
 		</div>
 		<div class="form-btn">
-			<button type="button" onclick="validateAgreeForm();">다음</button>
+			<button type="button" name="button" value="next">다음</button>
 		</div>
 	</div>
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
 <script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/js/home/agree.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/home/register/agree.js"></script>
 
