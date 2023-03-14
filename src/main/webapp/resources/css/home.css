@@ -57,6 +57,7 @@
 	font-weight: bold;
 }
 
+
 /* ---------- REGISTER PAGE ---------- */
 #addr1 {
 	margin-bottom: 2px;
@@ -261,6 +262,16 @@
 .cart-box table td:nth-child(2) { /* 상품명 */
 	width: 60%;
 }
+.cart-box table td:nth-child(2) .pname-box {
+	padding: 10px 60px;
+	font-size: 18px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+}
+.cart-box table td:nth-child(2) .pname-box .pimg {
+	margin-right: 60px;
+}
 .cart-box table td:nth-child(3) input { /* 수량 */
 	width: 70px;
 	height: 27px;
@@ -310,3 +321,73 @@
 }
 
 
+/* ---------- NOTICE LIST PAGE ---------- */
+.notice-list td:nth-child(1) { /* 번호 */
+	width: 8%;	
+}
+.notice-list td:nth-child(2) { /* 구분 */
+	width: 15%;
+}
+.notice-list td:nth-child(3) { /* 제목 */
+	text-align: left;
+}
+.notice-list td:nth-child(3) a { 
+	color: rgb(100, 100, 100);
+}
+.notice-list td:nth-child(3) a:hover { 
+	color: rgb(210, 40, 40);
+}
+.notice-list td:nth-child(4) { /* 작성자 */
+	width: 15%;	
+}
+.notice-list td:nth-child(5) { /* 등록일 */
+	width: 12%;
+}
+.notice-list td:nth-child(6) { /* 조회수 */
+	width: 8%;	
+}
+
+/* ---------- WRITE & INFO PAGE: DEFAULT ---------- */
+.content-box {
+	width: 950px;
+	padding: 50px;
+	padding-top: 60px;
+	border-top: 3px solid black;
+	border-radius: 5px;
+	box-shadow: 1px 1px 4px 0px rgb(150, 150, 150);
+}
+.content-item select,
+.content-item input {
+	height: 40px;
+	padding: 0 15px;
+	margin-bottom: 10px;
+	vertical-align: middle;
+}
+.content-item select {
+	width: 125px;
+}
+.content-item input {
+	width: 720px;
+}
+.content-item textarea {
+	width: 100%;
+	height: 450px;
+	padding: 15px;
+	margin-bottom: 10px;
+	border: 1px solid #bbb;
+	border-radius: 2px;
+	font-size: 15px;
+}
+.content-btn {
+	padding-left: 0 20px;
+	margin-top: 20px;
+	text-align: right;
+}
+.content-btn button {
+	margin-left: 5px;
+}
+.content-btn button:nth-child(1) {
+	border: 1px solid rgb(210, 40, 40);
+	background-color: rgb(210, 40, 40);
+	color: white;
+}

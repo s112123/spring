@@ -29,7 +29,10 @@
 		<tiles:insertAttribute name="header" />
 	</header>
 	<main>
-		<tiles:insertAttribute name="main" />
+		<div class="container flex-fs">
+			<tiles:insertAttribute name="aside" />
+			<tiles:insertAttribute name="main" />
+		</div>
 	</main>
 	<footer>
 		<tiles:insertAttribute name="footer" />

@@ -1,6 +1,7 @@
 package com.spring.app.controller;
 
 import java.io.File;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.spring.app.entity.Pagenation;
 import com.spring.app.entity.Product;
 import com.spring.app.service.ProductService;
+
+import net.coobird.thumbnailator.Thumbnails;
 
 @Controller
 @RequestMapping("/product")
@@ -96,8 +99,20 @@ public class ProductController {
 		String uploadFileName = UUID.randomUUID().toString() + "_" + imgFile.getOriginalFilename();
 		if(imgFile.getSize() > 0) {
 			try {
-				imgFile.transferTo(new File(uploadDir, uploadFileName));
+				File uploadFile = new File(uploadDir, uploadFileName);
+				imgFile.transferTo(uploadFile);
 				product.setImg(uploadFileName);
+				
+				//썸네일
+                if (Files.probeContentType(uploadFile.toPath()).startsWith("image")) {
+                    //썸네일 폴더
+                    String thumbPath = uploadDirPath + File.separator + "thumbnails";
+                    File thumbDir = new File(thumbPath);
+                    if (!thumbDir.exists()) thumbDir.mkdir();
+                    //썸네일 파일 생성
+                    File thumbFile = new File(thumbDir, "thumb_" + uploadFileName);
+                    Thumbnails.of(uploadFile).size(80, 130).outputFormat("jpg").toFile(thumbFile);
+                }				
 			} catch(Exception e) {
 				e.printStackTrace();
 			}

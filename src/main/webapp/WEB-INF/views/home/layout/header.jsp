@@ -15,7 +15,7 @@
 				<span></span>	
 			</li>
 			<li>
-				<div><a href="/customer/notices">CUSTOMER</a></div>
+				<div><a href="/notice/list">CUSTOMER</a></div>
 				<span></span>
 			</li>			
 		</ul>

@@ -13,13 +13,6 @@
 			<c:forEach var="steak" items="${products.steak}">
 				<div class="product-item">
 					<div class="product-info">
-						<form>
-							<input type="text" value="${steak.id}" />
-							
-						
-						
-						
-						</form>
 						<img src="${contextPath}/resources/images/products/${steak.img}" />
 						<div class="product-detail">
 							<div class="product-detail-title">${steak.pname}</div>
@@ -29,9 +22,9 @@
 								<small>칼로리 <strong>(${steak.kcal}kcal)</strong></small><br /> 
 								<small>원산지 <strong>(${steak.origin})</strong></small> 
 							</div>
-							<button type="button" value="cart" class="add-cart-btn">
+							<button type="button" name="add-cart" value="${steak.id}" class="add-cart-btn">
 								<i class="fa-solid fa-cart-shopping"></i>
-							</button>
+							</button>							
 						</div>
 					</div>
 					<div class="product-title">${steak.pname}</div>
@@ -46,18 +39,18 @@
 			<c:forEach var="pasta" items="${products.pasta}">
 				<div class="product-item">
 					<div class="product-info">
-						<img src="${contextPath}/resources/upload/images/products/${pasta.img}" />
+						<img src="${contextPath}/resources/images/products/${pasta.img}" />
 						<div class="product-detail">
 							<div class="product-detail-title">${pasta.pname}</div>
-							<div class="product-detail-desc">${steak.description}</div>
+							<div class="product-detail-desc">${pasta.description}</div>
 							<div class="product-detail-info">
 								<small>용량 <strong>(${pasta.gram}g)</strong></small><br /> 
 								<small>칼로리 <strong>(${pasta.kcal}kcal)</strong></small><br /> 
 								<small>원산지 <strong>(${pasta.origin})</strong></small> 
 							</div>
-							<button class="add-cart-btn">
+							<button type="button" name="add-cart" value="${pasta.id}" class="add-cart-btn">
 								<i class="fa-solid fa-cart-shopping"></i>
-							</button>
+							</button>							
 						</div>
 					</div>
 					<div class="product-title">${pasta.pname}</div>
@@ -72,18 +65,18 @@
 			<c:forEach var="beverage" items="${products.beverage}">
 				<div class="product-item">
 					<div class="product-info">
-						<img src="${contextPath}/resources/upload/images/products/${beverage.img}" />
+						<img src="${contextPath}/resources/images/products/${beverage.img}" />
 						<div class="product-detail">
 							<div class="product-detail-title">${beverage.pname}</div>
-							<div class="product-detail-desc">${steak.description}</div>
+							<div class="product-detail-desc">${beverage.description}</div>
 							<div class="product-detail-info">
 								<small>용량 <strong>(${beverage.gram}g)</strong></small><br /> 
 								<small>칼로리 <strong>(${beverage.kcal}kcal)</strong></small><br /> 
 								<small>원산지 <strong>(${beverage.origin})</strong></small> 
 							</div>
-							<button class="add-cart-btn">
+							<button type="button" name="add-cart" value="${beverage.id}" class="add-cart-btn">
 								<i class="fa-solid fa-cart-shopping"></i>
-							</button>
+							</button>							
 						</div>
 					</div>
 					<div class="product-title">${beverage.pname}</div>

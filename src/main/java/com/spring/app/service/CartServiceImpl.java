@@ -6,35 +6,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.app.entity.Cart;
-import com.spring.app.repository.CartRepository;
+import com.spring.app.repository.CartDao;
 
 @Service
 public class CartServiceImpl implements CartService {
 	
 	@Autowired
-	CartRepository cartRepository;
+	CartDao cartDao;
 	
 	//전체목록
+	@Override
 	public List<Cart> getItemsInCartByEmail(String email) {
-		List<Cart> cart = cartRepository.selectAllByEmail(email);
+		List<Cart> cart = cartDao.selectAllByEmail(email);
 		return cart;
+	}
+	
+	//장바구니 추가
+	@Override
+	public void insertItemInCart(Cart cart) {
+		cartDao.insertOne(cart);
 	}
 	
 	//수량수정
 	@Override
 	public void updateItemForQty(Cart cart) {
-		cartRepository.updateOneForQty(cart);	
+		cartDao.updateOneForQty(cart);	
 	}
 	
 	//개별삭제
+	@Override
 	public void deleteItemInCart(int id) {
-		cartRepository.deleteOne(id);
+		cartDao.deleteOne(id);
 	}
 	
 	//일괄삭제
 	@Override
 	public void deleteItemsInCart(String[] ids) {
-		cartRepository.deleteAllById(ids);
+		cartDao.deleteAllById(ids);
 	}
 	
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.spring.app.entity.Cart;
 
 @Repository
-public class CartRepository {
+public class CartDao {
 	
 	@Autowired
 	SqlSession sqlSession;
@@ -18,6 +18,12 @@ public class CartRepository {
 	public List<Cart> selectAllByEmail(String email) {
 		List<Cart> cart = sqlSession.selectList("cart.selectAllByEmail", email);
 		return cart;
+	}
+	
+	//장바구니 추가
+	public int insertOne(Cart cart) {
+		int result = sqlSession.insert("cart.insertOne", cart);
+		return result;
 	}
 	
 	//수량수정

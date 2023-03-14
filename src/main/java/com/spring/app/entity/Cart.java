@@ -9,16 +9,18 @@ public class Cart {
 	private String pname;				//제품명
 	private int price;					//제품가격
 	private int qty;					//제품수량
+	private String img;					//제품이미지
 	private LocalDateTime regdate;		//추가시간
 	
 	public Cart() {}
 
-	public Cart(int id, String email, String pname, int price, int qty, LocalDateTime regdate) {
+	public Cart(int id, String email, String pname, int price, int qty, String img, LocalDateTime regdate) {
 		this.id = id;
 		this.email = email;
 		this.pname = pname;
 		this.price = price;
 		this.qty = qty;
+		this.img = img;
 		this.regdate = regdate;
 	}
 
@@ -60,6 +62,14 @@ public class Cart {
 
 	public void setQty(int qty) {
 		this.qty = qty;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public LocalDateTime getRegdate() {

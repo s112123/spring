@@ -10,7 +10,7 @@ import com.spring.app.entity.Pagenation;
 import com.spring.app.entity.Product;
 
 @Repository
-public class ProductRepository {
+public class ProductDao {
 	
 	@Autowired
 	SqlSession sqlSession;

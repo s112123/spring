@@ -5,7 +5,7 @@
 	<!-- 전체목록 -->
 	<select id="selectAllByEmail" resultType="com.spring.app.entity.Cart">
 		SELECT
-			id, email, pname, price, qty, regdate
+			id, email, pname, price, qty, img, regdate
 		FROM 
 			cart
 		WHERE email=#{email}
@@ -13,6 +13,13 @@
 	</select>
 	
 	<!-- 제품추가 -->
+	<insert id="insertOne">
+		INSERT INTO
+			cart
+		VALUES
+			(NULL, #{email}, #{pname}, #{price}, DEFAULT, #{img}, NOW())
+	</insert>
+	
 	<!-- 수량수정 -->
 	<update id="updateOneForQty">
 		UPDATE 
@@ -38,4 +45,5 @@
 			#{id}
 		</foreach>
 	</delete>
+	
 </mapper>

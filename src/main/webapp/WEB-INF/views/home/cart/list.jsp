@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <div class="container cart-container">
 	<div class="cart-box">
@@ -28,7 +29,16 @@
 							<c:forEach var="c" items="${cart}">
 								<tr>
 									<td><input type="checkbox" name="selectedItem" class="selectedItem" value="${c.id}" /></td>
-									<td>${c.pname}</td>
+									<td>
+										<div class="pname-box">
+											<div class="pimg">
+												<img src="${contextPath}/resources/images/products/thumbnails/thumb_${c.img}" />
+											</div>
+											<div>
+												${c.pname}
+											</div>
+										</div>
+									</td>
 									<td>
 										<input type="hidden" value="${c.id}" />
 										<input type="number" name="qty" value="${c.qty}" min="1" max="1000" />
@@ -61,4 +71,4 @@
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
 <script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/js/home/cartlist.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/home/cart/list.js"></script>

@@ -6,6 +6,7 @@
 	<!-- HOME LAYOUT -->
 	<definition name="homeLayout" template="/WEB-INF/views/home/layout/layout.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/home/layout/header.jsp" />
+		<put-attribute name="aside" value="" />
 		<put-attribute name="main" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/home/layout/footer.jsp" />	
 	</definition>
@@ -13,6 +14,7 @@
 		<put-attribute name="main" value="/WEB-INF/views/home/index.jsp" />
 	</definition>	
 	<definition name="home.customer.*.*" extends="homeLayout">
+		<put-attribute name="aside" value="/WEB-INF/views/home/layout/aside.jsp" />
 		<put-attribute name="main" value="/WEB-INF/views/home/customer/{1}/{2}.jsp" />
 	</definition>
 	<definition name="home.*.*" extends="homeLayout">

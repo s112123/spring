@@ -4,7 +4,7 @@
 <aside>
 	<ul>
 		<li>
-			<a href="/customer/notices">
+			<a href="/notice/list">
 				<span><i class="fa-solid fa-bullhorn"></i></span> 
 				<span>공지사항</span>
 			</a>

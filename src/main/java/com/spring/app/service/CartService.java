@@ -9,6 +9,9 @@ public interface CartService {
 	//전체목록
 	public List<Cart> getItemsInCartByEmail(String email);
 	
+	//장바구니 추가
+	public void insertItemInCart(Cart cart);
+
 	//수량수정
 	public void updateItemForQty(Cart cart);
 	

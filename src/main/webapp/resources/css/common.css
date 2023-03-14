@@ -53,6 +53,12 @@ button:hover {
 	border: 1px solid rgb(210, 40, 40);
 	color: rgb(210, 40, 40);	
 }
+textarea {
+	border: 1px solid #ccc;
+	border-radius: 3px;	
+	outline: 0; 
+	resize: none;
+}
 table {
 	width: 100%;
 	margin: 10px 0;
@@ -86,6 +92,55 @@ table th, table td{
 .flex-fs {
 	display: flex;
 	justify-content: flex-fs;
+}
+
+
+/* ---------- ASIDE RIGHT CONENT LAYOUT ---------- */
+.main-content {
+	width: 1450px;
+	height: 100vh;
+	padding-top: 50px;
+	padding-left: 50px;
+	border-left: 1px solid #ccc;
+}
+.main-content h2 {
+	margin-bottom: 40px;
+}
+
+
+/* ---------- TABLE BOTTOM LAYOUT ---------- */
+.main-content>.bottom {
+	margin: 15px 0 20px 0;
+}
+.main-content>.bottom button,
+.main-content>.bottom select,
+.main-content>.bottom input {
+	height: 30px;
+	padding: 3px 5px;
+}
+.main-content>.bottom>button {
+	border: 1px solid rgb(210, 40, 40);
+	color: rgb(210, 40, 40);
+}
+.main-content>.bottom .search {
+	float: right;
+}
+.main-content>.bottom .search select {
+	width: 90px;
+}
+.main-content>.bottom .search input {
+	width: 150px;
+	padding-left: 10px;
+}
+.main-content>.bottom .search button {
+	width: 65px;
+	border: 1px solid rgb(210, 40, 40);
+	background-color: rgb(210, 40, 40);
+	color: white;
+}
+.main-content>.bottom input[name="search-keyword"]::placeholder {
+	color: #bbb;
+	font-size: 13px;
 }
 
 

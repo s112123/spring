@@ -1,3 +1,5 @@
+
+/*
 //유효성 검사
 function validateNoticeWrite() {
 	const title = document.getElementById('title');
@@ -19,5 +21,4 @@ function validateNoticeWrite() {
 		});	
 	}
 }
-
-
+*/

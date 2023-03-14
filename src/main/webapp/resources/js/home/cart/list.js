@@ -1,3 +1,5 @@
+/* 사용자페이지에서 장바구니 리스트 페이지 */
+
 //수량 수정
 function updateItemForQty(target) {
 	const parentEl = target.parentNode;
@@ -33,7 +35,7 @@ for(let i=0; i<submitBtns.length; i++) {
 function submit(form, cmd) {
 	//일괄삭제
 	if(cmd === 'delete')
-		form.action = '/cart/deleteItems';
+		form.action = '/cart/delete';
 	//주문하기
 	if(cmd === 'order') 
 		//form.action = '/cart/deleteItems'; 	
