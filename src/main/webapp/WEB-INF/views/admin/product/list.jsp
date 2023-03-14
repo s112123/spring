@@ -31,7 +31,7 @@
 						<tr>
 							<td>${product.id}</td>
 							<td>${product.category}</td>
-							<td>${product.pname}</td>
+							<td><a href="/product/view?id=${product.id}">${product.pname}</a></td>
 							<td>${product.price}</td>
 							<td>${product.gram}</td>
 							<td>${product.kcal}</td>
@@ -43,7 +43,7 @@
 							</td>
 							<td>
 								<%-- 수정버튼 --%>
-								<a href="/product/info?id=${product.id}"><i class="fa-solid fa-pen-to-square"></i></a>
+								<a href="/product/view?id=${product.id}"><i class="fa-solid fa-pen-to-square"></i></a>
 								<%-- 삭제버튼 --%>
 								<a href="#" onclick="deleteProduct(${product.id});"><i class="fa-solid fa-trash-can"></i></a>
 							</td>
@@ -54,7 +54,7 @@
 		</tbody>
 	</table>
 	<div class="bottom">
-		<button type="button" onclick="location.href='/product/info'">등록</button>
+		<button type="button" value="insert">등록</button>
 		<div class="search">
 			<select name="search-option">
 				<option>선택</option>
@@ -62,7 +62,7 @@
 				<option value="username">이름</option>
 			</select>
 			<input type="text" name="search-keyword" placeholder="검색어 입력" />
-			<button type="button">검색</button>
+			<button type="button" value="search">검색</button>
 		</div>
 		<div>
 			<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />
@@ -71,4 +71,4 @@
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
 <script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/js/admin/productlist.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/admin/product/list.js"></script>

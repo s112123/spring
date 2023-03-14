@@ -101,6 +101,12 @@
 .product-list td:nth-child(3) { /* 상품명 */
 	text-align: left;
 }
+.product-list td:nth-child(3) a { 
+	color: rgb(100, 100, 100);
+}
+.product-list td:nth-child(3) a:hover { 
+	color: rgb(210, 40, 40);
+}
 .product-list td:nth-child(4) { /* 가격 */
 	width: 8%;	
 }
@@ -144,7 +150,7 @@
 	padding: 20px 0;
 	margin-bottom: 35px;
 	display: flex;
-	border-top: 1px solid rgb(100, 100, 100);
+	border-top: 1px solid rgb(150, 150, 150);
 	border-radius: 3px;
 	box-shadow: 0px 1px 4px 0px rgb(200, 200, 200);
 }
@@ -155,7 +161,7 @@
 	padding: 0 20px;
 	display: flex;
 	align-items: center;	
-	font-size: 16px;
+	font-size: 15px;
 }
 .infomation-item .title {
 	width: 25%;
@@ -211,7 +217,7 @@
 	font-size: 13px;
 	vertical-align: middle;
 }
-.member-item button:focus {
+.member-item button:hover {
 	border: 1px solid rgb(210, 40, 40);
 }
 #agree-chk input {
@@ -226,3 +232,39 @@
 	font-weight: bold;
 }
 
+
+/* ---------- PRODUCT INFOMATION PAGE ---------- */
+.prod-item input {
+	border: 1px solid #ccc;
+}
+.prod-item input[type=number] {
+	width: 50%;
+}
+.prod-item label[for=attached] {
+	width: 70px;
+	height: 30px;	
+	line-height: 30px;
+	border: 1px solid  rgb(100, 100, 100);
+	border-radius: 3px;	
+	color: rgb(100, 100, 100);
+	font-size: 14px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.prod-item label[for=attached]:hover {
+	border: 1px solid rgb(210, 40, 40);	
+	color: rgb(210, 40, 40);
+}
+.prod-item input[type=file] {
+	width: 0;
+	height: 0;
+	padding: 0;
+	border: 0;
+}
+.prod-item .filename {
+	width: 73%;
+	border-radius: 3px;	
+	font-size: 13px;
+}

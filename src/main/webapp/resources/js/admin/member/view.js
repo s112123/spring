@@ -2,27 +2,28 @@
 const form = document.getElementById('member-form');
 form.addEventListener('submit', function(e) {
 	e.preventDefault();
-	
 	//유효성 검사
 	let isValid = validateMemberInfo();
 	if(!isValid) return;
 	
-	//button[name=submit]인 버튼 요소들 저장
-	const commands = document.getElementsByName('submit');
+	//button[type=submit]인 버튼 요소들 저장
+	const commands = document.querySelectorAll('button[type=submit]');
 	commands.forEach(function(command) {
 		switch(command.value) {
-			case "update" :	
-				updateMember();
-				showModal(false, "회원정보가 수정되었습니다");
+			case "update":
+				updateMember(form);
 		}
 	});
 });
 
-//button[name=button]을 클릭한 경우
-const btns = document.getElementsByName('button');
+//button[type=button]을 클릭한 경우
+const btns = document.querySelectorAll('button[type=button]');
 btns.forEach(function(btn) {
+	console.log(btn.value);
 	btn.addEventListener('click', function() {
-		//switch
+		switch(btn.value) {
+			case "":
+		}
 	});
 });
 
@@ -50,12 +51,11 @@ function validateMemberInfo() {
 }
 
 //회원정보수정
-function updateMember() {
+function updateMember(form) {
 	showModal(true, "회원정보를 수정하시겠습니까?");
 	const confirmBtn = document.getElementById('modal-confirm-btn');
 	confirmBtn.addEventListener('click', function() {
-		//현재 <form>이 submit 진행 중이므로 모달창을 그냥 닫으면 된다
-		closeModal();
+		form.submit();
 	});	
 }
 
@@ -70,5 +70,4 @@ function editPassword() {
 		passwd.style.border = 'none';
 		passwd.readOnly = true;
 	});
-	
 }

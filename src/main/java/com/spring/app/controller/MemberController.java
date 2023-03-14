@@ -38,31 +38,21 @@ public class MemberController {
 		return "home.register.register";
 	}
 	
-	//회원가입 처리
+	//이메일 중복 여부
 	@PostMapping("/register")
 	@ResponseBody
 	public Map<String, Boolean> register(@RequestBody Member _member) {
-		System.out.println(_member.getEmail());
 		Member member = memberService.getMemberByEmail(_member.getEmail());
 		
 		Boolean isDuplicated = false;
 		if(member != null) 
 			isDuplicated = true;
-
+		
 		Map<String, Boolean> map = new HashMap<String, Boolean>();
 		map.put("isDuplicated", isDuplicated);
 		
 		return map;
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	//전체회원목록
 	@GetMapping("/list")
@@ -98,12 +88,12 @@ public class MemberController {
 	@PostMapping("/insert")
 	public String insertMember(Member member) {
 		memberService.insertMember(member);
-		return "redirect:/";
+		return "redirect:/login";
 	}
 	
 	//회원수정
 	@PostMapping("/update")
-	public String updateMember(Model model, Member member) {
+	public String updateMember(Member member) {
 		if(member.getAgree() == null) {
 			member.setAgree("N");
 		} else if(member.getAgree().equals("on")) {

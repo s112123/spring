@@ -5,7 +5,7 @@
 	<div class="form-box">
 		<h2>회원가입</h2>
 		<form action="/member/insert" method="post" id="register-form" autocomplete="off">
-			<input type="hidden" value="${agree}" />
+			<input type="hidden" name=agree value="${agree}" />
 			<div class="form-item">
 				<label>이메일</label>
 				<input type="text" class="item-info" name="email" id="email" maxlength="40" />

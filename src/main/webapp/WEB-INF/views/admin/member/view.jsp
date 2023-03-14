@@ -65,7 +65,7 @@
 				<div class="item-right">
 					<div class="title">비밀번호</div>
 					<div class="content">
-						<input type="text" name="passwd" id="passwd" value="${member.passwd}" readonly />
+						<input type="text" name="passwd" id="passwd" value="${member.passwd}" maxlength="12" readonly />
 						<button type="button" onclick="editPassword();">
 							<i class="fa-solid fa-pen-to-square"></i>
 						</button>
@@ -79,7 +79,7 @@
 				</div>
 			</div>
 			<div class="infomation-btn">
-				<button type="submit" name="submit" value="update">수정</button>
+				<button type="submit" value="update">수정</button>
 				<button type="button" onclick="location.href='/member/list'">목록</button>
 			</div>
 		</form>

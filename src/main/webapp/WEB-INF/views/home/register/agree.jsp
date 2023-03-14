@@ -5,7 +5,7 @@
 	<div class="agree-box">
 		<h2>약관동의</h2>
 		<div class="agree-item">
-			<input type="checkbox" onclick="checkAll(this)" />
+			<input type="checkbox" id="all-check" onclick="checkAll(this)" />
 			<span>전체 동의</span>
 		</div>
 		<div class="agree-item">
@@ -35,8 +35,7 @@
 				그럼에도 불구하고 서비스 이용과 관련하여 분쟁이 발생할 경우 이는 거래당사자인 이용자와 
 				파트너가 해결하여야 함을 유의하여 주시기 바랍니다. <br />
 				다만, 회사는 가능한 한 최선의 노력을 다하여 거래당사자 간의 분쟁이 신속하게 처리될 수 있도록 
-				성실하게 협조할 것입니다.
-				
+				성실하게 협조할 것입니다.	
 			</div>
 		</div>
 		<div class="agree-item">

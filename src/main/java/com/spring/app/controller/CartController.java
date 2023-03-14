@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.app.entity.Cart;
 import com.spring.app.entity.Member;
@@ -32,10 +33,27 @@ public class CartController {
 	
 	//제품추가
 	@GetMapping("/cart/insert")
-	public String insertItem(Cart cart) {
-		//구현해야함
-		return "redirect:/cart";
+	public String insertItem(int productid) {
+		
+		
+		
+		System.out.println(productid + "번 상품 장바구니 추가");
+		return null;
 	}	
+
+	
+	/*
+	//장바구니 추가
+	@PostMapping("/cart/insert")
+	@ResponseBody
+	public String insertItemInCart(String productId) {
+		//세션에서 이메일 가져오고
+
+		//productid는 
+		System.out.println(productId);
+		return "success";
+	}
+	*/
 	
 	//수량수정
 	@GetMapping("/cart/update")

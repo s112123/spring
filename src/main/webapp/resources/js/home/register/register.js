@@ -1,138 +1,129 @@
 //<form>을 submit 한 경우
+let isValid = true;
 const form = document.getElementById('register-form');
 form.addEventListener('submit', function(e) {
 	e.preventDefault();
+	//필수정보 입력여부 확인
+	validateRegisterInfo();
 	
+	if(!isValid) return;
+	form.submit();
+});
+
+//회원가입 폼에서 <input>요소 저장
+const targets = document.querySelectorAll('.form-item > input');
+targets.forEach(function(target) {
+	//기본주소 값이 들어오면 에러메시지 숨기기
+	target.addEventListener('blur', function() {
+		if(target.id === 'addr1') hideMessage(target);
+	});
+	
+	//<input> 요소에 입력시, 유효성 검사
+	target.addEventListener('keyup', function() {
+		const targetId = target.id;
+		const targetVal = target.value.trim();
+		
+		let regex = null;
+		let isRegex = false;		
+		
+		//이메일
+		if(targetId === 'email') {
+			const json = {
+				email: target.value
+			};
+			
+			$.ajax({
+				url: "/member/register",
+				type: "post",
+				contentType: "application/json",
+				dataType: "json",
+				data: JSON.stringify(json),
+				success: function(result) {
+					if(result.isDuplicated) {
+						//이메일 중복 확인
+						showMessage(target, '이미 사용 중인 이메일입니다');
+						return;
+					} else {
+						//이메일 형식 확인
+						regex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+						isRegex = regex.test(targetVal);
+						if(!isRegex) {
+							showMessage(target, '이메일 주소만 사용 가능합니다 (ex: user@test.com)');
+							return;
+						}
+					}
+				}
+			});							
+		}
+		
+		//비밀번호
+		if(targetId === 'passwd') {
+			if(targetVal.length < 3) {
+				showMessage(target, '4 ~ 12자까지 입력 가능합니다');
+				return;
+			}
+		}
+		
+		//연락처
+		if(targetId === 'phone') {
+			regex = /^[0-9]*$/i;
+			isRegex = regex.test(targetVal);
+			if(!isRegex) {
+				showMessage(target, '숫자만 사용 가능합니다 (ex: 01012341234)');
+				return;
+			}
+		}	
+		
+		hideMessage(target);	
+	});	
+});
+
+//유효성 검사: 입력여부
+function validateRegisterInfo() {
 	const email = document.getElementById('email');
 	const passwd = document.getElementById('passwd');
 	const repasswd = document.getElementById('repasswd');
 	const username = document.getElementById('username');
 	const phone = document.getElementById('phone');
-	const addr1 = document.getElementById('addr1');	
-	
-	//유효성 검사
-	validateRegisterInfo(email, passwd, repasswd, username, phone, addr1);
-
-
-});
-
-//이메일 중복체크
-/*
-const email = document.getElementById('email');
-email.addEventListener('keyup', function() {
-	const json = {
-		email: email.value
-	};
-	
-	$.ajax({
-		url: "/member/register",
-		type: "post",
-		contentType: "application/json",
-		dataType: "json",
-		data: JSON.stringify(json),
-		success: function(result) {
-			const small = email.nextElementSibling;
-			
-			if(email.value.trim().length > 0) {
-				if(result.isDuplicated) {
-					small.innerText = '사용하실 수 없는 이메일입니다';
-					small.style.display = 'block';	
-				} else {
-					small.innerText = '사용하실 수 있습니다';
-					small.style.color = 'black';
-					small.style.display = 'block';					
-				}
-			}
-		}
-	});	
-});
-*/
-
-
-/*
-/회원가입 유효성검사/
-이메일: 입력여부, 중복확인, 이메일 정규식
-폰번호: 입력여부, 하이픈 제거 처리, 숫자만 입력가능
-주소: 입력여부
-*/
-
-
-//유효성 검사
-function validateRegisterInfo(email, passwd, repasswd, username, phone, addr1) {
-	let temp = '';
-	let regex = null;
-	let isRegex = false;
+	const addr1 = document.getElementById('addr1');		
 	
 	//이메일
-	temp = email.value.trim();
-	if(temp.length == 0) {
+	if(email.value.trim().length === 0) {
+		email.value = null;
 		showMessage(email, '필수 정보입니다');
-		return false;
-	} else {
-		//이메일 형식만 입력허용
-		regex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-		isRegex = regex.test(temp);
-		
-		if(!isRegex) {
-			showMessage(email, '이메일 주소만 사용 가능합니다 (ex: abcd@test.com)');
-			email.value = null;
-			return false;
-		}
 	}
-	
+
 	//비밀번호
-	temp = passwd.value.trim();
-	if(temp.length == 0) {
+	if(passwd.value.trim().length === 0) {
+		passwd.value = null;
 		showMessage(passwd, '필수 정보입니다');
-		return false;
-	} else if(temp.length < 6) {
-		isValid = showMessage(passwd, '6 ~ 12자만 입력 가능합니다');
-		return false;
 	}
-	
+		
 	//비밀번호 확인
-	temp = repasswd.value.trim();
-	if(temp.length == 0) {
-		showMessage(repasswd, '필수 정보입니다');
-		return false;
-	} else if(temp != passwd.value.trim()) {
-		showMessage(repasswd, '비밀번호가 일치하지 않습니다');
+	if(repasswd.value.trim() !== passwd.value.trim()) {
 		repasswd.value = null;
-		return false;
-	}	
+		showMessage(repasswd, '비밀번호가 일치하지 않습니다');
+	}
 	
 	//이름
-	temp = username.value.trim();
-	if(temp.length == 0) {
+	if(username.value.trim().length === 0) {
+		username.value = null;
 		showMessage(username, '필수 정보입니다');
-		return false;
-	} 
-	
-	//연락처
-	temp = phone.value.trim();
-	if(temp.length == 0) {
-		showMessage(phone, '필수 정보입니다');
-		return false;
-	} else {
-		//숫자만 입력허용
-		regex = /[0-9]/i;
-		isRegex = regex.test(temp);
-		
-		if(!isRegex) {
-			showMessage(phone, '숫자만 사용 가능합니다 (ex: 01012341234)');
-			phone.value = null;
-			return false;
-		}
 	}
 
-	//주소
-	temp = addr1.value.trim();
-	if(temp.length == 0) {
-		isValid = showMessage(addr1, '필수 정보입니다');
-		return false;
+	//연락처
+	if(phone.value.trim().length === 0) {
+		phone.value = null;
+		showMessage(phone, '필수 정보입니다');
 	}
+		
+	//주소
+	if(addr1.value.trim().length === 0) {
+		showMessage(addr1, '필수 정보입니다');
+	}	
 }
 
+//에러메시지 표시하기
 function showMessage(target, message) {
 	let small = null;
 	target.focus();
@@ -146,21 +137,25 @@ function showMessage(target, message) {
 
 	small.innerText = message;
 	small.style.display = 'block';
+	
+	isValid = false;
 }
 
-//<input>에서 포커스가 떠나면 <small> 숨기기
-const targets = document.querySelectorAll('.form-item > input');
-for(let i=0; i<targets.length; i++) {
-	targets[i].addEventListener('blur', function() {
-		let small = null;
-		if(targets[i].id == 'addr1') {
-			small = targets[i].nextElementSibling.nextElementSibling;
-		} else {
-			small = targets[i].nextElementSibling;
-		}
+//에러메시지 숨기기
+function hideMessage(target) {
+	let small = null;
+	if(target.id == 'addr1') {
+		small = target.nextElementSibling.nextElementSibling;
+	} else {
+		small = target.nextElementSibling;
+	}
+	
+	if(isValid) {
 		small.style.display = 'none';
-		targets[i].style.border = "1px solid #ccc";
-	});
+		target.style.border = "1px solid #ccc";
+	}
+	
+	isValid = true;
 }
 
 //우편주소 API

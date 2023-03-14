@@ -32,6 +32,23 @@ function validateAgreeForm() {
 	location.href='/member/register?agree=' + (chkBoxs[chkBoxs.length-1].checked ? 'Y' : 'N');
 }
 
+//전체선택 후, 선택항목 체크 해제시 전체선택 체크해제
+const chkBoxs = document.querySelectorAll('input[name="selectedItem"]');
+chkBoxs.forEach(function(chkBox) {
+	chkBox.addEventListener('click', function() {
+		const target = document.getElementById('all-check');
+		if(!this.checked) {
+			target.checked = false;
+		} else {
+			let i = 0;
+			for(i=0; i<chkBoxs.length; i++) {
+				if(chkBoxs[i].checked == false) break;
+			}			
+			if(i==3) target.checked = true;	
+		}
+	});
+});
+
 //약관내용보기
 $(function(){
 	//이용약관

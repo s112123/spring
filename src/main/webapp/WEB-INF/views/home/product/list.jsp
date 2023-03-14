@@ -13,18 +13,23 @@
 			<c:forEach var="steak" items="${products.steak}">
 				<div class="product-item">
 					<div class="product-info">
-						<img src="${contextPath}/resources/upload/images/products/${steak.img}" />
+						<form>
+							<input type="text" value="${steak.id}" />
+							
+						
+						
+						
+						</form>
+						<img src="${contextPath}/resources/images/products/${steak.img}" />
 						<div class="product-detail">
 							<div class="product-detail-title">${steak.pname}</div>
-							<div class="product-detail-desc">
-								ABCDEFGABCD
-							</div>
+							<div class="product-detail-desc">${steak.description}</div>
 							<div class="product-detail-info">
 								<small>용량 <strong>(${steak.gram}g)</strong></small><br /> 
 								<small>칼로리 <strong>(${steak.kcal}kcal)</strong></small><br /> 
 								<small>원산지 <strong>(${steak.origin})</strong></small> 
 							</div>
-							<button class="add-cart-btn">
+							<button type="button" value="cart" class="add-cart-btn">
 								<i class="fa-solid fa-cart-shopping"></i>
 							</button>
 						</div>
@@ -44,9 +49,7 @@
 						<img src="${contextPath}/resources/upload/images/products/${pasta.img}" />
 						<div class="product-detail">
 							<div class="product-detail-title">${pasta.pname}</div>
-							<div class="product-detail-desc">
-								ABCDEFGABCD
-							</div>
+							<div class="product-detail-desc">${steak.description}</div>
 							<div class="product-detail-info">
 								<small>용량 <strong>(${pasta.gram}g)</strong></small><br /> 
 								<small>칼로리 <strong>(${pasta.kcal}kcal)</strong></small><br /> 
@@ -72,9 +75,7 @@
 						<img src="${contextPath}/resources/upload/images/products/${beverage.img}" />
 						<div class="product-detail">
 							<div class="product-detail-title">${beverage.pname}</div>
-							<div class="product-detail-desc">
-								ABCDEFGABCD
-							</div>
+							<div class="product-detail-desc">${steak.description}</div>
 							<div class="product-detail-info">
 								<small>용량 <strong>(${beverage.gram}g)</strong></small><br /> 
 								<small>칼로리 <strong>(${beverage.kcal}kcal)</strong></small><br /> 
@@ -92,6 +93,6 @@
 		</div>
 	</div>
 </div>
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
+<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="flase" />
 <script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/js/home/productlist.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/home/product/list.js"></script>

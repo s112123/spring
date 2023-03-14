@@ -43,7 +43,7 @@
 		INSERT INTO 
 			member 
 		VALUES
-			(NULL, #{email}, #{username}, #{passwd}, #{phone}, #{addr1}, #{addr2}, DEFAULT, DEFAULT, NOW())
+			(NULL, #{email}, #{username}, #{passwd}, #{phone}, #{addr1}, #{addr2}, #{agree}, DEFAULT, NOW())
 	</insert>
 	
 	<!-- 회원수정 -->

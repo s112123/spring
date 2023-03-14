@@ -1,7 +1,6 @@
 package com.spring.app.controller;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,6 +22,7 @@ import com.spring.app.entity.Product;
 import com.spring.app.service.ProductService;
 
 @Controller
+@RequestMapping("/product")
 public class ProductController {
 	
 	@Autowired
@@ -30,7 +31,7 @@ public class ProductController {
 	ServletContext context;
 	
 	//상품페이지: 카테고리별
-	@GetMapping("/product")
+	@GetMapping
 	public String productsByCategory(Model model) {
 		Map<String, List<Product>> products = new HashMap<String, List<Product>>();
 		String[] categories = {"STEAK", "PASTA", "BEVERAGE"};
@@ -41,11 +42,11 @@ public class ProductController {
 		}
 		
 		model.addAttribute("products", products);		
-		return "home.product.productlist";
+		return "home.product.list";
 	}
 	
 	//전체상품목록
-	@GetMapping("/product/list")
+	@GetMapping("/list")
 	public String products(
 			Model model,
 			@RequestParam(value="page", required=false) String page,
@@ -60,19 +61,15 @@ public class ProductController {
 		//페이징 처리에 따른 목록 조회
 		List<Product> products = productService.getProducts(pagenation);
 		
-		for(int i=0; i<products.size(); i++) {
-			System.out.println(products.get(i).getRegdate());
-		}
-		
 		model.addAttribute("products", products);
 		model.addAttribute("pagenation", pagenation);
 
-		return null;
+		return "admin.product.list";
 	}
 	
 	//상품정보
-	@GetMapping("/product/info")
-	public String product(Model model, @RequestParam(value="id", required=false) String _id) {
+	@GetMapping("/view")
+	public String view(Model model, @RequestParam(value="id", required=false) String _id) {
 		int id = 0;
 		if(_id != null) {
 			id = Integer.parseInt(_id);
@@ -81,11 +78,11 @@ public class ProductController {
 		}
 		//상품정보 페이지에서 등록버튼인지 수정버튼인지 판단하기 위해 값 전달
 		model.addAttribute("id", id);
-		return "admin.product.productinfo";
+		return "admin.product.view";
 	}
 	
 	//상품등록
-	@PostMapping("/product/insert")
+	@PostMapping("/insert")
 	public String insertProduct(Product product, @RequestParam(value="attached", required=false) MultipartFile imgFile) {
 		//업로드 폴더 경로
 		//D:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\app\
@@ -111,16 +108,18 @@ public class ProductController {
 	}
 	
 	//상품수정
-	@PostMapping("/product/update")
+	@PostMapping("/update")
 	public String updateProduct(Product product) {
 		productService.updateProduct(product);
-		return "redirect:/product/info?id=" + product.getId();
+		return "redirect:/product/view?id=" + product.getId();
 	}	
 	
 	//상품삭제
-	@GetMapping("/product/delete")
+	@GetMapping("/delete")
 	public String deleteProduct(int id) {
 		productService.deleteProduct(id);
+		
+		//파일도 삭제해야 함
 		return "redirect:/product/list";		
 	}
 	
