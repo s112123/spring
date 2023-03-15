@@ -2,6 +2,8 @@ package com.spring.app.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.spring.app.entity.Member;
 import com.spring.app.entity.Notice;
 import com.spring.app.entity.Pagenation;
 import com.spring.app.service.NoticeService;
@@ -51,39 +54,37 @@ public class NoticeController {
 	//상세보기: id
 	@GetMapping("/view")
 	public String notice(Model model, int id) {
-		/*
 		Notice notice = noticeService.getNoticeById(id);
 		model.addAttribute("notice", notice);
 		
-		//수정: 조회수
+		//조회수 수정
 		notice.setHits(notice.getHits() + 1);
-		noticeService.modifyNoticeForHits(notice);
-		*/
+		noticeService.updateNoticeForHits(notice);
 		
 		return "home.customer.notice.view";
 	}
 	
-	/*
-	//등록
-	@PostMapping("/notice/add")
-	public String addNotice(Notice notice) {
-		notice.setWriter("박땡땡");
-		noticeService.addNotice(notice);
-		return "redirect:/customer/notices";
+	//공지사항 등록
+	@PostMapping("/insert")
+	public String insertNotice(HttpSession session, Notice notice, Model model) {
+		Member member = (Member) session.getAttribute("login");
+		notice.setWriter(member.getUsername());
+		noticeService.insertNotice(notice);
+		return "redirect:/notice/list";
+	}	
+	
+	//공지사항 수정
+	@PostMapping("/update")
+	public String updateNotice(Notice notice) {
+		noticeService.updateNotice(notice);
+		return "redirect:/notice/view?id=" + notice.getId();
+	}
+		
+	//공지사항 삭제
+	@PostMapping("/delete")
+	public String deleteNotice(int id) {
+		noticeService.deleteNotice(id);
+		return "redirect:/notice/list";
 	}
 	
-	//수정: 구분, 제목, 내용
-	@PostMapping("/notice/modify")
-	public String modifyNotice(Notice notice) {
-		noticeService.modifyNotice(notice);
-		return "redirect:/customer/notices";
-	}
-	
-	//삭제
-	@GetMapping("/notice/remove")
-	public String removeNotice(int id) {
-		noticeService.removeNotice(id);
-		return "redirect:/customer/notices";
-	}
-	*/
 }

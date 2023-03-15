@@ -27,9 +27,8 @@ public class LoginController {
 	
 	//로그인 페이지
 	@GetMapping("/login")
-	public String loginGET(Model model, @CookieValue(value="remember", required=false) Cookie cookie) {
+	public String login(Model model, @CookieValue(value="remember", required=false) Cookie cookie) {
 		if(cookie != null) {
-			System.out.println(cookie.getValue());
 			model.addAttribute("remember", cookie.getValue());
 		}
 		return "home.login.login";
@@ -38,7 +37,7 @@ public class LoginController {
 	//로그인 처리
 	@PostMapping("/login")
 	@ResponseBody
-	public Map<String, String> loginPOST(
+	public Map<String, String> login(
 			@RequestBody Map<String, Object> json, 
 			HttpSession session,
 			HttpServletResponse response) {	
@@ -50,8 +49,9 @@ public class LoginController {
 		Map<String, String> map = validateLogin(email, passwd, member);
 		
 		//session
-		if(map.get("message").equals("success")) 
+		if(map.get("message").equals("success")) {
 			session.setAttribute("login", member);
+		}
 		
 		//cookie
 		Cookie cookie = new Cookie("remember", email);

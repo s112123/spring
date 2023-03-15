@@ -87,5 +87,11 @@ public class Pagenation {
 	public void setNext(boolean next) {
 		this.next = next;
 	}
+
+	@Override
+	public String toString() {
+		return "Pagenation [size=" + size + ", total=" + total + ", page=" + page + ", startPN=" + startPN + ", endPN="
+				+ endPN + ", lastPN=" + lastPN + ", prev=" + prev + ", next=" + next + "]";
+	}
 	
 }

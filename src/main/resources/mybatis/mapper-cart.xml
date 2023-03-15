@@ -11,7 +11,20 @@
 		WHERE email=#{email}
 		ORDER BY id DESC
 	</select>
-	
+
+	<!-- 일괄조회 -->
+	<select id="selectAllById" resultType="com.spring.app.entity.Cart">
+		SELECT
+			id, email, pname, price, qty, img, regdate
+		FROM 
+			cart
+		WHERE id IN
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+		ORDER BY id DESC
+	</select>
+		
 	<!-- 제품추가 -->
 	<insert id="insertOne">
 		INSERT INTO

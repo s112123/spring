@@ -13,19 +13,19 @@ public interface NoticeService {
 	//전체목록
 	public List<Notice> getNotices(Pagenation pagenation);
 	
-	//등록
-	public void addNotice(Notice notice);
+	//공지사항 등록
+	public void insertNotice(Notice notice);
 	
 	//상세보기: id
 	public Notice getNoticeById(int id);
 	
-	//수정: 구분, 제목, 내용
-	public void modifyNotice(Notice notice);
+	//공지사항 수정
+	public void updateNotice(Notice notice);
 	
-	//수정: 조회수
-	public void modifyNoticeForHits(Notice notice);
+	//공지사항 조회수 수정
+	public void updateNoticeForHits(Notice notice);
 	
-	//삭제
-	public void removeNotice(int id);
+	//공지사항 삭제
+	public void deleteNotice(int id);
 	
 }

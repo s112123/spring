@@ -4,18 +4,23 @@
 <div class="main-content">
 	<h2>글 등록</h2>
 	<div class="content-box">	
-		<form action="/customer/notice/add" method="post" id="noticeWriteForm">
+		<form method="post" id="notice-form">
 			<div class="content-item">		
 				<select name="category">
-					<option value="일반정보">일반정보</option>
-					<option value="상품관련">상품관련</option>
+					<option>선택</option>
+					<option value="common">일반정보</option>
+					<option value="product">상품관련</option>
 				</select>
-				<input type="text" id="title" name="title" placeholder="제목을 입력하세요" />
+				<input type="text" name="title" placeholder="제목을 입력하세요" />
 				<textarea name="content"></textarea>
 			</div>
 			<div class="content-btn">
-				<button type="submit" value="update">수정</button>
-				<button type="button" onclick="location.href='/notice/list'">목록</button>
+				<div>
+					<button type="button" value="list">목록</button>
+				</div>			
+				<div>
+					<button type="submit" value="insert">등록</button>
+				</div>
 			</div>
 		</form>	
 	</div>

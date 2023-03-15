@@ -12,7 +12,7 @@
 				<thead>
 					<tr>
 						<th><input type="checkbox" onclick="checkAll(this)" /></th>
-						<th>주문상품</th>
+						<th>상품명</th>
 						<th>수량</th>
 						<th>금액</th>
 						<th></th>
@@ -58,13 +58,13 @@
 				</tbody>
 			</table>
 			<div class="cart-box-bottom">
-				<button type="submit" name="cmd" value="delete">선택삭제</button>
+				<button type="submit" value="delete">선택삭제</button>
 				<div class="order-total">
-					총 결제금액: <span>30,000</span> 원
+					총 주문금액: <span><input type="text" name="total" value="${total}" /></span> 원
 				</div>
 			</div>
 			<div class="cart-order-btn">
-				<button type="submit" name="cmd" value="order">주문하기</button>
+				<button type="submit" value="order">주문하기</button>
 			</div>
 		</form>
 	</div>

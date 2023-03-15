@@ -20,6 +20,12 @@ public class CartDao {
 		return cart;
 	}
 	
+	//일괄조회
+	public List<Cart> selectAllById(int[] ids) {
+		List<Cart> cart = sqlSession.selectList("cart.selectAllById", ids);
+		return cart;
+	}
+	
 	//장바구니 추가
 	public int insertOne(Cart cart) {
 		int result = sqlSession.insert("cart.insertOne", cart);
@@ -39,7 +45,7 @@ public class CartDao {
 	}
 	
 	//일괄삭제
-	public int deleteAllById(String[] ids) {
+	public int deleteAllById(int[] ids) {
 		int result = sqlSession.delete("cart.deleteAllById", ids);
 		return result;
 	}

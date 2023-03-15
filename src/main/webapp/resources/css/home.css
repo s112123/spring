@@ -321,6 +321,111 @@
 }
 
 
+/* ---------- ORDER VIEW PAGE ---------- */
+.order-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.order-box {
+	width: 1250px;
+	padding-top: 50px;
+	padding-bottom: 500px;
+}
+.order-box h2 {
+	margin-bottom: 30px;
+}
+.order-box table td:nth-child(1) { /* 체크박스 */
+	width: 6%;
+}
+.order-box table td:nth-child(2) { /* 상품명 */
+	width: 60%;
+}
+.order-box table td:nth-child(2) .pname-box {
+	padding: 10px 60px;
+	font-size: 18px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+}
+.order-box table td:nth-child(2) .pname-box .pimg {
+	margin-right: 60px;
+}
+.order-box table td:nth-child(3) input { /* 수량 */
+	width: 70px;
+	height: 27px;
+	vertical-align: middle;
+	border: 1px solid  rgb(120, 120, 120);
+	border-radius: 5px;
+	text-align: center;
+}
+.order-box table td:nth-child(3) button {
+	width: 40px;
+	height: 27px;
+	margin-left: 3px;
+	font-size: 13px;
+	vertical-align: middle;
+}
+.order-box table td:nth-child(4) { /* 금액 */
+	width: 15%
+}
+.order-box table td:nth-child(5) { /* 삭제버튼 */
+	width: 6%;	
+}
+.order-box table td:nth-child(5) a {
+	color: rgb(170, 170, 170);
+	font-size: 16px;	
+}
+.order-box table td:nth-child(5) a:hover {
+	color: rgb(210, 40, 40);
+	transition: 1s;	
+}
+.order-box-bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+/*
+.order-order-btn {
+	margin-top: 20px;
+	text-align: right;
+}
+.cart-order-btn button {
+	margin-right: 3px;
+	border: 1px solid rgb(210, 40, 40);
+	background-color: rgb(210, 40, 40);
+	color: white;
+}
+*/
+
+
+/* ---------- ORDER LIST PAGE ---------- */
+.order-list td:nth-child(1) { /* 번호 */
+	width: 8%;	
+}
+.order-list td:nth-child(2) { /* 구분 */
+	width: 15%;
+}
+.order-list td:nth-child(3) { /* 제목 */
+	text-align: left;
+}
+.order-list td:nth-child(3) a { 
+	color: rgb(100, 100, 100);
+}
+.order-list td:nth-child(3) a:hover { 
+	color: rgb(210, 40, 40);
+}
+.order-list td:nth-child(4) { /* 작성자 */
+	width: 12%;	
+}
+.order-list td:nth-child(5) { /* 등록일 */
+	width: 12%;
+}
+.order-list td:nth-child(6) { /* 조회수 */
+	width: 12%;	
+}
+
+
 /* ---------- NOTICE LIST PAGE ---------- */
 .notice-list td:nth-child(1) { /* 번호 */
 	width: 8%;	
@@ -338,14 +443,15 @@
 	color: rgb(210, 40, 40);
 }
 .notice-list td:nth-child(4) { /* 작성자 */
-	width: 15%;	
+	width: 12%;	
 }
 .notice-list td:nth-child(5) { /* 등록일 */
 	width: 12%;
 }
 .notice-list td:nth-child(6) { /* 조회수 */
-	width: 8%;	
+	width: 12%;	
 }
+
 
 /* ---------- WRITE & INFO PAGE: DEFAULT ---------- */
 .content-box {
@@ -365,29 +471,34 @@
 }
 .content-item select {
 	width: 125px;
+	margin-right: 1px;
+	font-size: 15px;
 }
 .content-item input {
 	width: 720px;
+	font-size: 15px;
 }
 .content-item textarea {
 	width: 100%;
 	height: 450px;
 	padding: 15px;
 	margin-bottom: 10px;
-	border: 1px solid #bbb;
+	border: 1px solid #ccc;
 	border-radius: 2px;
 	font-size: 15px;
 }
 .content-btn {
 	padding-left: 0 20px;
 	margin-top: 20px;
-	text-align: right;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
-.content-btn button {
-	margin-left: 5px;
-}
-.content-btn button:nth-child(1) {
+.content-btn div:nth-child(2) button:first-child {
 	border: 1px solid rgb(210, 40, 40);
 	background-color: rgb(210, 40, 40);
 	color: white;
+}
+.content-btn div:nth-child(2) button:last-child {
+	margin-left: 5px;
 }

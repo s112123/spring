@@ -19,16 +19,8 @@
 		ORDER BY id DESC
 		LIMIT #{skip}, #{size}
 	</select>
-	
-	<!-- 등록 -->
-	<insert id="insertOne">
-		INSERT INTO 
-			notice 
-		VALUES
-			(NULL, #{category}, #{title}, #{content}, #{writer}, NOW(), DEFAULT)
-	</insert>
 
-	<!-- 상세보기: id -->
+	<!-- 상세보기 -->
 	<select id="selectOneById" resultType="com.spring.app.entity.Notice">
 		SELECT
 			id, category, title, content, writer, regdate, hits
@@ -36,9 +28,17 @@
 			notice
 		WHERE 
 			id=#{id}
-	</select>	
+	</select>
 	
-	<!-- 수정: 구분, 제목, 내용 -->
+	<!-- 공지사항 등록 -->
+	<insert id="insertOne">
+		INSERT INTO 
+			notice 
+		VALUES
+			(NULL, #{category}, #{title}, #{content}, #{writer}, NOW(), DEFAULT)
+	</insert>
+
+	<!-- 공지사항 수정 -->
 	<update id="updateOne">
 		UPDATE 
 			notice
@@ -48,7 +48,7 @@
 			id=#{id}
 	</update>
 	
-	<!-- 수정: 조회수 -->
+	<!-- 공지사항 조회수 수정 -->
 	<update id="updateOneForHits">
 		UPDATE 
 			notice
@@ -58,23 +58,12 @@
 			id=#{id}
 	</update>
 	
-	<!-- 삭제 -->
+	<!-- 공지사항 삭제 -->
 	<delete id="deleteOne">
 		DELETE FROM
 			notice
 		WHERE
 			id=#{id}
 	</delete>
-	
-	<!-- 목록조회
-	<select id="selectAllByTitle">
-		SELECT
-			id, category, title, content, writer, regdate
-		FROM 
-			notice
-		WHERE title LIKE '%${searchKeyword}%'
-		ORDER BY id DESC;
-	</select>
-	-->
 	
 </mapper>

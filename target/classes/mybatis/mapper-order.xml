@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="order">
+	
+	<!-- 전체목록
+	<select id="selectAllByEmail" resultType="com.spring.app.entity.Order">
+		SELECT
+			id, email, ordercode, pname, price, qty, img, regdate
+		FROM 
+			orders
+		WHERE email=#{email}
+		ORDER BY id DESC
+	</select>	
+	 -->
+	
+	<!-- 주문번호별 조회 -->
+	
+	
+	<!-- 주문등록 -->
+	<insert id="insertOne">
+		INSERT INTO
+			orders
+		VALUES
+			(NULL, #{code}, #{email}, #{title}, #{total}, NOW())
+	</insert>
+	
+	<!-- 주문내역등록 -->
+	<insert id="insertDetailForOneOrder">
+		INSERT INTO
+			orders_detail
+		VALUES
+			(NULL, #{code}, #{pname}, #{price}, #{qty}, #{img})
+	</insert>
+</mapper>
+

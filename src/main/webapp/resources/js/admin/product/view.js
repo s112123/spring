@@ -1,24 +1,26 @@
 /* 관리자페이지에서 제품정보 페이지 */
 
-//<form>을 submit 한 경우
+//submit 요청시, button[type=submit]인 버튼 요소들 저장 후 버튼에 따라 처리
 const form = document.getElementById('product-form');
-form.addEventListener('submit', function(e) {
-	e.preventDefault();
-	//유효성 검사
-	let isValid = validateProductInfo();
-	if(!isValid) return;
-	
-	//button[type=submit]인 버튼 요소들 저장
-	const commands = document.querySelectorAll('button[type=submit]');
-	commands.forEach(function(command) {
+const commands = document.querySelectorAll('button[type=submit]');
+commands.forEach(function(command) {
+	command.addEventListener('click', function(e) {
+		e.preventDefault();
+		
+		//유효성 검사
+		let isValid = validateProductInfo();
+		if(!isValid) return;		
+		
 		switch(command.value) {
 			case "insert":
 				insertProduct(form); break;
 			case "update":
 				updateProduct(form); break;
 		}
+		
+		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
+		return;	
 	});
-
 });
 
 //상품등록
@@ -47,44 +49,7 @@ function updateProduct(form) {
 		form.method = 'POST';
 		form.submit();
 }
-
-/*
-const form = document.getElementById('product-form');
-form.addEventListener('submit', function(e) {
-	e.preventDefault();
-	//유효성검사 필요 => submit();
-	submit(id);
-});
-
-function submit(id) {
-	const btns = document.getElementsByName('submit-btn');
-	for(let i=0; i<btns.length; i++) {
-		const cmd = btns[i].value
-		
-		switch(cmd) {
-			case 'insert':	//상품등록
-				showModal(true, '상품을 등록하시겠습니까?');
-				form.action = '/product/insert'; break;
-			case 'update':	//상품수정
-				showModal(true, '상품을 수정하시겠습니까?');
-				//id값이 있는 <input>요소를 만들어 <form> 자식요소로 생성하고 POST로 전송
-				const element = document.createElement('input');
-				element.setAttribute('type', 'hidden');
-				element.setAttribute('name', 'id');
-				element.setAttribute('value', id);
-				form.appendChild(element);
-				form.action = '/product/update'; break;
-		}
-		
-		const confirmBtn = document.getElementById('modal-confirm-btn');
-		confirmBtn.addEventListener('click', function() {
-			form.method = 'POST';
-			form.submit();
-		});	
-	}
-} 
-*/    
-    
+ 
 //유효성 검사
 function validateProductInfo() {
 	//구분

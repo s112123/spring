@@ -91,5 +91,12 @@ public class Member {
 	public void setRegdate(LocalDateTime regdate) {
 		this.regdate = regdate;
 	}
+
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", email=" + email + ", username=" + username + ", passwd=" + passwd + ", phone="
+				+ phone + ", addr1=" + addr1 + ", addr2=" + addr2 + ", agree=" + agree + ", grade=" + grade
+				+ ", regdate=" + regdate + "]";
+	}
 	
 }

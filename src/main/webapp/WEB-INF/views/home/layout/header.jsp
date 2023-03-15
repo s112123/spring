@@ -28,11 +28,11 @@
 			</c:when>
 			<c:otherwise>
 				<c:choose>
-					<c:when test="${login.grade == 'admin'}">
+					<c:when test="${login.grade == 'ADMIN'}">
 						<li><a href="/admin"><i class="fa-solid fa-gear"></i> Admin</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="#"><i class="fa-solid fa-user"></i> MyPage</a></li>
+						<li><a href="/mypage"><i class="fa-solid fa-user"></i> MyPage</a></li>
 						<li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
 					</c:otherwise>
 				</c:choose>

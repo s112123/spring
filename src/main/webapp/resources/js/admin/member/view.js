@@ -1,29 +1,21 @@
-//<form>을 submit 한 경우
+//submit 요청시, button[type=submit]인 버튼 요소들 저장 후 버튼에 따라 처리
 const form = document.getElementById('member-form');
-form.addEventListener('submit', function(e) {
-	e.preventDefault();
-	//유효성 검사
-	let isValid = validateMemberInfo();
-	if(!isValid) return;
-	
-	//button[type=submit]인 버튼 요소들 저장
-	const commands = document.querySelectorAll('button[type=submit]');
-	commands.forEach(function(command) {
+const commands = document.querySelectorAll('button[type=submit]');
+commands.forEach(function(command) {
+	command.addEventListener('click', function(e) {
+		e.preventDefault();
+		
+		//유효성 검사
+		let isValid = validateMemberInfo();
+		if(!isValid) return;		
+		
 		switch(command.value) {
 			case "update":
 				updateMember(form);
-		}
-	});
-});
-
-//button[type=button]을 클릭한 경우
-const btns = document.querySelectorAll('button[type=button]');
-btns.forEach(function(btn) {
-	console.log(btn.value);
-	btn.addEventListener('click', function() {
-		switch(btn.value) {
-			case "":
-		}
+		}	
+		
+		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
+		return;	
 	});
 });
 

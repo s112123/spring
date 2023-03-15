@@ -6,6 +6,9 @@ btns.forEach(function(btn) {
 			case 'next': 
 				validateAgreeForm();
 		}
+		
+		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
+		return;
 	});
 });
 

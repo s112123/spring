@@ -33,7 +33,15 @@ public class CartController {
 	public String cart(HttpSession session, Model model) {
 		Member member = (Member) session.getAttribute("login");
 		List<Cart> cart = cartService.getItemsInCartByEmail(member.getEmail());
+		
+		//총 주문금액
+		int total = 0;
+		for(Cart c : cart) {
+			total += (c.getQty() * c.getPrice());
+		}
+	
 		model.addAttribute("cart", cart);
+		model.addAttribute("total", total);
 		return "home.cart.list";
 	}
 	
@@ -70,7 +78,7 @@ public class CartController {
 	
 	//제품일괄삭제
 	@PostMapping("/delete")
-	public String deleteItemsInCart(@RequestParam(value="selectedItem", required=false) String[] ids) {
+	public String deleteItemsInCart(@RequestParam(value="selectedItem", required=false) int[] ids) {
 		cartService.deleteItemsInCart(ids);
 		return "redirect:/cart";
 	}

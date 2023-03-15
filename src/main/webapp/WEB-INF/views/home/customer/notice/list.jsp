@@ -42,7 +42,9 @@
 		</tbody>
 	</table>
 	<div class="bottom">
-		<button type="button" value="write">글쓰기</button>
+		<c:if test="${!empty login && login.grade == 'ADMIN'}">
+			<button type="button" value="write">글쓰기</button>
+		</c:if>
 		<div class="search">
 			<select name="search-option">
 				<option>선택</option>

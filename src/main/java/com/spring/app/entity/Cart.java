@@ -10,7 +10,7 @@ public class Cart {
 	private int price;					//제품가격
 	private int qty;					//제품수량
 	private String img;					//제품이미지
-	private LocalDateTime regdate;		//추가시간
+	private LocalDateTime regdate;		//추가일
 	
 	public Cart() {}
 
@@ -78,6 +78,12 @@ public class Cart {
 
 	public void setRegdate(LocalDateTime regdate) {
 		this.regdate = regdate;
+	}
+
+	@Override
+	public String toString() {
+		return "Cart [id=" + id + ", email=" + email + ", pname=" + pname + ", price=" + price + ", qty=" + qty
+				+ ", img=" + img + ", regdate=" + regdate + "]";
 	}
 	
 }

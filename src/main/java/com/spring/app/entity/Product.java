@@ -110,5 +110,12 @@ public class Product {
 	public void setRegdate(LocalDateTime regdate) {
 		this.regdate = regdate;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", category=" + category + ", pname=" + pname + ", description=" + description
+				+ ", price=" + price + ", gram=" + gram + ", kcal=" + kcal + ", origin=" + origin + ", img=" + img
+				+ ", regdate=" + regdate + "]";
+	}
 	
 }

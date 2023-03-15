@@ -1,5 +1,5 @@
 /* 사용자페이지에서 제품리스트 페이지 */
-
+console.log(sessionStorage.length);
 //button[type=button]을 클릭한 경우
 const btns = document.querySelectorAll('button[type=button]');
 btns.forEach(function(btn) {
@@ -7,10 +7,17 @@ btns.forEach(function(btn) {
 		e.preventDefault();
 		switch(btn.name) {
 			case "add-cart":
+				/* 세션확인이 필요
+				sessionStorage.setItem("abc", "def");
+				console.log(sessionStorage.length);
+				*/
 				const productId = btn.value;
 				insertProductInCart(productId); 
 				break;
 		}
+		
+		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
+		return;
 	});
 });
 

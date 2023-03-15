@@ -21,6 +21,13 @@ public class CartServiceImpl implements CartService {
 		return cart;
 	}
 	
+	//일괄목록: 선택된 상품만 목록으로 추출
+	@Override
+	public List<Cart> getItemsById(int[] ids) {
+		List<Cart> cart = cartDao.selectAllById(ids);
+		return cart;
+	}
+	
 	//장바구니 추가
 	@Override
 	public void insertItemInCart(Cart cart) {
@@ -41,7 +48,7 @@ public class CartServiceImpl implements CartService {
 	
 	//일괄삭제
 	@Override
-	public void deleteItemsInCart(String[] ids) {
+	public void deleteItemsInCart(int[] ids) {
 		cartDao.deleteAllById(ids);
 	}
 	

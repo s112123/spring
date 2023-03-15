@@ -14,8 +14,12 @@
 		<put-attribute name="main" value="/WEB-INF/views/home/index.jsp" />
 	</definition>	
 	<definition name="home.customer.*.*" extends="homeLayout">
-		<put-attribute name="aside" value="/WEB-INF/views/home/layout/aside.jsp" />
+		<put-attribute name="aside" value="/WEB-INF/views/home/layout/aside/customer.jsp" />
 		<put-attribute name="main" value="/WEB-INF/views/home/customer/{1}/{2}.jsp" />
+	</definition>
+	<definition name="home.mypage.*.*" extends="homeLayout">
+		<put-attribute name="aside" value="/WEB-INF/views/home/layout/aside/mypage.jsp" />
+		<put-attribute name="main" value="/WEB-INF/views/home/mypage/{1}/{2}.jsp" />
 	</definition>
 	<definition name="home.*.*" extends="homeLayout">
 		<put-attribute name="main" value="/WEB-INF/views/home/{1}/{2}.jsp" />

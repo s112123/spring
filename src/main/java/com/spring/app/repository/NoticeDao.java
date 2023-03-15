@@ -10,7 +10,7 @@ import com.spring.app.entity.Notice;
 import com.spring.app.entity.Pagenation;
 
 @Repository
-public class NoticeRepository {
+public class NoticeDao {
 
 	@Autowired
 	private SqlSession sqlSession;
@@ -26,31 +26,31 @@ public class NoticeRepository {
 		return notices;
 	}
 	
-	//등록
+	//공지사항 등록
 	public int insertOne(Notice notice) {
 		int result = sqlSession.insert("notice.insertOne", notice);
 		return result;
 	}
 	
-	//상세보기: id
+	//상세보기
 	public Notice selectOneById(int id) {
 		Notice notice = sqlSession.selectOne("notice.selectOneById", id);
 		return notice;
 	}
 	
-	//수정: 구분, 제목, 내용
+	//공지사항 수정
 	public int updateOne(Notice notice) {
 		int result = sqlSession.update("notice.updateOne", notice);
 		return result;
 	}
 	
-	//수정: 조회수
+	//공지사항 조회수 수정
 	public int updateOneForHits(Notice notice) {
 		int result = sqlSession.update("notice.updateOneForHits", notice);
 		return result;
 	}
 	
-	//삭제
+	//공지사항 삭제
 	public int deleteOne(int id) {
 		int result = sqlSession.delete("notice.deleteOne", id);
 		return result;

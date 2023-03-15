@@ -80,5 +80,11 @@ public class Notice {
 	public void setHits(int hits) {
 		this.hits = hits;
 	}
+
+	@Override
+	public String toString() {
+		return "Notice [id=" + id + ", category=" + category + ", title=" + title + ", content=" + content + ", writer="
+				+ writer + ", regdate=" + regdate + ", hits=" + hits + "]";
+	}
 	
 }
