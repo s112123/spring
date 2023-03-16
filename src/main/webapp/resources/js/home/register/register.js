@@ -58,7 +58,7 @@ targets.forEach(function(target) {
 		
 		//비밀번호
 		if(targetId === 'passwd') {
-			if(targetVal.length < 3) {
+			if(targetVal.length < 4) {
 				showMessage(target, '4 ~ 12자까지 입력 가능합니다');
 				return;
 			}

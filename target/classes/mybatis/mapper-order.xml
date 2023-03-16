@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="order">
-	
-	<!-- 전체목록
-	<select id="selectAllByEmail" resultType="com.spring.app.entity.Order">
-		SELECT
-			id, email, ordercode, pname, price, qty, img, regdate
+
+	<!-- 전체주문수 -->
+	<select id="countAll" resultType="int">
+		SELECT 
+			COUNT(id) 
 		FROM 
 			orders
-		WHERE email=#{email}
+	</select>
+	
+	<!-- 전체주문목록 -->
+	<select id="selectAllByEmail" resultType="com.spring.app.entity.Order">
+		SELECT
+			id, code, email, title, total, regdate
+		FROM 
+			orders
+		<!--  WHERE email=#{email}-->
 		ORDER BY id DESC
+		LIMIT #{skip}, #{size}
 	</select>	
-	 -->
-	
-	<!-- 주문번호별 조회 -->
-	
+
+	<!-- 주문상품목록 -->
+	<select id="selectAllByCode" resultType="com.spring.app.entity.OrderDetail">
+		SELECT
+			id, #{code}, #{pname}, #{price}, #{qty}, #{img}
+		FROM
+			orders_detail
+		WHERE code = #{code}
+		ORDER BY id DESC
+	</select>
 	
 	<!-- 주문등록 -->
 	<insert id="insertOne">

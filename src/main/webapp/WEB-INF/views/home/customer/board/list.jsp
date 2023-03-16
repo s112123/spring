@@ -4,8 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="main-content">
-	<h2>공지사항</h2>
-	<table class="qna-list">
+	<h2>자유게시판</h2>
+	<table class="board-list">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -18,23 +18,26 @@
 		</thead>
 		<tbody>
 			<c:choose>
-				<c:when test="${empty notices}">
+				<c:when test="${empty boards}">
 					<tr>
 						<td colspan="6">등록된 글이 없습니다</td>
 					</tr>
 				</c:when>
 				<c:otherwise>
-					<c:forEach var="notice" items="${notices}">
+					<c:forEach var="board" items="${boards}">
 						<tr>
-							<td>${notice.id}</td>
-							<td>${notice.category}</td>
-							<td><a href="/qna/view?id=${notice.id}">${notice.title}</a></td>
-							<td>${notice.writer}</td>
+							<td>${board.id}</td>
 							<td>
-								<fmt:parseDate value="${notice.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
+								<c:if test="${board.category == 'common'}">일반</c:if>
+								<c:if test="${board.category == 'question'}">문의</c:if>
+							</td>
+							<td><a href="/board/view?id=${board.id}">${board.title}</a></td>
+							<td>${board.writer}</td>
+							<td>
+								<fmt:parseDate value="${board.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
 								<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd" />
 							</td>
-							<td>${notice.hits}</td>
+							<td>${board.hits}</td>
 						</tr>	
 					</c:forEach>					
 				</c:otherwise>
@@ -42,7 +45,9 @@
 		</tbody>
 	</table>
 	<div class="bottom">
-		<button type="button" value="write">글쓰기</button>
+		<c:if test="${!empty login}">
+			<button type="button" value="write">글쓰기</button>
+		</c:if>
 		<div class="search">
 			<select name="search-option">
 				<option>선택</option>
@@ -59,4 +64,4 @@
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
 <script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/js/home/customer/notice/list.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/home/customer/board/list.js"></script>

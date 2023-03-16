@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class Notice {
 
 	private int id;						//고유번호
+	private String email;				//이메일
 	private String category;			//구분
 	private String title;				//제목
 	private String content;				//내용
@@ -14,9 +15,10 @@ public class Notice {
 	
 	public Notice() {}
 
-	public Notice(int id, String category, String title, String content, String writer, LocalDateTime regdate,
-			int hits) {
+	public Notice(int id, String email, String category, String title, String content, String writer,
+			LocalDateTime regdate, int hits) {
 		this.id = id;
+		this.email = email;
 		this.category = category;
 		this.title = title;
 		this.content = content;
@@ -31,6 +33,14 @@ public class Notice {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getCategory() {
@@ -83,8 +93,8 @@ public class Notice {
 
 	@Override
 	public String toString() {
-		return "Notice [id=" + id + ", category=" + category + ", title=" + title + ", content=" + content + ", writer="
-				+ writer + ", regdate=" + regdate + ", hits=" + hits + "]";
+		return "Notice [id=" + id + ", email=" + email + ", category=" + category + ", title=" + title + ", content="
+				+ content + ", writer=" + writer + ", regdate=" + regdate + ", hits=" + hits + "]";
 	}
 	
 }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+	<!-- 전체 글 개수 -->
+	<select id="countAll" resultType="int">
+		SELECT 
+			COUNT(id) 
+		FROM 
+			board
+	</select>	
+	
+	<!-- 전체글목록 -->
+	<select id="selectAll" resultType="com.spring.app.entity.Board">
+		SELECT
+			id, email, category, title, content, writer, hits, regdate
+		FROM
+			board
+		ORDER BY id DESC
+		LIMIT #{skip}, #{size}
+	</select>
+	
+	<!-- 글목록조회 -->
+	<select id="selectAllByEmail" parameterType="java.util.Map" resultType="com.spring.app.entity.Board">
+		SELECT
+			id, email, category, title, content, writer, hits, regdate
+		FROM
+			board
+		WHERE email=#{email}
+		ORDER BY id DESC
+		LIMIT #{pagenation.skip}, #{pagenation.size}
+	</select>
+	
+	<!-- 글 보기 -->
+	<select id="selectOneById" resultType="com.spring.app.entity.Board">
+		SELECT
+			id, email, category, title, content, writer, hits, regdate
+		FROM
+			board
+		WHERE id=#{id}
+	</select>
+	
+	<!-- 글 등록 -->
+	<insert id="insertOne">
+		INSERT INTO
+			board
+		VALUES
+			(NULL, #{email}, #{category}, #{title}, #{content}, #{writer}, #{hits}, NOW())
+	</insert>
+	
+	<!-- 글 수정 -->
+	<update id="updateOne">
+		UPDATE 
+			board
+		SET
+			category=#{category}, title=#{title}, content=#{content}
+		WHERE id=#{id}
+	</update>
+	
+	<!-- 글 조회수 수정 -->
+	<update id="updateOneForHits">
+		UPDATE 
+			board
+		SET
+			hits=#{hits}
+		WHERE id=#{id}
+	</update>	
+	
+	<!-- 글 삭제 -->
+	<delete id="deleteOne">
+		DELETE FROM 
+			board
+		WHERE id=#{id}
+	</delete>
+	
+</mapper>

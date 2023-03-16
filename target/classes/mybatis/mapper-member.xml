@@ -51,7 +51,7 @@
 		UPDATE
 			member
 		SET
-			username=#{username}, passwd=#{passwd}, addr1=#{addr1}, addr2=#{addr2}, agree=#{agree}, grade=#{grade}
+			username=#{username}, passwd=#{passwd}, phone=#{phone}, addr1=#{addr1}, addr2=#{addr2}, agree=#{agree}, grade=#{grade}
 		WHERE id=#{id}
 	</update>
 	

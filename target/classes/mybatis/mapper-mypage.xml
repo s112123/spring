@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mypage">
+
+	<!-- 전체주문수 -->
+	<select id="countAllMyOrders" resultType="int">
+		SELECT 
+			COUNT(id) 
+		FROM 
+			orders
+		WHERE email=#{email}
+	</select>
+
+	<!-- 전체 글 개수 -->
+	<select id="countAllMyBoards" resultType="int">
+		SELECT 
+			COUNT(id) 
+		FROM 
+			board
+		WHERE email=#{email}
+	</select>
+	
+	<!-- 주문목록조회 -->
+	<select id="selectAllMyOrdersByEmail" parameterType="java.util.Map" resultType="com.spring.app.entity.Order">
+		SELECT
+			id, code, email, title, total, regdate
+		FROM
+			orders
+		WHERE email=#{email}
+		ORDER BY id DESC
+		LIMIT #{pagenation.skip}, #{pagenation.size}
+	</select>
+
+	<!-- 글목록조회 -->
+	<select id="selectAllMyBoardsByEmail" parameterType="java.util.Map" resultType="com.spring.app.entity.Board">
+		SELECT
+			id, email, category, title, content, writer, hits, regdate
+		FROM
+			board
+		WHERE email=#{email}
+		ORDER BY id DESC
+		LIMIT #{pagenation.skip}, #{pagenation.size}
+	</select>
+	
+</mapper>

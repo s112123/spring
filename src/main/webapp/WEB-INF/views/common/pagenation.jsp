@@ -17,7 +17,7 @@
 			</li>
 		</c:forEach>
 		<%-- 다음 버튼 --%>
-		<c:if test="${pagenation.next}">
+		<c:if test="${next}">
 			<li>
 				<a href="?page=${pagenation.endPN + 1}"><i class="fa-solid fa-angle-right"></i></a>
 			</li>

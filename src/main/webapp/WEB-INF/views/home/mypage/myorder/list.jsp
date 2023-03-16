@@ -26,9 +26,9 @@
 					<c:forEach var="order" items="${orders}">
 						<tr>
 							<td>${order.id}</td>
-							<td>${order.ordercode}</td>
-							<td>${total}</td>
-							<td>${order.price}</td>
+							<td>${order.code}</td>
+							<td><a href="/mypage/myorder/view?code=${order.code}">${order.title}</a></td>
+							<td>${order.total}</td>
 							<td>
 								<fmt:parseDate value="${order.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
 								<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd" />
@@ -40,9 +40,6 @@
 		</tbody>
 	</table>
 	<div class="bottom">
-		<c:if test="${!empty login && login.grade == 'ADMIN'}">
-			<button type="button" value="write">글쓰기</button>
-		</c:if>
 		<div class="search">
 			<select name="search-option">
 				<option>선택</option>

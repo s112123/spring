@@ -10,9 +10,9 @@
 			</a>
 		</li>
 		<li>
-			<a href="/qnas">
+			<a href="/board/list">
 				<span><i class="fa-solid fa-comments"></i></span> 
-				<span>QnA</span>
+				<span>자유게시판</span>
 			</a>
 		</li>
 	</ul>	

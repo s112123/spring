@@ -101,9 +101,9 @@
 	padding: 20px 0;
 	margin-bottom: 35px;
 	display: flex;
-	border-top: 1px solid rgb(150, 150, 150);
+	border-left: 2px solid rgb(210, 40, 40);
 	border-radius: 3px;
-	box-shadow: 0px 1px 4px 0px rgb(200, 200, 200);
+	box-shadow: 0px 1px 5px 1px rgb(200, 200, 200);
 }
 .infomation-item .item-left,
 .infomation-item .item-right {
@@ -157,7 +157,7 @@
 
 /* ---------- MEMBER INFOMATION PAGE ---------- */
 .member-item input {
-	width: 80%;
+	width: 83%;
 	vertical-align: middle;
 }
 .member-item button {

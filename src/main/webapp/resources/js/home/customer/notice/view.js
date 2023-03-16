@@ -5,14 +5,14 @@ commands.forEach(function(command) {
 	command.addEventListener('click', function(e) {
 		e.preventDefault();
 		
-		//유효성 검사
-		let isValid = validateNoticeInfo();
-		if(!isValid) return;		
-		
 		switch(command.value) {
 			case "update":
+				//유효성 검사
+				let isValid = validateNoticeInfo();
+				if(!isValid) return;
 				updateNotice(form); break;
 			case "delete":
+				//삭제할 때는 유효성 검사가 필요없다
 				deleteNotice(form); break;
 		}	
 		

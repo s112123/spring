@@ -6,19 +6,19 @@
 		<li>
 			<a href="/mypage/myinfo">
 				<span><i class="fa-solid fa-address-card"></i></span> 
-				<span>개인정보</span>
+				<span>내 정보</span>
 			</a>
 		</li>
 		<li>
-			<a href="/mypage/myorder/list">
+			<a href="/mypage/order/list">
 				<span><i class="fa-solid fa-truck"></i></span> 
 				<span>주문내역</span>
 			</a>
 		</li>
 		<li>
-			<a href="/mypage/myqna/list">
+			<a href="/mypage/board/list">
 				<span><i class="fa-solid fa-comments"></i></span> 
-				<span>문의내역</span>
+				<span>작성 글</span>
 			</a>
 		</li>
 	</ul>	

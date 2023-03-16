@@ -4,12 +4,19 @@ import java.util.List;
 
 import com.spring.app.entity.Order;
 import com.spring.app.entity.OrderDetail;
+import com.spring.app.entity.Pagenation;
 
 public interface OrderService {
 	
-	//주문목록
-	public List<Order> getOrdersByEmail(String email);
+	//전체주문수
+	public int getTotalOrders();
+	
+	//전체주문목록
+	public List<Order> getOrdersByEmail(Pagenation pagenation);
 
+	//주문상품목록
+	public List<OrderDetail> getOrderProductsByCode(String code);
+	
 	//주문등록
 	public void insertOrder(Order order);
 	

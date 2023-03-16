@@ -68,7 +68,9 @@ public class NoticeController {
 	@PostMapping("/insert")
 	public String insertNotice(HttpSession session, Notice notice, Model model) {
 		Member member = (Member) session.getAttribute("login");
+		notice.setEmail(member.getEmail());
 		notice.setWriter(member.getUsername());
+		
 		noticeService.insertNotice(notice);
 		return "redirect:/notice/list";
 	}	

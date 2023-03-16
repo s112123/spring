@@ -20,7 +20,6 @@
 	<link rel="stylesheet" href="${contextPath}/resources/css/reset.css" />	
 	<link rel="stylesheet" href="${contextPath}/resources/css/common.css" />	
 	<link rel="stylesheet" href="${contextPath}/resources/css/home.css" />	
-	<link rel="stylesheet" href="${contextPath}/resources/css/admin.css" />	
 	<!-- TITLE -->
 	<title>Home</title>
 </head>

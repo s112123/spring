@@ -16,12 +16,10 @@
 			</a>
 		</li>
 		<li>
-			<span><i class="fa-solid fa-truck"></i></span>
-			<span>주문관리</span>
-		</li>
-		<li>
-			<span><i class="fa-solid fa-map-location-dot"></i></span> 
-			<span>매장관리</span>
+			<a href="/store/list">
+				<span><i class="fa-solid fa-map-location-dot"></i></span> 
+				<span>매장관리</span>
+			</a>
 		</li>
 	</ul>	
 </aside>

@@ -399,34 +399,7 @@
 */
 
 
-/* ---------- ORDER LIST PAGE ---------- */
-.order-list td:nth-child(1) { /* 번호 */
-	width: 8%;	
-}
-.order-list td:nth-child(2) { /* 구분 */
-	width: 15%;
-}
-.order-list td:nth-child(3) { /* 제목 */
-	text-align: left;
-}
-.order-list td:nth-child(3) a { 
-	color: rgb(100, 100, 100);
-}
-.order-list td:nth-child(3) a:hover { 
-	color: rgb(210, 40, 40);
-}
-.order-list td:nth-child(4) { /* 작성자 */
-	width: 12%;	
-}
-.order-list td:nth-child(5) { /* 등록일 */
-	width: 12%;
-}
-.order-list td:nth-child(6) { /* 조회수 */
-	width: 12%;	
-}
-
-
-/* ---------- NOTICE LIST PAGE ---------- */
+/* ---------- CUSTOMER: NOTICE LIST PAGE ---------- */
 .notice-list td:nth-child(1) { /* 번호 */
 	width: 8%;	
 }
@@ -449,6 +422,33 @@
 	width: 12%;
 }
 .notice-list td:nth-child(6) { /* 조회수 */
+	width: 12%;	
+}
+
+
+/* ---------- CUSTOMER: BOARD LIST PAGE ---------- */
+.board-list td:nth-child(1) { /* 번호 */
+	width: 8%;	
+}
+.board-list td:nth-child(2) { /* 구분 */
+	width: 15%;
+}
+.board-list td:nth-child(3) { /* 제목 */
+	text-align: left;
+}
+.board-list td:nth-child(3) a { 
+	color: rgb(100, 100, 100);
+}
+.board-list td:nth-child(3) a:hover { 
+	color: rgb(210, 40, 40);
+}
+.board-list td:nth-child(4) { /* 작성자 */
+	width: 12%;	
+}
+.board-list td:nth-child(5) { /* 등록일 */
+	width: 12%;
+}
+.board-list td:nth-child(6) { /* 조회수 */
 	width: 12%;	
 }
 
@@ -501,4 +501,141 @@
 }
 .content-btn div:nth-child(2) button:last-child {
 	margin-left: 5px;
+}
+
+
+/* ---------- MYPAGE: MY INFO PAGE ---------- */
+.myinfo-box {
+	width: 950px;
+	padding: 50px;
+	padding-top: 60px;
+	border-top: 3px solid black;
+	border-radius: 5px;
+	box-shadow: 1px 1px 4px 0px rgb(150, 150, 150);	
+}
+.myinfo-item {
+	padding: 20px 0;
+	margin-bottom: 35px;
+	display: flex;
+	border-left: 2px solid rgb(210, 40, 40);
+	border-radius: 3px;
+	box-shadow: 0px 1px 5px 1px rgb(200, 200, 200);
+}
+.myinfo-item .item-left,
+.myinfo-item .item-right {
+	width: 50%;
+	height: 40px;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;	
+	font-size: 15px;
+}
+.myinfo-item .title {
+	width: 25%;
+	font-weight: bold;
+}
+.myinfo-item .title small {
+	font-size: 13px;
+}
+.myinfo-item .content {
+	width: 75%;
+}
+.myinfo-item input {
+	width: 100%;
+	height: 30px;
+	padding: 3px 10px;
+	font-size: 14px;
+}
+.myinfo-item input:read-only {
+    border: none;
+}
+.myinfo-item input::placeholder {
+	font-size: 13px;
+}
+#myinfo-item input {
+	width: 83%;
+	vertical-align: middle;
+}
+#myinfo-item button {
+	width: 40px;
+	height: 30px;
+	border: 1px solid #ccc;
+	margin-left: 3px;
+	font-size: 13px;
+	vertical-align: middle;
+}
+#myinfo-item button:hover {
+	border: 1px solid rgb(210, 40, 40);
+}
+#agree-chk input {
+	width: 3%;
+	margin: 0;
+	margin-right: 8px;
+    position: relative;
+    top: 1px;
+}
+#agree-chk span {
+	font-size: 15px;
+	font-weight: bold;
+}
+.myinfo-btn {
+	padding-left: 0 20px;
+	margin-top: 35px;
+	text-align: right;
+}
+.myinfo-btn button {
+	border: 1px solid rgb(210, 40, 40);
+	background-color: rgb(210, 40, 40);
+	color: white;
+}
+
+/* ---------- MYPAGE: ORDER LIST PAGE ---------- */
+.order-list td:nth-child(1) { /* 번호 */
+	width: 5%;	
+}
+.order-list td:nth-child(2) { /* 주문번호 */
+	width: 25%;
+	text-align: left;
+}
+.order-list td:nth-child(3) { /* 상품명 */
+	text-align: left;
+}
+.order-list td:nth-child(3) a { 
+	color: rgb(100, 100, 100);
+}
+.order-list td:nth-child(3) a:hover { 
+	color: rgb(210, 40, 40);
+}
+.order-list td:nth-child(4) { /* 주문금액 */
+	width: 12%;	
+}
+.order-list td:nth-child(5) { /* 주문일 */
+	width: 12%;
+}
+
+
+/* ---------- MYPAGE: MYBOARD LIST PAGE ---------- */
+.myboard-list td:nth-child(1) { /* 번호 */
+	width: 8%;	
+}
+.myboard-list td:nth-child(2) { /* 구분 */
+	width: 15%;
+}
+.myboard-list td:nth-child(3) { /* 제목 */
+	text-align: left;
+}
+.myboard-list td:nth-child(3) a { 
+	color: rgb(100, 100, 100);
+}
+.myboard-list td:nth-child(3) a:hover { 
+	color: rgb(210, 40, 40);
+}
+.myboard-list td:nth-child(4) { /* 작성자 */
+	width: 12%;	
+}
+.myboard-list td:nth-child(5) { /* 등록일 */
+	width: 12%;
+}
+.myboard-list td:nth-child(6) { /* 조회수 */
+	width: 12%;
 }
