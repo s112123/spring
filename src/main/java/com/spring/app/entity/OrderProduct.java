@@ -1,6 +1,6 @@
 package com.spring.app.entity;
 
-public class OrderDetail {
+public class OrderProduct {
 	
 	private int id;						//고유번호
 	private String code;				//주문번호
@@ -9,9 +9,9 @@ public class OrderDetail {
 	private int qty;					//주문수량
 	private String img;					//상품이미지
 	
-	public OrderDetail() {}
+	public OrderProduct() {}
 
-	public OrderDetail(int id, String code, String pname, int price, int qty, String img) {
+	public OrderProduct(int id, String code, String pname, int price, int qty, String img) {
 		this.id = id;
 		this.code = code;
 		this.pname = pname;
@@ -70,7 +70,7 @@ public class OrderDetail {
 
 	@Override
 	public String toString() {
-		return "OrderDetail [id=" + id + ", code=" + code + ", pname=" + pname + ", price=" + price + ", qty=" + qty
+		return "OrderProduct [id=" + id + ", code=" + code + ", pname=" + pname + ", price=" + price + ", qty=" + qty
 				+ ", img=" + img + "]";
 	}
 	

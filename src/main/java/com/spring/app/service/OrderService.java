@@ -3,7 +3,7 @@ package com.spring.app.service;
 import java.util.List;
 
 import com.spring.app.entity.Order;
-import com.spring.app.entity.OrderDetail;
+import com.spring.app.entity.OrderProduct;
 import com.spring.app.entity.Pagenation;
 
 public interface OrderService {
@@ -15,12 +15,12 @@ public interface OrderService {
 	public List<Order> getOrdersByEmail(Pagenation pagenation);
 
 	//주문상품목록
-	public List<OrderDetail> getOrderProductsByCode(String code);
+	public List<OrderProduct> getOrderProductsByCode(String code);
 	
 	//주문등록
 	public void insertOrder(Order order);
 	
 	//주문내역등록
-	public void insertDetailForOneOrder(OrderDetail orderDetail);
+	public void insertProductForOneOrder(OrderProduct orderProduct);
 	
 }

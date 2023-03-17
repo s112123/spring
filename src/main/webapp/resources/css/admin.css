@@ -88,6 +88,46 @@
 }
 
 
+/* ---------- STORE LIST PAGE ---------- */
+.store-list td:nth-child(1) { /* 번호 */
+	width: 8%;	
+}
+.store-list td:nth-child(2) { /* 매장명 */
+	width: 16%;
+}
+.store-list td:nth-child(2) a { 
+	color: rgb(100, 100, 100);
+}
+.store-list td:nth-child(2) a:hover { 
+	color: rgb(210, 40, 40);
+}
+.store-list td:nth-child(3) { /* 대표자 */
+	width: 12%;
+}
+.store-list td:nth-child(4) { /* 연락처 */
+	width: 12%;
+}
+.store-list td:nth-child(5) { /* 주소 */
+	text-align: left;
+}
+.store-list td:nth-child(6) { /* 등록일 */
+	width: 12%;	
+}
+.store-list td:nth-child(7) { /* 수정/삭제 */
+	width: 8%;	
+	padding: 0 3px;
+}
+.store-list td:nth-child(7) a {
+	color: rgb(170, 170, 170);
+	font-size: 16px;
+	margin: 0 5px;
+}
+.store-list td:nth-child(7) a:hover {
+	color: rgb(210, 40, 40);
+	transition: 1s;
+}
+
+
 /* ---------- INFOMATION PAGE: DEFALUT ---------- */
 .infomation-box {
 	width: 950px;
@@ -128,8 +168,14 @@
 	width: 100%;
 	height: 30px;
 	padding: 3px 10px;
-	border: none;
+	border: 1px solid #ccc;
 	font-size: 14px;
+}
+.infomation-item input:read-only {
+	border: none;
+}
+.infomation-item input::placeholder {
+	font-size: 12px;
 }
 .infomation-item select {
 	width: 50%;

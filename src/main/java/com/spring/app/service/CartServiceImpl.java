@@ -1,6 +1,7 @@
 package com.spring.app.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,15 @@ public class CartServiceImpl implements CartService {
 	
 	//일괄목록: 선택된 상품만 목록으로 추출
 	@Override
-	public List<Cart> getItemsById(int[] ids) {
-		List<Cart> cart = cartDao.selectAllById(ids);
+	public List<Cart> getItemsByIds(int[] ids) {
+		List<Cart> cart = cartDao.selectAllByIds(ids);
+		return cart;
+	}
+	
+	//상품번호로 조회
+	@Override
+	public Cart getItemByPid(int pid) {
+		Cart cart = cartDao.selectOneByPid(pid);
 		return cart;
 	}
 	
@@ -36,8 +44,8 @@ public class CartServiceImpl implements CartService {
 	
 	//수량수정
 	@Override
-	public void updateItemForQty(Cart cart) {
-		cartDao.updateOneForQty(cart);	
+	public void updateItemForQty(Map<String, Integer> map) {
+		cartDao.updateOneForQty(map);	
 	}
 	
 	//개별삭제

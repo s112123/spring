@@ -162,6 +162,8 @@ function hideMessage(target) {
 const target = document.getElementById('addr1'); 
 const content = document.getElementById('modal-content'); 
 target.addEventListener('click', function(){
+	showModal(false, null, 500, 560);
+	
 	var themeObj = {
 		bgColor: "#fff"
 	}
@@ -183,6 +185,4 @@ target.addEventListener('click', function(){
 			closeModal();
 	    }
 	}).embed(content);
-	
-	showModal(false, null, 500, 560);
 });

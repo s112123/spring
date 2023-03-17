@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.app.entity.Order;
-import com.spring.app.entity.OrderDetail;
+import com.spring.app.entity.OrderProduct;
 import com.spring.app.entity.Pagenation;
 import com.spring.app.repository.OrderDao;
 
@@ -30,8 +30,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 	
 	//주문상품목록
-	public List<OrderDetail> getOrderProductsByCode(String code) {
-		List<OrderDetail> orderProducts = orderDao.selectAllByCode(code);
+	public List<OrderProduct> getOrderProductsByCode(String code) {
+		List<OrderProduct> orderProducts = orderDao.selectAllByCode(code);
 		return orderProducts;
 	}
 	
@@ -43,8 +43,8 @@ public class OrderServiceImpl implements OrderService {
 	
 	//주문내역등록
 	@Override
-	public void insertDetailForOneOrder(OrderDetail orderDetail) {
-		orderDao.insertDetailForOneOrder(orderDetail);
+	public void insertProductForOneOrder(OrderProduct orderProduct) {
+		orderDao.insertProductForOneOrder(orderProduct);
 	}
 	
 	

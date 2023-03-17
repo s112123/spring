@@ -1,6 +1,7 @@
 package com.spring.app.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,14 @@ public class CartDao {
 	}
 	
 	//일괄조회
-	public List<Cart> selectAllById(int[] ids) {
-		List<Cart> cart = sqlSession.selectList("cart.selectAllById", ids);
+	public List<Cart> selectAllByIds(int[] ids) {
+		List<Cart> cart = sqlSession.selectList("cart.selectAllByIds", ids);
+		return cart;
+	}
+	
+	//상품번호로 조회
+	public Cart selectOneByPid(int pid) {
+		Cart cart = sqlSession.selectOne("cart.selectOneByPid", pid);
 		return cart;
 	}
 	
@@ -33,8 +40,8 @@ public class CartDao {
 	}
 	
 	//수량수정
-	public int updateOneForQty(Cart cart) {
-		int result = sqlSession.update("cart.updateOneForQty", cart);
+	public int updateOneForQty(Map<String, Integer> map) {
+		int result = sqlSession.update("cart.updateOneForQty", map);
 		return result;
 	}
 	

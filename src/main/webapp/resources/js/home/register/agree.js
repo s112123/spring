@@ -47,7 +47,7 @@ chkBoxs.forEach(function(chkBox) {
 			for(i=0; i<chkBoxs.length; i++) {
 				if(chkBoxs[i].checked == false) break;
 			}			
-			if(i==3) target.checked = true;	
+			if(i == chkBoxs.length) target.checked = true;	
 		}
 	});
 });

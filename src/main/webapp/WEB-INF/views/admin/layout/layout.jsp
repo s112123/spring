@@ -14,6 +14,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 	<!-- JQUERY -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- ADDRESS API -->
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<!-- CSS -->	
 	<link rel="stylesheet" href="${contextPath}/resources/css/reset.css" />	
 	<link rel="stylesheet" href="${contextPath}/resources/css/common.css" />		

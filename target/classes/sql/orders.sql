@@ -10,8 +10,8 @@ CREATE TABLE orders(
 );
 
 -- 주문내역 테이블
-DROP TABLE IF EXISTS orders_detail;
-CREATE TABLE orders_detail(
+DROP TABLE IF EXISTS orders_product;
+CREATE TABLE orders_product(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	code  VARCHAR(255) NOT NULL,
 	pname VARCHAR(30) NOT NULL,

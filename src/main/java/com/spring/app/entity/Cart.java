@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class Cart {
 	
 	private int id;						//번호
+	private int pid;					//제품고유번호
 	private String email;				//회원이메일
 	private String pname;				//제품명
 	private int price;					//제품가격
@@ -14,8 +15,9 @@ public class Cart {
 	
 	public Cart() {}
 
-	public Cart(int id, String email, String pname, int price, int qty, String img, LocalDateTime regdate) {
+	public Cart(int id, int pid, String email, String pname, int price, int qty, String img, LocalDateTime regdate) {
 		this.id = id;
+		this.pid = pid;
 		this.email = email;
 		this.pname = pname;
 		this.price = price;
@@ -30,6 +32,14 @@ public class Cart {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getPid() {
+		return pid;
+	}
+
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
 
 	public String getEmail() {
@@ -82,8 +92,8 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", email=" + email + ", pname=" + pname + ", price=" + price + ", qty=" + qty
-				+ ", img=" + img + ", regdate=" + regdate + "]";
+		return "Cart [id=" + id + ", pid=" + pid + ", email=" + email + ", pname=" + pname + ", price=" + price
+				+ ", qty=" + qty + ", img=" + img + ", regdate=" + regdate + "]";
 	}
 	
 }

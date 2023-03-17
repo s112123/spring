@@ -11,7 +11,7 @@
 			<table>
 				<thead>
 					<tr>
-						<th><input type="checkbox" onclick="checkAll(this)" /></th>
+						<th><input type="checkbox" id="all-check" onclick="checkAll(this)" /></th>
 						<th>상품명</th>
 						<th>수량</th>
 						<th>금액</th>
@@ -46,7 +46,7 @@
 									</td>
 									<td>
 										<input type="hidden" value="${c.price}" />
-										<span>${c.qty * c.price} 원</span>
+										<span>${c.qty * c.price} 원</span> 
 									</td>
 									<td>
 										<a href="#" onclick="deleteItemInCart(${c.id})"><i class="fa-solid fa-trash-can"></i></a>
@@ -59,8 +59,8 @@
 			</table>
 			<div class="cart-box-bottom">
 				<button type="submit" value="delete">선택삭제</button>
-				<div class="order-total">
-					총 주문금액: <span><input type="text" name="total" value="${total}" /></span> 원
+ 				<div class="order-total">
+ 					총 주문금액<span id="total">0</span> 원	
 				</div>
 			</div>
 			<div class="cart-order-btn">

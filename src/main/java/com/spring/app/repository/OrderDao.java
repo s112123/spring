@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.app.entity.Order;
-import com.spring.app.entity.OrderDetail;
+import com.spring.app.entity.OrderProduct;
 import com.spring.app.entity.Pagenation;
 
 @Repository
@@ -28,8 +28,8 @@ public class OrderDao {
 	}
 	
 	//주문상품목록
-	public List<OrderDetail> selectAllByCode(String code) {
-		List<OrderDetail> orderProducts = sqlSession.selectList("order.selectAllByCode", code);
+	public List<OrderProduct> selectAllByCode(String code) {
+		List<OrderProduct> orderProducts = sqlSession.selectList("order.selectAllByCode", code);
 		return orderProducts;
 	}
 	
@@ -40,8 +40,8 @@ public class OrderDao {
 	}
 	
 	//주문내역등록
-	public int insertDetailForOneOrder(OrderDetail orderDetail) {
-		int result = sqlSession.insert("order.insertDetailForOneOrder", orderDetail);
+	public int insertProductForOneOrder(OrderProduct orderProduct) {
+		int result = sqlSession.insert("order.insertProductForOneOrder", orderProduct);
 		return result;
 	}
 	

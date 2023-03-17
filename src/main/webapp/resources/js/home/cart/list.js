@@ -28,7 +28,20 @@ function updateItemForQty(target) {
 	const parentEl = target.parentNode;
 	const id = parentEl.getElementsByTagName('input')[0].value;
 	const qty = parentEl.getElementsByTagName('input')[1].value;
-	location.href = '/cart/update?id=' + id + '&qty=' + qty;	
+	const price = parentEl.nextElementSibling.getElementsByTagName('input')[0].value;
+	
+	$.ajax({
+		url: '/cart/update?id=' + id + '&qty=' + qty,
+		type: 'GET',
+		success: function(result) {
+			if(result === 'updated') {
+				//금액을 수정
+				const orderPrice = parentEl.nextElementSibling.getElementsByTagName('span')[0];
+				orderPrice.innerText = (qty * price) + ' 원';
+				getTotal();
+			}
+		}
+	});
 }
 
 //개별삭제
@@ -79,3 +92,47 @@ function validateSelectedItem() {
 
 	return true;
 }
+
+//총 주문금액
+function getTotal() {
+	const selectedItems = document.querySelectorAll('input[name="selectedItem"]');
+	let total = 0;
+	selectedItems.forEach(function(selectedItem) {
+		if(selectedItem.checked) {
+			let tds = selectedItem.parentNode.parentNode.getElementsByTagName('td');
+			let selectedPrice = tds[3].querySelectorAll('span')[0].innerText.replace(' 원', '');
+			total += Number(selectedPrice);		
+		}
+	});
+	
+	const target = document.querySelector('#total');
+	target.innerText = total.toLocaleString('ko-KR');	
+}
+
+//선택상품에 따라 총 주문금액 변경
+const allCheckBox = document.getElementById('all-check');
+allCheckBox.addEventListener('click', function() {
+	getTotal();
+})
+
+const selectedItems = document.querySelectorAll('input[name="selectedItem"]');
+selectedItems.forEach(function(selectedItem) {
+	selectedItem.addEventListener('click', function() {
+		//항목을 체크할 때, 전체체크란 체크여부
+		if(!this.checked) {
+			allCheckBox.checked = false;
+		} else {
+			let i = 0;
+			for(i=0; i<selectedItems.length; i++) {
+				if(selectedItems[i].checked == false) break;
+			}
+			if(i == selectedItems.length) allCheckBox.checked = true;	
+		}
+		
+		getTotal();
+	});
+});
+
+
+
+

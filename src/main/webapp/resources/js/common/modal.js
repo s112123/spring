@@ -38,8 +38,10 @@ function showModal(isCancelBtn, msg, width, height) {
 		}
 		content += '</div>';
 		
-		modalContent.innerHTML = content;	
+		modalContent.innerHTML = content;
 	} else {
+		modalHeader.style.display = 'block';
+		modalContent.innerHTML = '';	
 		modalBox.style.width = width + 'px';
 		modalBox.style.height = height + 'px';			
 	}	

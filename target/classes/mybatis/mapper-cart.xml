@@ -5,17 +5,17 @@
 	<!-- 전체목록 -->
 	<select id="selectAllByEmail" resultType="com.spring.app.entity.Cart">
 		SELECT
-			id, email, pname, price, qty, img, regdate
+			id, pid, email, pname, price, qty, img, regdate
 		FROM 
 			cart
 		WHERE email=#{email}
 		ORDER BY id DESC
 	</select>
-
+	
 	<!-- 일괄조회 -->
-	<select id="selectAllById" resultType="com.spring.app.entity.Cart">
+	<select id="selectAllByIds" resultType="com.spring.app.entity.Cart">
 		SELECT
-			id, email, pname, price, qty, img, regdate
+			id, pid, email, pname, price, qty, img, regdate
 		FROM 
 			cart
 		WHERE id IN
@@ -24,17 +24,26 @@
 		</foreach>
 		ORDER BY id DESC
 	</select>
-		
+	
+	<!-- 상품번호로 조회 -->
+	<select id="selectOneByPid" resultType="com.spring.app.entity.Cart">
+		SELECT
+			id, pid, email, pname, price, qty, img, regdate
+		FROM 
+			cart
+		WHERE pid=#{pid}
+	</select>	
+	
 	<!-- 제품추가 -->
 	<insert id="insertOne">
 		INSERT INTO
 			cart
 		VALUES
-			(NULL, #{email}, #{pname}, #{price}, DEFAULT, #{img}, NOW())
+			(NULL, #{pid}, #{email}, #{pname}, #{price}, DEFAULT, #{img}, NOW())
 	</insert>
 	
 	<!-- 수량수정 -->
-	<update id="updateOneForQty">
+	<update id="updateOneForQty" parameterType="java.util.Map">
 		UPDATE 
 			cart
 		SET

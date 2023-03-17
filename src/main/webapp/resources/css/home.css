@@ -288,7 +288,7 @@
 	vertical-align: middle;
 }
 .cart-box table td:nth-child(4) { /* 금액 */
-	width: 15%
+	width: 15%;
 }
 .cart-box table td:nth-child(5) { /* 삭제버튼 */
 	width: 6%;	
@@ -307,10 +307,15 @@
 	align-items: center;
 }
 .order-total {
+	font-size: 13px;
 	font-weight: bold;
 }
+.order-total span {
+	margin-left: 25px;
+	font-size: 20px;
+}
 .cart-order-btn {
-	margin-top: 20px;
+	margin-top: 25px;
 	text-align: right;
 }
 .cart-order-btn button {
@@ -321,7 +326,7 @@
 }
 
 
-/* ---------- ORDER VIEW PAGE ---------- */
+/* ---------- ORDER PAGE ---------- */
 .order-container {
 	display: flex;
 	justify-content: center;
@@ -335,13 +340,10 @@
 .order-box h2 {
 	margin-bottom: 30px;
 }
-.order-box table td:nth-child(1) { /* 체크박스 */
-	width: 6%;
+.order-box table td:nth-child(1) { /* 번호 */
+	width: 8%;
 }
-.order-box table td:nth-child(2) { /* 상품명 */
-	width: 60%;
-}
-.order-box table td:nth-child(2) .pname-box {
+.order-box table td:nth-child(2) .pname-box { /* 상품명 */
 	padding: 10px 60px;
 	font-size: 18px;
 	font-weight: bold;
@@ -351,52 +353,31 @@
 .order-box table td:nth-child(2) .pname-box .pimg {
 	margin-right: 60px;
 }
-.order-box table td:nth-child(3) input { /* 수량 */
-	width: 70px;
-	height: 27px;
-	vertical-align: middle;
-	border: 1px solid  rgb(120, 120, 120);
-	border-radius: 5px;
-	text-align: center;
+.order-box table td:nth-child(3) { /* 상품가격 */
+	width: 13%;
 }
-.order-box table td:nth-child(3) button {
-	width: 40px;
-	height: 27px;
-	margin-left: 3px;
-	font-size: 13px;
-	vertical-align: middle;
+.order-box table td:nth-child(4) { /* 수량 */
+	width: 13%;
 }
-.order-box table td:nth-child(4) { /* 금액 */
-	width: 15%
-}
-.order-box table td:nth-child(5) { /* 삭제버튼 */
-	width: 6%;	
-}
-.order-box table td:nth-child(5) a {
-	color: rgb(170, 170, 170);
-	font-size: 16px;	
-}
-.order-box table td:nth-child(5) a:hover {
-	color: rgb(210, 40, 40);
-	transition: 1s;	
+.order-box table td:nth-child(5) { /* 주문금액 */
+	width: 13%;
 }
 .order-box-bottom {
+	margin: 20px 0;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 	align-items: center;
 }
-/*
-.order-order-btn {
-	margin-top: 20px;
+.order-btns {
+	margin-top: 25px;
 	text-align: right;
 }
-.cart-order-btn button {
+.order-btns button:first-child {
 	margin-right: 3px;
 	border: 1px solid rgb(210, 40, 40);
 	background-color: rgb(210, 40, 40);
-	color: white;
+	color: white;	
 }
-*/
 
 
 /* ---------- CUSTOMER: NOTICE LIST PAGE ---------- */

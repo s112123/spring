@@ -1,6 +1,8 @@
 package com.spring.app.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -34,14 +36,16 @@ public class CartController {
 		Member member = (Member) session.getAttribute("login");
 		List<Cart> cart = cartService.getItemsInCartByEmail(member.getEmail());
 		
+		/*
 		//총 주문금액
 		int total = 0;
 		for(Cart c : cart) {
 			total += (c.getQty() * c.getPrice());
 		}
+		*/
 	
 		model.addAttribute("cart", cart);
-		model.addAttribute("total", total);
+		//model.addAttribute("total", total);
 		return "home.cart.list";
 	}
 	
@@ -49,24 +53,45 @@ public class CartController {
 	@PostMapping("/insert")
 	@ResponseBody
 	public String insertItem(HttpSession session, String productId) {
+		//전송할 결과메세지
+		String message = "";
 		Member member = (Member) session.getAttribute("login");
-		Product product = productService.getProductById(Integer.parseInt(productId));
-				
-		Cart cart = new Cart();
-		cart.setEmail(member.getEmail());
-		cart.setPname(product.getPname());
-		cart.setPrice(product.getPrice());
-		cart.setImg(product.getImg());
 		
-		cartService.insertItemInCart(cart);
-		return "seccess";
+		//로그인 되었는지 확인
+		if(member == null) { 
+			message = "notLogin";
+		} else {
+			//현재 장바구니에 같은 제품이 있는지 확인
+			Cart _cart = cartService.getItemByPid(Integer.parseInt(productId));
+			if(_cart == null) {
+				Product product = productService.getProductById(Integer.parseInt(productId));
+				
+				Cart cart = new Cart();
+				cart.setPid(product.getId());
+				cart.setEmail(member.getEmail());
+				cart.setPname(product.getPname());
+				cart.setPrice(product.getPrice());
+				cart.setImg(product.getImg());
+				
+				cartService.insertItemInCart(cart);
+				message = "success";
+			} else {
+				message = "duplicated";
+			}
+		}
+	
+		return message;
 	}	
 	
 	//수량수정
 	@GetMapping("/update")
-	public String updateItemForQty(Cart cart) {
-		cartService.updateItemForQty(cart);
-		return "redirect:/cart";
+	@ResponseBody
+	public String updateItemForQty(Integer id, Integer qty) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("id", id);
+		map.put("qty", qty);
+		cartService.updateItemForQty(map);
+		return "updated";
 	}
 	
 	//제품개별삭제

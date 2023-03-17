@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.spring.app.entity.Cart;
 import com.spring.app.entity.Member;
 import com.spring.app.entity.Order;
-import com.spring.app.entity.OrderDetail;
+import com.spring.app.entity.OrderProduct;
 import com.spring.app.service.CartService;
 import com.spring.app.service.OrderService;
 
@@ -31,7 +32,10 @@ public class OrderController {
 	
 	//주문내역 페이지
 	@GetMapping("/view")
-	public String view() {
+	public String view(String code, Model model) {
+		List<OrderProduct> orderProducts = orderService.getOrderProductsByCode(code);	
+		model.addAttribute("orderProducts", orderProducts);
+		model.addAttribute("code", code);
 		return "home.order.view";
 	}
 	
@@ -40,12 +44,14 @@ public class OrderController {
 	public String insertOrder(
 			HttpSession session, 
 			int total,
-			@RequestParam(value="selectedItem", required=false) int[] ids) {
+			@RequestParam(value="selectedItem", required=false) int[] ids,
+			Model model) {
+		
 		//고객정보
 		Member member = (Member) session.getAttribute("login");
 		
 		//Cart에서 선택된 id만 조회
-		List<Cart> cart = cartService.getItemsById(ids);
+		List<Cart> cart = cartService.getItemsByIds(ids);
 		
 		//주문등록
 		String code = UUID.randomUUID().toString();
@@ -64,21 +70,23 @@ public class OrderController {
 		
 		//주문내역등록
 		for(Cart c : cart) {
-			OrderDetail orderDetail = new OrderDetail();
+			OrderProduct orderProduct = new OrderProduct();
 			
-			orderDetail.setCode(order.getCode());
-			orderDetail.setPname(c.getPname());
-			orderDetail.setPrice(c.getPrice());
-			orderDetail.setQty(c.getQty());
-			orderDetail.setImg(c.getImg());	
+			orderProduct.setCode(order.getCode());
+			orderProduct.setPname(c.getPname());
+			orderProduct.setPrice(c.getPrice());
+			orderProduct.setQty(c.getQty());
+			orderProduct.setImg(c.getImg());	
 			
 			//주문상품으로 등록
-			orderService.insertDetailForOneOrder(orderDetail);
+			orderService.insertProductForOneOrder(orderProduct);
 			//장바구니에서 삭제
 			cartService.deleteItemInCart(c.getId());
 		}
 		
-		return null;
+		//주문번호를 주문내역 페이지로 보냄
+		model.addAttribute("code", code);
+		return "redirect:/order/view";
 	}
 	
 	

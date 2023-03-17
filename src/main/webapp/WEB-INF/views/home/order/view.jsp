@@ -7,49 +7,46 @@
 <div class="container order-container">
 	<div class="order-box">
 		<h2>주문상세내역</h2>
-		<form method="post" id="cart-form">
+		<form action="/order/delete" method="post" id="order-form">
+			<input type="hidden" name="code" value="${code}" />
 			<table>
 				<thead>
-					<tr>
-						<th><input type="checkbox" onclick="checkAll(this)" /></th>
+					<tr>	
+						<th>번호</th>
 						<th>주문상품</th>
-						<th>수량</th>
-						<th>금액</th>
-						<th></th>
+						<th>상품가격</th>
+						<th>주문수량</th>
+						<th>주문금액</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:choose>
-						<c:when test="${empty cart}">
+						<c:when test="${empty orderProducts}">
 							<tr>
-								<td colspan="5">추가된 상품이 없습니다</td>
+								<td colspan="5">주문상품이 없습니다</td>
 							</tr>
 						</c:when>
 						<c:otherwise>
-							<c:forEach var="c" items="${cart}">
-								<tr>
-									<td><input type="checkbox" name="selectedItem" class="selectedItem" value="${c.id}" /></td>
+							<c:set var="orderProducts" value="${orderProducts}" />
+							<c:set var="end" value="${orderProducts.size()-1}" />
+							<c:forEach var="i" begin="0" end="${end}" step="1">
+								<tr>	
+									<td>${end-i+1}</td>
 									<td>
 										<div class="pname-box">
 											<div class="pimg">
-												<img src="${contextPath}/resources/images/products/thumbnails/thumb_${c.img}" />
+												<img src="${contextPath}/resources/images/products/thumbnails/thumb_${orderProducts[i].img}" />
 											</div>
 											<div>
-												${c.pname}
+												${orderProducts[i].pname}
 											</div>
 										</div>
 									</td>
+									<td>${orderProducts[i].price} 원</td>
+									<td>${orderProducts[i].qty}</td>
 									<td>
-										<input type="hidden" value="${c.id}" />
-										<input type="number" name="qty" value="${c.qty}" min="1" max="1000" />
-										<button type="button" onclick="updateItemForQty(this)">변경</button>
-									</td>
-									<td>
-										<input type="hidden" value="${c.price}" />
-										<span>${c.qty * c.price} 원</span>
-									</td>
-									<td>
-										<a href="#" onclick="deleteItemInCart(${c.id})"><i class="fa-solid fa-trash-can"></i></a>
+										<input type="hidden" value="${orderProducts[i].price}" />
+										<span>${orderProducts[i].qty * orderProducts[i].price} 원</span>
 									</td>
 								</tr>	
 							</c:forEach>
@@ -58,17 +55,17 @@
 				</tbody>
 			</table>
 			<div class="order-box-bottom">
-				<button type="submit" name="cmd" value="delete">선택삭제</button>
 				<div class="order-total">
-					총 결제금액: <span>30,000</span> 원
+					총 주문금액: <span>30,000</span> 원
 				</div>
 			</div>
 			<div class="order-btns">
-				<button type="submit" name="cmd" value="order">홈으로</button>
+				<button type="submit" value="delete">주문취소</button>
+				<button type="button" value="home">홈으로</button>
 			</div>
 		</form>
 	</div>
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
 <script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/js/home/cart/list.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/home/order/view.js"></script>

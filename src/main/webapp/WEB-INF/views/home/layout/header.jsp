@@ -11,7 +11,7 @@
 				<span></span>	
 			</li>
 			<li>
-				<div><a href="#">STORE</a></div>
+				<div><a href="/store">STORE</a></div>
 				<span></span>	
 			</li>
 			<li>

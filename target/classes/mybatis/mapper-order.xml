@@ -22,12 +22,12 @@
 	</select>	
 
 	<!-- 주문상품목록 -->
-	<select id="selectAllByCode" resultType="com.spring.app.entity.OrderDetail">
+	<select id="selectAllByCode" resultType="com.spring.app.entity.OrderProduct">
 		SELECT
-			id, #{code}, #{pname}, #{price}, #{qty}, #{img}
+			id, code, pname, price, qty, img
 		FROM
-			orders_detail
-		WHERE code = #{code}
+			orders_product
+		WHERE code=#{code}
 		ORDER BY id DESC
 	</select>
 	
@@ -40,9 +40,9 @@
 	</insert>
 	
 	<!-- 주문내역등록 -->
-	<insert id="insertDetailForOneOrder">
+	<insert id="insertProductForOneOrder">
 		INSERT INTO
-			orders_detail
+			orders_product
 		VALUES
 			(NULL, #{code}, #{pname}, #{price}, #{qty}, #{img})
 	</insert>
