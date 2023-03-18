@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spring.app.entity.Pagenation;
 import com.spring.app.service.StoreService;
 
 @Controller
@@ -15,6 +14,12 @@ public class StoreController {
 	
 	@Autowired
 	StoreService storeService;	
+	
+	//스토어 페이지
+	@GetMapping
+	public String store() {
+		return "home.store.list";
+	}
 	
 	//매장목록
 	@GetMapping("/list")

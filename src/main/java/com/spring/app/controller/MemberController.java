@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.app.entity.Member;
@@ -56,18 +55,9 @@ public class MemberController {
 	
 	//전체회원목록
 	@GetMapping("/list")
-	public String list(
-			Model model,
-			@RequestParam(value="page", required=false) String page,
-			Pagenation pagenation) {
-		
-		//페이징 처리
+	public String list(Model model, Pagenation pagenation) {
 		int total = memberService.getTotalMembers();
 		pagenation.setTotal(total);
-		if (page == null) page = "1";
-		pagenation.setPage(Integer.parseInt(page));
-		
-		//페이징 처리에 따른 목록 조회
 		List<Member> members = memberService.getMembers(pagenation);
 		
 		model.addAttribute("members", members);

@@ -50,18 +50,9 @@ public class ProductController {
 	
 	//전체상품목록
 	@GetMapping("/list")
-	public String products(
-			Model model,
-			@RequestParam(value="page", required=false) String page,
-			Pagenation pagenation) {
-		
-		//페이징 처리
+	public String products(Model model, Pagenation pagenation) {
 		int total = productService.getTotalProducts();
 		pagenation.setTotal(total);
-		if (page == null) page = "1";
-		pagenation.setPage(Integer.parseInt(page));
-		
-		//페이징 처리에 따른 목록 조회
 		List<Product> products = productService.getProducts(pagenation);
 		
 		model.addAttribute("products", products);

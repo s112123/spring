@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.app.entity.Board;
 import com.spring.app.entity.Member;
@@ -61,26 +60,18 @@ public class MyPageController {
 	
 	//주문목록
 	@GetMapping("/order/list")
-	public String myOrderList(
-			HttpSession session,
-			Model model,
-			@RequestParam(value="page", required=false) String page,
-			Pagenation pagenation) {
+	public String myOrderList(HttpSession session, Model model, Pagenation pagenation) {
 		//해당 사용자의 이메일을 가져오기 위해 세션정보 가져오기
 		Member member = (Member) session.getAttribute("login");
 		
-		//페이징 처리
 		int total = myPageService.getTotalMyOrders(member.getEmail());
 		pagenation.setTotal(total);
-		if (page == null) page = "1";
-		pagenation.setPage(Integer.parseInt(page));
 		
 		//Map에 email, Pagenation을 넣어 SQL의 조건으로 넣는다
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("email", member.getEmail());
 		map.put("pagenation", pagenation);
 		
-		//페이징 처리에 따른 목록 조회
 		List<Order> orders = myPageService.getMyOrdersByEmail(map);
 		model.addAttribute("orders", orders);
 		model.addAttribute("pagenation", pagenation);
@@ -90,26 +81,18 @@ public class MyPageController {
 	
 	//작성 글 목록
 	@GetMapping("/board/list")
-	public String myBoardList(
-			HttpSession session,
-			Model model,
-			@RequestParam(value="page", required=false) String page,
-			Pagenation pagenation) {
+	public String myBoardList(HttpSession session, Model model, Pagenation pagenation) {
 		//해당 사용자의 이메일을 가져오기 위해 세션정보 가져오기
 		Member member = (Member) session.getAttribute("login");
 	
-		//페이징 처리
 		int total = myPageService.getTotalMyBoards(member.getEmail());
 		pagenation.setTotal(total);
-		if (page == null) page = "1";
-		pagenation.setPage(Integer.parseInt(page));
 		
 		//Map에 email, Pagenation을 넣어 SQL의 조건으로 넣는다
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("email", member.getEmail());
 		map.put("pagenation", pagenation);
 	
-		//페이징 처리에 따른 목록 조회
 		List<Board> boards = myPageService.getMyBoardsByEmail(map);
 		model.addAttribute("boards", boards);
 		model.addAttribute("pagenation", pagenation);

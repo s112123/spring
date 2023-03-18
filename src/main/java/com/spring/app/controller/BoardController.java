@@ -1,5 +1,6 @@
 package com.spring.app.controller;
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.app.entity.Board;
 import com.spring.app.entity.Member;
@@ -26,17 +26,9 @@ public class BoardController {
 	
 	//전체글목록
 	@GetMapping("/list")
-	public String list(
-			Model model,
-			@RequestParam(value="page", required=false) String page, 
-			Pagenation pagenation) {
-		//페이징 처리
+	public String list(Model model, Pagenation pagenation) {
 		int total = boardService.getTotalBoards();
 		pagenation.setTotal(total);
-		if (page == null) page = "1";
-		pagenation.setPage(Integer.parseInt(page));
-		
-		//페이징 처리에 따른 목록 조회
 		List<Board> boards = boardService.getBoards(pagenation);
 		
 		model.addAttribute("boards", boards);

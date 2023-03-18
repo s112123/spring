@@ -35,17 +35,7 @@ public class CartController {
 	public String cart(HttpSession session, Model model) {
 		Member member = (Member) session.getAttribute("login");
 		List<Cart> cart = cartService.getItemsInCartByEmail(member.getEmail());
-		
-		/*
-		//총 주문금액
-		int total = 0;
-		for(Cart c : cart) {
-			total += (c.getQty() * c.getPrice());
-		}
-		*/
-	
 		model.addAttribute("cart", cart);
-		//model.addAttribute("total", total);
 		return "home.cart.list";
 	}
 	

@@ -11,6 +11,7 @@ import com.spring.app.entity.Pagenation;
 
 @Repository
 public class BoardDao {
+
 	
 	@Autowired
 	SqlSession sqlSession;
