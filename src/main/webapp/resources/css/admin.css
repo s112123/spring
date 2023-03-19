@@ -189,15 +189,19 @@
 .infomation-btn {
 	padding-left: 0 20px;
 	margin-top: 35px;
-	text-align: right;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
-.infomation-btn button {
-	margin-left: 5px;
-}
-.infomation-btn button:nth-child(1) {
+.infomation-btn div button {
 	border: 1px solid rgb(210, 40, 40);
 	background-color: rgb(210, 40, 40);
 	color: white;
+}
+.infomation-btn div:nth-child(1) button {
+	border: 1px solid rgb(100, 100, 100);
+	background-color: white;
+	color: rgb(100, 100, 100);
 }
 
 
@@ -260,8 +264,9 @@
 	padding: 0;
 	border: 0;
 }
-.prod-item .filename {
+.prod-item .filename:read-only {
 	width: 73%;
+	border: 1px solid #ccc;
 	border-radius: 3px;	
 	font-size: 13px;
 }

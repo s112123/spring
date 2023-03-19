@@ -50,10 +50,4 @@ public class ProductDao {
 		return result;
 	}
 	
-	//상품삭제
-	public int deleteOne(int id) {
-		int result = sqlSession.delete("product.deleteOne", id);
-		return result;
-	}
-	
 }

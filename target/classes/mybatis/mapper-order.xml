@@ -24,7 +24,7 @@
 	<!-- 주문상품목록 -->
 	<select id="selectAllByCode" resultType="com.spring.app.entity.OrderProduct">
 		SELECT
-			id, code, pname, price, qty, img
+			id, pid, code, pname, price, qty, img
 		FROM
 			orders_product
 		WHERE code=#{code}
@@ -53,7 +53,7 @@
 		INSERT INTO
 			orders_product
 		VALUES
-			(NULL, #{code}, #{pname}, #{price}, #{qty}, #{img})
+			(NULL, #{code}, #{pid}, #{pname}, #{price}, #{qty}, #{img})
 	</insert>
 	
 	<!-- 주문삭제 -->

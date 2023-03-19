@@ -79,8 +79,12 @@
 				</div>
 			</div>
 			<div class="infomation-btn">
-				<button type="submit" value="update">수정</button>
-				<button type="button" onclick="location.href='/member/list'">목록</button>
+				<div>
+					<button type="button" onclick="location.href='/member/list'">목록</button>
+				</div>
+				<div>
+					<button type="submit" value="update">수정</button>
+				</div>
 			</div>
 		</form>
 	</div>

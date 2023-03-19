@@ -2,6 +2,8 @@ package com.spring.app.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.spring.app.entity.Pagenation;
 import com.spring.app.entity.Product;
 
@@ -20,12 +22,9 @@ public interface ProductService {
 	public Product getProductById(int id);
 	
 	//상품등록
-	public void insertProduct(Product product);
+	public void insertProduct(Product product, MultipartFile attachedFile);
 	
 	//상품수정
-	public void updateProduct(Product product);
-	
-	//상품삭제
-	public void deleteProduct(int id);
+	public void updateProduct(Product product, MultipartFile attachedFile);
 	
 }

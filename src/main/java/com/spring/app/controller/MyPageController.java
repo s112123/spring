@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.spring.app.entity.Board;
 import com.spring.app.entity.Member;
 import com.spring.app.entity.Order;
+import com.spring.app.entity.OrderProduct;
 import com.spring.app.entity.Pagenation;
 import com.spring.app.service.MemberService;
 import com.spring.app.service.MyPageService;
+import com.spring.app.service.OrderService;
 
 @Controller
 @RequestMapping("/mypage")
@@ -26,6 +28,8 @@ public class MyPageController {
 	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private OrderService orderService;
 	@Autowired
 	private MyPageService myPageService;
 	
@@ -58,7 +62,7 @@ public class MyPageController {
 		return "redirect:/mypage/myinfo/view?id=" + member.getId();
 	}
 	
-	/* ----- 주믄내역 ----- */
+	/* ----- 주문내역 ----- */
 	//주문목록
 	@GetMapping("/order/list")
 	public String listMyOrder(HttpSession session, Model model, Pagenation pagenation) {
@@ -78,6 +82,23 @@ public class MyPageController {
 		model.addAttribute("pagenation", pagenation);
 		
 		return "home.mypage.order.list";
+	}
+	
+	//주문정보
+	@GetMapping("/order/view")
+	public String viewMyOrder(String code, Model model) {
+		Order order = orderService.getOrderByCode(code);
+		List<OrderProduct> orderProducts = orderService.getOrderProductsByCode(code);
+		model.addAttribute("order", order);
+		model.addAttribute("orderProducts", orderProducts);
+		return "home.mypage.order.view";
+	}	
+	
+	//주문삭제
+	@GetMapping("/order/delete")
+	public String deleteOrder(int id) {
+		orderService.deleteOrder(id);
+		return "redirect:/mypage/order/list";
 	}
 	
 	/* ----- 글 내역 ----- */

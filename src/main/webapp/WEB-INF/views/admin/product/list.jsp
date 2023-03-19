@@ -12,8 +12,8 @@
 				<th>구분</th>
 				<th>상품명</th>
 				<th>가격</th>
-				<th>용량</th>
-				<th>칼로리</th>
+				<th>용량 (g)</th>
+				<th>칼로리 (kcal)</th>
 				<th>원산지</th>
 				<th>가입일</th>
 				<th></th>
@@ -35,17 +35,14 @@
 							<td>${product.price}</td>
 							<td>${product.gram}</td>
 							<td>${product.kcal}</td>
-							<td>${product.origin}</td>
+							<td>${(product.origin == "KR") ? "국내산" : (product.origin == "US") ? "미국산" : "호주산"}</td>
 							<td>
 								<!-- 00초 에러 처리해야 됨 -->							
 								<fmt:parseDate value="${product.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
 								<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
 							</td>
 							<td>
-								<%-- 수정버튼 --%>
 								<a href="/product/view?id=${product.id}"><i class="fa-solid fa-pen-to-square"></i></a>
-								<%-- 삭제버튼 --%>
-								<a href="#" onclick="deleteProduct(${product.id});"><i class="fa-solid fa-trash-can"></i></a>
 							</td>
 						</tr>	
 					</c:forEach>					

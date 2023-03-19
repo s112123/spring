@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <div class="main-content">
 	<h2>상품정보</h2>
@@ -32,8 +33,8 @@
 					<div class="title">상품 이미지</div>
 					<div class="content">
 						<label for="attached">파일찾기</label>
-						<input type="file" name="attached" id="attached" />
-						<input type="text" class="filename" value="${product.img}" readonly />
+						<input type="file" name="attached" id="attached" accept=".jpg, .png" />					
+						<input type="text" name="filename" class="filename" value="${product.img}" readonly />
 					</div>		
 				</div>
 			</div>	
@@ -65,15 +66,20 @@
 				</div>
 			</div>		
 			<div class="infomation-btn">
-				<c:choose>
-					<c:when test="${id == 0}">
-						<button type="submit" value="insert">등록</button>
-					</c:when>
-					<c:otherwise>
-						<button type="submit" value="update">수정</button>
-					</c:otherwise>
-				</c:choose>
-				<button type="button" onclick="location.href='/product/list'">목록</button>
+				<div>
+					<button type="button" onclick="location.href='/product/list'">목록</button>
+				</div>
+				<div>
+					<c:choose>
+						<c:when test="${id == 0}">
+							<button type="submit" value="insert">등록</button>
+						</c:when>
+						<c:otherwise>
+							<input type="hidden" name="id" id="id" value="${product.id}" />
+							<button type="submit" value="update">수정</button>
+						</c:otherwise>
+					</c:choose>
+				</div>
 			</div>
 		</form>	
 	</div>

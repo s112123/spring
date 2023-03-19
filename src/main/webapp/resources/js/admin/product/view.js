@@ -8,7 +8,7 @@ commands.forEach(function(command) {
 		e.preventDefault();
 		
 		//유효성 검사
-		let isValid = validateProductInfo();
+		let isValid = validateProductInfo(command.value);
 		if(!isValid) return;		
 		
 		switch(command.value) {
@@ -36,22 +36,17 @@ function insertProduct(form) {
 
 //상품수정
 function updateProduct(form) {
-		showModal(true, '상품을 수정하시겠습니까?');
-		
-		//id값이 있는 <input>요소를 만들어 <form> 자식요소로 생성하고 POST로 전송
-		const element = document.createElement('input');
-		element.setAttribute('type', 'hidden');
-		element.setAttribute('name', 'id');
-		element.setAttribute('value', id);
-		form.appendChild(element);
-		
+	showModal(true, '상품을 수정하시겠습니까?');
+	const confirmBtn = document.getElementById('modal-confirm-btn');
+	confirmBtn.addEventListener('click', function() {
 		form.action = '/product/update'; 
 		form.method = 'POST';
 		form.submit();
+	});	
 }
  
 //유효성 검사
-function validateProductInfo() {
+function validateProductInfo(command) {
 	//구분
 	const category = document.querySelector('select[name=category]');
 	if (category.value === '선택') {
@@ -73,12 +68,14 @@ function validateProductInfo() {
 		return false;
 	}		
 	
-	//상세설명
-	const img = document.querySelector('input[name=attached]');
-	if (img.value.trim().length === 0) {
-		showModal(false, "이미지를 첨부하세요");
-		return false;
-	}	
+	if(command === 'insert') {
+		//이미지파일
+		const img = document.querySelector('input[name=attached]');
+		if (img.value.trim().length === 0) {
+			showModal(false, "이미지를 첨부하세요");
+			return false;
+		}			
+	}
 	
 	//원산지
 	const origin = document.querySelector('select[name=origin]');

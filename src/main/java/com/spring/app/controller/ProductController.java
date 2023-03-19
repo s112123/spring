@@ -1,14 +1,11 @@
 package com.spring.app.controller;
 
-import java.io.File;
-import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
-import javax.servlet.ServletContext;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,16 +19,14 @@ import com.spring.app.entity.Pagenation;
 import com.spring.app.entity.Product;
 import com.spring.app.service.ProductService;
 
-import net.coobird.thumbnailator.Thumbnails;
-
 @Controller
 @RequestMapping("/product")
 public class ProductController {
 	
+	Logger log = LoggerFactory.getLogger(ProductController.class);
+	
 	@Autowired
 	private ProductService productService;
-	@Autowired
-	private ServletContext context;
 	
 	//상품페이지: 카테고리별
 	@GetMapping
@@ -77,56 +72,20 @@ public class ProductController {
 	
 	//상품등록
 	@PostMapping("/insert")
-	public String insertProduct(Product product, @RequestParam(value="attached", required=false) MultipartFile imgFile) {
-		//업로드 폴더 경로
-		//D:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\app\
-		String uploadDirPath = context.getRealPath("/") + "resources\\images\\products";
-		
-		//업로드 폴더 없으면 생성
-		File uploadDir = new File(uploadDirPath);
-		if(!uploadDir.exists()) uploadDir.mkdirs();
-		
-		//파일 업로드
-		String uploadFileName = UUID.randomUUID().toString() + "_" + imgFile.getOriginalFilename();
-		if(imgFile.getSize() > 0) {
-			try {
-				File uploadFile = new File(uploadDir, uploadFileName);
-				imgFile.transferTo(uploadFile);
-				product.setImg(uploadFileName);
-				
-				//썸네일
-                if (Files.probeContentType(uploadFile.toPath()).startsWith("image")) {
-                    //썸네일 폴더
-                    String thumbPath = uploadDirPath + File.separator + "thumbnails";
-                    File thumbDir = new File(thumbPath);
-                    if (!thumbDir.exists()) thumbDir.mkdir();
-                    //썸네일 파일 생성
-                    File thumbFile = new File(thumbDir, "thumb_" + uploadFileName);
-                    Thumbnails.of(uploadFile).size(80, 130).outputFormat("jpg").toFile(thumbFile);
-                }				
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		
-		productService.insertProduct(product);
+	public String insertProduct(Product product, @RequestParam(value="attached", required=false) MultipartFile attachedFile) {
+		productService.insertProduct(product, attachedFile);
 		return "redirect:/product/list";
 	}
 	
 	//상품수정
 	@PostMapping("/update")
-	public String updateProduct(Product product) {
-		productService.updateProduct(product);
+	public String updateProduct(
+			Product product, 
+			@RequestParam(value="attached", required=false) MultipartFile attachedFile,
+			String filename) {	
+		product.setImg(filename);
+		productService.updateProduct(product, attachedFile);
 		return "redirect:/product/view?id=" + product.getId();
 	}	
-	
-	//상품삭제
-	@GetMapping("/delete")
-	public String deleteProduct(int id) {
-		productService.deleteProduct(id);
-		
-		//파일도 삭제해야 함
-		return "redirect:/product/list";		
-	}
 	
 }

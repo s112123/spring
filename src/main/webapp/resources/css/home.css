@@ -307,7 +307,7 @@
 	align-items: center;
 }
 .order-total {
-	font-size: 13px;
+	font-size: 15px;
 	font-weight: bold;
 }
 .order-total span {
@@ -378,14 +378,20 @@
 	align-items: center;
 }
 .order-btns {
-	margin-top: 25px;
+	padding-left: 0 20px;
+	margin-top: 35px;
 	text-align: right;
 }
-.order-btns button:first-child {
-	margin-right: 3px;
+.order-btns button {
+	border: 1px solid rgb(100, 100, 100);
+	background-color: white;
+	color: rgb(100, 100, 100);
+}
+.order-btns button[value='delete'] {
+	margin-right: 2px;
 	border: 1px solid rgb(210, 40, 40);
 	background-color: rgb(210, 40, 40);
-	color: white;	
+	color: white;
 }
 
 
@@ -604,6 +610,56 @@
 	width: 12%;
 }
 
+/* ---------- MYPAGE: ORDER VIEW PAGE ---------- */
+/*
+.myorder-box {
+	width: 1250px;
+}
+*/
+.myorder-list td:nth-child(1) { /* 번호 */
+	width: 8%;
+}
+.myorder-list td:nth-child(2) .pname-box { /* 상품명 */
+	padding: 10px 60px;
+	font-size: 18px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+}
+.myorder-list td:nth-child(2) .pname-box .pimg {
+	margin-right: 60px;
+}
+.myorder-list td:nth-child(3) { /* 상품가격 */
+	width: 13%;
+}
+.myorder-list td:nth-child(4) { /* 수량 */
+	width: 13%;
+}
+.myorder-list td:nth-child(5) { /* 주문금액 */
+	width: 13%;
+}
+.myorder-box-bottom {
+	margin: 20px 0;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.myorder-btns {
+	padding-left: 0 20px;
+	margin-top: 35px;
+	text-align: right;
+}
+.myorder-btns button {
+	border: 1px solid rgb(100, 100, 100);
+	background-color: white;
+	color: rgb(100, 100, 100);
+}
+.myorder-btns button[value='delete'] {
+	margin-right: 2px;
+	border: 1px solid rgb(210, 40, 40);
+	background-color: rgb(210, 40, 40);
+	color: white;
+}
 
 /* ---------- MYPAGE: MYBOARD LIST PAGE ---------- */
 .myboard-list td:nth-child(1) { /* 번호 */

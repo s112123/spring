@@ -77,6 +77,7 @@ public class OrderController {
 			OrderProduct orderProduct = new OrderProduct();
 			
 			orderProduct.setCode(order.getCode());
+			orderProduct.setPid(c.getPid());
 			orderProduct.setPname(c.getPname());
 			orderProduct.setPrice(c.getPrice());
 			orderProduct.setQty(c.getQty());

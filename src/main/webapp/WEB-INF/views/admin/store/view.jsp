@@ -35,8 +35,12 @@
 			</div>
 		</div>
 		<div class="infomation-btn">
-			<button type="button" value="update">수정</button>
-			<button type="button" value="list">목록</button>
+			<div>
+				<button type="button" value="list">목록</button>
+			</div>
+			<div>
+				<button type="button" value="update">수정</button>
+			</div>
 		</div>
 	</div>
 </div>

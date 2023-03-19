@@ -4,6 +4,7 @@ public class OrderProduct {
 	
 	private int id;						//고유번호
 	private String code;				//주문번호
+	private int pid;					//상품번호
 	private String pname;				//상품명
 	private int price;					//주문금액
 	private int qty;					//주문수량
@@ -11,9 +12,10 @@ public class OrderProduct {
 	
 	public OrderProduct() {}
 
-	public OrderProduct(int id, String code, String pname, int price, int qty, String img) {
+	public OrderProduct(int id, String code, int pid, String pname, int price, int qty, String img) {
 		this.id = id;
 		this.code = code;
+		this.pid = pid;
 		this.pname = pname;
 		this.price = price;
 		this.qty = qty;
@@ -34,6 +36,14 @@ public class OrderProduct {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public int getPid() {
+		return pid;
+	}
+
+	public void setPid(int pid) {
+		this.pid = pid;
 	}
 
 	public String getPname() {
@@ -70,8 +80,8 @@ public class OrderProduct {
 
 	@Override
 	public String toString() {
-		return "OrderProduct [id=" + id + ", code=" + code + ", pname=" + pname + ", price=" + price + ", qty=" + qty
-				+ ", img=" + img + "]";
+		return "OrderProduct [id=" + id + ", code=" + code + ", pid=" + pid + ", pname=" + pname + ", price=" + price
+				+ ", qty=" + qty + ", img=" + img + "]";
 	}
 	
 }

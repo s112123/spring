@@ -57,11 +57,4 @@
 		WHERE id=#{id}
 	</update>
 	
-	<!-- 상품삭제 -->
-	<delete id="deleteOne">
-		DELETE FROM
-			product
-		WHERE id=#{id}
-	</delete>
-	
 </mapper>
