@@ -4,7 +4,7 @@
     
 <div class="main-content">
 	<h2>글 내용</h2>
-	<div class="content-box">	
+	<div class="content-box ">	
 		<form method="post" id="board-form">
 			<input type="hidden" name="id" value="${board.id}" />
 			<div class="content-item">		
@@ -27,6 +27,32 @@
 				</div>
 			</div>
 		</form>	
+		<div class="reply-container">
+			<h3>댓글쓰기</h3>
+			<div class="reply-box">
+				<input type="text" />
+				<textarea rows="2" maxlength="100"></textarea>
+				<div class="bottom">
+					<div><span>0 / 100</span></div>
+					<div><button>등록</button></div>
+				</div>
+			</div>
+			<h3>댓글 <span>(5)</span></h3>
+			<div class="reply-list-box">
+				<!-- 순환문 -->
+				<div class="reply-item">
+					<div class="reply-item-header">
+						<div>
+							<span>가나다라마다사</span>
+						</div>
+						<div>
+							<button><i class="fa-solid fa-xmark"></i></button>
+						</div>
+					</div>
+					<div class="reply-item-content">가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가가</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />

@@ -4,9 +4,11 @@
 <div id="modal-overlay">
 	<div id="modal-box">
 		<div id="modal-header">
-			<button id="modal-close-btn" onclick="closeModal();">
-				<i class="fa-solid fa-xmark"></i>
-			</button>
+			<div class="flex-fe">
+				<button id="modal-close-btn" onclick="closeModal();">
+					<i class="fa-solid fa-xmark"></i>
+				</button>
+			</div>
 		</div>
 		<div id="modal-content"></div>
 	</div>

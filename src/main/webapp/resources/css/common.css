@@ -91,15 +91,19 @@ table th, table td{
 }
 .flex-fs {
 	display: flex;
-	justify-content: flex-fs;
+	justify-content: flex-start;
+}
+.flex-fe {
+	display: flex;
+	justify-content: flex-end;
 }
 
 
 /* ---------- ASIDE RIGHT CONENT LAYOUT ---------- */
 .main-content {
 	width: 1450px;
-	height: 100vh;
 	padding-top: 50px;
+	padding-bottom: 500px;
 	padding-left: 50px;
 	border-left: 1px solid #ccc;
 }
@@ -260,7 +264,8 @@ footer .navbar li a:hover {
 	transform: translate(-50%, -50%);
 }
 #modal-header {
-	text-align: right;
+	display: flex;
+	justify-content: flex-end;
 }
 #modal-content {
 	margin: 20px 0;
@@ -291,12 +296,16 @@ footer .navbar li a:hover {
 	height: 30px;
 	margin-right: 8px;
 	border: 1px solid transparent;
+	border-radius: 50%;
 	color: rgb(150, 150, 150);
-	font-size: 20px;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 #modal-close-btn:hover {
-	color: rgb(210, 40, 40);
-	transition: 1s;
+	background-color: #eee;
+	color: rgb(100, 100, 100);
 }
 
 
