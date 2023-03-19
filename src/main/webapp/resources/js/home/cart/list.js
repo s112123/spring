@@ -106,7 +106,7 @@ function getTotal() {
 	});
 	
 	const target = document.querySelector('#total');
-	target.innerText = total.toLocaleString('ko-KR');	
+	target.value = total.toLocaleString('ko-KR');	
 }
 
 //선택상품에 따라 총 주문금액 변경

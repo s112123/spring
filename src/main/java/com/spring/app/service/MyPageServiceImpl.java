@@ -14,7 +14,7 @@ import com.spring.app.repository.MyPageDao;
 public class MyPageServiceImpl implements MyPageService {
 	
 	@Autowired
-	MyPageDao myPageDao;
+	private MyPageDao myPageDao;
 
 	//전체 주문 수
 	@Override
@@ -41,6 +41,5 @@ public class MyPageServiceImpl implements MyPageService {
 		List<Board> boards = myPageDao.selectAllMyBoardsByEmail(map);
 		return boards;
 	}
-
 	
 }

@@ -14,7 +14,7 @@ import com.spring.app.repository.OrderDao;
 public class OrderServiceImpl implements OrderService {
 	
 	@Autowired
-	OrderDao orderDao;
+	private OrderDao orderDao;
 	
 	//전체주문수
 	@Override
@@ -35,6 +35,13 @@ public class OrderServiceImpl implements OrderService {
 		return orderProducts;
 	}
 	
+	//주문조회
+	@Override
+	public Order getOrderByCode(String code) {
+		Order order = orderDao.selectOneByCode(code);
+		return order;
+	}
+	
 	//주문등록
 	@Override
 	public void insertOrder(Order order) {
@@ -47,5 +54,10 @@ public class OrderServiceImpl implements OrderService {
 		orderDao.insertProductForOneOrder(orderProduct);
 	}
 	
+	//주문삭제
+	@Override
+	public void deleteOrder(int id) {
+		orderDao.deleteOrder(id);
+	}
 	
 }

@@ -4,7 +4,7 @@
 <aside>
 	<ul>
 		<li>
-			<a href="/mypage/myinfo">
+			<a href="/mypage">
 				<span><i class="fa-solid fa-address-card"></i></span> 
 				<span>내 정보</span>
 			</a>

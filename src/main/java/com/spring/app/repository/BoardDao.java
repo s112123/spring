@@ -14,7 +14,7 @@ public class BoardDao {
 
 	
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	//전체 글 개수
 	public int countAll() {

@@ -22,7 +22,7 @@ import com.spring.app.service.BoardService;
 public class BoardController {
 	
 	@Autowired
-	BoardService boardService;
+	private BoardService boardService;
 	
 	//전체글목록
 	@GetMapping("/list")

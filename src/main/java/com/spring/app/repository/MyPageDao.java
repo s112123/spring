@@ -14,7 +14,7 @@ import com.spring.app.entity.Order;
 public class MyPageDao {
 	
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	//전체 글 개수
 	public int countAllMyBoards(String email) {

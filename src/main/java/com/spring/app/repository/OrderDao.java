@@ -14,7 +14,7 @@ import com.spring.app.entity.Pagenation;
 public class OrderDao {
 	
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	//전체회원수
 	public int countAll() {
@@ -33,6 +33,12 @@ public class OrderDao {
 		return orderProducts;
 	}
 	
+	//주문조회
+	public Order selectOneByCode(String code) {
+		Order order = sqlSession.selectOne("order.selectOneByCode", code);
+		return order;
+	}
+	
 	//주문등록
 	public int insertOne(Order order) {
 		int result = sqlSession.insert("order.insertOne", order);
@@ -42,6 +48,12 @@ public class OrderDao {
 	//주문내역등록
 	public int insertProductForOneOrder(OrderProduct orderProduct) {
 		int result = sqlSession.insert("order.insertProductForOneOrder", orderProduct);
+		return result;
+	}
+	
+	//주문삭제
+	public int deleteOrder(int id) {
+		int result = sqlSession.delete("order.deleteOrder", id);
 		return result;
 	}
 	

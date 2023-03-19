@@ -60,7 +60,9 @@
 			<div class="cart-box-bottom">
 				<button type="submit" value="delete">선택삭제</button>
  				<div class="order-total">
- 					총 주문금액<span id="total">0</span> 원	
+ 					<span>총 주문금액 </span> 
+ 					<input type="text" name="total" id="total" value="0" readonly /> 
+ 					<span> 원</span>	
 				</div>
 			</div>
 			<div class="cart-order-btn">

@@ -13,7 +13,7 @@ import com.spring.app.service.StoreService;
 public class StoreController {
 	
 	@Autowired
-	StoreService storeService;	
+	private StoreService storeService;	
 	
 	//스토어 페이지
 	@GetMapping

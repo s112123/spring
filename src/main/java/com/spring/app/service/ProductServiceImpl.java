@@ -13,7 +13,7 @@ import com.spring.app.repository.ProductDao;
 public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
-	ProductDao productDao;
+	private ProductDao productDao;
 	
 	//전체목록수
 	@Override

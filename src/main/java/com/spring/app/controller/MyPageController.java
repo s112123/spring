@@ -25,21 +25,21 @@ import com.spring.app.service.MyPageService;
 public class MyPageController {
 	
 	@Autowired
-	MemberService memberService;
+	private MemberService memberService;
 	@Autowired
-	MyPageService myPageService;
+	private MyPageService myPageService;
 	
 	//마이 페이지
 	@GetMapping
 	public String mypage(HttpSession session, Model model) {
 		Member member = (Member) session.getAttribute("login");
-		model.addAttribute("id", member.getId());
-		return "redirect:/mypage/myinfo";
+		return "redirect:/mypage/myinfo/view?id=" + member.getId();
 	}
 	
+	/* ----- 내 정보 ----- */
 	//내정보
-	@GetMapping("/myinfo")
-	public String myinfo(int id, Model model) {
+	@GetMapping("/myinfo/view")
+	public String viewMyInfo(int id, Model model) {
 		Member member = memberService.getMemberById(id);
 		model.addAttribute("member", member);
 		return "home.mypage.myinfo.view";
@@ -47,7 +47,7 @@ public class MyPageController {
 	
 	//내정보 수정
 	@PostMapping("/myinfo/update")
-	public String updateMember(Member member) {
+	public String updateMyInfo(Member member) {
 		if(member.getAgree() == null) {
 			member.setAgree("N");
 		} else if(member.getAgree().equals("on")) {
@@ -55,12 +55,13 @@ public class MyPageController {
 		}
 
 		memberService.updateMember(member);
-		return "redirect:/mypage/myinfo?id=" + member.getId();
+		return "redirect:/mypage/myinfo/view?id=" + member.getId();
 	}
 	
+	/* ----- 주믄내역 ----- */
 	//주문목록
 	@GetMapping("/order/list")
-	public String myOrderList(HttpSession session, Model model, Pagenation pagenation) {
+	public String listMyOrder(HttpSession session, Model model, Pagenation pagenation) {
 		//해당 사용자의 이메일을 가져오기 위해 세션정보 가져오기
 		Member member = (Member) session.getAttribute("login");
 		
@@ -76,12 +77,13 @@ public class MyPageController {
 		model.addAttribute("orders", orders);
 		model.addAttribute("pagenation", pagenation);
 		
-		return "home.mypage.myorder.list";
+		return "home.mypage.order.list";
 	}
 	
+	/* ----- 글 내역 ----- */
 	//작성 글 목록
 	@GetMapping("/board/list")
-	public String myBoardList(HttpSession session, Model model, Pagenation pagenation) {
+	public String listMyBoard(HttpSession session, Model model, Pagenation pagenation) {
 		//해당 사용자의 이메일을 가져오기 위해 세션정보 가져오기
 		Member member = (Member) session.getAttribute("login");
 	

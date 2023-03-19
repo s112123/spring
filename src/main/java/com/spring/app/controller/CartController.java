@@ -26,9 +26,9 @@ import com.spring.app.service.ProductService;
 public class CartController {
 	
 	@Autowired
-	ProductService productService;
+	private ProductService productService;
 	@Autowired
-	CartService cartService;
+	private CartService cartService;
 	
 	//장바구니 페이지
 	@GetMapping

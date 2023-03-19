@@ -29,13 +29,13 @@ import net.coobird.thumbnailator.Thumbnails;
 public class ProductController {
 	
 	@Autowired
-	ProductService productService;
+	private ProductService productService;
 	@Autowired
-	ServletContext context;
+	private ServletContext context;
 	
 	//상품페이지: 카테고리별
 	@GetMapping
-	public String productsByCategory(Model model) {
+	public String listProductsInHome(Model model) {
 		Map<String, List<Product>> products = new HashMap<String, List<Product>>();
 		String[] categories = {"STEAK", "PASTA", "BEVERAGE"};
 		
@@ -50,7 +50,7 @@ public class ProductController {
 	
 	//전체상품목록
 	@GetMapping("/list")
-	public String products(Model model, Pagenation pagenation) {
+	public String listProductsInAdmin(Model model, Pagenation pagenation) {
 		int total = productService.getTotalProducts();
 		pagenation.setTotal(total);
 		List<Product> products = productService.getProducts(pagenation);
@@ -63,7 +63,7 @@ public class ProductController {
 	
 	//상품정보
 	@GetMapping("/view")
-	public String view(Model model, @RequestParam(value="id", required=false) String _id) {
+	public String viewProductInAdmin(Model model, @RequestParam(value="id", required=false) String _id) {
 		int id = 0;
 		if(_id != null) {
 			id = Integer.parseInt(_id);

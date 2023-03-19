@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,18 +26,21 @@ import com.spring.app.service.OrderService;
 @RequestMapping("/order")
 public class OrderController {
 	
+	Logger log = LoggerFactory.getLogger(OrderController.class);
+	
 	@Autowired
-	CartService cartService;
+	private CartService cartService;
 	@Autowired
-	OrderService orderService;
+	private OrderService orderService;
 	
 	
 	//주문내역 페이지
 	@GetMapping("/view")
-	public String view(String code, Model model) {
-		List<OrderProduct> orderProducts = orderService.getOrderProductsByCode(code);	
+	public String viewOrder(String code, Model model) {
+		Order order = orderService.getOrderByCode(code);
+		List<OrderProduct> orderProducts = orderService.getOrderProductsByCode(code);
+		model.addAttribute("order", order);
 		model.addAttribute("orderProducts", orderProducts);
-		model.addAttribute("code", code);
 		return "home.order.view";
 	}
 	
@@ -43,10 +48,9 @@ public class OrderController {
 	@PostMapping("/insert")
 	public String insertOrder(
 			HttpSession session, 
-			int total,
+			String total,
 			@RequestParam(value="selectedItem", required=false) int[] ids,
 			Model model) {
-		
 		//고객정보
 		Member member = (Member) session.getAttribute("login");
 		
@@ -64,7 +68,7 @@ public class OrderController {
 		order.setCode(code);
 		order.setEmail(email);
 		order.setTitle(title);
-		order.setTotal(total);
+		order.setTotal(Integer.parseInt(total.replace(",", "")));
 	
 		orderService.insertOrder(order);
 		
@@ -89,5 +93,11 @@ public class OrderController {
 		return "redirect:/order/view";
 	}
 	
+	//주문삭제
+	@GetMapping("/delete")
+	public String deleteOrder(int id) {
+		orderService.deleteOrder(id);
+		return "redirect:/";
+	}
 	
 }

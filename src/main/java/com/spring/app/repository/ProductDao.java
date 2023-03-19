@@ -13,7 +13,7 @@ import com.spring.app.entity.Product;
 public class ProductDao {
 	
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 
 	//전체목록수
 	public int countAll() {

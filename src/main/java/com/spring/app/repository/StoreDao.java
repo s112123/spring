@@ -13,7 +13,7 @@ import com.spring.app.entity.Store;
 public class StoreDao {
 	
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	//전체 매장 개수
 	public int countAll() {

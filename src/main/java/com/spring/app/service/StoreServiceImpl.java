@@ -13,7 +13,7 @@ import com.spring.app.repository.StoreDao;
 public class StoreServiceImpl implements StoreService {
 
 	@Autowired
-	StoreDao storeDao;
+	private StoreDao storeDao;
 	
 	//전체 글 개수
 	@Override

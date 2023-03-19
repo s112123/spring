@@ -311,8 +311,17 @@
 	font-weight: bold;
 }
 .order-total span {
-	margin-left: 25px;
+	line-height: 20px;
+	display: inline-block;
+	vertical-align: bottom ;	
+}
+.order-total input {
+	width: 120px;
+	height: 25px;
+	border: none;
 	font-size: 20px;
+	font-weight: bold;
+	text-align: right;
 }
 .cart-order-btn {
 	margin-top: 25px;
@@ -572,10 +581,11 @@
 
 /* ---------- MYPAGE: ORDER LIST PAGE ---------- */
 .order-list td:nth-child(1) { /* 번호 */
-	width: 5%;	
+	width: 8%;	
 }
 .order-list td:nth-child(2) { /* 주문번호 */
 	width: 25%;
+	font-size: 13px;
 	text-align: left;
 }
 .order-list td:nth-child(3) { /* 상품명 */

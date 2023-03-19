@@ -13,7 +13,7 @@ import com.spring.app.entity.Cart;
 public class CartDao {
 	
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	//전체목록
 	public List<Cart> selectAllByEmail(String email) {

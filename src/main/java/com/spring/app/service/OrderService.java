@@ -17,10 +17,16 @@ public interface OrderService {
 	//주문상품목록
 	public List<OrderProduct> getOrderProductsByCode(String code);
 	
+	//주문조회
+	public Order getOrderByCode(String code);
+	
 	//주문등록
 	public void insertOrder(Order order);
 	
 	//주문내역등록
 	public void insertProductForOneOrder(OrderProduct orderProduct);
+	
+	//주문삭제
+	public void deleteOrder(int id);
 	
 }

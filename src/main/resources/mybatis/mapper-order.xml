@@ -31,6 +31,15 @@
 		ORDER BY id DESC
 	</select>
 	
+	<!-- 주문조회 -->
+	<select id="selectOneByCode" resultType="com.spring.app.entity.Order">
+		SELECT
+			id, code, email, title, total, regdate
+		FROM 
+			orders
+		WHERE code=#{code}
+	</select>
+	
 	<!-- 주문등록 -->
 	<insert id="insertOne">
 		INSERT INTO
@@ -46,5 +55,12 @@
 		VALUES
 			(NULL, #{code}, #{pname}, #{price}, #{qty}, #{img})
 	</insert>
+	
+	<!-- 주문삭제 -->
+	<delete id="deleteOrder">
+		DELETE FROM
+			orders
+		WHERE id=#{id}
+	</delete>
 </mapper>
 

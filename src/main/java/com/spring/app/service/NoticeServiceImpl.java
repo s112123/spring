@@ -13,7 +13,7 @@ import com.spring.app.repository.NoticeDao;
 public class NoticeServiceImpl implements NoticeService {
 	
 	@Autowired
-	NoticeDao noticeDao;
+	private NoticeDao noticeDao;
 	
 	//전체 글 개수
 	public int getTotalNotices() {

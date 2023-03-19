@@ -20,7 +20,7 @@ import com.spring.app.service.StoreService;
 public class StoreRestController {
 	
 	@Autowired
-	StoreService storeService;
+	private StoreService storeService;
 	
 	//매장목록
 	@GetMapping("/list")

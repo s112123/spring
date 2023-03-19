@@ -13,7 +13,7 @@ import com.spring.app.repository.CartDao;
 public class CartServiceImpl implements CartService {
 	
 	@Autowired
-	CartDao cartDao;
+	private CartDao cartDao;
 	
 	//전체목록
 	@Override

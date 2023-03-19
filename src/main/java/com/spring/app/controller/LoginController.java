@@ -23,7 +23,7 @@ import com.spring.app.service.MemberService;
 public class LoginController {
 	
 	@Autowired
-	MemberService memberService;
+	private MemberService memberService;
 	
 	//로그인 페이지
 	@GetMapping("/login")

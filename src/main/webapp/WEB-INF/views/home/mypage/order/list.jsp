@@ -19,7 +19,7 @@
 			<c:choose>
 				<c:when test="${empty orders}">
 					<tr>
-						<td colspan="5">주문내역이 없습니다</td>
+						<td colspan="6">주문내역이 없습니다</td>
 					</tr>
 				</c:when>
 				<c:otherwise>
@@ -27,7 +27,7 @@
 						<tr>
 							<td>${order.id}</td>
 							<td>${order.code}</td>
-							<td><a href="/mypage/myorder/view?code=${order.code}">${order.title}</a></td>
+							<td><a href="/order/view?code=${order.code}">${order.title}</a></td>
 							<td>${order.total}</td>
 							<td>
 								<fmt:parseDate value="${order.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />

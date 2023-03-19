@@ -13,7 +13,7 @@ import com.spring.app.repository.BoardDao;
 public class BoardServiceImpl implements BoardService {
 	
 	@Autowired
-	BoardDao boardDao;
+	private BoardDao boardDao;
 
 	//전체 글 개수
 	@Override

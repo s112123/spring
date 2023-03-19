@@ -21,7 +21,7 @@ import com.spring.app.service.NoticeService;
 public class NoticeController {
 	
 	@Autowired
-	NoticeService noticeService;
+	private NoticeService noticeService;
 	
 	//공지사항 페이지: 전체목록
 	@GetMapping("/list")
