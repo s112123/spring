@@ -7,16 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="map" style="width:1150px;height:700px;"></div>
+	<div id="map" style="width:1150px;height:700px;border:1px solid blue"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bca1dcf5c590ab01c4071e244ef5a994&libraries=services"></script>
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		    mapOption = {
 		        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-		        level: 8 // 지도의 확대 레벨
+		        level: 11 // 지도의 확대 레벨
 		    };  
 		// 지도를 생성합니다    
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
+		/*
 		// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
 		var mapTypeControl = new kakao.maps.MapTypeControl();
 		// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
@@ -25,6 +26,18 @@
 		// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 		var zoomControl = new kakao.maps.ZoomControl();
 		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+		*/
+		// 버튼 클릭에 따라 지도 확대, 축소 기능을 막거나 풀고 싶은 경우에는 map.setZoomable 함수를 사용합니다
+		function setZoomable(zoomable) {
+		    // 마우스 휠로 지도 확대,축소 가능여부를 설정합니다
+		    map.setZoomable(zoomable);    
+		}
+		
+		kakao.maps.event.addListener(map, 'zoom_changed', function(e) {
+			if(map.getLevel() > 12) {
+				map.setLevel(12);
+			}
+		});
 		
 		// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
 		var imageSrc = 'http://localhost:8080/resources/images/markers/location.png', // 마커이미지의 주소입니다    

@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
-
+	
+	<!-- 검색처리 -->
+	<sql id="search">
+		<where>
+			<if test="searchParam.searchOption == 'writer'">
+				b.writer LIKE '%${searchParam.searchKeyword}%' 
+			</if>
+			<if test="searchParam.searchOption == 'title'">
+				b.title LIKE '%${searchParam.searchKeyword}%' 
+			</if>		
+		</where>
+	</sql>
+	
 	<!-- 전체 글 개수 -->
-	<select id="countAll" resultType="int">
+	<select id="countAll" parameterType="java.util.Map" resultType="int">
 		SELECT 
 			COUNT(id) 
 		FROM 
-			board
+			board AS b
+		<include refid="search"></include>
 	</select>	
 	
-	<!-- 전체글목록 -->
-	<select id="selectAll" resultType="com.spring.app.entity.Board">
+	<!-- 전체글목록 -->	
+	<select id="selectAll" parameterType="java.util.Map" resultType="java.util.HashMap">
 		SELECT
-			id, email, category, title, content, writer, hits, regdate
-		FROM
-			board
-		ORDER BY id DESC
-		LIMIT #{skip}, #{size}
+			b.id, b.email, b.category, b.title, b.content, b.writer, b.hits, b.regdate, COUNT(r.bid) AS cnt
+		FROM 
+			board AS b
+		LEFT JOIN 
+			reply AS r 
+    	ON b.id = r.bid
+		<include refid="search"></include>
+    	GROUP BY b.id
+    	ORDER BY id DESC
+		LIMIT #{pagenation.skip}, #{pagenation.size}
 	</select>
-	
+
 	<!-- 글목록조회 -->
 	<select id="selectAllByEmail" parameterType="java.util.Map" resultType="com.spring.app.entity.Board">
 		SELECT

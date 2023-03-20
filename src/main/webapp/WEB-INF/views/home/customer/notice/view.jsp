@@ -8,12 +8,12 @@
 		<form method="post" id="notice-form">
 			<input type="hidden" name="id" value="${notice.id}" />
 			<div class="content-item">		
-				<select name="category">
+				<select name="category" ${login.grade == 'ADMIN' ? "" : "disabled"}>
 					<option value="common" <c:if test="${notice.category == 'common'}">selected</c:if>>일반정보</option>
 					<option value="product" <c:if test="${notice.category == 'product'}">selected</c:if>>상품관련</option>
 				</select>
-				<input type="text" name="title" value="${notice.title}" placeholder="제목을 입력해주세요" />
-				<textarea name="content">${notice.content}</textarea>
+				<input type="text" name="title" value="${notice.title}" ${login.grade == 'ADMIN' ? "" : "readonly"} placeholder="제목을 입력해주세요" />
+				<textarea name="content" ${login.grade == 'ADMIN' ? "" : "readonly"}>${notice.content}</textarea>
 			</div>
 			<div class="content-btn">
 				<div>

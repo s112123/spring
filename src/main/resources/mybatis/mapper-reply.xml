@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reply">
+
+	<!-- 전체 댓글 개수 -->
+	<select id="countAll" resultType="int">
+		SELECT 
+			COUNT(id) 
+		FROM 
+			reply
+		WHERE bid=#{bid}
+	</select>	
+
+	<!-- 전체댓글목록 -->
+	<select id="selectAllByBoardId" parameterType="java.util.Map" resultType="com.spring.app.entity.Reply">
+		SELECT
+			id, bid, content, writer, regdate
+		FROM
+			reply
+		WHERE bid=#{bid}
+		ORDER BY id DESC
+		LIMIT #{pagenation.skip}, #{pagenation.size}
+	</select>
+	
+	<!-- 댓글 등록 -->
+	<insert id="insertOne">
+		INSERT INTO
+			reply
+		VALUES
+			(NULL, #{bid}, #{content}, #{writer}, NOW())
+	</insert>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteOne">
+		DELETE FROM 
+			reply
+		WHERE id=#{id}
+	</delete>
+	
+</mapper>

@@ -1,18 +1,18 @@
 package com.spring.app.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.spring.app.entity.Board;
-import com.spring.app.entity.Pagenation;
 
 public interface BoardService {
 	
 	//전체 글 개수
-	public int getTotalBoards();	
+	public int getTotalBoards(Map<String, Object> params);	
 	
 	//전체글목록
-	public List<Board> getBoards(Pagenation pagenation);
-
+	public List<Map<String, Object>> getBoards(Map<String, Object> params);	
+	
 	//글 보기
 	public Board getBoardById(int id);
 	

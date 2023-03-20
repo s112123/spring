@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="main-content">
-	<h2>자유게시판</h2>
+	<h2>커뮤니티</h2>
 	<table class="board-list">
 		<thead>
 			<tr>
@@ -31,11 +31,18 @@
 								<c:if test="${board.category == 'common'}">일반</c:if>
 								<c:if test="${board.category == 'question'}">문의</c:if>
 							</td>
-							<td><a href="/board/view?id=${board.id}">${board.title}</a></td>
+							<td>
+								<a href="/board/view?id=${board.id}">${board.title}</a>
+								<c:if test="${board.cnt != 0}">
+									<span> [${board.cnt}]</span>
+								</c:if>
+							</td>
 							<td>${board.writer}</td>
 							<td>
+								<%-- 
 								<fmt:parseDate value="${board.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
 								<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd" />
+								 --%>
 							</td>
 							<td>${board.hits}</td>
 						</tr>	
@@ -49,13 +56,13 @@
 			<button type="button" value="write">글쓰기</button>
 		</c:if>
 		<div class="search">
-			<select name="search-option">
-				<option>선택</option>
-				<option value="email">이메일</option>
-				<option value="username">이름</option>
+			<select name="search-option" id="search-option">
+				<option value="select">선택</option>
+				<option value="writer" ${linkParam.searchOption == "writer" ? "selected" : ""}>작성자</option>
+				<option value="title" ${linkParam.searchOption == "title" ? "selected" : ""}>제목</option>
 			</select>
-			<input type="text" name="search-keyword" placeholder="검색어 입력" />
-			<button type="button">검색</button>
+			<input type="text" name="search-keyword" id="search-keyword" value="${linkParam.searchKeyword}" placeholder="검색어 입력" />
+			<button type="button" value="search">검색</button>
 		</div>
 		<div>
 			<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />

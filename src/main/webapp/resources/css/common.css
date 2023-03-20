@@ -317,13 +317,22 @@ footer .navbar li a:hover {
 	justify-content: center;
 	align-items: center;
 }
+.pagenation ul {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.pagenation ul li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 .pagenation ul li a {
 	display: inline-block;
 	width: 30px;
 	height: 30px;
 	line-height: 28px;
-	margin: 0 8px;
-	border: 1px solid rgb(210, 210, 210);
+	margin: 0 5px;
 	border-radius: 50%;
 	background-color: white;
 	color: rgb(150, 150, 150);
@@ -331,10 +340,9 @@ footer .navbar li a:hover {
 	text-align: center;
 }
 .pagenation ul li a.active {
-	border: 1px solid transparent;
 	background-color: rgb(210, 40, 40);
 	color: white;
 }
-.pagenation ul li a:hover {
-	background-color: rgb(230, 230, 230);
+.pagenation ul li a:not([class="active"]):hover {
+	background-color: #eee;
 }

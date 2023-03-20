@@ -1,12 +1,12 @@
 package com.spring.app.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.app.entity.Board;
-import com.spring.app.entity.Pagenation;
 import com.spring.app.repository.BoardDao;
 
 @Service
@@ -17,16 +17,16 @@ public class BoardServiceImpl implements BoardService {
 
 	//전체 글 개수
 	@Override
-	public int getTotalBoards() {
-		return boardDao.countAll();
+	public int getTotalBoards(Map<String, Object> params) {
+		return boardDao.countAll(params);
 	}	
-	
+
 	//전체글목록
 	@Override
-	public List<Board> getBoards(Pagenation pagenation) {
-		List<Board> boards = boardDao.selectAll(pagenation);
+	public List<Map<String, Object>> getBoards(Map<String, Object> params) {
+		List<Map<String, Object>> boards = boardDao.selectAll(params);
 		return boards;
-	}
+	}	
 	
 	//글 보기
 	@Override

@@ -12,7 +12,7 @@
 		<li>
 			<a href="/board/list">
 				<span><i class="fa-solid fa-comments"></i></span> 
-				<span>자유게시판</span>
+				<span>커뮤니티</span>
 			</a>
 		</li>
 	</ul>	

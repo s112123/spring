@@ -82,3 +82,15 @@ function validateBoardInfo() {
 
 	return true;
 } 
+
+
+//textarea 제한
+const ta = document.getElementById('reply-write');
+ta.addEventListener('keyup', function(e) {
+	//글자수 확인
+	const replyLength = document.getElementById('reply-length');
+	if(ta.value.trim().length <= 100) {
+		replyLength.innerText = ta.value.trim().length + ' / 100';
+	}
+});
+

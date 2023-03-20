@@ -1,31 +1,30 @@
 package com.spring.app.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.app.entity.Board;
-import com.spring.app.entity.Pagenation;
 
 @Repository
 public class BoardDao {
 
-	
 	@Autowired
 	private SqlSession sqlSession;
 	
 	//전체 글 개수
-	public int countAll() {
-		return sqlSession.selectOne("board.countAll");
+	public int countAll(Map<String, Object> params) {
+		return sqlSession.selectOne("board.countAll", params);
 	}	
 	
 	//전체글목록
-	public List<Board> selectAll(Pagenation pagenation) {
-		List<Board> boards = sqlSession.selectList("board.selectAll", pagenation);
+	public List<Map<String, Object>> selectAll(Map<String, Object> params) {
+		List<Map<String, Object>> boards = sqlSession.selectList("board.selectAll", params);
 		return boards;
-	}
+	}	
 	
 	//글 보기
 	public Board selectOneById(int id) {
