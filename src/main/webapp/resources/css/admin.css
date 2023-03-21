@@ -93,7 +93,7 @@
 	width: 8%;	
 }
 .store-list td:nth-child(2) { /* 매장명 */
-	width: 16%;
+	width: 25%;
 }
 .store-list td:nth-child(2) a { 
 	color: rgb(100, 100, 100);
@@ -101,28 +101,25 @@
 .store-list td:nth-child(2) a:hover { 
 	color: rgb(210, 40, 40);
 }
-.store-list td:nth-child(3) { /* 대표자 */
-	width: 12%;
-}
-.store-list td:nth-child(4) { /* 연락처 */
-	width: 12%;
-}
-.store-list td:nth-child(5) { /* 주소 */
+.store-list td:nth-child(3) { /* 주소 */
 	text-align: left;
 }
-.store-list td:nth-child(6) { /* 등록일 */
-	width: 12%;	
+.store-list td:nth-child(4) { /* 연락처 */
+	width: 15%;
 }
-.store-list td:nth-child(7) { /* 수정/삭제 */
+.store-list td:nth-child(5) { /* 등록일 */
+	width: 15%;	
+}
+.store-list td:nth-child(6) { /* 수정/삭제 */
 	width: 8%;	
 	padding: 0 3px;
 }
-.store-list td:nth-child(7) a {
+.store-list td:nth-child(6) a {
 	color: rgb(170, 170, 170);
 	font-size: 16px;
 	margin: 0 5px;
 }
-.store-list td:nth-child(7) a:hover {
+.store-list td:nth-child(6) a:hover {
 	color: rgb(210, 40, 40);
 	transition: 1s;
 }
@@ -248,7 +245,7 @@
 	border: 1px solid  rgb(100, 100, 100);
 	border-radius: 3px;	
 	color: rgb(100, 100, 100);
-	font-size: 14px;
+	font-size: 13px;
 	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
@@ -269,4 +266,38 @@
 	border: 1px solid #ccc;
 	border-radius: 3px;	
 	font-size: 13px;
+}
+
+/* ---------- STORE INFOMATION PAGE ---------- */
+.store-item label[for=attached] {
+	width: 70px;
+	height: 30px;	
+	line-height: 30px;
+	border: 1px solid  rgb(100, 100, 100);
+	border-radius: 3px;	
+	color: rgb(100, 100, 100);
+	font-size: 13px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.store-item label[for=attached]:hover {
+	border: 1px solid rgb(210, 40, 40);	
+	color: rgb(210, 40, 40);
+}
+.store-item input[type=file] {
+	width: 0;
+	height: 0;
+	padding: 0;
+	border: 0;
+}
+.store-item .filename:read-only {
+	width: 73%;
+	border: 1px solid #ccc;
+	border-radius: 3px;	
+	font-size: 13px;
+}
+.store-item #addr1:read-only {
+	border: 1px solid #ccc;
 }

@@ -13,7 +13,7 @@
 	<!-- 매장목록 -->
 	<select id="selectAll" resultType="com.spring.app.entity.Store">
 		SELECT
-			id, storename, president, addr1, tel, regdate
+			id, storename, img, addr1, tel, regdate
 		FROM
 			store
 		ORDER BY id DESC
@@ -23,7 +23,7 @@
 	<!-- 매장조회 -->
 	<select id="selectOne" resultType="com.spring.app.entity.Store">
 		SELECT 
-			id, storename, president, addr1, tel, regdate
+			id, storename, img, addr1, tel, regdate
 		FROM
 			store
 		WHERE id=#{id}
@@ -34,7 +34,7 @@
 		INSERT INTO
 			store
 		VALUES
-			(NULL, #{storename}, #{president}, #{addr1}, #{tel}, NOW())
+			(NULL, #{storename}, #{img}, #{addr1}, #{tel}, NOW())
 	</insert>
 	
 	<!-- 매장수정 -->
@@ -42,7 +42,7 @@
 		UPDATE
 			store
 		SET
-			storename=#{storename}, president=#{president}, addr1=#{addr1}, tel=#{tel}
+			storename=#{storename}, img=#{img}, addr1=#{addr1}, tel=#{tel}
 		WHERE id=#{id}
 	</update>
 	

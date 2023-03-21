@@ -15,51 +15,27 @@
 				<li><a href="javascript:void(0);">울산</a></li>
 			</ul>
 			<div class="store-list">
-				<div class="store-item">
-					<div class="store-image">
-					</div>
-					<div class="store-info">
-						<p>상호명</p>
-						<p>주소</p>
-						<p>연락처</p>
-					</div>
-				</div>	
-				<div class="store-item">
-					<div class="store-image">
-					</div>
-					<div class="store-info">
-						<p>상호명</p>
-						<p>주소</p>
-						<p>연락처</p>
-					</div>
-				</div>					
-				<div class="store-item">
-					<div class="store-image">
-					</div>
-					<div class="store-info">
-						<p>상호명</p>
-						<p>주소</p>
-						<p>연락처</p>
-					</div>
-				</div>				
-				<div class="store-item">
-					<div class="store-image">
-					</div>
-					<div class="store-info">
-						<p>상호명</p>
-						<p>asdfasfasfasfasf</p>
-						<p>연락처</p>
-					</div>
-				</div>				
-				<div class="store-item">
-					<div class="store-image">
-					</div>
-					<div class="store-info">
-						<p>상호명</p>
-						<p>주소</p>
-						<p>연락처</p>
-					</div>
-				</div>
+				<c:choose>
+					<c:when test="${empty stores}">
+						<div class="store-item">
+							<div class="store-item-info">해당 지역에 매장이 없습니다</div>
+						</div>						
+					</c:when>
+					<c:otherwise>
+						<c:forEach var="store" items="${stores}">
+							<div class="store-item">
+								<div class="store-image">
+									<img src="${contextPath}/resources/images/stores/${store.img}" />
+								</div>
+								<div class="store-info">
+									<p>${store.storename}</p>
+									<p>${store.addr1}</p>
+									<p>${store.tel}</p>
+								</div>
+							</div>					
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<div id="map"></div>	
@@ -67,7 +43,7 @@
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="flase" />
 <script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/js/home/product/list.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/home/store/list.js"></script>
 <script>
 	/* ----- MAP API ----- */
 	var mapContainer = document.getElementById('map'), //지도를 표시할 div 

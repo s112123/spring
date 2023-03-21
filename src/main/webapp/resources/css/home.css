@@ -296,7 +296,10 @@
 	width: 80px;
 	height: 80px;
 	margin-right: 20px;
-	border: 1px solid violet;
+	border-radius: 3px;
+	overflow: hidden;
+}
+.store-item .store-image img {
 	border-radius: 3px;
 }
 .store-item .store-info p {

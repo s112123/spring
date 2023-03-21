@@ -91,7 +91,6 @@ public class ProductServiceImpl implements ProductService {
 		
 		//이미지 파일인지 검증
 		if((attachedFile.getSize() > 0) && (attachedFile.getContentType().startsWith("image"))) {
-			
 			try {
 				//이미지 파일 업로드
 				String imgFileName = UUID.randomUUID().toString() + "_" + attachedFile.getOriginalFilename();

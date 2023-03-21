@@ -80,11 +80,12 @@ function insertReply(target) {
 		showModal(false, '댓글이 등록되었습니다');
 		const confirmBtn = document.getElementById('modal-confirm-btn');
 		confirmBtn.addEventListener('click', function() {
+			//원래 요소만 추가되어 화면이 새로 로딩되지 않도록 처리해야 한다
 			location.href = "/board/view?id=" + dataSet.bid + "&page=" + dataSet.page;
 		});	
 	}	
-		
-	ajaxInsert(requestURL, datas, result);	
+	
+	ajaxInsert(requestURL, datas, result);			
 }
 
 //댓글 삭제
@@ -94,27 +95,37 @@ function deleteReply(target) {
 	const requestURL = '/api/reply/delete/' + dataSet.id;
 	
 	const result = function () {
-		const items = document.getElementsByClassName('reply-item');
-		
-		if(items.length > 1) {
-			target.parentNode.parentNode.parentNode.remove();
-		} else {
-			while(items[0].hasChildNodes())
-     			items[0].removeChild(items[0].firstChild); 
-     			
-     		const childNode = document.createElement('div');
-     		childNode.className = 'reply-item-content';
-     		childNode.innerHTML = '등록된 댓글이 없습니다';	
-     		items[0].appendChild(childNode);
-		}
-		
-		const total = document.getElementById('reply-total');
-		total.innerText = "(" + (Number(total.innerText.replace('(', '').replace(')', '')) - 1) + ")";
-		
-		showModal(false, '댓글이 삭제되었습니다');		
+		showModal(false, '댓글이 삭제되었습니다');
+		const confirmBtn = document.getElementById('modal-confirm-btn');
+		confirmBtn.addEventListener('click', function() {	
+
+			//삭제된 댓글 박스만 삭제
+			const items = document.getElementsByClassName('reply-item');
+			
+			if(items.length > 1) {
+				target.parentNode.parentNode.parentNode.remove();
+			} else {
+				while(items[0].hasChildNodes())
+	     			items[0].removeChild(items[0].firstChild); 
+	     		
+	     		//마지막 댓글 삭제 후, 등록된 댓글 없음으로 처리	
+	     		const childNode = document.createElement('div');
+	     		childNode.className = 'reply-item-content';
+	     		childNode.innerHTML = '등록된 댓글이 없습니다';	
+	     		items[0].appendChild(childNode);
+			}
+			
+			//댓글 수 변경
+			const total = document.getElementById('reply-total');
+			total.innerText = "(" + (Number(total.innerText.replace('(', '').replace(')', '')) - 1) + ")";
+		});			
 	}	
 	
-	ajaxDelete(requestURL, result);
+	showModal(true, '댓글을 삭제하시겠습니까?');
+	const confirmBtn = document.getElementById('modal-confirm-btn');
+	confirmBtn.addEventListener('click', function() {
+		ajaxDelete(requestURL, result);
+	});		
 }
 
 //textarea 제한

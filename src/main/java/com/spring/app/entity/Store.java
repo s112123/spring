@@ -6,17 +6,18 @@ public class Store {
 	
 	private int id;
 	private String storename;
-	private String president;
+	private String img;
 	private String addr1;
 	private String tel;
 	private LocalDateTime regdate;
 	
 	public Store() {}
-
-	public Store(int id, String storename, String president, String addr1, String tel, LocalDateTime regdate) {
+	
+	public Store(int id, String storename, String img, String addr1, String tel, LocalDateTime regdate) {
+		super();
 		this.id = id;
 		this.storename = storename;
-		this.president = president;
+		this.img = img;
 		this.addr1 = addr1;
 		this.tel = tel;
 		this.regdate = regdate;
@@ -38,12 +39,12 @@ public class Store {
 		this.storename = storename;
 	}
 
-	public String getPresident() {
-		return president;
+	public String getImg() {
+		return img;
 	}
 
-	public void setPresident(String president) {
-		this.president = president;
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	public String getAddr1() {
@@ -72,8 +73,8 @@ public class Store {
 
 	@Override
 	public String toString() {
-		return "Store [id=" + id + ", storename=" + storename + ", president=" + president + ", addr1=" + addr1
-				+ ", tel=" + tel + ", regdate=" + regdate + "]";
+		return "Store [id=" + id + ", storename=" + storename + ", img=" + img + ", addr1=" + addr1 + ", tel=" + tel
+				+ ", regdate=" + regdate + "]";
 	}
 
 }

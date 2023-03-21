@@ -24,7 +24,6 @@ function view(target) {
 //페이지 버튼 클릭시, 페이지 전환
 const pagenation = document.querySelector('.pagenation ul');
 pagenation.addEventListener('click', function(e) {
-
 	e.preventDefault();
 	//상위 엘리먼트로 이벤트 전파 막음
 	e.stopPropagation();

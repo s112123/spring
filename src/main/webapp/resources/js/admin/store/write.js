@@ -1,71 +1,49 @@
-const storename = document.getElementById('storename');
-const president = document.getElementById('president');
-const tel = document.getElementById('tel');
-const addr1 = document.getElementById('addr1');
-
-const commands = document.querySelectorAll('button[type=button]');
-commands.forEach(function(command) {
-	command.addEventListener('click', function(e) {
-		e.preventDefault();
-	
-		switch(command.value) {
-			case "insert":
-				//유효성 검사
-				let isValid = validateStoreInfo();
-				if(!isValid) return;	
-				insertStore(); 
-				break;
-			case "list":
-				location.href = '/store/list'; 
-				break;
-		}
-		
-		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
-		return;	
-	});
-})
+//매장목록
+function listStore() {
+	location.href = '/store/list'; 
+}
 
 //매장등록
 function insertStore() {
-	showModal(true, "매장을 등록하시겠습니까?");
-	const confirmBtn = document.getElementById('modal-confirm-btn');
-	confirmBtn.addEventListener('click', function() {
-		const datas = {
-			storename: storename.value,
-			president: president.value,
-			tel: tel.value,
-			addr1: addr1.value
-		}
-		
-		$.ajax({
-			url: '/api/store/insert',
-			type: 'POST',
-			contentType: 'application/json; charset=UTF-8',
-			dataType: 'text',
-			data: JSON.stringify(datas),
-			success: function(result) {
-				if(result === 'success')
-					location.href = '/store/list';			
-			} 
-		});
-	});	
+	const requestURL = '/api/store/insert';
+	
+	let isValid = validateStoreInfo();
+	if(!isValid) return;
+
+	const form = document.getElementById('store-form');
+	let formData = new FormData(form);
+	
+	const result = function () {
+		showModal(false, '매장이 등록되었습니다');
+		const confirmBtn = document.getElementById('modal-confirm-btn');
+		confirmBtn.addEventListener('click', function() {
+			listStore();
+		});	
+	}
+	
+	ajaxInsertForFile(requestURL, formData, result);	
 }
 
 //유효성 검사: 입력여부
 function validateStoreInfo() {
+	const storename = document.getElementById('storename');
+	const filename = document.getElementById('filename');
+	const tel = document.getElementById('tel');
+	const addr1 = document.getElementById('addr1');	
+	
 	//매장명
 	if(storename.value.trim().length === 0) {
 		storename.value = null;
 		showModal(false, '매장명을 입력하세요');
 		return false;
 	}
-
-	//대표자
-	if(president.value.trim().length === 0) {
-		president.value = null;
-		showModal(false, '대표자를 입력하세요');
+	
+	//이미지파일
+	if (filename.value.trim().length === 0) {
+		filename.value = null;
+		showModal(false, "이미지를 첨부하세요");
 		return false;
-	}
+	}	
 	
 	//연락처
 	if(tel.value.trim().length === 0) {
@@ -89,6 +67,13 @@ function validateStoreInfo() {
 	
 	return true;
 }
+
+//파일선택시, 파일이름넣기
+const attached = document.getElementById('attached');
+attached.addEventListener('change', function() {
+	const target = document.getElementsByClassName('filename')[0];
+	target.value = attached.value;
+});
 
 //우편주소 API
 const target = document.getElementById('addr1'); 

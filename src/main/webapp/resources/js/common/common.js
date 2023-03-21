@@ -20,7 +20,7 @@ function submitForm(form, action, method) {
 function ajaxInsert(requestURL, datas, callback) {
 	/*
 		requestURL: 요청주소
-		datas: 서버에 전송할 데이터
+		datas: <form>에서 서버로 전송할 데이터
 		callback: 통신 성공시, 실행함수
 	*/
 	
@@ -32,6 +32,52 @@ function ajaxInsert(requestURL, datas, callback) {
 		data: JSON.stringify(datas),
 		success: function(result) {	
 			if(result.message === 'inserted') {
+				callback();
+			}
+		}
+	});	
+}
+
+//Ajax - Insert For File
+function ajaxInsertForFile(requestURL, formData, callback) {
+	/*
+		requestURL: 요청주소
+		formData: <form enctype="multipart/form-data">에서 서버로 전송할 데이터
+		callback: 통신 성공시, 실행함수
+	*/
+	
+	$.ajax({
+		url: requestURL,
+		type: 'POST',
+        processData: false,
+        contentType: false,
+		dataType: 'json',
+		data: formData,
+		success: function(result) {
+			if(result.message === 'inserted') {
+				callback();
+			}
+		}
+	});	
+}
+
+//Ajax - Update For File
+function ajaxUpdateForFile(requestURL, formData, callback) {
+	/*
+		requestURL: 요청주소
+		formData: <form enctype="multipart/form-data">에서 서버로 전송할 데이터
+		callback: 통신 성공시, 실행함수
+	*/
+	
+	$.ajax({
+		url: requestURL,
+		type: 'POST',
+        processData: false,
+        contentType: false,
+		dataType: 'json',
+		data: formData,
+		success: function(result) {
+			if(result.message === 'updated') {
 				callback();
 			}
 		}
