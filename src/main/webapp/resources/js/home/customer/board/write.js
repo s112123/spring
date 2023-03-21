@@ -1,46 +1,18 @@
-//submit 요청시, button[type=submit]인 버튼 요소들 저장 후 버튼에 따라 처리
-const form = document.getElementById('board-form');
-const commands = document.querySelectorAll('button[type=submit]');
-commands.forEach(function(command) {
-	command.addEventListener('click', function(e) {
-		e.preventDefault();
-		
-		//유효성 검사
-		let isValid = validateBoardInfo();
-		if(!isValid) return;		
-		
-		switch(command.value) {
-			case "insert":
-				insertBoard(form);
-		}	
-		
-		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
-		return;
-	});
-});
-
-//button[type=button]을 클릭한 경우
-const btns = document.querySelectorAll('button[type=button]');
-btns.forEach(function(btn) {
-	btn.addEventListener('click', function() {
-		switch(btn.value) {
-			case "list":
-				location.href='/board/list';
-		}
-		
-		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
-		return;
-	});
-});
+//글 목록
+function listBoard() {
+	location.href='/board/list';
+}
 
 //글 등록
-function insertBoard(form) {
+function insertBoard() {
+	let isValid = validateBoardInfo();
+	if(!isValid) return;
+	
 	showModal(true, "글을 등록하시겠습니까?");
 	const confirmBtn = document.getElementById('modal-confirm-btn');
 	confirmBtn.addEventListener('click', function() {
-		form.action = '/board/insert';
-		form.method = 'POST';
-		form.submit();
+		const form = document.getElementById('board-form');
+		submitForm(form, '/board/insert', 'POST');
 	});		
 }
 
@@ -69,3 +41,4 @@ function validateBoardInfo() {
 
 	return true;
 } 
+

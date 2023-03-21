@@ -16,6 +16,8 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<!-- ADDRESS API -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<!-- MAP API -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bca1dcf5c590ab01c4071e244ef5a994&libraries=services"></script>
 	<!-- CSS -->	
 	<link rel="stylesheet" href="${contextPath}/resources/css/reset.css" />	
 	<link rel="stylesheet" href="${contextPath}/resources/css/common.css" />	

@@ -32,7 +32,7 @@
 								<c:if test="${board.category == 'question'}">문의</c:if>
 							</td>
 							<td>
-								<a href="/board/view?id=${board.id}">${board.title}</a>
+								<a href="javascript:void(0);" data-id="${board.id}" data-page="${pagenation.page}" onclick="view(this)">${board.title}</a>
 								<c:if test="${board.cnt != 0}">
 									<span> [${board.cnt}]</span>
 								</c:if>
@@ -53,7 +53,7 @@
 	</table>
 	<div class="bottom">
 		<c:if test="${!empty login}">
-			<button type="button" value="write">글쓰기</button>
+			<button type="button" onclick="writeBoardForm()">글쓰기</button>
 		</c:if>
 		<div class="search">
 			<select name="search-option" id="search-option">
@@ -61,8 +61,8 @@
 				<option value="writer" ${linkParam.searchOption == "writer" ? "selected" : ""}>작성자</option>
 				<option value="title" ${linkParam.searchOption == "title" ? "selected" : ""}>제목</option>
 			</select>
-			<input type="text" name="search-keyword" id="search-keyword" value="${linkParam.searchKeyword}" placeholder="검색어 입력" />
-			<button type="button" value="search">검색</button>
+			<input type="text" name="search-keyword" id="search-keyword" value="${linkParam.searchKeyword}" placeholder="검색어 입력" onkeypress="if(event.keyCode == 13 ){search();}" />
+			<button type="button" onclick="search()">검색</button>
 		</div>
 		<div>
 			<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />

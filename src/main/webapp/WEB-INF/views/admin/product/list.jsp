@@ -52,15 +52,6 @@
 	</table>
 	<div class="bottom">
 		<button type="button" value="insert">등록</button>
-		<div class="search">
-			<select name="search-option">
-				<option>선택</option>
-				<option value="email">이메일</option>
-				<option value="username">이름</option>
-			</select>
-			<input type="text" name="search-keyword" placeholder="검색어 입력" />
-			<button type="button" value="search">검색</button>
-		</div>
 		<div>
 			<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />
 		</div>

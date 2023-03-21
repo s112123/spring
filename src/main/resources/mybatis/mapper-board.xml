@@ -5,12 +5,14 @@
 	<!-- 검색처리 -->
 	<sql id="search">
 		<where>
-			<if test="searchParam.searchOption == 'writer'">
-				b.writer LIKE '%${searchParam.searchKeyword}%' 
+			<if test="linkParam.searchKeyword != null and linkParam.searchKeyword != ''">
+				<if test="linkParam.searchOption == 'writer'">
+					b.writer LIKE '%${linkParam.searchKeyword}%' 
+				</if>
+				<if test="linkParam.searchOption == 'title'">
+					b.title LIKE '%${linkParam.searchKeyword}%' 
+				</if>		
 			</if>
-			<if test="searchParam.searchOption == 'title'">
-				b.title LIKE '%${searchParam.searchKeyword}%' 
-			</if>		
 		</where>
 	</sql>
 	

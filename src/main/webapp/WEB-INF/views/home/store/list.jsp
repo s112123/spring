@@ -1,5 +1,88 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+    
+<div class="container">
+	<div class="store-box">
+		<div class="store-list-box">
+			<ul class="store-navbar">
+				<li><a href="javascript:void(0);">서울</a></li>
+				<li><a href="javascript:void(0);">부산</a></li>
+				<li><a href="javascript:void(0);">경기</a></li>
+				<li><a href="javascript:void(0);">대전</a></li>
+				<li><a href="javascript:void(0);">광주</a></li>
+				<li><a href="javascript:void(0);">울산</a></li>
+			</ul>
+			<div class="store-list">
+				<div class="store-item">
+					<div class="store-image">
+					</div>
+					<div class="store-info">
+						<p>상호명</p>
+						<p>주소</p>
+						<p>연락처</p>
+					</div>
+				</div>	
+				<div class="store-item">
+					<div class="store-image">
+					</div>
+					<div class="store-info">
+						<p>상호명</p>
+						<p>주소</p>
+						<p>연락처</p>
+					</div>
+				</div>					
+				<div class="store-item">
+					<div class="store-image">
+					</div>
+					<div class="store-info">
+						<p>상호명</p>
+						<p>주소</p>
+						<p>연락처</p>
+					</div>
+				</div>				
+				<div class="store-item">
+					<div class="store-image">
+					</div>
+					<div class="store-info">
+						<p>상호명</p>
+						<p>asdfasfasfasfasf</p>
+						<p>연락처</p>
+					</div>
+				</div>				
+				<div class="store-item">
+					<div class="store-image">
+					</div>
+					<div class="store-info">
+						<p>상호명</p>
+						<p>주소</p>
+						<p>연락처</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="map"></div>	
+	</div>
+</div>
+<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="flase" />
+<script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/home/product/list.js"></script>
+<script>
+	/* ----- MAP API ----- */
+	var mapContainer = document.getElementById('map'), //지도를 표시할 div 
+	mapOption = {
+	    center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표
+	    level: 3 //지도의 확대 레벨
+	};  
+	
+	//지도 설정
+	var map = new kakao.maps.Map(mapContainer, mapOption); 
+</script>
+
+
+
+<!-- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,3 +167,4 @@
 	</script>
 </body>
 </html>
+ -->

@@ -5,7 +5,7 @@
 <div class="main-content">
 	<h2>글 내용</h2>
 	<div class="content-box">	
-		<form method="post" id="notice-form">
+		<form id="notice-form">
 			<input type="hidden" name="id" value="${notice.id}" />
 			<div class="content-item">		
 				<select name="category" ${login.grade == 'ADMIN' ? "" : "disabled"}>
@@ -16,13 +16,13 @@
 				<textarea name="content" ${login.grade == 'ADMIN' ? "" : "readonly"}>${notice.content}</textarea>
 			</div>
 			<div class="content-btn">
-				<div>
-					<button type="button" value="list">목록</button>
+				<div class="btn-left">
+					<button type="button" onclick="listNotice()">목록</button>
 				</div>			
-				<div>
+				<div class="btn-right">
 					<c:if test="${!empty login && login.grade == 'ADMIN'}">
-						<button type="submit" value="update">수정</button>
-						<button type="submit" value="delete">삭제</button>
+						<button type="button" onclick="updateNotice()">수정</button>
+						<button type="button" onclick="deleteNotice()">삭제</button>
 					</c:if>
 				</div>
 			</div>
@@ -30,5 +30,5 @@
 	</div>
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-<script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
 <script type="text/javascript" src="${contextPath}/resources/js/home/customer/notice/view.js"></script>

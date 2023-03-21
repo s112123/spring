@@ -13,4 +13,3 @@
 		<div id="modal-content"></div>
 	</div>
 </div>
-<script type="text/javascript" src="${contextPath}/resources/js/common/modal.js"></script>

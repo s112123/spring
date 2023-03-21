@@ -1,7 +1,6 @@
 package com.spring.app.service;
 
 import java.util.List;
-import java.util.Map;
 
 import com.spring.app.entity.Reply;
 
@@ -11,7 +10,7 @@ public interface ReplyService {
 	public int getTotalReplies(int bid);
 	
 	//전체댓글목록
-	public List<Reply> getRepliesByBoardId(Map<String, Object> map) ;
+	public List<Reply> getRepliesByBoardId(int bid) ;
 	
 	//댓글 등록
 	public void insertReply(Reply reply);

@@ -1,33 +1,30 @@
 //검색구분 및 검색어
-let searchOption = document.getElementById('search-option').value;
-let searchKeyword = document.getElementById('search-keyword').value;
+const searchOption = document.getElementById('search-option').value;
+const searchKeyword = document.getElementById('search-keyword').value;
+	
+//글쓰기 페이지
+function writeBoardForm() {
+	location.href = '/board/write';
+}
 
-//button[type=button]을 클릭한 경우		
-const btns = document.querySelectorAll('button[type=button]');
-btns.forEach(function(btn) {
-	btn.addEventListener('click', function() {
-		switch(btn.value) {
-			case "write":
-				location.href = '/board/write';
-				break;
-			case "search":
-				//검색구분 및 검색어
-				searchOption = document.getElementById('search-option').value;
-				searchKeyword = document.getElementById('search-keyword').value;
-				
-				if(!validateSearchForm(searchOption, searchKeyword)) return;
-				location.href = '/board/list' + getRequestURLParams(1, searchOption, searchKeyword);		
-		}
+//글보기 <a> 태그 클릭시
+function view(target) {
+	const boardId = target.getAttribute('data-id');
+	const pageNum = target.getAttribute('data-page');
+	const requestURL = '/board/view?id=' + boardId + '&page=' + pageNum;
+	
+	//Request URL 파라미터 생성
+	if(searchKeyword.trim().length === 0) {
+		location.href = requestURL;	
+	} else {	
+		location.href = requestURL + getRequestURLParams(searchOption, searchKeyword);	
+	}
+}
 
-		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
-		return;
-	});
-});
-
-
-//페이지 버튼 클릭시
+//페이지 버튼 클릭시, 페이지 전환
 const pagenation = document.querySelector('.pagenation ul');
 pagenation.addEventListener('click', function(e) {
+
 	e.preventDefault();
 	//상위 엘리먼트로 이벤트 전파 막음
 	e.stopPropagation();
@@ -43,20 +40,31 @@ pagenation.addEventListener('click', function(e) {
 	if(searchKeyword.trim().length === 0) {
 		location.href = '/board/list?page=' + pageNum;	
 	} else {	
-		location.href = '/board/list' + getRequestURLParams(pageNum, searchOption, searchKeyword);	
+		location.href = '/board/list?page=' + pageNum + getRequestURLParams(searchOption, searchKeyword);	
 	}
 });
 
-
 //요청 파라미터 연결
-function getRequestURLParams(pageNum, searchOption, searchKeyword) {
+function getRequestURLParams(searchOption, searchKeyword) {
 	let params = '';
 	
-	params += '?page=' + pageNum; 
 	params += '&searchOption=' + searchOption;
 	params += '&searchKeyword=' + searchKeyword;		
 
 	return params;
+}
+
+
+/* ----- SEARCH ----- */
+
+//검색
+function search() {
+	//검색구분 및 검색어
+	const searchOption = document.getElementById('search-option').value;
+	const searchKeyword = document.getElementById('search-keyword').value;	
+		
+	if(!validateSearchForm(searchOption, searchKeyword)) return;
+	location.href = '/board/list?page=1' + getRequestURLParams(searchOption, searchKeyword);	
 }
 
 //검색옵션 선택 및 검색어 입력 여부

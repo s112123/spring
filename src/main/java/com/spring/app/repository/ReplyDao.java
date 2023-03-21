@@ -1,7 +1,6 @@
 package com.spring.app.repository;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +20,8 @@ public class ReplyDao {
 	}
 	
 	//전체댓글목록
-	public List<Reply> selectAllByBoardId(Map<String, Object> map) {
-		List<Reply> replies = sqlSession.selectList("reply.selectAllByBoardId", map);
+	public List<Reply> selectAllByBoardId(int bid) {
+		List<Reply> replies = sqlSession.selectList("reply.selectAllByBoardId", bid);
 		return replies;
 	}
 	

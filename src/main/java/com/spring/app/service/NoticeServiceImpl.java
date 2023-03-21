@@ -2,9 +2,12 @@ package com.spring.app.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.app.entity.Member;
 import com.spring.app.entity.Notice;
 import com.spring.app.entity.Pagenation;
 import com.spring.app.repository.NoticeDao;
@@ -31,7 +34,11 @@ public class NoticeServiceImpl implements NoticeService {
 	}	
 	
 	//공지사항 등록
-	public void insertNotice(Notice notice) {
+	public void insertNotice(HttpSession session, Notice notice) {
+		Member member = (Member) session.getAttribute("login");
+		notice.setEmail(member.getEmail());
+		notice.setWriter(member.getUsername());
+		
 		noticeDao.insertOne(notice);
 	}
 	

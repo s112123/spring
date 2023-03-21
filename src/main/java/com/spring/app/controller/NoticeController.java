@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spring.app.entity.Member;
 import com.spring.app.entity.Notice;
 import com.spring.app.entity.Pagenation;
 import com.spring.app.service.NoticeService;
@@ -57,12 +56,8 @@ public class NoticeController {
 	
 	//공지사항 등록
 	@PostMapping("/insert")
-	public String insertNotice(HttpSession session, Notice notice, Model model) {
-		Member member = (Member) session.getAttribute("login");
-		notice.setEmail(member.getEmail());
-		notice.setWriter(member.getUsername());
-		
-		noticeService.insertNotice(notice);
+	public String insertNotice(HttpSession session, Notice notice) {
+		noticeService.insertNotice(session, notice);
 		return "redirect:/notice/list";
 	}	
 	

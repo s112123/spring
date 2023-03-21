@@ -1,63 +1,33 @@
-//submit 요청시, button[type=submit]인 버튼 요소들 저장 후 버튼에 따라 처리
-const form = document.getElementById('board-form');
-const commands = document.querySelectorAll('button[type=submit]');
-commands.forEach(function(command) {
-	command.addEventListener('click', function(e) {
-		e.preventDefault();
-		
-		switch(command.value) {
-			case "update":
-				//유효성 검사
-				let isValid = validateBoardInfo();
-				if(!isValid) return;
-				updateBoard(form); break;
-			case "delete":
-				//삭제할 때는 유효성 검사가 필요없다
-				deleteBoard(form); break;
-		}	
-		
-		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
-		return;
-	});
-});
-
-//button[type=button]을 클릭한 경우
-const btns = document.querySelectorAll('button[type=button]');
-btns.forEach(function(btn) {
-	btn.addEventListener('click', function() {
-		switch(btn.value) {
-			case "list":
-				location.href='/board/list';
-		}
-		
-		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
-		return;
-	});
-});
-
-//글 수정
-function updateBoard(form) {
-	showModal(true, "글을 수정하시겠습니까?");
-	const confirmBtn = document.getElementById('modal-confirm-btn');
-	confirmBtn.addEventListener('click', function() {
-		form.action = '/board/update';
-		form.method = 'POST';
-		form.submit();
-	});		
+/* ----- BOARD ----- */
+//글 목록
+function listBoard() {
+	location.href='/board/list';
 }
 
 //글 삭제
-function deleteBoard(form) {
+function deleteBoard() {
 	showModal(true, "글을 삭제하시겠습니까?");
 	const confirmBtn = document.getElementById('modal-confirm-btn');
 	confirmBtn.addEventListener('click', function() {
-		form.action = '/board/delete';
-		form.method = 'POST';
-		form.submit();
+		const form = document.getElementById('board-form');
+		submitForm(form, '/board/delete', 'POST');
+	});	
+}
+
+//글 수정
+function updateBoard() {
+	let isValid = validateBoardInfo();
+	if(!isValid) return;
+	
+	showModal(true, "글을 수정하시겠습니까?");
+	const confirmBtn = document.getElementById('modal-confirm-btn');
+	confirmBtn.addEventListener('click', function() {
+		const form = document.getElementById('board-form');
+		submitForm(form, '/board/update', 'POST');
 	});		
 }
 
-//유효성 검사
+//글 수정 전, 유효성 검사
 function validateBoardInfo() {
 	//구분
 	const category = document.querySelector('select[name=category]');
@@ -81,11 +51,74 @@ function validateBoardInfo() {
 	}	
 
 	return true;
-} 
+}
 
+
+/* ----- REPLY ----- */
+//댓글 등록
+function insertReply(target) {
+	const json = target.getAttribute("data-set");
+	const dataSet = JSON.parse(json);
+	const requestURL = '/api/reply/insert/';
+	
+	/* 전송 데이터 */
+	const writer = document.querySelector('input[name=reply-writer]').value;
+	const content = document.querySelector('textarea[name=reply-content]').value;
+	
+	if(content.trim().length === 0) {
+		showModal(false, '댓글 내용을 입력하세요');
+		return;
+	}
+	
+	const datas = {
+		bid: dataSet.bid,
+		writer: writer,
+		content: content
+	};
+	
+	const result = function () {
+		showModal(false, '댓글이 등록되었습니다');
+		const confirmBtn = document.getElementById('modal-confirm-btn');
+		confirmBtn.addEventListener('click', function() {
+			location.href = "/board/view?id=" + dataSet.bid + "&page=" + dataSet.page;
+		});	
+	}	
+		
+	ajaxInsert(requestURL, datas, result);	
+}
+
+//댓글 삭제
+function deleteReply(target) {
+	const json = target.getAttribute("data-set");
+	const dataSet = JSON.parse(json);
+	const requestURL = '/api/reply/delete/' + dataSet.id;
+	
+	const result = function () {
+		const items = document.getElementsByClassName('reply-item');
+		
+		if(items.length > 1) {
+			target.parentNode.parentNode.parentNode.remove();
+		} else {
+			while(items[0].hasChildNodes())
+     			items[0].removeChild(items[0].firstChild); 
+     			
+     		const childNode = document.createElement('div');
+     		childNode.className = 'reply-item-content';
+     		childNode.innerHTML = '등록된 댓글이 없습니다';	
+     		items[0].appendChild(childNode);
+		}
+		
+		const total = document.getElementById('reply-total');
+		total.innerText = "(" + (Number(total.innerText.replace('(', '').replace(')', '')) - 1) + ")";
+		
+		showModal(false, '댓글이 삭제되었습니다');		
+	}	
+	
+	ajaxDelete(requestURL, result);
+}
 
 //textarea 제한
-const ta = document.getElementById('reply-write');
+const ta = document.getElementById('reply-content');
 ta.addEventListener('keyup', function(e) {
 	//글자수 확인
 	const replyLength = document.getElementById('reply-length');
@@ -93,4 +126,3 @@ ta.addEventListener('keyup', function(e) {
 		replyLength.innerText = ta.value.trim().length + ' / 100';
 	}
 });
-

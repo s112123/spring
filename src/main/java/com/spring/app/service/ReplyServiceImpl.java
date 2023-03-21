@@ -1,7 +1,6 @@
 package com.spring.app.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,8 +22,8 @@ public class ReplyServiceImpl implements ReplyService {
 	
 	//전체댓글목록
 	@Override
-	public List<Reply> getRepliesByBoardId(Map<String, Object> map) {
-		List<Reply> replies = replyDao.selectAllByBoardId(map);
+	public List<Reply> getRepliesByBoardId(int bid) {
+		List<Reply> replies = replyDao.selectAllByBoardId(bid);
 		return replies;
 	}
 	

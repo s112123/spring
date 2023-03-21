@@ -1,63 +1,32 @@
-//submit 요청시, button[type=submit]인 버튼 요소들 저장 후 버튼에 따라 처리
-const form = document.getElementById('notice-form');
-const commands = document.querySelectorAll('button[type=submit]');
-commands.forEach(function(command) {
-	command.addEventListener('click', function(e) {
-		e.preventDefault();
-		
-		switch(command.value) {
-			case "update":
-				//유효성 검사
-				let isValid = validateNoticeInfo();
-				if(!isValid) return;
-				updateNotice(form); break;
-			case "delete":
-				//삭제할 때는 유효성 검사가 필요없다
-				deleteNotice(form); break;
-		}	
-		
-		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
-		return;
-	});
-});
-
-//button[type=button]을 클릭한 경우
-const btns = document.querySelectorAll('button[type=button]');
-btns.forEach(function(btn) {
-	btn.addEventListener('click', function() {
-		switch(btn.value) {
-			case "list":
-				location.href='/notice/list';
-		}
-		
-		//버튼 수만큼 반복하므로 return을 하지 않으면 버튼 수만큼 반복 동작된다
-		return;
-	});
-});
-
-//공지사항 수정
-function updateNotice(form) {
-	showModal(true, "공지사항을 수정하시겠습니까?");
-	const confirmBtn = document.getElementById('modal-confirm-btn');
-	confirmBtn.addEventListener('click', function() {
-		form.action = '/notice/update';
-		form.method = 'POST';
-		form.submit();
-	});		
+//글 목록
+function listNotice() {
+	location.href='/notice/list';
 }
 
-//공지사항 삭제
-function deleteNotice(form) {
+//글 삭제
+function deleteNotice() {
 	showModal(true, "공지사항을 삭제하시겠습니까?");
 	const confirmBtn = document.getElementById('modal-confirm-btn');
 	confirmBtn.addEventListener('click', function() {
-		form.action = '/notice/delete';
-		form.method = 'POST';
-		form.submit();
+		const form = document.getElementById('notice-form');
+		submitForm(form, '/notice/delete', 'POST');
+	});	
+}
+
+//글 수정
+function updateNotice() {
+	let isValid = validateNoticeInfo();
+	if(!isValid) return;
+	
+	showModal(true, "공지사항을 수정하시겠습니까?");
+	const confirmBtn = document.getElementById('modal-confirm-btn');
+	confirmBtn.addEventListener('click', function() {
+		const form = document.getElementById('notice-form');
+		submitForm(form, '/notice/update', 'POST');
 	});		
 }
 
-//유효성 검사
+//글 수정 전, 유효성 검사
 function validateNoticeInfo() {
 	//구분
 	const category = document.querySelector('select[name=category]');
@@ -82,3 +51,4 @@ function validateNoticeInfo() {
 
 	return true;
 } 
+

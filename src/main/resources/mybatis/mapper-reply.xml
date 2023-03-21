@@ -12,14 +12,13 @@
 	</select>	
 
 	<!-- 전체댓글목록 -->
-	<select id="selectAllByBoardId" parameterType="java.util.Map" resultType="com.spring.app.entity.Reply">
+	<select id="selectAllByBoardId" resultType="com.spring.app.entity.Reply">
 		SELECT
 			id, bid, content, writer, regdate
 		FROM
 			reply
 		WHERE bid=#{bid}
 		ORDER BY id DESC
-		LIMIT #{pagenation.skip}, #{pagenation.size}
 	</select>
 	
 	<!-- 댓글 등록 -->

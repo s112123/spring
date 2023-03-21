@@ -27,12 +27,17 @@
 					<c:forEach var="notice" items="${notices}">
 						<tr>
 							<td>${notice.id}</td>
-							<td>${notice.category}</td>
+							<td>
+								<c:if test="${notice.category == 'common'}">일반정보</c:if>
+								<c:if test="${notice.category == 'product'}">상품관련</c:if>
+							</td>
 							<td><a href="/notice/view?id=${notice.id}">${notice.title}</a></td>
 							<td>${notice.writer}</td>
 							<td>
+								<%-- 
 								<fmt:parseDate value="${notice.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
 								<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd" />
+								 --%>
 							</td>
 							<td>${notice.hits}</td>
 						</tr>	
@@ -43,17 +48,8 @@
 	</table>
 	<div class="bottom">
 		<c:if test="${!empty login && login.grade == 'ADMIN'}">
-			<button type="button" value="write">글쓰기</button>
+			<button type="button" onclick="writeNoticeForm()">글쓰기</button>
 		</c:if>
-		<div class="search">
-			<select name="search-option">
-				<option>선택</option>
-				<option value="email">이메일</option>
-				<option value="username">이름</option>
-			</select>
-			<input type="text" name="search-keyword" placeholder="검색어 입력" />
-			<button type="button">검색</button>
-		</div>
 		<div>
 			<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />
 		</div>

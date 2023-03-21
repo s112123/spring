@@ -2,6 +2,8 @@ package com.spring.app.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.spring.app.entity.Notice;
 import com.spring.app.entity.Pagenation;
 
@@ -14,7 +16,7 @@ public interface NoticeService {
 	public List<Notice> getNotices(Pagenation pagenation);
 	
 	//공지사항 등록
-	public void insertNotice(Notice notice);
+	public void insertNotice(HttpSession session, Notice notice);
 	
 	//상세보기: id
 	public Notice getNoticeById(int id);
