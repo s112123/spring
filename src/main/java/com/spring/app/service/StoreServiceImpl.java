@@ -2,6 +2,7 @@ package com.spring.app.service;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
@@ -28,16 +29,29 @@ public class StoreServiceImpl implements StoreService {
 	@Autowired
 	private ServletContext context;	
 	
-	//전체 글 개수
+	//전체 매장 개수
 	@Override
 	public int getTotalStores() {
 		return storeDao.countAll();
+	}
+	
+	//지역별 매장 개수
+	@Override
+	public int getTotalStoresByArea(String area) {
+		return storeDao.countAllByArea(area);
 	}
 	
 	//매장목록
 	@Override
 	public List<Store> getStores(Pagenation pagenation) {
 		List<Store> stores = storeDao.selectAll(pagenation);
+		return stores;
+	}
+	
+	//지역별 매장목록
+	@Override
+	public List<Store> getStoresByArea(Map<String, Object> params) {
+		List<Store> stores = storeDao.selectAllByArea(params);
 		return stores;
 	}
 	
@@ -104,7 +118,7 @@ public class StoreServiceImpl implements StoreService {
 				attachedFile.transferTo(imgFile);
 	
 				//이미지파일 이름 저장
-                store.setImg(imgFileName);
+				store.setImg(imgFileName);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}

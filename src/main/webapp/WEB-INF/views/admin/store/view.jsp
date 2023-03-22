@@ -49,7 +49,6 @@
 	</div>
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-<script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
 <script type="text/javascript" src="${contextPath}/resources/js/admin/store/view.js"></script>
 
 

@@ -38,5 +38,7 @@
 	<footer>
 		<tiles:insertAttribute name="footer" />
 	</footer>	
+	<!-- Javascript -->
+	<script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
 </body>
 </html>

@@ -6,18 +6,9 @@
 	<h1><a href="/">STEAKHOUSE</a></h1>
 	<nav>	
 		<ul class="navbar" id="main-nav">
-			<li>
-				<div><a href="/product">PRODUCT</a></div>
-				<span></span>	
-			</li>
-			<li>
-				<div><a href="/store">STORE</a></div>
-				<span></span>	
-			</li>
-			<li>
-				<div><a href="/notice/list">CUSTOMER</a></div>
-				<span></span>
-			</li>			
+			<li><a href="/product">PRODUCT</a></li>
+			<li><a href="/store">STORE</a></li>
+			<li><a href="/customer/notice/list">CUSTOMER</a></li>			
 		</ul>
 	</nav>
 	<ul class="navbar">
@@ -32,7 +23,7 @@
 						<li><a href="/admin"><i class="fa-solid fa-gear"></i> Admin</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="/mypage"><i class="fa-solid fa-user"></i> MyPage</a></li>
+						<li><a href="/mypage/myinfo/view"><i class="fa-solid fa-user"></i> MyPage</a></li>
 						<li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
 					</c:otherwise>
 				</c:choose>
@@ -41,17 +32,3 @@
 		</c:choose>
 	</ul>
 </div>
-<script>
-	const lines = document.querySelectorAll('#main-nav li span');
-	lines.forEach(function(line) {
-		line.style.display = 'none';
-		line.addEventListener('click', function(e) {
-			e.preventDefault();
-			this.style.display = 'block';
-			lines.style.left = this.offsetLeft + 'px';
-			lines.style.width = this.offsetWidth + 'px';
-		});	
-	});
-</script>
-
-

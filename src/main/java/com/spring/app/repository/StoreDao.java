@@ -1,6 +1,7 @@
 package com.spring.app.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +19,24 @@ public class StoreDao {
 	//전체 매장 개수
 	public int countAll() {
 		return sqlSession.selectOne("store.countAll");
-	}		
+	}	
+	
+	//지역별 매장 개수
+	public int countAllByArea(String area) {
+		return sqlSession.selectOne("store.countAllByArea", area);
+	}
 	
 	//매장목록
 	public List<Store> selectAll(Pagenation pagenation) {
 		List<Store> stores = sqlSession.selectList("store.selectAll", pagenation);
 		return stores;
 	}
+	
+	//지역별 매장목록
+	public List<Store> selectAllByArea(Map<String, Object> params) {
+		List<Store> stores = sqlSession.selectList("store.selectAllByArea", params);
+		return stores;
+	}	
 	
 	//매장조회
 	public Store selectOne(int id) {

@@ -4,14 +4,14 @@ const searchKeyword = document.getElementById('search-keyword').value;
 	
 //글쓰기 페이지
 function writeBoardForm() {
-	location.href = '/board/write';
+	location.href = '/customer/board/write';
 }
 
 //글보기 <a> 태그 클릭시
 function view(target) {
 	const boardId = target.getAttribute('data-id');
 	const pageNum = target.getAttribute('data-page');
-	const requestURL = '/board/view?id=' + boardId + '&page=' + pageNum;
+	const requestURL = '/customer/board/view?id=' + boardId + '&page=' + pageNum;
 	
 	//Request URL 파라미터 생성
 	if(searchKeyword.trim().length === 0) {
@@ -37,9 +37,9 @@ pagenation.addEventListener('click', function(e) {
 	
 	//Request URL 파라미터 생성
 	if(searchKeyword.trim().length === 0) {
-		location.href = '/board/list?page=' + pageNum;	
+		location.href = '/customer/board/list?page=' + pageNum;	
 	} else {	
-		location.href = '/board/list?page=' + pageNum + getRequestURLParams(searchOption, searchKeyword);	
+		location.href = '/customer/board/list?page=' + pageNum + getRequestURLParams(searchOption, searchKeyword);	
 	}
 });
 
@@ -63,7 +63,7 @@ function search() {
 	const searchKeyword = document.getElementById('search-keyword').value;	
 		
 	if(!validateSearchForm(searchOption, searchKeyword)) return;
-	location.href = '/board/list?page=1' + getRequestURLParams(searchOption, searchKeyword);	
+	location.href = '/customer/board/list?page=1' + getRequestURLParams(searchOption, searchKeyword);	
 }
 
 //검색옵션 선택 및 검색어 입력 여부

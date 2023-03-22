@@ -33,18 +33,12 @@ public class MyPageController {
 	@Autowired
 	private MyPageService myPageService;
 	
-	//마이 페이지
-	@GetMapping
-	public String mypage(HttpSession session, Model model) {
-		Member member = (Member) session.getAttribute("login");
-		return "redirect:/mypage/myinfo/view?id=" + member.getId();
-	}
-	
 	/* ----- 내 정보 ----- */
 	//내정보
 	@GetMapping("/myinfo/view")
-	public String viewMyInfo(int id, Model model) {
-		Member member = memberService.getMemberById(id);
+	public String viewMyInfo(HttpSession session, Model model) {
+		Member _member = (Member) session.getAttribute("login");
+		Member member = memberService.getMemberById(_member.getId());
 		model.addAttribute("member", member);
 		return "home.mypage.myinfo.view";
 	}

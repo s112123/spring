@@ -16,7 +16,7 @@ import com.spring.app.entity.Pagenation;
 import com.spring.app.service.NoticeService;
 
 @Controller
-@RequestMapping("/notice")
+@RequestMapping("/customer/notice")
 public class NoticeController {
 	
 	@Autowired

@@ -1,5 +1,3 @@
-/* 사용자페이지에서 제품리스트 페이지 */
-
 //button[type=button]을 클릭한 경우
 const btns = document.querySelectorAll('button[type=button]');
 btns.forEach(function(btn) {

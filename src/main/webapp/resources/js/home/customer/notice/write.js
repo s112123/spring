@@ -1,6 +1,6 @@
 //글 목록
 function listNotice() {
-	location.href='/notice/list';
+	location.href='/customer/notice/list';
 }
 
 //글 등록
@@ -12,7 +12,7 @@ function insertNotice() {
 	const confirmBtn = document.getElementById('modal-confirm-btn');
 	confirmBtn.addEventListener('click', function() {
 		const form = document.getElementById('notice-form');
-		submitForm(form, '/notice/insert', 'POST');
+		submitForm(form, '/customer/notice/insert', 'POST');
 	});		
 }
 

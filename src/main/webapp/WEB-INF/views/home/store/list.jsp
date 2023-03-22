@@ -34,6 +34,30 @@
 								</div>
 							</div>					
 						</c:forEach>
+						<!-- PAGENATION -->
+						<div class="pagenation store-pagenation">
+							<ul>
+								<c:if test="${pagenation.prev}">
+									<li>
+										<a href="?page=${pagenation.startPN - 1}" data-num="${pagenation.startPN - 1}">
+											<i class="fa-solid fa-angle-left" data-num="${pagenation.startPN - 1}"></i>
+										</a>
+									</li>
+								</c:if>
+								<c:forEach var="pageNum" begin="${pagenation.startPN}" end="${pagenation.endPN}">
+									<li>
+										<a href="?page=${pageNum}" data-num="${pageNum}" class="${pagenation.page == pageNum ? 'active' : ''}">${pageNum}</a>
+									</li>
+								</c:forEach>
+								<c:if test="${pagenation.next}">
+									<li>	
+										<a href="?page=${pagenation.endPN + 1}" data-num="${pagenation.endPN + 1}">
+											<i class="fa-solid fa-angle-right" data-num="${pagenation.endPN + 1}"></i>
+										</a>
+									</li>
+								</c:if>
+							</ul>
+						</div>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -42,7 +66,6 @@
 	</div>
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="flase" />
-<script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
 <script type="text/javascript" src="${contextPath}/resources/js/home/store/list.js"></script>
 <script>
 	/* ----- MAP API ----- */

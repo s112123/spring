@@ -4,13 +4,13 @@
 <aside>
 	<ul>
 		<li>
-			<a href="/notice/list">
+			<a href="/customer/notice/list">
 				<span><i class="fa-solid fa-bullhorn"></i></span> 
 				<span>공지사항</span>
 			</a>
 		</li>
 		<li>
-			<a href="/board/list">
+			<a href="/customer/board/list">
 				<span><i class="fa-solid fa-comments"></i></span> 
 				<span>커뮤니티</span>
 			</a>

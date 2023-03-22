@@ -31,7 +31,7 @@
 								<c:if test="${notice.category == 'common'}">일반정보</c:if>
 								<c:if test="${notice.category == 'product'}">상품관련</c:if>
 							</td>
-							<td><a href="/notice/view?id=${notice.id}">${notice.title}</a></td>
+							<td><a href="/customer/notice/view?id=${notice.id}">${notice.title}</a></td>
 							<td>${notice.writer}</td>
 							<td>
 								<%-- 
@@ -56,5 +56,4 @@
 	</div>
 </div>
 <jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-<script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
 <script type="text/javascript" src="${contextPath}/resources/js/home/customer/notice/list.js"></script>

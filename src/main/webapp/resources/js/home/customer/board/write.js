@@ -1,6 +1,6 @@
 //글 목록
 function listBoard() {
-	location.href='/board/list';
+	location.href='/customer/board/list';
 }
 
 //글 등록
@@ -12,7 +12,7 @@ function insertBoard() {
 	const confirmBtn = document.getElementById('modal-confirm-btn');
 	confirmBtn.addEventListener('click', function() {
 		const form = document.getElementById('board-form');
-		submitForm(form, '/board/insert', 'POST');
+		submitForm(form, '/customer/board/insert', 'POST');
 	});		
 }
 

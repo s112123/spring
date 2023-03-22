@@ -33,5 +33,7 @@
 			<tiles:insertAttribute name="main" />
 		</div>
 	</main>
+	<!-- Javascript -->
+	<script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
 </body>
 </html>

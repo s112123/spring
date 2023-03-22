@@ -1,6 +1,6 @@
 //글 목록
 function listNotice() {
-	location.href='/notice/list';
+	location.href='/customer/notice/list';
 }
 
 //글 삭제
@@ -9,7 +9,7 @@ function deleteNotice() {
 	const confirmBtn = document.getElementById('modal-confirm-btn');
 	confirmBtn.addEventListener('click', function() {
 		const form = document.getElementById('notice-form');
-		submitForm(form, '/notice/delete', 'POST');
+		submitForm(form, '/customer/notice/delete', 'POST');
 	});	
 }
 
@@ -22,7 +22,7 @@ function updateNotice() {
 	const confirmBtn = document.getElementById('modal-confirm-btn');
 	confirmBtn.addEventListener('click', function() {
 		const form = document.getElementById('notice-form');
-		submitForm(form, '/notice/update', 'POST');
+		submitForm(form, '/customer/notice/update', 'POST');
 	});		
 }
 

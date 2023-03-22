@@ -1,4 +1,61 @@
 /* ---------- COMMON ---------- */
+//현재 Nav 탭 유지
+//HEADER의 <a>의 PathName을 배열에 담음
+const navLinks = document.querySelectorAll('nav a');
+const navPathNames = [];
+navLinks.forEach(function(navLink) {
+	navPathNames.push('/' + navLink.pathname.split('/')[1]);
+});
+
+//현재 URL의 PathName
+let locationPathName = '/' + document.location.pathname.split('/')[1];
+for(let i=0; i<navPathNames.length; i++) {
+	if(navPathNames[i] === locationPathName) {
+		removeClassName(navLinks, 'active');
+		navLinks[i].classList.add('active');
+	}
+}	
+
+//현재 Aside 탭 유지
+//ASIDE의 <a>의 PathName을 배열에 담음
+if(locationPathName === '/customer') {
+	locationPathName = '/customer/' + document.location.pathname.split('/')[2];
+} else if (locationPathName === '/mypage') {
+	locationPathName = '/customer/' + document.location.pathname.split('/')[2];
+}
+
+const asideLinks = document.querySelectorAll('aside a');
+const asidePathNames = [];
+asideLinks.forEach(function(asideLink) {
+	if(locationPathName.indexOf('/customer') !== -1) {
+		asidePathNames.push('/customer/' + asideLink.pathname.split('/')[2]);
+	} else if(locationPathName.indexOf('/mypage') !== -1) {
+		asidePathNames.push('/mypage/' + asideLink.pathname.split('/')[2]);
+	} else {
+		asidePathNames.push('/' + asideLink.pathname.split('/')[1]);
+	}
+});	
+
+//현재 URL의 PathName
+for(let i=0; i<asidePathNames.length; i++) {
+	if(asidePathNames[i] === locationPathName) {
+		removeClassName(asideLinks, 'active');
+		asideLinks[i].classList.add('active');
+	}
+}		
+
+//클래스 이름 제거
+function removeClassName(elems, removeClassName) {
+	/*
+		elems: 제거할 클래스 요소 집합
+		removeClassName: 제거할 클래스 이름
+	*/
+	
+	for(let ele of elems) {
+		ele.classList.remove(removeClassName);
+	}
+}
+
 //항목전체선택
 function checkAll(selectedItem) {
 	let items = document.querySelectorAll('input[name="selectedItem"]');

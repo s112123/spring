@@ -8,7 +8,7 @@ public class HomeController {
 	
 	//메인 페이지
 	@GetMapping({"/", "/index"})
-	public String mainGET() {
+	public String main() {
 		return "index";
 	}
 	

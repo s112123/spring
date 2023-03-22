@@ -23,7 +23,7 @@ import com.spring.app.service.BoardService;
 import com.spring.app.service.ReplyService;
 
 @Controller
-@RequestMapping("/board")
+@RequestMapping("/customer/board")
 public class BoardController {
 	
 	Logger log = LoggerFactory.getLogger(BoardController.class);

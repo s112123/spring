@@ -1,7 +1,7 @@
 /* ----- BOARD ----- */
 //글 목록
 function listBoard() {
-	location.href='/board/list';
+	location.href='/customer/board/list';
 }
 
 //글 삭제
@@ -10,7 +10,7 @@ function deleteBoard() {
 	const confirmBtn = document.getElementById('modal-confirm-btn');
 	confirmBtn.addEventListener('click', function() {
 		const form = document.getElementById('board-form');
-		submitForm(form, '/board/delete', 'POST');
+		submitForm(form, '/customer/board/delete', 'POST');
 	});	
 }
 
@@ -23,7 +23,7 @@ function updateBoard() {
 	const confirmBtn = document.getElementById('modal-confirm-btn');
 	confirmBtn.addEventListener('click', function() {
 		const form = document.getElementById('board-form');
-		submitForm(form, '/board/update', 'POST');
+		submitForm(form, '/customer/board/update', 'POST');
 	});		
 }
 

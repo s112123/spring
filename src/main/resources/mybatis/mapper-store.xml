@@ -10,6 +10,15 @@
 			store
 	</select>	
 	
+	<!-- 지역별 매장 개수 -->
+	<select id="countAllByArea" resultType="int">
+		SELECT 
+			COUNT(id) 
+		FROM 
+			store
+		WHERE addr1 LIKE '${area}%'
+	</select>
+	
 	<!-- 매장목록 -->
 	<select id="selectAll" resultType="com.spring.app.entity.Store">
 		SELECT
@@ -19,7 +28,18 @@
 		ORDER BY id DESC
 		LIMIT #{skip}, #{size}
 	</select>
-
+	
+	<!-- 지역별 매장목록 -->
+	<select id="selectAllByArea" parameterType="java.util.Map" resultType="com.spring.app.entity.Store">
+		SELECT 
+			id, storename, img, addr1, tel, regdate
+		FROM
+			store
+		WHERE addr1 LIKE '${area}%' 
+		ORDER BY id DESC
+		LIMIT #{pagenation.skip}, #{pagenation.size}
+	</select>
+		
 	<!-- 매장조회 -->
 	<select id="selectOne" resultType="com.spring.app.entity.Store">
 		SELECT 
@@ -28,7 +48,7 @@
 			store
 		WHERE id=#{id}
 	</select>
-		
+	
 	<!-- 매장등록 -->
 	<insert id="insertOne">
 		INSERT INTO

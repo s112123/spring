@@ -177,17 +177,17 @@
 	width: 100%;
 	height: 100%;
 	padding: 40px 20px;
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(255, 255, 255, 0.9);
 	position: absolute;
 	top: 350px;
 	opacity: 0;
 	z-index: 10;
-	transition: all 0.7s ease-in-out;
+	transition: all 0.5s ease-in-out;
 }
 .product-info:hover .product-detail {
 	opacity: 1;
 	transform: translateY(-350px);
-	border: 1px solid #eee;
+	border: 1px solid #ddd;
 }
 .product-detail-title {
 	width: 100%;
@@ -251,8 +251,7 @@
 .store-list-box {
 	width: 35%;
 	height: 100%;
-	padding: 15px;
-
+	padding: 15px 15px 15px 0px;
 }
 .store-navbar {
 	padding: 0px 15px;
@@ -313,6 +312,28 @@
 }
 .store-item p:nth-child(2) {
 	margin: 12px 0;
+}
+.store-pagenation {
+	padding: 3px;
+}
+.store-pagenation ul li a {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	margin: 0 3px;
+	border-radius: 50%;
+	background-color: white;
+	color: rgb(150, 150, 150);
+	font-size: 14px;
+	text-align: center;
+}
+.store-pagenation ul li a.active {
+	background-color: rgb(210, 40, 40);
+	color: white;
+}
+.store-pagenation ul li a:not([class="active"]):hover {
+	background-color: #eee;
 }
 #map {
 	width: 65%;
@@ -756,6 +777,7 @@
 	color: white;
 }
 
+
 /* ---------- MYPAGE: ORDER LIST PAGE ---------- */
 .order-list td:nth-child(1) { /* 번호 */
 	width: 8%;	
@@ -780,6 +802,7 @@
 .order-list td:nth-child(5) { /* 주문일 */
 	width: 12%;
 }
+
 
 /* ---------- MYPAGE: ORDER VIEW PAGE ---------- */
 /*

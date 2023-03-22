@@ -41,7 +41,7 @@ public class Pagenation {
         this.skip = (this.page - 1) * this.size;
         //코드 순서 중요: start 번호가 제대로 나오기 위함
         this.endPN = (int)(Math.ceil(this.page / (double)this.size)) * this.size;
-        this.startPN = (this.endPN - 9) > 0 ? (this.endPN - 9) : 1;
+        this.startPN = (this.endPN - (this.size - 1)) > 0 ? (this.endPN - (this.size - 1)) : 1;
         this.endPN = (this.endPN > this.lastPN) ? this.lastPN : this.endPN;
         this.prev = this.startPN > 1;
         this.next = this.total > (this.endPN * this.size);
