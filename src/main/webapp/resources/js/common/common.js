@@ -71,7 +71,6 @@ function submitForm(form, action, method) {
 		form.submit();	
 }
 
-
 /* ---------- AJAX ---------- */
 //Ajax - Insert
 function ajaxInsert(requestURL, datas, callback) {

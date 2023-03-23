@@ -1,8 +1,6 @@
 package com.spring.app.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,29 +25,11 @@ public class StoreController {
 	
 	//스토어 페이지
 	@GetMapping
-	public String store(Model model, Pagenation pagenation, String area) {
-		
-		if(area == null || area.trim().equals("")) {
-			area = "서울";
-		}
-		
-		int total = storeService.getTotalStoresByArea(area);
-		pagenation.setSize(5);
-		pagenation.setTotal(total);
-		log.info(pagenation.toString());
-		
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("area", area);
-		params.put("pagenation", pagenation);
-		
-		
-		List<Store> stores = storeService.getStoresByArea(params);
-		model.addAttribute("stores", stores);
-		model.addAttribute("pagenation", pagenation);
-		
+	public String store() {		
 		return "home.store.list";
 	}
 	
+	/* ----- ADMIN PAGE ---- */
 	//매장목록
 	@GetMapping("/list")
 	public String list(Model model, Pagenation pagenation) {
@@ -74,5 +54,5 @@ public class StoreController {
 	public String storeForm() {
 		return "admin.store.write";
 	}
-	
+
 }

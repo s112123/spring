@@ -1,6 +1,7 @@
 package com.spring.app.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.spring.app.entity.Pagenation;
 import com.spring.app.entity.Store;
 import com.spring.app.service.StoreService;
 
@@ -26,6 +28,30 @@ public class StoreRestController {
 	@Autowired
 	private StoreService storeService;
 	
+	//매장목록
+	@GetMapping("/list/{area}/{page}")
+	public Map<String, Object> listStore(@PathVariable("area") String area, @PathVariable("page") int page) {
+		//스토어 목록 조회
+		Pagenation pagenation = new Pagenation();
+		int total = storeService.getTotalStoresByArea(area);
+		pagenation.setSize(5);
+		pagenation.setPage(page);
+		pagenation.setTotal(total);
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("area", area);
+		params.put("pagenation", pagenation);	
+		List<Store> stores = storeService.getStoresByArea(params);
+		
+		//결과 데이터 넘김
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("stores", stores);
+		result.put("pagenation", pagenation);	
+		
+		return result;
+	}	
+	
+	/* ----- ADMIN PAGE ---- */
 	//매장보기
 	@GetMapping("/view/{id}")
 	public Map<String, Object> viewStore(@PathVariable("id") int id) {

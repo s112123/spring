@@ -3,6 +3,73 @@
 	height: 700px;
 	border: 1px solid tomato;
 }
+.slide-wrapper {	/* 이미지: 1650x700 */
+	position: relative; 
+	width: 100%; 
+	height: 700px;
+	border: 1px solid tomato;
+	overflow: hidden;
+}
+.slide-container {
+	position: absolute; 
+	width: 100%; 
+	height: 100%; 
+	margin: 0; 
+	padding: 0; 
+	transition: left 1.5s ease-in; 
+	left: 0;
+}
+.slide-container>li { 
+	position: absolute; 
+	top: 0%; 
+	height: 100%; 
+	width: 100%; 
+	text-align: center; 
+}
+.slide-wrapper .controls { 
+	width: 60px;
+	height: 60px; 
+	line-height: 60px;
+	border-radius: 50%;
+	background-color: rgb(255, 255, 255, 0.1);
+	color: white; 
+	font-size: 30px; 
+	text-align: center;
+	display: inline-block;
+	position: absolute;
+	top: 50%; 
+	transform: translateY(-50%);
+}
+#prev { 
+	left: 30px;
+}
+#next { 
+	right: 30px; 
+}
+#prev.disabled, 
+#next.disabled { 
+	display: none; 
+}
+.pager { 
+	position: absolute; 
+	left: 0; 
+	right: 0; 
+	bottom: 30px; 
+	text-align: center; 
+}
+.pager a { 
+	width: 10px; 
+	height: 10px; 
+	margin: 0 15px; 
+	border-radius: 50%;
+	background: #ccc; 
+	cursor: pointer; 
+	display: inline-block;
+}
+.pager a.active { 
+	background: white; 
+}
+
 
 /* ---------- LOGIN, AGREE, REGISTER PAGE DEFAULT ---------- */
 .form-box {
@@ -264,6 +331,7 @@
 .store-navbar li {
 	width: 100px;
 	height: 40px;
+	padding: 0 5px;
 	border: none;
 	text-align: center;
 }
@@ -276,11 +344,11 @@
 	font-weight: bold;
 	display: inline-block;
 }
-.store-navbar li a:active {
-	border-bottom: 2px solid rgb(210, 40, 40);
+.store-navbar li a.active {
+	border-bottom: 1px solid rgb(210, 40, 40);
 }
-.store-navbar li a:hover {
-	border-bottom: 2px solid rgb(170, 170, 170);
+.store-navbar li a:not([class="active"]):hover {
+	border-bottom: 1px solid rgb(170, 170, 170);
 }
 .store-item {
 	padding: 15px 20px;
@@ -307,7 +375,7 @@
 }
 .store-item p:nth-child(1) {
 	color: rgb(52, 52, 54);
-	font-size: 15px;;
+	font-size: 15px;
 	font-weight: bold;
 }
 .store-item p:nth-child(2) {
@@ -321,7 +389,7 @@
 	width: 26px;
 	height: 26px;
 	line-height: 26px;
-	margin: 0 3px;
+	margin: 0 8px;
 	border-radius: 50%;
 	background-color: white;
 	color: rgb(150, 150, 150);
@@ -338,6 +406,26 @@
 #map {
 	width: 65%;
 	height: 100%;	
+}
+#map .infoContent {
+	width: 300px;
+	height: 77px;
+	padding: 15px;
+	box-shadow: 0px 1px 3px 1px rgb(100, 100, 100);
+	border-radius: 8px;
+	background-color: white;
+	font-size: 14px;
+	position: absolute;
+	top: -47px;
+	left: -75px;
+}
+#map .infoContent .info-storename {
+	padding-bottom: 8px;
+	margin-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+	color: rgb(52, 52, 54);
+	font-size: 15px;
+	font-weight: bold;
 }
 
 
