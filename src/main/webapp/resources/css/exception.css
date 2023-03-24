@@ -1,0 +1,30 @@
+/* ---------- 404 ERROR PAGE ---------- */
+.exception-box {
+	width: 440px;
+	padding: 55px 50px;
+	margin: 200px 0;
+	box-shadow: 0 0 5px rgb(210, 40, 40);
+	border-radius: 8px;
+}
+.exception-box h2 {
+	padding-bottom: 15px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+}
+.exception-content p {
+	margin: 10px 0;
+	color: rgb(100, 100, 100);
+}
+.exception-btn {
+	text-align: right;
+}
+.exception-btn button {
+	margin-top: 40px;
+	font-size: 14px;
+}
+.exception-btn button:nth-child(2) {
+	border: none;
+	background-color: rgb(210, 40, 40);
+	color: white;	
+}
+

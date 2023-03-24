@@ -24,6 +24,9 @@
 	<definition name="home.*.*" extends="homeLayout">
 		<put-attribute name="main" value="/WEB-INF/views/home/{1}/{2}.jsp" />
 	</definition>
+	<definition name="exception.*" extends="homeLayout">
+		<put-attribute name="main" value="/WEB-INF/views/exception/{1}.jsp" />
+	</definition>
 		
 	<!-- ADMIN LAYOUT -->
 	<definition name="adminLayout" template="/WEB-INF/views/admin/layout/layout.jsp">

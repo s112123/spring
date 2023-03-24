@@ -81,7 +81,7 @@ function insertReply(target) {
 		const confirmBtn = document.getElementById('modal-confirm-btn');
 		confirmBtn.addEventListener('click', function() {
 			//원래 요소만 추가되어 화면이 새로 로딩되지 않도록 처리해야 한다
-			location.href = "/board/view?id=" + dataSet.bid + "&page=" + dataSet.page;
+			location.href = "/customer/board/view?id=" + dataSet.bid + "&page=" + dataSet.page;
 		});	
 	}	
 	

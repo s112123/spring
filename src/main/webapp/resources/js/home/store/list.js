@@ -114,7 +114,7 @@ function getMap(storeInfos) {
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
 	
 	// 마커이미지 생성
-	var imageSrc = 'http://localhost:8080/resources/images/map/location1.svg';
+	var imageSrc = 'http://localhost:8080/resources/images/map/location2.svg';
 	var imageSize = new kakao.maps.Size(45, 45);				// 마커 크기
 	var imageOption = {offset: new kakao.maps.Point(23, 69)};	// 마커의 좌표와 일치시킬 이미지 안에서의 좌표 설정
 	var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);

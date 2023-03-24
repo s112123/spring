@@ -87,7 +87,7 @@ public class Board {
 		return regdate;
 	}
 
-	public void setRegdate(LocalDateTime regdate) {
+	public void setRegdate(LocalDateTime regdate) {		
 		this.regdate = regdate;
 	}
 

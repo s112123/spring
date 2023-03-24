@@ -8,6 +8,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,8 @@ import com.spring.app.repository.BoardDao;
 
 @Service
 public class BoardServiceImpl implements BoardService {
+	
+	Logger log = LoggerFactory.getLogger(BoardServiceImpl.class);
 	
 	@Autowired
 	private BoardDao boardDao;
@@ -44,6 +48,8 @@ public class BoardServiceImpl implements BoardService {
 		
 		//Mapper에서 GROUP BY를 사용하여 댓글 수(cnt)를 구해서 List<Board> 대신 List<Map>으로 받아오고 있다
 		List<Map<String, Object>> boards = boardDao.selectAll(params);
+		log.info(boards.toString());
+		
 		return boards;
 	}	
 	

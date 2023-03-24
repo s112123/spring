@@ -25,7 +25,7 @@
 			id, storename, img, addr1, tel, regdate
 		FROM
 			store
-		ORDER BY id DESC
+		ORDER BY addr1 ASC
 		LIMIT #{skip}, #{size}
 	</select>
 	
@@ -36,7 +36,7 @@
 		FROM
 			store
 		WHERE addr1 LIKE '${area}%' 
-		ORDER BY id DESC
+		ORDER BY addr1 ASC
 		LIMIT #{pagenation.skip}, #{pagenation.size}
 	</select>
 		

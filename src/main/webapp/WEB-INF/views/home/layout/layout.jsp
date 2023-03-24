@@ -21,6 +21,7 @@
 	<!-- CSS -->	
 	<link rel="stylesheet" href="${contextPath}/resources/css/reset.css" />	
 	<link rel="stylesheet" href="${contextPath}/resources/css/common.css" />	
+	<link rel="stylesheet" href="${contextPath}/resources/css/exception.css" />
 	<link rel="stylesheet" href="${contextPath}/resources/css/home.css" />	
 	<!-- TITLE -->
 	<title>Home</title>

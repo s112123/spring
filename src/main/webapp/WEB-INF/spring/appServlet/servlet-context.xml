@@ -48,29 +48,45 @@
 	<beans:property name="maxInMemorySize" value="5242880" />
 	</beans:bean>
 
-	<!-- Interceptor 
-	<beans:bean id="loginInterceptor" class="com.spring.app.interceptor.LoginInterceptor"></beans:bean>
-	<interceptors>
-		<interceptor>
-			<mapping path="/logout" /> 
-			<mapping path="/cart"/> 
-			<mapping path="/cart/*"/>
-			<mapping path="/notice/write"/> 
-			<mapping path="/notice/insert"/> 
-			<mapping path="/notice/update"/> 
-			<mapping path="/notice/delete"/> 
-			<mapping path="/admin"/> 
-			<mapping path="/member/list"/>
-			<mapping path="/member/view"/>
-			<mapping path="/member/insert"/>
-			<mapping path="/member/update"/>
-			<mapping path="/member/delete"/>
-			<mapping path="/product/list"/>
-			<mapping path="/product/view"/>         
-			<beans:ref bean="loginInterceptor"/>
-		</interceptor>
-	</interceptors>
-	-->
+	<!-- Interceptor -->
+	<mvc:interceptors>
+		<!-- 로그인해야 접근 가능한 페이지 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/logout" />
+			<mvc:mapping path="/mypage/**" />
+			<mvc:mapping path="/cart" />
+			<mvc:mapping path="/order/**" />
+			<mvc:mapping path="/customer/**" />
+			<mvc:mapping path="/admin" />
+			<mvc:mapping path="/member/**" />
+			<mvc:mapping path="/product/**" />
+			<mvc:mapping path="/store/**" />
+			<mvc:exclude-mapping path="/customer/notice/list"/>
+			<mvc:exclude-mapping path="/customer/notice/view"/>
+			<mvc:exclude-mapping path="/customer/board/list"/>
+			<mvc:exclude-mapping path="/customer/board/view"/>
+			<mvc:exclude-mapping path="/member/agree"/>
+			<mvc:exclude-mapping path="/member/register"/>
+			<mvc:exclude-mapping path="/product"/>
+			<mvc:exclude-mapping path="/store"/>
+			<beans:bean class="com.spring.app.interceptor.LoginInterceptor" />
+		</mvc:interceptor>
+		<!-- 관리자만 접근 가능한 페이지 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/admin" />
+			<mvc:mapping path="/product/**" />
+			<mvc:mapping path="/member/**" />
+			<mvc:mapping path="/product/**" />
+			<mvc:mapping path="/customer/notice/write" />
+			<mvc:mapping path="/store/**" />
+			<mvc:exclude-mapping path="/member/agree"/>
+			<mvc:exclude-mapping path="/member/register"/>
+			<mvc:exclude-mapping path="/product"/>
+			<mvc:exclude-mapping path="/store"/>
+			<beans:bean class="com.spring.app.interceptor.AuthInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 	<context:component-scan base-package="com.spring.app" />
 
 </beans:beans>

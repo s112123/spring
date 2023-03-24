@@ -18,6 +18,12 @@
 				<li><a href="/member/agree"><i class="fa-solid fa-user-plus"></i> Join</a></li>
 			</c:when>
 			<c:otherwise>
+				<li><a href="/mypage/myinfo/view"><i class="fa-solid fa-user"></i> MyPage</a></li>
+				<li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>		
+				<c:if test="${login.grade == 'ADMIN'}">
+					<li><a href="/admin"><i class="fa-solid fa-gear"></i> Admin</a></li>
+				</c:if>
+				<%--
 				<c:choose>
 					<c:when test="${login.grade == 'ADMIN'}">
 						<li><a href="/admin"><i class="fa-solid fa-gear"></i> Admin</a></li>
@@ -27,6 +33,7 @@
 						<li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
 					</c:otherwise>
 				</c:choose>
+				 --%>
 				<li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
 			</c:otherwise>
 		</c:choose>
