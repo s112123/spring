@@ -18,9 +18,14 @@
 				<div class="item-right">
 					<div class="title">가입일</div>
 					<div class="content">
-						<!-- 00 에러 -->
+						<c:catch var="catchException">
 						<fmt:parseDate value="${member.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
 						<input type="text" value="<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />" readonly />
+						</c:catch>
+						<c:if test="${catchException != null }">
+						<fmt:parseDate value="${member.regdate}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
+						<input type="text" value="<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />" readonly />
+						</c:if>
 					</div>
 				</div>
 			</div>

@@ -28,10 +28,16 @@
 							<td>${order.id}</td>
 							<td>${order.code}</td>
 							<td><a href="/mypage/order/view?code=${order.code}">${order.title}</a></td>
-							<td>${order.total}</td>
+							<td><fmt:formatNumber value="${order.total}" /> 원</td>
 							<td>
-								<fmt:parseDate value="${order.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
-								<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd" />
+								<c:catch var="catchException">
+									<fmt:parseDate value="${order.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
+									<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+								</c:catch>
+								<c:if test="${catchException != null }">
+									<fmt:parseDate value="${order.regdate}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
+									<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+								</c:if>
 							</td>
 						</tr>	
 					</c:forEach>					

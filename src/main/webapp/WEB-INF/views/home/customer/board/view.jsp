@@ -12,19 +12,19 @@
 			<input type="hidden" name="searchOption" value="${linkParam.searchOption}" />
 			<input type="hidden" name="searchKeyword" value="${linkParam.searchKeyword}" />		
 			<div class="content-item">		
-				<select name="category" <c:if test="${login.email != board.email}">disabled</c:if>>
+				<select name="category" ${((login.email == board.email) || (login.grade == 'ADMIN')) ? "" : "disabled"}>
 					<option value="common" <c:if test="${board.category == 'common'}">selected</c:if>>일반</option>
 					<option value="question" <c:if test="${board.category == 'question'}">selected</c:if>>문의</option>
 				</select>
-				<input type="text" name="title" value="${board.title}" placeholder="제목을 입력해주세요" ${login.email == board.email ? "" : "readonly"} />
-				<textarea name="content" ${login.email == board.email ? "" : "readonly"}>${board.content}</textarea>
+				<input type="text" name="title" value="${board.title}" placeholder="제목을 입력해주세요" ${((login.email == board.email) || (login.grade == 'ADMIN')) ? "" : "readonly"} />
+				<textarea name="content" ${((login.email == board.email) || (login.grade == 'ADMIN')) ? "" : "readonly"}>${board.content}</textarea>
 			</div>
 			<div class="content-btn">
 				<div class="btn-left">
 					<button type="button" onclick="listBoard()">목록</button>
 				</div>			
 				<div class="btn-right">
-					<c:if test="${!empty login && (login.email == board.email)}">
+					<c:if test="${!empty login && ((login.email == board.email) || (login.grade == 'ADMIN'))}">
 						<button type="button" onclick="updateBoard()">수정</button>
 						<button type="button" onclick="deleteBoard()">삭제</button>
 					</c:if>
@@ -62,7 +62,7 @@
 										<span>${reply.writer}</span>
 									</div>
 									<div>
-										<c:if test="${login.email == reply.writer}">
+										<c:if test="${(login.email == reply.writer) || (login.grade == 'ADMIN')}">
 											<button type="button" data-set='{"id": ${reply.id}, "bid": ${board.id}}' onclick="deleteReply(this)">
 												<i class="fa-solid fa-xmark"></i>
 											</button>

@@ -40,10 +40,10 @@
 										</div>
 									</div>
 								</td>
-								<td>${orderProducts[i].price} 원</td>
-								<td>${orderProducts[i].qty}</td>
+								<td><fmt:formatNumber value="${orderProducts[i].price}" /> 원</td>
+								<td><fmt:formatNumber value="${orderProducts[i].qty}" /></td>
 								<td>
-									<span class="orderedItem">${orderProducts[i].qty * orderProducts[i].price} 원</span>
+									<span class="orderedItem"><fmt:formatNumber value="${orderProducts[i].qty * orderProducts[i].price}" /> 원</span>
 								</td>
 							</tr>	
 						</c:forEach>
@@ -54,7 +54,7 @@
 		<div class="order-box-bottom">
 			<div class="order-total">
 					<span>총 주문금액 </span> 
-					<input type="text" id="total" value="${order.total}" readonly /> 
+					<input type="text" id="total" value="<fmt:formatNumber value="${order.total}" />" readonly /> 
 					<span> 원</span>	
 			</div>
 		</div>

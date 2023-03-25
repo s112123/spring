@@ -34,8 +34,14 @@
 							<td><a href="/board/view?id=${board.id}">${board.title}</a></td>
 							<td>${board.writer}</td>
 							<td>
-								<fmt:parseDate value="${board.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
-								<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd" />
+								<c:catch var="catchException">
+									<fmt:parseDate value="${board.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
+									<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+								</c:catch>
+								<c:if test="${catchException != null }">
+									<fmt:parseDate value="${board.regdate}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
+									<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+								</c:if>
 							</td>
 							<td>${board.hits}</td>
 						</tr>	

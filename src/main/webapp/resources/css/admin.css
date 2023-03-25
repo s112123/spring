@@ -47,7 +47,7 @@
 	width: 8%;	
 }
 .product-list td:nth-child(2) { /* 구분 */
-	width: 8%;
+	width: 9%;
 }
 .product-list td:nth-child(3) { /* 상품명 */
 	text-align: left;
@@ -59,16 +59,16 @@
 	color: rgb(210, 40, 40);
 }
 .product-list td:nth-child(4) { /* 가격 */
-	width: 8%;	
+	width: 9%;	
 }
 .product-list td:nth-child(5) { /* 용량 */
-	width: 8%;
+	width: 9%;
 }
 .product-list td:nth-child(6) { /* 칼로리 */
-	width: 8%;	
+	width: 9%;	
 }
 .product-list td:nth-child(7) { /* 원산지 */
-	width: 8%;
+	width: 9%;
 }
 .product-list td:nth-child(8) { /* 등록일 */
 	width: 12%;

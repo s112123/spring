@@ -48,7 +48,6 @@ public class BoardServiceImpl implements BoardService {
 		
 		//Mapper에서 GROUP BY를 사용하여 댓글 수(cnt)를 구해서 List<Board> 대신 List<Map>으로 받아오고 있다
 		List<Map<String, Object>> boards = boardDao.selectAll(params);
-		log.info(boards.toString());
 		
 		return boards;
 	}	
@@ -67,7 +66,7 @@ public class BoardServiceImpl implements BoardService {
 	//글 등록
 	@Override
 	public String insertBoard(HttpSession session, Board board) {
-		String requestURL = "/board/list";
+		String requestURL = "/customer/board/list";
 		
 		//email, username
 		Member member = (Member) session.getAttribute("login");
@@ -82,7 +81,7 @@ public class BoardServiceImpl implements BoardService {
 	//글 수정
 	@Override
 	public String updateBoard(Board board, Pagenation pagenation, LinkParam linkParam) {
-		String requestURL = "/board/view?id=" + board.getId() + "&page=" + pagenation.getPage();
+		String requestURL = "/customer/board/view?id=" + board.getId() + "&page=" + pagenation.getPage();
 		requestURL += getLinkParam(linkParam);	
 		boardDao.updateOne(board);
 		return requestURL;
@@ -97,7 +96,7 @@ public class BoardServiceImpl implements BoardService {
 	//글 삭제
 	@Override
 	public String deleteBoard(int id, Pagenation pagenation, LinkParam linkParam) {
-		String requestURL = "/board/list?page=" + pagenation.getPage();
+		String requestURL = "/customer/board/list?page=" + pagenation.getPage();
 		requestURL += getLinkParam(linkParam);
 		boardDao.deleteOne(id);
 		return requestURL;

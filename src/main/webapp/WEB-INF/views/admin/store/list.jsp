@@ -31,10 +31,14 @@
 							<td>${store.addr1}</td>
 							<td>${store.tel}</td>
 							<td>
-								<!-- 						
-								<fmt:parseDate value="${store.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
-								<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
-								 -->	
+								<c:catch var="catchException">
+									<fmt:parseDate value="${store.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
+									<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+								</c:catch>
+								<c:if test="${catchException != null }">
+									<fmt:parseDate value="${store.regdate}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
+									<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+								</c:if>
 							</td>
 							<td>
 								<a href="/store/view?id=${store.id}"><i class="fa-solid fa-pen-to-square"></i></a>

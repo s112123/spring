@@ -35,9 +35,14 @@
 							<td>${member.addr1} ${member.addr2}</td>
 							<td>${member.grade}</td>
 							<td>
-								<!--  00 에러 -->
-								<fmt:parseDate value="${member.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
-								<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+								<c:catch var="catchException">
+									<fmt:parseDate value="${member.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
+									<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+								</c:catch>
+								<c:if test="${catchException != null }">
+									<fmt:parseDate value="${member.regdate}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
+									<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+								</c:if>
 							</td>
 							<td>
 								<%-- 수정버튼 --%>

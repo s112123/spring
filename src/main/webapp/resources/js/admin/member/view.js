@@ -30,7 +30,8 @@ function validateMemberInfo() {
 			editPassword();
 		});	
 		return false;
-	} else if(passwd.value.trim().length < 6) {
+	} else if(passwd.value.trim().length < 4) {
+		console.log(passwd.value.trim().length);
 		showModal(false, "비밀번호는 4자리 이상 입력해주세요");
 		const confirmBtn = document.getElementById('modal-confirm-btn');
 		confirmBtn.addEventListener('click', function() {

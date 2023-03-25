@@ -46,7 +46,7 @@
 									</td>
 									<td>
 										<input type="hidden" value="${c.price}" />
-										<span>${c.qty * c.price} 원</span> 
+										<span><fmt:formatNumber value="${c.qty * c.price}" /> 원</span> 
 									</td>
 									<td>
 										<a href="#" onclick="deleteItemInCart(${c.id})"><i class="fa-solid fa-trash-can"></i></a>

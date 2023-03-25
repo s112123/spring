@@ -34,10 +34,14 @@
 							<td><a href="/customer/notice/view?id=${notice.id}">${notice.title}</a></td>
 							<td>${notice.writer}</td>
 							<td>
-								<%-- 
-								<fmt:parseDate value="${notice.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
-								<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd" />
-								 --%>
+								<c:catch var="catchException">
+									<fmt:parseDate value="${notice.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
+									<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+								</c:catch>
+								<c:if test="${catchException != null }">
+									<fmt:parseDate value="${notice.regdate}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
+									<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+								</c:if>
 							</td>
 							<td>${notice.hits}</td>
 						</tr>	

@@ -1,13 +1,56 @@
 /* ---------- INDEX PAGE ---------- */
-.banner {	/* 이미지: 1650x700 */
+.main-banner {	/* 이미지: 1650x700 */
 	height: 700px;
-	border: 1px solid tomato;
 }
-.slide-wrapper {	/* 이미지: 1650x700 */
-	position: relative; 
-	width: 100%; 
+.store-banner {
 	height: 700px;
-	border: 1px solid tomato;
+	margin-bottom: 150px;
+	position: relative;
+}
+.store-banner .store-banner-image { /* 이미지: 1650x700 */
+	width: 100%;
+	height: 100%;
+}
+.store-banner .store-banner-content {
+	width: 600px;
+	padding: 60px;
+	color: white;
+	border: 1px solid white;
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+.store-banner .store-banner-content h3 {
+	margin: 0 0 45px 0;
+	font-size: 40px;
+	font-weight: bold;
+}
+.store-banner .store-banner-content p {
+	line-height: 25px;
+	margin: 0 0 50px 0;
+	font-size: 20px;
+}
+.store-banner .store-banner-content button {
+	width: 160px;
+	height: 40px;
+	border: 2px solid white;
+	color: white;
+	font-size: 17px;
+	font-weight: bold;
+}
+.store-banner .store-banner-content button:hover {
+	border: 2px solid rgb(210, 40, 40);
+	background-color: rgb(210, 40, 40);
+}
+
+/* --------- SLIDE --------- */
+.slide-wrapper {
+	width: 100%; 
+	height: 650px;
+	margin: 150px 0;
+	border: 1px solid #ccc;
+	position: relative; 
 	overflow: hidden;
 }
 .slide-container {
@@ -25,13 +68,40 @@
 	height: 100%; 
 	width: 100%; 
 	text-align: center; 
+	display: flex;
+}
+.slide-container>li .slide-image { /* 이미지: 550x650 */
+	width: 550px;
+}
+.slide-container>li .slide-content {
+	width: 550px;
+	padding: 0 55px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.slide-container>li .slide-content h3 {
+	margin: 0 0 45px 0;
+	font-size: 40px;
+	font-weight: bold;
+}
+.slide-container>li .slide-content p {
+	line-height: 25px;
+	margin: 0 0 50px 0;
+	font-size: 20px;
+}
+.slide-container>li .slide-content button {
+	width: 150px;
+	background-color: rgb(210, 40, 40);
+	border: 1px solid rgb(210, 40, 40);
+	color: white;
 }
 .slide-wrapper .controls { 
 	width: 60px;
 	height: 60px; 
 	line-height: 60px;
 	border-radius: 50%;
-	background-color: rgb(255, 255, 255, 0.1);
+	background-color: rgb(255, 255, 255, 0.3);
 	color: white; 
 	font-size: 30px; 
 	text-align: center;
@@ -67,7 +137,7 @@
 	display: inline-block;
 }
 .pager a.active { 
-	background: white; 
+	background: rgb(210, 40, 40); 
 }
 
 
@@ -218,6 +288,19 @@
 
 
 /* ---------- PRODUCT LIST PAGE ---------- */
+.product-banner {	/* 이미지: 1650x700 */
+	height: 700px;
+	position: relative;
+}
+.product-banner .product-banner-content {
+	padding: 20px 30px;
+	border: 2px solid white;
+	color: white;
+	font-size: 100px;
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+}
 .product-box {
 	margin: 100px 0;
 }
@@ -273,13 +356,13 @@
 	text-align: center;
 }
 .product-detail-info {
-	margin: 24px 0;
+	margin: 24px 0 18px 0;
 	color: rgb(80, 80, 80);
 }
 .product-detail-info small {
 	display: inline-block;
-	margin: 3px 0;
-	font-size: 14px;
+	margin: 5px 0;
+	font-size: 13px;
 }
 .product-detail-info small strong {
 	font-weight: bold;

@@ -58,21 +58,21 @@ public class NoticeController {
 	@PostMapping("/insert")
 	public String insertNotice(HttpSession session, Notice notice) {
 		noticeService.insertNotice(session, notice);
-		return "redirect:/notice/list";
+		return "redirect:/customer/notice/list";
 	}	
 	
 	//공지사항 수정
 	@PostMapping("/update")
 	public String updateNotice(Notice notice) {
 		noticeService.updateNotice(notice);
-		return "redirect:/notice/view?id=" + notice.getId();
+		return "redirect:/customer/notice/view?id=" + notice.getId();
 	}
 		
 	//공지사항 삭제
 	@PostMapping("/delete")
 	public String deleteNotice(int id) {
 		noticeService.deleteNotice(id);
-		return "redirect:/notice/list";
+		return "redirect:/customer/notice/list";
 	}
 	
 }

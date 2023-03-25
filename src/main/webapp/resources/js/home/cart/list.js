@@ -37,7 +37,7 @@ function updateItemForQty(target) {
 			if(result === 'updated') {
 				//금액을 수정
 				const orderPrice = parentEl.nextElementSibling.getElementsByTagName('span')[0];
-				orderPrice.innerText = (qty * price) + ' 원';
+				orderPrice.innerText = (qty * price).toLocaleString('ko-KR') + ' 원';
 				getTotal();
 			}
 		}
@@ -100,7 +100,7 @@ function getTotal() {
 	selectedItems.forEach(function(selectedItem) {
 		if(selectedItem.checked) {
 			let tds = selectedItem.parentNode.parentNode.getElementsByTagName('td');
-			let selectedPrice = tds[3].querySelectorAll('span')[0].innerText.replace(' 원', '');
+			let selectedPrice = tds[3].querySelectorAll('span')[0].innerText.replace(' 원', '').replaceAll(',', '');
 			total += Number(selectedPrice);		
 		}
 	});
