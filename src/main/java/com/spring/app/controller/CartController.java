@@ -1,8 +1,6 @@
 package com.spring.app.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -33,8 +31,7 @@ public class CartController {
 	//장바구니 페이지
 	@GetMapping
 	public String cart(HttpSession session, Model model) {
-		Member member = (Member) session.getAttribute("login");
-		List<Cart> cart = cartService.getItemsInCartByEmail(member.getEmail());
+		List<Cart> cart = cartService.getItemsInCartByEmail(session);
 		model.addAttribute("cart", cart);
 		return "home.cart.list";
 	}
@@ -77,10 +74,7 @@ public class CartController {
 	@GetMapping("/update")
 	@ResponseBody
 	public String updateItemForQty(Integer id, Integer qty) {
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("id", id);
-		map.put("qty", qty);
-		cartService.updateItemForQty(map);
+		cartService.updateItemForQty(id, qty);
 		return "updated";
 	}
 	

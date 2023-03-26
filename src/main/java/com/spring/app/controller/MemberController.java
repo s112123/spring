@@ -88,12 +88,6 @@ public class MemberController {
 	//회원수정
 	@PostMapping("/update")
 	public String updateMember(Member member) {
-		if(member.getAgree() == null) {
-			member.setAgree("N");
-		} else if(member.getAgree().equals("on")) {
-			member.setAgree("Y");
-		}
-
 		memberService.updateMember(member);
 		return "redirect:/member/view?id=" + member.getId();
 	}

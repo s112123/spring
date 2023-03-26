@@ -172,7 +172,7 @@
 	border: none;
 }
 .infomation-item input::placeholder {
-	font-size: 12px;
+	font-size: 13px;
 }
 .infomation-item select {
 	width: 50%;

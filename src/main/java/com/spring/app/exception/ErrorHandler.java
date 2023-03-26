@@ -22,5 +22,4 @@ public class ErrorHandler {
 		return "exception.exception_common";
 	}	
 	
-	
 }

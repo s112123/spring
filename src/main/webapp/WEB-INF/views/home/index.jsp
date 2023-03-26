@@ -6,8 +6,8 @@
 	<div class="main-banner">
 		<img src="/resources/images/banners/banner1.jpg" />
 	</div>
-	<div class="slide-wrapper">
-		<ul class="slide-container animated">
+	<div class="slide-container">
+		<ul class="slide-wrapper animated">
 			<li>
 				<div class="slide-image">
 					<img src="/resources/images/slides/slide1.jpg" />

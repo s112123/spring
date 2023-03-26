@@ -2,10 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">	
 
 	<!-- properties 파일 접근 -->
+	<util:properties id="serviceKey" location="/WEB-INF/spring/properties/api_key.properties" />
+	<context:property-placeholder properties-ref="serviceKey" />
+	
 	<util:properties id="db" location="/WEB-INF/spring/properties/db_type.properties" />
 	<util:properties id="dbcp" location="/WEB-INF/spring/properties/#{db['name']}_dbcp.properties" />
 	

@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<c:set var="serviceKey" value="${apiKaKaoMapServiceKey}" />
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +19,7 @@
 	<!-- ADDRESS API -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<!-- MAP API -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bca1dcf5c590ab01c4071e244ef5a994&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=<spring:eval expression="@serviceKey.getProperty('api.key')" />&libraries=services"></script>
 	<!-- CSS -->	
 	<link rel="stylesheet" href="/resources/css/reset.css" />	
 	<link rel="stylesheet" href="/resources/css/common.css" />	

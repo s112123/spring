@@ -15,7 +15,7 @@
 				<div class="item-right">
 					<div class="title">매장 이미지</div>
 					<div class="content">
-						<input type="text" name="filename" id="filename" class="filename" placeholder="JPG 파일 첨부" readonly />
+						<input type="text" name="filename" id="filename" class="filename" placeholder="JPG 파일 첨부 (80x80)" readonly />
 						<label for="attached">파일찾기</label>
 						<input type="file" name="attached" id="attached" accept=".jpg" />					
 					</div>		

@@ -46,12 +46,6 @@ public class MyPageController {
 	//내정보 수정
 	@PostMapping("/myinfo/update")
 	public String updateMyInfo(Member member) {
-		if(member.getAgree() == null) {
-			member.setAgree("N");
-		} else if(member.getAgree().equals("on")) {
-			member.setAgree("Y");
-		}
-
 		memberService.updateMember(member);
 		return "redirect:/mypage/myinfo/view?id=" + member.getId();
 	}

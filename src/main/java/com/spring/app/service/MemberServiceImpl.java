@@ -51,6 +51,12 @@ public class MemberServiceImpl implements MemberService {
 	//회원수정
 	@Override
 	public void updateMember(Member member) {
+		if(member.getAgree() == null) {
+			member.setAgree("N");
+		} else if(member.getAgree().equals("on")) {
+			member.setAgree("Y");
+		}
+		
 		memberDao.updateOne(member);
 	}
 	

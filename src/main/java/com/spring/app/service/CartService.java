@@ -1,14 +1,15 @@
 package com.spring.app.service;
 
 import java.util.List;
-import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import com.spring.app.entity.Cart;
 
 public interface CartService {
 
 	//전체목록
-	public List<Cart> getItemsInCartByEmail(String email);
+	public List<Cart> getItemsInCartByEmail(HttpSession session);
 	
 	//일괄목록: 선택된 목록을 조회
 	public List<Cart> getItemsByIds(int[] ids);
@@ -20,7 +21,7 @@ public interface CartService {
 	public void insertItemInCart(Cart cart);
 
 	//수량수정
-	public void updateItemForQty(Map<String, Integer> map);
+	public void updateItemForQty(Integer id, Integer qty);
 	
 	//개별삭제
 	public void deleteItemInCart(int id);

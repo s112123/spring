@@ -1,12 +1,16 @@
 package com.spring.app.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.app.entity.Cart;
+import com.spring.app.entity.Member;
 import com.spring.app.repository.CartDao;
 
 @Service
@@ -17,8 +21,9 @@ public class CartServiceImpl implements CartService {
 	
 	//전체목록
 	@Override
-	public List<Cart> getItemsInCartByEmail(String email) {
-		List<Cart> cart = cartDao.selectAllByEmail(email);
+	public List<Cart> getItemsInCartByEmail(HttpSession session) {
+		Member member = (Member) session.getAttribute("login");
+		List<Cart> cart = cartDao.selectAllByEmail(member.getEmail());
 		return cart;
 	}
 	
@@ -44,7 +49,10 @@ public class CartServiceImpl implements CartService {
 	
 	//수량수정
 	@Override
-	public void updateItemForQty(Map<String, Integer> map) {
+	public void updateItemForQty(Integer id, Integer qty) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("id", id);
+		map.put("qty", qty);
 		cartDao.updateOneForQty(map);	
 	}
 	

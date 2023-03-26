@@ -32,7 +32,7 @@
 				<div class="item-right">
 					<div class="title">상품 이미지</div>
 					<div class="content">
-						<input type="text" name="filename" class="filename" value="${product.img}" placeholder="JPG 파일 첨부" readonly />
+						<input type="text" name="filename" class="filename" value="${product.img}" placeholder="JPG 파일 첨부 (300x350)" readonly />
 						<label for="attached">파일찾기</label>
 						<input type="file" name="attached" id="attached" accept=".jpg" />					
 					</div>		
