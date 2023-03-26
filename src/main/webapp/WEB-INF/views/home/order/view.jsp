@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 
 <div class="container order-container">
 	<div class="order-box">
@@ -33,7 +32,7 @@
 								<td>
 									<div class="pname-box">
 										<div class="pimg">
-											<img src="${contextPath}/resources/images/products/thumbnails/thumb_${orderProducts[i].img}" />
+											<img src="/resources/images/products/thumbnails/thumb_${orderProducts[i].img}" />
 										</div>
 										<div>
 											${orderProducts[i].pname}
@@ -65,5 +64,5 @@
 		</div>
 	</div>
 </div>
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-<script type="text/javascript" src="${contextPath}/resources/js/home/order/view.js"></script>
+<jsp:include page="/WEB-INF/views/common/modal.jsp" flush="false" />
+<script type="text/javascript" src="/resources/js/home/order/view.js"></script>

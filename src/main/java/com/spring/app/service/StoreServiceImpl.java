@@ -102,8 +102,7 @@ public class StoreServiceImpl implements StoreService {
 	
 	//파일등록
 	private void saveFile(Store store, MultipartFile attachedFile) {
-		//업로드 폴더 경로 (rootPath -> D:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\app\)
-		String uploadDirPath = context.getRealPath("/") + "resources\\images\\stores";
+		String uploadDirPath = context.getRealPath("/resources/images") + "/stores";
 		
 		//폴더 생성
 		File uploadDir = new File(uploadDirPath);
@@ -129,7 +128,7 @@ public class StoreServiceImpl implements StoreService {
 
 	//파일삭제
 	private void deleteFile(String oldFileName) {
-		String imgDirPath = context.getRealPath("/") + "resources\\images\\stores";
+		String imgDirPath = context.getRealPath("/resources/images") + "/stores";
 		File imgfile = createFile(imgDirPath, oldFileName);
 		
 		//파일삭제

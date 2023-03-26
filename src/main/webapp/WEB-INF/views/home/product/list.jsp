@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
     
 <div class="container">
 	<div class="product-banner">
@@ -17,7 +16,7 @@
 			<c:forEach var="steak" items="${products.steak}">
 				<div class="product-item">
 					<div class="product-info">
-						<img src="${contextPath}/resources/images/products/${steak.img}" />
+						<img src="/resources/images/products/${steak.img}" />
 						<div class="product-detail">
 							<div class="product-detail-title">${steak.pname}</div>
 							<div class="product-detail-desc">${steak.description}</div>
@@ -43,7 +42,7 @@
 			<c:forEach var="pasta" items="${products.pasta}">
 				<div class="product-item">
 					<div class="product-info">
-						<img src="${contextPath}/resources/images/products/${pasta.img}" />
+						<img src="/resources/images/products/${pasta.img}" />
 						<div class="product-detail">
 							<div class="product-detail-title">${pasta.pname}</div>
 							<div class="product-detail-desc">${pasta.description}</div>
@@ -68,7 +67,7 @@
 			<c:forEach var="beverage" items="${products.beverage}">
 				<div class="product-item">
 					<div class="product-info">
-						<img src="${contextPath}/resources/images/products/${beverage.img}" />
+						<img src="/resources/images/products/${beverage.img}" />
 						<div class="product-detail">
 							<div class="product-detail-title">${beverage.pname}</div>
 							<div class="product-detail-desc">${beverage.description}</div>
@@ -87,6 +86,7 @@
 			</c:forEach>
 		</div>
 	</div>
+	<a href="#" id="back-to-top">TOP</a>
 </div>
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="flase" />
-<script type="text/javascript" src="${contextPath}/resources/js/home/product/list.js"></script>
+<jsp:include page="/WEB-INF/views/common/modal.jsp" flush="flase" />
+<script type="text/javascript" src="/resources/js/home/product/list.js"></script>

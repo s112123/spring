@@ -32,7 +32,6 @@ function getStoreList(area, page) {
 				//스토어 정보를 담음
 				storeInfos.push(store);
 			});
-			console.log(storeInfos);
 			getMap(storeInfos);
 			
 			//Pagenation
@@ -54,7 +53,7 @@ function createStoreItem(stores) {
 		for(let store of stores){
 			tempItem += '<div class="store-item">';
 			tempItem += '    <div class="store-image">';
-			//tempItem += '        <img src="${contextPath}/resources/images/stores/' + store.img + '/>';
+			tempItem += '        <img src="/resources/images/stores/' + store.img + '/>';
 			tempItem += '    </div>';
 			tempItem += '    <div class="store-info">';
 			tempItem += '        <p>' + store.storename + '</p>';

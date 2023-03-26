@@ -57,5 +57,5 @@
 		</div>
 	</div>
 </div>
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-<script type="text/javascript" src="${contextPath}/resources/js/admin/store/list.js"></script>
+<jsp:include page="/WEB-INF/views/common/modal.jsp" flush="false" />
+<script type="text/javascript" src="/resources/js/admin/store/list.js"></script>

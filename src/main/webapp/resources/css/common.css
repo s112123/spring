@@ -79,10 +79,6 @@ table th, table td{
 	text-align: center;
 	vertical-align: middle;
 }
-.container {
-	width: 1650px;			
-	margin: 0 auto; 
-}
 .flex-ctr {
 	display: flex;
 	justify-content: center;
@@ -96,7 +92,16 @@ table th, table td{
 	display: flex;
 	justify-content: flex-end;
 }
-
+.container {
+	width: 1670px;
+	padding: 0px 10px;			
+	margin: 0 auto; 
+}
+.main-wrap {
+	width: 1670px;		
+	margin: 0 auto;
+	display: flex;
+}
 
 /* ---------- ASIDE RIGHT CONENT LAYOUT ---------- */
 .main-content {
@@ -149,6 +154,7 @@ table th, table td{
 
 /* ---------- HEADER ---------- */
 header {
+	min-width: 1670px;
 	padding: 20px 0;
 	box-shadow: 0 5px 5px -5px rgb(150, 150, 150);
 }
@@ -224,6 +230,7 @@ aside ul li span {
 
 /* --------- FOOTER --------- */
 footer {
+	min-width: 1670px;
 	padding: 50px 0;
 	box-shadow: 0 -5px 5px -5px rgb(150, 150, 150);
 }

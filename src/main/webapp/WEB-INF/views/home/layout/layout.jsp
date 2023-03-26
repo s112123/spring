@@ -19,10 +19,10 @@
 	<!-- MAP API -->
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bca1dcf5c590ab01c4071e244ef5a994&libraries=services"></script>
 	<!-- CSS -->	
-	<link rel="stylesheet" href="${contextPath}/resources/css/reset.css" />	
-	<link rel="stylesheet" href="${contextPath}/resources/css/common.css" />	
-	<link rel="stylesheet" href="${contextPath}/resources/css/exception.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/home.css" />	
+	<link rel="stylesheet" href="/resources/css/reset.css" />	
+	<link rel="stylesheet" href="/resources/css/common.css" />	
+	<link rel="stylesheet" href="/resources/css/exception.css" />
+	<link rel="stylesheet" href="/resources/css/home.css" />	
 	<!-- TITLE -->
 	<title>Home</title>
 </head>
@@ -31,7 +31,7 @@
 		<tiles:insertAttribute name="header" />
 	</header>
 	<main>
-		<div class="container flex-fs">
+		<div class="main-wrap">
 			<tiles:insertAttribute name="aside" />
 			<tiles:insertAttribute name="main" />
 		</div>

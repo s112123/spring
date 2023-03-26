@@ -46,3 +46,29 @@ function insertProductInCart(productId) {
 		}
 	});
 }
+
+/* ----- BACK TO TOP ----- */
+const backToTop = document.getElementById('back-to-top');
+const docElem = document.documentElement;
+const docHeight = docElem.offsetHeight;
+
+let scrollHeight = '';
+window.addEventListener('scroll', function() {
+	scrollHeight = docElem.scrollTop;
+	if(scrollHeight > (docHeight / 4)) {
+		backToTop.classList.add('active');
+	} else {
+		backToTop.classList.remove('active');
+	}
+});
+
+backToTop.addEventListener('click', function(e) {
+	e.preventDefault();
+	const scrollInterval = setInterval(function() {
+		if(scrollHeight != 0) {
+			window.scrollBy(0, -100);
+		} else {
+			clearInterval(scrollInterval);
+		}
+	}, 10);
+});

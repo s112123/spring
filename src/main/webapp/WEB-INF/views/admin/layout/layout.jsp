@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
 <html>
@@ -17,10 +15,10 @@
 	<!-- ADDRESS API -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<!-- CSS -->	
-	<link rel="stylesheet" href="${contextPath}/resources/css/reset.css" />	
-	<link rel="stylesheet" href="${contextPath}/resources/css/common.css" />
-	<link rel="stylesheet" href="${contextPath}/resources/css/exception.css" />		
-	<link rel="stylesheet" href="${contextPath}/resources/css/admin.css" />	
+	<link rel="stylesheet" href="/resources/css/reset.css" />	
+	<link rel="stylesheet" href="/resources/css/common.css" />
+	<link rel="stylesheet" href="/resources/css/exception.css" />		
+	<link rel="stylesheet" href="/resources/css/admin.css" />	
 	<!-- TITLE -->
 	<title>ADIMNISTRATE</title>
 </head>
@@ -29,12 +27,12 @@
 		<tiles:insertAttribute name="header" />
 	</header>
 	<main>
-		<div class="container flex-fs">
+		<div class="main-wrap">
 			<tiles:insertAttribute name="aside" />
 			<tiles:insertAttribute name="main" />
 		</div>
 	</main>
 	<!-- Javascript -->
-	<script type="text/javascript" src="${contextPath}/resources/js/common/common.js"></script>
+	<script type="text/javascript" src="/resources/js/common/common.js"></script>
 </body>
 </html>

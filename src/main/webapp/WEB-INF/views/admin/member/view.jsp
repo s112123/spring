@@ -80,7 +80,7 @@
 			<div class="infomation-item" id="agree-chk">
 				<div class="item-left">
 					<input type="checkbox" name="agree" <c:if test="${member.agree=='Y'}">checked</c:if> />
-					<span>개인정보 마케팅 활용 동의함</span>				
+					<span>마케팅 정보수신 동의함</span>				
 				</div>
 			</div>
 			<div class="infomation-btn">
@@ -94,5 +94,5 @@
 		</form>
 	</div>
 </div>
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-<script type="text/javascript" src="${contextPath}/resources/js/admin/member/view.js"></script>
+<jsp:include page="/WEB-INF/views/common/modal.jsp" flush="false" />
+<script type="text/javascript" src="/resources/js/admin/member/view.js"></script>

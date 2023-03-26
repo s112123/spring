@@ -47,11 +47,8 @@
 	</table>
 	<div class="bottom">
 		<div>
-			<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />
+			<jsp:include page="/WEB-INF/views/common/pagenation.jsp" flush="false" />
 		</div>
 	</div>
 </div>
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-<!-- 
-<script type="text/javascript" src="${contextPath}/resources/js/home/customer/notice/list.js"></script>
- -->
+<jsp:include page="/WEB-INF/views/common/modal.jsp" flush="false" />

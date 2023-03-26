@@ -20,8 +20,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession();
 		Member member = (Member) session.getAttribute("login");
 		
-		log.info(member.toString());
-		
 		if(!member.getGrade().equals("ADMIN")) {
 			response.sendRedirect("/");
 			return false;			

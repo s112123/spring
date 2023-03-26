@@ -58,9 +58,9 @@
 	<div class="bottom">
 		<button type="button" value="insert">등록</button>
 		<div>
-			<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />
+			<jsp:include page="/WEB-INF/views/common/pagenation.jsp" flush="false" />
 		</div>
 	</div>
 </div>
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-<script type="text/javascript" src="${contextPath}/resources/js/admin/product/list.js"></script>
+<jsp:include page="/WEB-INF/views/common/modal.jsp" flush="false" />
+<script type="text/javascript" src="/resources/js/admin/product/list.js"></script>

@@ -81,8 +81,7 @@ public class ProductServiceImpl implements ProductService {
 	
 	//파일등록
 	private void saveFile(Product product, MultipartFile attachedFile) {
-		//업로드 폴더 경로 (rootPath -> D:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\app\)
-		String uploadDirPath = context.getRealPath("/") + "resources\\images\\products";
+		String uploadDirPath = context.getRealPath("/resources/images")+ "/products";
 		String thumbDirPath = uploadDirPath + File.separator + "thumbnails";
 		
 		//thumbnails 폴더 없으면 생성 -> thumbnails 폴더는 products 폴더 안에 있으므로 해당 폴더만 있는지 확인하고 없으면 모두 생성 (판매중지 기능이 필요)
@@ -117,7 +116,7 @@ public class ProductServiceImpl implements ProductService {
 		Product product = productService.getProductById(id);
 		
 		//이미지 파일: 썸네일 파일은 이미 주문된 상품 목록에서는 사용되어야 하므로 유지
-		String imgDirPath = context.getRealPath("/") + "resources\\images\\products";
+		String imgDirPath = context.getRealPath("/resources/images")+ "/products";
 		String imgFileName = product.getImg();
 		File imgfile = createFile(imgDirPath, imgFileName);
 		

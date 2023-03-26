@@ -26,4 +26,4 @@
 		</form>
 	</div>
 </div>
-<script type="text/javascript" src="${contextPath}/resources/js/home/login/login.js"></script>
+<script type="text/javascript" src="/resources/js/home/login/login.js"></script>

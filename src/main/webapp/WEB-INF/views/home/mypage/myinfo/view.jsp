@@ -19,12 +19,12 @@
 					<div class="title">가입일</div>
 					<div class="content">
 						<c:catch var="catchException">
-						<fmt:parseDate value="${member.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
-						<input type="text" value="<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />" readonly />
+							<fmt:parseDate value="${member.regdate}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="parsedDate" />
+							<input type="text" value="<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />" readonly />
 						</c:catch>
 						<c:if test="${catchException != null }">
-						<fmt:parseDate value="${member.regdate}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
-						<input type="text" value="<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />" readonly />
+							<fmt:parseDate value="${member.regdate}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDate" />
+							<input type="text" value="<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd HH:mm:ss" />" readonly />
 						</c:if>
 					</div>
 				</div>
@@ -77,7 +77,7 @@
 			<div class="myinfo-item" id="agree-chk">
 				<div class="item-left">
 					<input type="checkbox" name="agree" <c:if test="${member.agree=='Y'}">checked</c:if> />
-					<span>개인정보 마케팅 활용 동의함</span>				
+					<span>마케팅 정보수신 동의함</span>				
 				</div>
 			</div>
 			<div class="myinfo-btn">
@@ -86,5 +86,5 @@
 		</form>
 	</div>
 </div>
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-<script type="text/javascript" src="${contextPath}/resources/js/home/mypage/myinfo/view.js"></script>
+<jsp:include page="/WEB-INF/views/common/modal.jsp" flush="false" />
+<script type="text/javascript" src="/resources/js/home/mypage/myinfo/view.js"></script>

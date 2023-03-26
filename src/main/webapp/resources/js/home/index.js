@@ -1,4 +1,3 @@
-/* ---------- SLIDE ---------- */
 let slideWrapper = document.querySelector(".slide-wrapper");
 let slideContainer = document.querySelector(".slide-container");
 let slides = slideContainer.querySelectorAll('li');
@@ -62,7 +61,6 @@ navPrev.addEventListener('click', (e) => {
 	}
 });
 goToSlide(0);
-
 //pager로 슬라이드 이동하기
 pagerBtn.forEach((item, index) => {
 	item.addEventListener('click', e => {
@@ -77,15 +75,7 @@ pagerBtn.forEach((item, index) => {
 function startAutoSlide() {
 	timer = setInterval(() => {
 		let nextIndex = (currentIndex + 1) % slideCount;
-		if(currentIndex === (slideCount-1)) {
-			slideContainer.style.transition = 'right 1.5s ease-in';
-			//slideContainer.style.left = '0px';
-		} else {
-			slideContainer.style.transition = 'left 1.5s ease-in';
-		}
-		
-		
 		goToSlide(nextIndex);
-	}, 3500);
+	}, 3000);
 }
-startAutoSlide();	
+startAutoSlide();

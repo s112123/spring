@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <div class="container">
 	<div class="main-banner">
 		<img src="/resources/images/banners/banner1.jpg" />
 	</div>
 	<div class="slide-wrapper">
-		<ul class="slide-container">
+		<ul class="slide-container animated">
 			<li>
 				<div class="slide-image">
 					<img src="/resources/images/slides/slide1.jpg" />
@@ -85,4 +84,4 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="${contextPath}/resources/js/home/index.js"></script>
+<script type="text/javascript" src="/resources/js/home/index.js"></script>

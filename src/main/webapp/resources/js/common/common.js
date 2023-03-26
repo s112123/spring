@@ -209,5 +209,3 @@ function showModal(isCancelBtn, msg, width, height) {
 		modalBox.style.height = height + 'px';			
 	}	
 }
-
-

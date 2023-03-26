@@ -31,7 +31,7 @@
 								<c:if test="${board.category == 'common'}">일반</c:if>
 								<c:if test="${board.category == 'question'}">문의</c:if>
 							</td>
-							<td><a href="/board/view?id=${board.id}">${board.title}</a></td>
+							<td><a href="/customer/board/view?id=${board.id}">${board.title}</a></td>
 							<td>${board.writer}</td>
 							<td>
 								<c:catch var="catchException">
@@ -52,11 +52,8 @@
 	</table>
 	<div class="bottom">
 		<div>
-			<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />
+			<jsp:include page="/WEB-INF/views/common/pagenation.jsp" flush="false" />
 		</div>
 	</div>
 </div>
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-<!-- 
-<script type="text/javascript" src="${contextPath}/resources/js/home/customer/notice/list.js"></script>
- -->
+<jsp:include page="/WEB-INF/views/common/modal.jsp" flush="false" />

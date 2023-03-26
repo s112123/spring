@@ -69,9 +69,9 @@
 			<button type="button" onclick="search()">검색</button>
 		</div>
 		<div>
-			<jsp:include page="${contextPath}/WEB-INF/views/common/pagenation.jsp" flush="false" />
+			<jsp:include page="/WEB-INF/views/common/pagenation.jsp" flush="false" />
 		</div>
 	</div>
 </div>
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
-<script type="text/javascript" src="${contextPath}/resources/js/home/customer/board/list.js"></script>
+<jsp:include page="/WEB-INF/views/common/modal.jsp" flush="false" />
+<script type="text/javascript" src="/resources/js/home/customer/board/list.js"></script>

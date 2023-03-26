@@ -84,6 +84,6 @@
 		</form>	
 	</div>
 </div>
-<jsp:include page="${contextPath}/WEB-INF/views/common/modal.jsp" flush="false" />
+<jsp:include page="/WEB-INF/views/common/modal.jsp" flush="false" />
 <script>const id = ${id};</script>
-<script type="text/javascript" src="${contextPath}/resources/js/admin/product/view.js"></script>
+<script type="text/javascript" src="/resources/js/admin/product/view.js"></script>
