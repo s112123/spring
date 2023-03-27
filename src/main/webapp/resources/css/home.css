@@ -763,12 +763,12 @@
 	vertical-align: middle;
 }
 .content-item select {
-	width: 123px;
+	width: 120px;
 	margin-right: 3px;
 	font-size: 15px;
 }
 .content-item input {
-	width: 720px;
+	width: 85%;
 	font-size: 15px;
 }
 .content-item textarea {
