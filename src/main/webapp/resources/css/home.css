@@ -763,8 +763,8 @@
 	vertical-align: middle;
 }
 .content-item select {
-	width: 125px;
-	margin-right: 1px;
+	width: 123px;
+	margin-right: 3px;
 	font-size: 15px;
 }
 .content-item input {

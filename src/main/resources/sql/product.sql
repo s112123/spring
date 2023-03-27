@@ -12,10 +12,3 @@ CREATE TABLE product(
 	img VARCHAR(255),
 	regdate DATETIME
 );
-
--- 더미 데이터
-INSERT INTO product VALUES(NULL, "STEAK", "steak1", "맛있는 스테이크", 1000, 100, 1200, "국내산", NULL, NOW());
-INSERT INTO product VALUES(NULL, "PASTA", "steak2", "맛있는 스테이크", 1200, 100, 1200, "국내산", NULL, NOW());
-SELECT * FROM product ORDER BY id DESC;
-
-INSERT INTO product(category, pname, description, price, gram, kcal, origin, img, regdate) (SELECT category, pname, description, price, gram, kcal, origin, img, regdate FROM product);

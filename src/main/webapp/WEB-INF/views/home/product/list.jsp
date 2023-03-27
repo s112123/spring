@@ -86,7 +86,7 @@
 			</c:forEach>
 		</div>
 	</div>
-	<a href="#" id="back-to-top">TOP</a>
+	<!-- <a href="#" id="back-to-top">TOP</a> -->
 </div>
 <jsp:include page="/WEB-INF/views/common/modal.jsp" flush="flase" />
 <script type="text/javascript" src="/resources/js/home/product/list.js"></script>

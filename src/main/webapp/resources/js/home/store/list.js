@@ -106,14 +106,14 @@ function getMap(storeInfos) {
 	var mapContainer = document.getElementById('map'), //지도를 표시할 div 
 	mapOption = {
 	    center: new kakao.maps.LatLng(37.5666103, 126.9783882), //지도의 중심좌표
-	    level: 10 //지도의 확대 레벨
+	    level: 9 //지도의 확대 레벨
 	};  
 	
 	//지도 생성
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
 	
 	// 마커이미지 생성
-	var imageSrc = 'http://localhost:8080/resources/images/map/location2.svg';
+	var imageSrc = '/resources/images/map/location2.svg';
 	var imageSize = new kakao.maps.Size(45, 45);				// 마커 크기
 	var imageOption = {offset: new kakao.maps.Point(23, 69)};	// 마커의 좌표와 일치시킬 이미지 안에서의 좌표 설정
 	var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);

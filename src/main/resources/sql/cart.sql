@@ -12,11 +12,3 @@ CREATE TABLE cart(
 	FOREIGN KEY(pid) REFERENCES product(id)
 	ON UPDATE CASCADE ON DELETE CASCADE
 );
-
--- 더미 데이터
-INSERT INTO cart VALUES(NULL, "user@test.com", "steak1", 1000, DEFAULT, NULL, NOW());
-INSERT INTO cart VALUES(NULL, "a1234@test.com", "steak2", 1200, 30, NULL, NOW());
-INSERT INTO cart VALUES(NULL, "user@test.com", "steak2", 1200, 10, NULL, NOW());
-SELECT * FROM cart ORDER BY id DESC;
-
-INSERT INTO cart(email, pname, price, qty, img, regdate) (SELECT email, pname, price, qty, img, regdate FROM cart);
