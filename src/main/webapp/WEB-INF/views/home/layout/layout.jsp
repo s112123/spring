@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <c:set var="serviceKey" value="${apiKaKaoMapServiceKey}" />
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,8 +34,8 @@
 	</header>
 	<main>
 		<div class="main-wrap">
-			<tiles:insertAttribute name="aside" />
-			<tiles:insertAttribute name="main" />
+		<tiles:insertAttribute name="aside" />
+		<tiles:insertAttribute name="main" />
 		</div>
 	</main>
 	<footer>

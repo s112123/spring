@@ -18,7 +18,7 @@
 		FROM
 			reply
 		WHERE bid=#{bid}
-		ORDER BY id DESC
+		ORDER BY id ASC
 	</select>
 	
 	<!-- 댓글 등록 -->

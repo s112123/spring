@@ -83,6 +83,7 @@ public class ProductController {
 			Product product, 
 			@RequestParam(value="attached", required=false) MultipartFile attachedFile,
 			String filename) {	
+
 		product.setImg(filename);
 		productService.updateProduct(product, attachedFile);
 		return "redirect:/product/view?id=" + product.getId();

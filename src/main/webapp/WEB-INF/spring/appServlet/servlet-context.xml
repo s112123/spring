@@ -67,6 +67,7 @@
 			<mvc:exclude-mapping path="/customer/board/view"/>
 			<mvc:exclude-mapping path="/member/agree"/>
 			<mvc:exclude-mapping path="/member/register"/>
+			<mvc:exclude-mapping path="/member/insert" />
 			<mvc:exclude-mapping path="/product"/>
 			<mvc:exclude-mapping path="/store"/>
 			<beans:bean class="com.spring.app.interceptor.LoginInterceptor" />
@@ -81,6 +82,7 @@
 			<mvc:mapping path="/store/**" />
 			<mvc:exclude-mapping path="/member/agree"/>
 			<mvc:exclude-mapping path="/member/register"/>
+			<mvc:exclude-mapping path="/member/insert" />
 			<mvc:exclude-mapping path="/product"/>
 			<mvc:exclude-mapping path="/store"/>
 			<beans:bean class="com.spring.app.interceptor.AuthInterceptor" />

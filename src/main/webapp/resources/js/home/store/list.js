@@ -53,7 +53,7 @@ function createStoreItem(stores) {
 		for(let store of stores){
 			tempItem += '<div class="store-item">';
 			tempItem += '    <div class="store-image">';
-			tempItem += '        <img src="/resources/images/stores/' + store.img + '/>';
+			tempItem += '        <img src="/resources/images/stores/' + store.img + '" />';
 			tempItem += '    </div>';
 			tempItem += '    <div class="store-info">';
 			tempItem += '        <p>' + store.storename + '</p>';
@@ -63,7 +63,7 @@ function createStoreItem(stores) {
 			tempItem += '</div>';	
 		}	
 	}
-
+	
 	return tempItem;
 }
 

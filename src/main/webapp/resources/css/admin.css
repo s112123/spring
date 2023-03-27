@@ -168,7 +168,7 @@
 	border: 1px solid #ccc;
 	font-size: 14px;
 }
-.infomation-item input:read-only {
+.infomation-item input:not([id=addr1]):read-only {
 	border: none;
 }
 .infomation-item input::placeholder {
@@ -298,6 +298,6 @@
 	border-radius: 3px;	
 	font-size: 13px;
 }
-.store-item #addr1:read-only {
+.store-item .item-right #addr1 {
 	border: 1px solid #ccc;
 }

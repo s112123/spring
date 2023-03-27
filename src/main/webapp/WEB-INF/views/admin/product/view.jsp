@@ -57,7 +57,7 @@
 			</div>
 			<div class="infomation-item prod-item">
 				<div class="item-left">
-					<div class="title">용량<small> (g)</small></div>
+					<div class="title">용량<small> (g/ml)</small></div>
 					<div class="content"><input type="number" name="gram" value="${product.gram}" min="1" /></div>
 				</div>
 				<div class="item-right">

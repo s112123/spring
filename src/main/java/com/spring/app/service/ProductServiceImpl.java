@@ -68,13 +68,18 @@ public class ProductServiceImpl implements ProductService {
 	//상품수정
 	@Override
 	public void updateProduct(Product product, MultipartFile attachedFile) {
-		//수정전 상품 이미지 파일 삭제
+		//DB에서 상품조회 -> 수정되기 전 파일이름 추출
 		int id = product.getId();
-		deleteFile(id);
+		Product _product = productService.getProductById(id);
 		
-		//수정된 상품 이미지 파일 저장
-		saveFile(product, attachedFile);
-		
+		//수정전 이미지파일이름과 수정후 이미지 파일 이름이 다르면 
+		if(!_product.getImg().equals(product.getImg())) {
+			//기존의 상품 이미지 삭제
+			deleteFile(id);
+			//수정된 상품 이미지 파일 저장
+			saveFile(product, attachedFile);
+		}
+
 		//상품정보수정
 		productDao.updateOne(product);
 	}
@@ -112,7 +117,7 @@ public class ProductServiceImpl implements ProductService {
 	
 	//파일삭제
 	private void deleteFile(int id) {
-		//DB에서 상품조회 -> 수정되기 전 파일이름 추출
+		//파일이름 추출을 위한 조회
 		Product product = productService.getProductById(id);
 		
 		//이미지 파일: 썸네일 파일은 이미 주문된 상품 목록에서는 사용되어야 하므로 유지

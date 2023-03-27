@@ -67,7 +67,7 @@
 				<div class="item-right">
 					<div class="title">비밀번호</div>
 					<div class="content">
-						<input type="text" name="passwd" id="passwd" value="${member.passwd}" maxlength="12" readonly />
+						<input type="password" name="passwd" id="passwd" value="${member.passwd}" maxlength="12" readonly />
 						<button type="button" onclick="editPassword();">
 							<i class="fa-solid fa-pen-to-square"></i>
 						</button>

@@ -13,7 +13,7 @@
 			</div>
 			<div class="form-item">
 				<label for="passwd">비밀번호</label>
-				<input type="text" name="passwd" id="passwd" />
+				<input type="password" name="passwd" id="passwd" />
 				<small></small>
 			</div>
 			<div class="form-chk">

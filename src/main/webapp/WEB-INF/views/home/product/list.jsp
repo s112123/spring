@@ -72,7 +72,7 @@
 							<div class="product-detail-title">${beverage.pname}</div>
 							<div class="product-detail-desc">${beverage.description}</div>
 							<div class="product-detail-info">
-								<small>용량 <strong><fmt:formatNumber value="${beverage.gram}" /> g</strong></small><br /> 
+								<small>용량 <strong><fmt:formatNumber value="${beverage.gram}" /> ml</strong></small><br /> 
 								<small>칼로리 <strong><fmt:formatNumber value="${beverage.kcal}" /> kcal</strong></small><br /> 
 							</div>
 							<button type="button" name="add-cart" value="${beverage.id}" class="add-cart-btn">

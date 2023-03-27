@@ -12,7 +12,7 @@
 				<th>구분</th>
 				<th>상품명</th>
 				<th>가격 (원)</th>
-				<th>용량 (g)</th>
+				<th>용량 (g/ml)</th>
 				<th>칼로리 (kcal)</th>
 				<th>원산지</th>
 				<th>등록일</th>

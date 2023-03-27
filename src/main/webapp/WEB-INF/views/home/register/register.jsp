@@ -13,12 +13,12 @@
 			</div>
 			<div class="form-item">
 				<label>비밀번호</label>
-				<input type="text" class="item-info" name="passwd" id="passwd" maxlength="12" />
+				<input type="password" class="item-info" name="passwd" id="passwd" maxlength="12" />
 				<small></small>
 			</div>
 			<div class="form-item">
 				<label>비밀번호 확인</label>
-				<input type="text" class="item-info" id="repasswd" maxlength="12" />
+				<input type="password" class="item-info" id="repasswd" maxlength="12" />
 				<small></small>
 			</div>
 			<div class="form-item">
