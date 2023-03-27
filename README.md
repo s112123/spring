@@ -1,6 +1,6 @@
 # Spring Project
 - Java: jdk-1.8
-- Spring: 5.2.0.RELEASE (Servlet 2.5)
+- Framework: Spring 5.2.0.RELEASE (Servlet 2.5)
 - WAS: Tomcat 9.0
 - Build Tool: Maven 3.8.1
 - DataBase: MySQL 8.0
