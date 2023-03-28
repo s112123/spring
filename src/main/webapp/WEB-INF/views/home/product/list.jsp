@@ -21,8 +21,8 @@
 							<div class="product-detail-title">${steak.pname}</div>
 							<div class="product-detail-desc">${steak.description}</div>
 							<div class="product-detail-info">
-								<small>용량 <strong><fmt:formatNumber value="${steak.gram}" /> g</strong></small><br /> 
-								<small>칼로리 <strong><fmt:formatNumber value="${steak.kcal}" /> kcal</strong></small><br /> 
+								<small>용량 <strong><fmt:formatNumber value="${steak.gram}" />g</strong></small><br /> 
+								<small>칼로리 <strong><fmt:formatNumber value="${steak.kcal}" />kcal</strong></small><br /> 
 								<small>원산지 <strong>${(steak.origin == "KR") ? "국내산" : (steak.origin == "US") ? "미국산" : "호주산"}</strong></small> 
 							</div>
 							<button type="button" name="add-cart" value="${steak.id}" class="add-cart-btn">
@@ -47,8 +47,9 @@
 							<div class="product-detail-title">${pasta.pname}</div>
 							<div class="product-detail-desc">${pasta.description}</div>
 							<div class="product-detail-info">
-								<small>용량 <strong><fmt:formatNumber value="${pasta.gram}" /> g</strong></small><br /> 
-								<small>칼로리 <strong><fmt:formatNumber value="${pasta.kcal}" /> kcal</strong></small><br /> 
+								<small>용량 <strong><fmt:formatNumber value="${pasta.gram}" />g</strong></small><br /> 
+								<small>칼로리 <strong><fmt:formatNumber value="${pasta.kcal}" />kcal</strong></small><br /> 
+								<small>원산지 <strong>${(pasta.origin == "KR") ? "국내산" : (pasta.origin == "US") ? "미국산" : "호주산"}</strong></small>
 							</div>
 							<button type="button" name="add-cart" value="${pasta.id}" class="add-cart-btn">
 								<i class="fa-solid fa-cart-shopping"></i>
@@ -72,8 +73,9 @@
 							<div class="product-detail-title">${beverage.pname}</div>
 							<div class="product-detail-desc">${beverage.description}</div>
 							<div class="product-detail-info">
-								<small>용량 <strong><fmt:formatNumber value="${beverage.gram}" /> ml</strong></small><br /> 
-								<small>칼로리 <strong><fmt:formatNumber value="${beverage.kcal}" /> kcal</strong></small><br /> 
+								<small>용량 <strong><fmt:formatNumber value="${beverage.gram}" />ml</strong></small><br /> 
+								<small>칼로리 <strong><fmt:formatNumber value="${beverage.kcal}" />kcal</strong></small><br /> 
+								<small>원산지 <strong>${(beverage.origin == "KR") ? "국내산" : (beverage.origin == "US") ? "미국산" : "호주산"}</strong></small>
 							</div>
 							<button type="button" name="add-cart" value="${beverage.id}" class="add-cart-btn">
 								<i class="fa-solid fa-cart-shopping"></i>
