@@ -34,10 +34,10 @@ public class CartServiceImpl implements CartService {
 		return cart;
 	}
 	
-	//상품번호로 조회
+	//상품번호와 이메일로 조회
 	@Override
-	public Cart getItemByPid(int pid) {
-		Cart cart = cartDao.selectOneByPid(pid);
+	public Cart getItemByPidAndEamil(Map<String, Object> map) {
+		Cart cart = cartDao.selectOneByPidAndEmail(map);
 		return cart;
 	}
 	

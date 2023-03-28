@@ -25,13 +25,13 @@
 		ORDER BY id DESC
 	</select>
 	
-	<!-- 상품번호로 조회 -->
-	<select id="selectOneByPid" resultType="com.spring.app.entity.Cart">
+	<!-- 상품번호와 이메일로 조회 -->
+	<select id="selectOneByPidAndEmail" parameterType="java.util.Map" resultType="com.spring.app.entity.Cart">
 		SELECT
 			id, pid, email, pname, price, qty, img, regdate
 		FROM 
 			cart
-		WHERE pid=#{pid}
+		WHERE pid=#{pid} AND email=#{email}
 	</select>	
 	
 	<!-- 제품추가 -->

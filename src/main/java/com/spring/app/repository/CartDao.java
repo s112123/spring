@@ -27,9 +27,9 @@ public class CartDao {
 		return cart;
 	}
 	
-	//상품번호로 조회
-	public Cart selectOneByPid(int pid) {
-		Cart cart = sqlSession.selectOne("cart.selectOneByPid", pid);
+	//상품번호와 이메일로 조회
+	public Cart selectOneByPidAndEmail(Map<String, Object> map) {
+		Cart cart = sqlSession.selectOne("cart.selectOneByPidAndEmail", map);
 		return cart;
 	}
 	

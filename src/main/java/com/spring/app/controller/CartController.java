@@ -1,6 +1,8 @@
 package com.spring.app.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -48,8 +50,12 @@ public class CartController {
 		if(member == null) { 
 			message = "notLogin";
 		} else {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("email", member.getEmail());
+			map.put("pid", productId);
+			
 			//현재 장바구니에 같은 제품이 있는지 확인
-			Cart _cart = cartService.getItemByPid(Integer.parseInt(productId));
+			Cart _cart = cartService.getItemByPidAndEamil(map);
 			if(_cart == null) {
 				Product product = productService.getProductById(Integer.parseInt(productId));
 				
