@@ -10,3 +10,6 @@ CREATE TABLE notice(
 	regdate DATETIME,
 	hits INT NOT NULL DEFAULT 0
 );
+
+-- 더미 데이터
+INSERT INTO notice(email, category, title, content, writer, regdate, hits) (SELECT email, category, title, content, writer, regdate, hits FROM notice);

@@ -76,7 +76,7 @@
 				</c:choose>
 			</div>
 		</div>
-		<a href="#" id="back-to-top">TOP</a>
+		<!-- <a href="#" id="back-to-top">TOP</a> -->
 	</div>
 </div>
 <jsp:include page="/WEB-INF/views/common/modal.jsp" flush="false" />
